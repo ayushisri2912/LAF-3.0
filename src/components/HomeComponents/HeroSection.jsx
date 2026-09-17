@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/70 pointer-events-none" />
 
       {/* 3. MAIN HERO CONTENT CONTAINER */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24 text-center flex flex-col items-center">
 
         {/* Main Heading */}
         <motion.h1
@@ -59,11 +59,11 @@ const HeroSection = () => {
           className="mt-8 sm:mt-10 inline-flex items-center gap-4 sm:gap-6 bg-[#121214]/90 backdrop-blur-xl border border-[#D4AF37]/50 px-6 sm:px-8 py-4 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
         >
           <div className="flex items-center gap-2.5 text-2xl sm:text-3xl md:text-4xl font-extrabold text-amber-400 tracking-tight font-serif">
-            <span>10</span>
+            <span>22</span>
             <span className="text-neutral-600 text-xl font-light">|</span>
-            <span>11</span>
+            <span>23</span>
             <span className="text-neutral-600 text-xl font-light">|</span>
-            <span>12</span>
+            <span>24</span>
           </div>
           
           <div className="text-left pl-4 sm:pl-6 border-l border-neutral-700/80">
@@ -71,7 +71,7 @@ const HeroSection = () => {
               <Calendar className="w-3 h-3 text-amber-400 inline" /> Event Dates
             </span>
             <span className="block text-sm sm:text-base font-bold text-white tracking-wider">
-              January 2026
+              January 2027
             </span>
           </div>
         </motion.div>

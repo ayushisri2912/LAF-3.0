@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   Landmark,
   Train,
@@ -11,313 +11,1341 @@ import {
   Award,
   Users,
   Sparkles,
-  ArrowRight,
-  CheckCircle2
-} from 'lucide-react';
+  ArrowUpRight,
+  CheckCircle2,
+} from "lucide-react";
 
 const AboutSection = () => {
-  // 6 Main Sector Categories from Reference Site
-  const sectors = [
-    {
-      id: 'pilgrimage',
-      name: 'PILGRIMAGE',
-      desc: 'Rich spiritual heritage, sacred monuments & grand temple architecture',
-      icon: Landmark,
-      gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
-      borderColor: 'group-hover:border-amber-500/50',
-      iconBg: 'bg-gradient-to-br from-amber-500 to-orange-500',
-    },
-    {
-      id: 'transportation',
-      name: 'TRANSPORTATION',
-      desc: 'World-class expressways, metro networks & international airports',
-      icon: Train,
-      gradient: 'from-blue-500/20 via-indigo-500/10 to-transparent',
-      borderColor: 'group-hover:border-blue-500/50',
-      iconBg: 'bg-gradient-to-br from-blue-500 to-indigo-600',
-    },
-    {
-      id: 'economy',
-      name: 'ECONOMY',
-      desc: 'Rapid real estate surge, high per capita income & financial credit growth',
-      icon: TrendingUp,
-      gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
-      borderColor: 'group-hover:border-emerald-500/50',
-      iconBg: 'bg-gradient-to-br from-emerald-500 to-teal-600',
-    },
-    {
-      id: 'sports',
-      name: 'SPORTS',
-      desc: 'State-of-the-art international stadiums & athletic hubs',
-      icon: Trophy,
-      gradient: 'from-purple-500/20 via-pink-500/10 to-transparent',
-      borderColor: 'group-hover:border-purple-500/50',
-      iconBg: 'bg-gradient-to-br from-purple-500 to-pink-600',
-    },
-    {
-      id: 'tourism',
-      name: 'TOURISM',
-      desc: 'Awadhi architectural grandeur, heritage walks & global tourist magnet',
-      icon: Compass,
-      gradient: 'from-rose-500/20 via-orange-500/10 to-transparent',
-      borderColor: 'group-hover:border-rose-500/50',
-      iconBg: 'bg-gradient-to-br from-rose-500 to-orange-500',
-    },
-    {
-      id: 'cuisine',
-      name: 'CUISINE',
-      desc: 'World-renowned Nawabi gastronomy & culinary hospitality culture',
-      icon: Utensils,
-      gradient: 'from-amber-600/20 via-yellow-500/10 to-transparent',
-      borderColor: 'group-hover:border-amber-600/50',
-      iconBg: 'bg-gradient-to-br from-amber-600 to-yellow-500',
-    },
-  ];
+ const sectors = [
+  {
+    id: "pilgrimage",
+    name: "PILGRIMAGE",
+    desc: "Sacred architecture, spiritual destinations & grand temple developments.",
+    icon: Landmark,
+    color: "#F59E0B",
+    soft: "rgba(245,158,11,0.13)",
+    glow: "rgba(245,158,11,0.22)",
+  },
+  {
+    id: "transportation",
+    name: "TRANSPORTATION",
+    desc: "Expressways, metro networks, airports & next-generation mobility.",
+    icon: Train,
+    color: "#3B82F6",
+    soft: "rgba(59,130,246,0.12)",
+    glow: "rgba(59,130,246,0.22)",
+  },
+  {
+    id: "economy",
+    name: "ECONOMY",
+    desc: "Real estate growth, investment corridors & expanding urban markets.",
+    icon: TrendingUp,
+    color: "#10B981",
+    soft: "rgba(16,185,129,0.12)",
+    glow: "rgba(16,185,129,0.22)",
+  },
+  {
+    id: "sports",
+    name: "SPORTS",
+    desc: "International stadiums, athletic hubs & modern sports infrastructure.",
+    icon: Trophy,
+    color: "#C026D3",
+    soft: "rgba(192,38,211,0.12)",
+    glow: "rgba(192,38,211,0.22)",
+  },
+  {
+    id: "tourism",
+    name: "TOURISM",
+    desc: "Heritage destinations, Awadhi architecture & experiential tourism.",
+    icon: Compass,
+    color: "#F97316",
+    soft: "rgba(249,115,22,0.12)",
+    glow: "rgba(249,115,22,0.22)",
+  },
+  {
+    id: "cuisine",
+    name: "CUISINE",
+    desc: "Nawabi gastronomy, culinary heritage & hospitality culture.",
+    icon: Utensils,
+    color: "#EAB308",
+    soft: "rgba(234,179,8,0.13)",
+    glow: "rgba(234,179,8,0.22)",
+  },
+];
 
-  // Key Highlights / Badges from Reference Screenshot
   const highlights = [
     {
-      rank: '1st',
-      title: 'Highest MSMEs in India',
-      subtitle: 'Both Organized & Unorganized Sectors',
-      desc: 'Leading industrial ecosystem fueling architectural, manufacturing & employment boom across UP.',
+      number: "01",
+      title: "Highest MSMEs",
+      subtitle: "Organized & Unorganized",
       icon: Building2,
-      badgeBg: 'bg-[#121214] text-amber-400 border border-amber-500/30',
-      gradient: 'from-amber-500/10 via-amber-500/5 to-transparent',
     },
     {
-      rank: '2nd',
-      title: 'Best State in "Ease of Doing Business"',
-      subtitle: 'Investor Friendly Policies',
-      desc: 'Rapidly emerging real estate magnet with unprecedented investor trust and streamlined approvals.',
-      icon: Award,
-      badgeBg: 'bg-gradient-to-r from-amber-500 to-orange-500 text-black font-extrabold',
-      gradient: 'from-orange-500/10 via-orange-500/5 to-transparent',
+      number: "02",
+      title: "Ease of Doing Business",
+      subtitle: "Investor Friendly Ecosystem",
+      icon: TrendingUp,
     },
     {
-      rank: 'Top',
-      title: 'Richest Demographic Resource',
-      subtitle: 'Highest Density of Young Population',
-      desc: 'Vibrant young workforce driving sustainable urban growth, modern housing & smart infrastructure.',
+      number: "03",
+      title: "One Trillion Dollar Economy",
+      subtitle: "Ambitious Growth Vision",
+      icon: Landmark,
+    },
+    {
+      number: "04",
+      title: "Largest State by Area",
+      subtitle: "A Vast Urban Landscape",
       icon: Users,
-      badgeBg: 'bg-[#121214] text-amber-400 border border-amber-500/30',
-      gradient: 'from-amber-600/10 via-amber-600/5 to-transparent',
     },
   ];
 
   return (
-    <section id="about" className="relative w-full py-20 lg:py-28 bg-[#FAF7F2] bg-architect-grid overflow-hidden border-b border-[#E6DFD3]">
-      
-      {/* Background Architectural Arch Watermark */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-between px-6 lg:px-20">
-        <svg className="w-96 h-96 text-[#9A7B38]" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M 10 90 L 10 40 Q 50 0 90 40 L 90 90 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M 25 90 L 25 50 Q 50 20 75 50 L 75 90 Z" fill="none" stroke="currentColor" strokeWidth="1" />
-        </svg>
-        <svg className="w-96 h-96 text-[#9A7B38]" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M 10 90 L 10 40 Q 50 0 90 40 L 90 90 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M 25 90 L 25 50 Q 50 20 75 50 L 75 90 Z" fill="none" stroke="currentColor" strokeWidth="1" />
-        </svg>
+    <section
+      id="about"
+      className="relative overflow-hidden bg-[#F7F4EE] text-[#181818]"
+    >
+
+      {/* =========================================================
+          BACKGROUND
+      ========================================================== */}
+
+      <div className="absolute inset-0 pointer-events-none">
+
+        {/* Architectural grid */}
+        <div
+          className="absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(120,90,40,0.07) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(120,90,40,0.07) 1px, transparent 1px)
+            `,
+            backgroundSize: "44px 44px",
+          }}
+        />
+
+        {/* Giant arch */}
+        <div className="absolute left-[-220px] top-[260px] w-[600px] h-[650px] rounded-t-full border border-[#A98952]/10" />
+
+        <div className="absolute right-[-220px] top-[400px] w-[600px] h-[650px] rounded-t-full border border-[#A98952]/10" />
+
+        {/* center vertical line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#A98952]/[0.08] hidden lg:block" />
+
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* ================= 1. SECTION HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-14 sm:py-16 lg:py-20">
+
+
+        {/* =========================================================
+            HEADER
+        ========================================================== */}
+
+        <div className="max-w-5xl mx-auto text-center">
+
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#121214] text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-semibold uppercase tracking-widest mb-4 shadow-sm"
+            className="flex justify-center items-center gap-4 mb-6"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>STATE PROFILE & REAL ESTATE MAGNET</span>
+
+            <span className="h-px w-12 bg-[#B8893A]" />
+
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-[#9B6B24]">
+              About Uttar Pradesh
+            </span>
+
+            <span className="h-px w-12 bg-[#B8893A]" />
+
           </motion.div>
 
+
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight font-serif uppercase"
+            transition={{ duration: 0.7 }}
+            className="
+              font-serif
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
+              font-semibold
+              tracking-tight
+            "
           >
-            ABOUT <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700">UTTAR PRADESH</span>
+            A LANDSCAPE OF
+            <span className="block text-[#B77A27]">
+              CULTURE & GROWTH
+            </span>
           </motion.h2>
 
-          {/* Animated Gold Accent Line Underneath Title */}
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: '120px' }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="h-1 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 rounded-full mx-auto mt-4"
-          />
 
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-4 text-sm sm:text-base text-neutral-600 italic font-serif leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="
+              max-w-2xl
+              mx-auto
+              mt-7
+              text-sm
+              sm:text-base
+              leading-7
+              text-neutral-500
+            "
           >
-            "Combining rich cultural heritage with contemporary business philosophy and rapid urban expansion"
+            Uttar Pradesh brings together heritage, architecture,
+            infrastructure and a rapidly evolving urban economy —
+            creating a distinctive landscape for future development.
           </motion.p>
+
         </div>
 
-        {/* ================= 2. TWO-COLUMN ESSAY CONTENT ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-20">
-          
-          {/* Left Column Card */}
+
+
+        {/* =========================================================
+            INTRODUCTION
+        ========================================================== */}
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mt-20 lg:mt-28">
+
+
+          {/* LEFT TEXT */}
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative group bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-2xl transition-all duration-300 border-l-4 border-l-amber-500"
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-600 border border-amber-500/20">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-neutral-900 tracking-wide">Real Estate & Income Surge</h3>
+
+            <div className="flex items-center gap-3 mb-5">
+
+              <span className="text-xs font-bold tracking-[0.2em] text-[#B77A27]">
+                01
+              </span>
+
+              <span className="h-px w-12 bg-[#B77A27]" />
+
+              <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-400">
+                The Opportunity
+              </span>
+
             </div>
-            
-            <p className="text-neutral-700 leading-relaxed text-sm sm:text-base text-justify font-sans">
-              The economic trend has consequently developed into a magnet for real estate. The state's lifestyle and amenities are improving because of these advancements. Being the state's capital, Lucknow has enormous potential. As a result of increases in per capita income, productivity, favourable market prices, and large credit flow in the city, demand for branded consumer goods and property has recently surged.
+
+
+            <h3 className="font-serif text-3xl sm:text-4xl leading-tight">
+              Where heritage meets
+              <span className="text-[#B77A27]"> contemporary ambition.</span>
+            </h3>
+
+
+            <p className="mt-6 text-sm sm:text-base text-neutral-600 leading-7">
+              The economic transformation of Uttar Pradesh has created
+              significant opportunities across real estate, infrastructure,
+              tourism and urban development. Lucknow, as the state capital,
+              represents an important intersection of culture, commerce and
+              contemporary urban growth.
             </p>
 
-            <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-amber-700 font-semibold tracking-wider uppercase">
-              <span>Capital Advantage • Lucknow</span>
-              <CheckCircle2 className="w-4 h-4 text-amber-500" />
+
+            <p className="mt-5 text-sm sm:text-base text-neutral-600 leading-7">
+              Its historic identity combined with modern development
+              creates a distinctive environment for architects, designers,
+              developers and the wider built environment ecosystem.
+            </p>
+
+
+            {/* small signature line */}
+
+            <div className="mt-8 flex items-center gap-4">
+
+              <div className="w-10 h-10 rounded-full border border-[#C49A55] flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-[#B77A27]" />
+              </div>
+
+              <div>
+                <div className="text-[10px] font-bold tracking-[0.2em] uppercase">
+                  LUCKNOW
+                </div>
+
+                <div className="text-xs text-neutral-400 mt-1">
+                  Heritage • Architecture • Future
+                </div>
+              </div>
+
             </div>
+
           </motion.div>
 
-          {/* Right Column Card */}
+
+
+          {/* RIGHT IMAGE / VISUAL */}
+
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative group bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-2xl transition-all duration-300 border-l-4 border-l-orange-500"
+            transition={{ duration: 0.9 }}
+            className="lg:col-span-7"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-600 border border-orange-500/20">
-                <Landmark className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-neutral-900 tracking-wide">Heritage & Emerging Economy</h3>
-            </div>
-            
-            <p className="text-neutral-700 leading-relaxed text-sm sm:text-base text-justify font-sans">
-              Being a hub of heritage as well as a fast emerging economy, it attracts an influx of people from all surrounding cities, districts and villages. Lucknow offers a distinctive business philosophy that combines the city's rich cultural heritage with contemporary business methods. With the highest density of young population, UP is the richest state when we talk about the demographic resources.
-            </p>
 
-            <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-orange-700 font-semibold tracking-wider uppercase">
-              <span>Demographic Dividend • UP Youth</span>
-              <CheckCircle2 className="w-4 h-4 text-orange-500" />
+            <div className="relative">
+
+              {/* decorative frame */}
+
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-t border-r border-[#B8893A]/40" />
+
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b border-l border-[#B8893A]/40" />
+
+
+              <div className="relative bg-white/70 border border-[#DED5C6] p-5 sm:p-8 overflow-hidden">
+
+                <div className="flex justify-between items-center mb-6">
+
+                  <span className="text-[9px] uppercase tracking-[0.3em] text-neutral-400">
+                    Uttar Pradesh
+                  </span>
+
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-[#B77A27]">
+                    Growth Landscape
+                  </span>
+
+                </div>
+
+
+                <img
+                  src="https://lucknowarchitecturefestival.in/img/about0.png"
+                  alt="Uttar Pradesh Growth Sectors"
+                  className="
+                    w-full
+                    max-h-[520px]
+                    object-contain
+                    mix-blend-multiply
+                  "
+                />
+
+
+                <div className="absolute bottom-5 right-7 text-[70px] sm:text-[110px] font-serif font-bold text-[#B8893A]/[0.05] select-none">
+                  UP
+                </div>
+
+              </div>
+
             </div>
+
           </motion.div>
 
         </div>
 
-        {/* ================= 3. FOCUS SECTORS GRID (6 SECTORS) ================= */}
-        <div className="mb-20">
-          <div className="text-center mb-10">
-            <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-900 font-serif tracking-tight uppercase">
-              KEY GROWTH SECTORS OF UTTAR PRADESH
-            </h3>
-            <p className="text-xs sm:text-sm text-neutral-500 mt-1">Driving architectural innovation & infrastructural development</p>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-            {sectors.map((sector, index) => {
-              const IconComp = sector.icon;
-              return (
-                <motion.div
-                  key={sector.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.03 }}
-                  className={`group relative bg-white/90 backdrop-blur-md rounded-2xl p-5 border border-[#E6DFD3] ${sector.borderColor} shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center overflow-hidden`}
-                >
-                  {/* Card Background Gradient Glow on Hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-b ${sector.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
 
-                  {/* Icon Container */}
-                  <div className={`w-14 h-14 rounded-2xl ${sector.iconBg} text-white flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300 mb-3`}>
-                    <IconComp className="w-7 h-7" />
-                  </div>
+        {/* =========================================================
+            SECTOR INDEX
+        ========================================================== */}
+       {/* =========================================================
+    PREMIUM KEY GROWTH SECTORS
+========================================================= */}
 
-                  {/* Sector Title */}
-                  <h4 className="text-xs sm:text-sm font-black text-neutral-900 tracking-wider uppercase group-hover:text-amber-600 transition-colors">
-                    {sector.name}
-                  </h4>
+<section className="relative mt-16 lg:mt-20">
 
-                  {/* Short description */}
-                  <p className="text-[11px] text-neutral-500 mt-1.5 leading-snug font-medium">
-                    {sector.desc}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+  {/* =======================================================
+      SECTION HEADER
+  ======================================================== */}
 
-        {/* ================= 4. STATE HIGHLIGHTS & ACHIEVEMENTS (3 BIG CARDS) ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {highlights.map((item, idx) => {
-            const IconComponent = item.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                whileHover={{ y: -6 }}
-                className="relative group bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-[#E6DFD3] hover:border-[#D4AF37]/60 shadow-[0_8px_25px_rgba(0,0,0,0.03)] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+    className="text-center mb-14 lg:mb-20"
+  >
+
+    {/* Small Label */}
+
+    <div className="flex items-center justify-center gap-4 mb-5">
+
+      <span className="w-12 h-px bg-[#C58B2B]" />
+
+      <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-[#A66A16]">
+        Growth Sectors
+      </span>
+
+      <span className="w-12 h-px bg-[#C58B2B]" />
+
+    </div>
+
+
+    {/* Main Heading */}
+
+    <h3
+      className="
+        font-serif
+        text-3xl
+        sm:text-4xl
+        md:text-5xl
+        lg:text-[54px]
+        font-medium
+        leading-tight
+        text-[#171717]
+      "
+    >
+      The many dimensions{" "}
+
+      <span className="text-[#B77A27]">
+        of Uttar Pradesh.
+      </span>
+    </h3>
+
+
+    {/* Underline */}
+
+    <motion.div
+      initial={{ width: 0 }}
+      whileInView={{ width: 80 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      className="h-[2px] bg-[#C58B2B] mx-auto mt-6"
+    />
+
+
+    <p className="max-w-2xl mx-auto mt-5 text-sm text-neutral-500 leading-6">
+      From heritage and pilgrimage to transportation, tourism and
+      emerging economic corridors — Uttar Pradesh is shaping a new
+      architectural and urban future.
+    </p>
+
+  </motion.div>
+
+
+
+  {/* =======================================================
+      MAIN EDITORIAL SECTOR LAYOUT
+  ======================================================== */}
+
+  <div className="relative max-w-6xl mx-auto">
+
+
+    {/* =====================================================
+        ARCHITECTURAL BACKGROUND
+    ====================================================== */}
+
+    <div className="absolute inset-0 pointer-events-none hidden lg:block">
+
+      {/* Main horizontal architectural line */}
+
+      <div
+        className="
+          absolute
+          left-0
+          right-0
+          top-1/2
+          h-px
+          bg-[#B8893A]/10
+        "
+      />
+
+
+      {/* Center vertical line */}
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          bottom-0
+          w-px
+          bg-[#B8893A]/10
+        "
+      />
+
+
+      {/* Outer circle */}
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          -translate-x-1/2
+          -translate-y-1/2
+          w-[300px]
+          h-[300px]
+          rounded-full
+          border
+          border-[#B8893A]/10
+        "
+      />
+
+
+      {/* Inner circle */}
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          -translate-x-1/2
+          -translate-y-1/2
+          w-[220px]
+          h-[220px]
+          rounded-full
+          border
+          border-dashed
+          border-[#B8893A]/10
+        "
+      />
+
+    </div>
+
+
+
+    {/* =====================================================
+        DESKTOP TWO COLUMN LAYOUT
+    ====================================================== */}
+
+    <div
+      className="
+        relative
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+      "
+    >
+
+
+      {/* ===================================================
+          LEFT COLUMN
+      ==================================================== */}
+
+      <div className="relative">
+
+        {sectors.slice(0, 3).map((sector, index) => {
+
+          const Icon = sector.icon;
+
+          return (
+
+            <motion.div
+              key={sector.id}
+              initial={{
+                opacity: 0,
+                x: -25,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.12,
+              }}
+              className="group relative"
+            >
+
+              <div
+                className="
+                  relative
+                  min-h-[175px]
+                  sm:min-h-[190px]
+                  lg:min-h-[175px]
+                  px-5
+                  sm:px-7
+                  lg:px-8
+                  py-8
+                  border-b
+                  border-[#D9D0C2]
+                  transition-all
+                  duration-500
+                  overflow-hidden
+                  bg-transparent
+                  group-hover:bg-white/70
+                "
               >
-                {/* Accent Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-b ${item.gradient} opacity-50 group-hover:opacity-100 transition-opacity pointer-events-none`} />
 
-                <div>
-                  {/* Top Badge & Rank */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold tracking-widest ${item.badgeBg} shadow-sm`}>
-                      RANK {item.rank}
-                    </span>
-                    <div className="p-3 rounded-2xl bg-neutral-900 text-amber-400 border border-neutral-800 group-hover:bg-amber-500 group-hover:text-black transition-colors">
-                      <IconComponent className="w-6 h-6" />
+                {/* =================================================
+                    HOVER COLOR BACKGROUND
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-500
+                    pointer-events-none
+                  "
+                  style={{
+                    background: `
+                      radial-gradient(
+                        circle at 10% 50%,
+                        ${sector.glow},
+                        transparent 55%
+                      )
+                    `,
+                  }}
+                />
+
+
+                {/* =================================================
+                    HOVER LEFT ACCENT
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    left-0
+                    top-0
+                    bottom-0
+                    w-[3px]
+                    scale-y-0
+                    group-hover:scale-y-100
+                    origin-center
+                    transition-transform
+                    duration-500
+                  "
+                  style={{
+                    backgroundColor: sector.color,
+                  }}
+                />
+
+
+                {/* =================================================
+                    CONTENT
+                ================================================== */}
+
+                <div
+                  className="
+                    relative
+                    z-10
+                    flex
+                    items-center
+                    gap-6
+                  "
+                >
+
+                  {/* ICON */}
+
+                  <div
+                    className="
+                      flex-shrink-0
+                      w-[78px]
+                      h-[78px]
+                      sm:w-[82px]
+                      sm:h-[82px]
+                      rounded-full
+                      bg-white
+                      border
+                      flex
+                      items-center
+                      justify-center
+                      shadow-[0_8px_25px_rgba(0,0,0,0.05)]
+                      transition-all
+                      duration-500
+                      group-hover:scale-105
+                    "
+                    style={{
+                      borderColor: `${sector.color}45`,
+                      boxShadow: `0 8px 28px ${sector.glow}`,
+                    }}
+                  >
+
+                    {/* Dashed Circle */}
+
+                    <div
+                      className="
+                        absolute
+                        w-[66px]
+                        h-[66px]
+                        rounded-full
+                        border
+                        border-dashed
+                        opacity-40
+                        group-hover:opacity-90
+                        group-hover:rotate-180
+                        transition-all
+                        duration-700
+                      "
+                      style={{
+                        borderColor: sector.color,
+                      }}
+                    />
+
+                    <Icon
+                      className="
+                        relative
+                        z-10
+                        w-8
+                        h-8
+                        transition-transform
+                        duration-500
+                        group-hover:scale-110
+                      "
+                      style={{
+                        color: sector.color,
+                      }}
+                      strokeWidth={1.5}
+                    />
+
+                  </div>
+
+
+
+                  {/* TEXT */}
+
+                  <div className="min-w-0">
+
+                    <div className="flex items-center gap-3">
+
+                      <h4
+                        className="
+                          text-base
+                          sm:text-lg
+                          font-black
+                          tracking-[0.12em]
+                          text-[#191919]
+                          transition-all
+                          duration-500
+                          group-hover:tracking-[0.16em]
+                        "
+                      >
+                        {sector.name}
+                      </h4>
+
+
+                      <ArrowUpRight
+                        className="
+                          w-4
+                          h-4
+                          opacity-0
+                          -translate-x-2
+                          group-hover:opacity-100
+                          group-hover:translate-x-0
+                          transition-all
+                          duration-500
+                        "
+                        style={{
+                          color: sector.color,
+                        }}
+                      />
+
                     </div>
+
+
+                    <p
+                      className="
+                        mt-3
+                        text-xs
+                        sm:text-sm
+                        leading-6
+                        text-neutral-500
+                        max-w-[330px]
+                      "
+                    >
+                      {sector.desc}
+                    </p>
+
+
+                    {/* Bottom Accent */}
+
+                    <div
+                      className="
+                        mt-5
+                        h-[2px]
+                        w-8
+                        group-hover:w-14
+                        transition-all
+                        duration-500
+                      "
+                      style={{
+                        backgroundColor: sector.color,
+                      }}
+                    />
+
                   </div>
 
-                  {/* Title & Subtitle */}
-                  <h4 className="text-lg sm:text-xl font-extrabold text-neutral-900 tracking-tight leading-snug">
-                    {item.title}
-                  </h4>
-                  <div className="text-xs font-semibold text-amber-700 uppercase tracking-wider mt-1">
-                    {item.subtitle}
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
 
-                {/* Card Bottom Indicator */}
-                <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-[11px] font-bold text-neutral-800 uppercase tracking-widest group-hover:text-amber-600 transition-colors">
-                  <span>Growth Milestone</span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
+
+            </motion.div>
+
+          );
+
+        })}
 
       </div>
+
+
+
+      {/* ===================================================
+          RIGHT COLUMN
+      ==================================================== */}
+
+      <div className="relative">
+
+        {sectors.slice(3, 6).map((sector, index) => {
+
+          const Icon = sector.icon;
+
+          return (
+
+            <motion.div
+              key={sector.id}
+              initial={{
+                opacity: 0,
+                x: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.12,
+              }}
+              className="group relative"
+            >
+
+              <div
+                className="
+                  relative
+                  min-h-[175px]
+                  sm:min-h-[190px]
+                  lg:min-h-[175px]
+                  px-5
+                  sm:px-7
+                  lg:px-8
+                  py-8
+                  border-b
+                  border-[#D9D0C2]
+                  transition-all
+                  duration-500
+                  overflow-hidden
+                  bg-transparent
+                  group-hover:bg-white/70
+                "
+              >
+
+                {/* =================================================
+                    HOVER COLOR BACKGROUND
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-500
+                    pointer-events-none
+                  "
+                  style={{
+                    background: `
+                      radial-gradient(
+                        circle at 90% 50%,
+                        ${sector.glow},
+                        transparent 55%
+                      )
+                    `,
+                  }}
+                />
+
+
+                {/* =================================================
+                    HOVER RIGHT ACCENT
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    right-0
+                    top-0
+                    bottom-0
+                    w-[3px]
+                    scale-y-0
+                    group-hover:scale-y-100
+                    origin-center
+                    transition-transform
+                    duration-500
+                  "
+                  style={{
+                    backgroundColor: sector.color,
+                  }}
+                />
+
+
+                {/* =================================================
+                    CONTENT
+                ================================================== */}
+
+                <div
+                  className="
+                    relative
+                    z-10
+                    flex
+                    items-center
+                    gap-6
+                  "
+                >
+
+
+                  {/* ICON */}
+
+                  <div
+                    className="
+                      flex-shrink-0
+                      w-[78px]
+                      h-[78px]
+                      sm:w-[82px]
+                      sm:h-[82px]
+                      rounded-full
+                      bg-white
+                      border
+                      flex
+                      items-center
+                      justify-center
+                      shadow-[0_8px_25px_rgba(0,0,0,0.05)]
+                      transition-all
+                      duration-500
+                      group-hover:scale-105
+                    "
+                    style={{
+                      borderColor: `${sector.color}45`,
+                      boxShadow: `0 8px 28px ${sector.glow}`,
+                    }}
+                  >
+
+                    {/* Dashed Circle */}
+
+                    <div
+                      className="
+                        absolute
+                        w-[66px]
+                        h-[66px]
+                        rounded-full
+                        border
+                        border-dashed
+                        opacity-40
+                        group-hover:opacity-90
+                        group-hover:rotate-180
+                        transition-all
+                        duration-700
+                      "
+                      style={{
+                        borderColor: sector.color,
+                      }}
+                    />
+
+                    <Icon
+                      className="
+                        relative
+                        z-10
+                        w-8
+                        h-8
+                        transition-transform
+                        duration-500
+                        group-hover:scale-110
+                      "
+                      style={{
+                        color: sector.color,
+                      }}
+                      strokeWidth={1.5}
+                    />
+
+                  </div>
+
+
+
+                  {/* TEXT */}
+
+                  <div className="min-w-0">
+
+                    <div className="flex items-center gap-3">
+
+                      <h4
+                        className="
+                          text-base
+                          sm:text-lg
+                          font-black
+                          tracking-[0.12em]
+                          text-[#191919]
+                          transition-all
+                          duration-500
+                          group-hover:tracking-[0.16em]
+                        "
+                      >
+                        {sector.name}
+                      </h4>
+
+
+                      <ArrowUpRight
+                        className="
+                          w-4
+                          h-4
+                          opacity-0
+                          -translate-x-2
+                          group-hover:opacity-100
+                          group-hover:translate-x-0
+                          transition-all
+                          duration-500
+                        "
+                        style={{
+                          color: sector.color,
+                        }}
+                      />
+
+                    </div>
+
+
+                    <p
+                      className="
+                        mt-3
+                        text-xs
+                        sm:text-sm
+                        leading-6
+                        text-neutral-500
+                        max-w-[330px]
+                      "
+                    >
+                      {sector.desc}
+                    </p>
+
+
+                    {/* Bottom Accent */}
+
+                    <div
+                      className="
+                        mt-5
+                        h-[2px]
+                        w-8
+                        group-hover:w-14
+                        transition-all
+                        duration-500
+                      "
+                      style={{
+                        backgroundColor: sector.color,
+                      }}
+                    />
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </motion.div>
+
+          );
+
+        })}
+
+      </div>
+
+    </div>
+
+
+
+  
+
+  </div>
+
+
+
+  {/* =======================================================
+      BOTTOM LABEL
+  ======================================================== */}
+
+  <motion.div
+    initial={{
+      opacity: 0,
+      y: 15,
+    }}
+    whileInView={{
+      opacity: 1,
+      y: 0,
+    }}
+    viewport={{
+      once: true,
+    }}
+    transition={{
+      duration: 0.6,
+      delay: 0.3,
+    }}
+    className="
+      flex
+      flex-col
+      sm:flex-row
+      items-center
+      justify-center
+      gap-4
+      mt-10
+      lg:mt-14
+    "
+  >
+
+    <span className="h-px w-10 bg-[#D0C6B7]" />
+
+    <span
+      className="
+        text-[9px]
+        sm:text-[10px]
+        uppercase
+        tracking-[0.3em]
+        text-neutral-400
+      "
+    >
+      Heritage
+      <span className="mx-2 text-[#C58B2B]">•</span>
+      Infrastructure
+      <span className="mx-2 text-[#C58B2B]">•</span>
+      Innovation
+      <span className="mx-2 text-[#C58B2B]">•</span>
+      Growth
+    </span>
+
+    <span className="h-px w-10 bg-[#D0C6B7]" />
+
+  </motion.div>
+
+</section>
+       
+
+
+
+        {/* =========================================================
+            HIGHLIGHTS / ACHIEVEMENTS
+        ========================================================== */}
+
+        <div className="mt-28 lg:mt-36">
+
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+
+            {/* Image */}
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5"
+            >
+
+              <div className="relative">
+
+                <div className="absolute -inset-5 border border-[#B8893A]/10" />
+
+                <div className="relative bg-white p-5 sm:p-8 border border-[#DDD4C5]">
+
+                  <img
+                    src="https://lucknowarchitecturefestival.in/img/about01.png"
+                    alt="Uttar Pradesh achievements"
+                    className="
+                      w-full
+                      max-h-[650px]
+                      object-contain
+                      mix-blend-multiply
+                    "
+                  />
+
+                </div>
+
+              </div>
+
+            </motion.div>
+
+
+
+            {/* Content */}
+
+            <div className="lg:col-span-7">
+
+              <div className="flex items-center gap-3 mb-4">
+
+                <span className="text-xs font-bold text-[#B77A27]">
+                  03
+                </span>
+
+                <span className="h-px w-10 bg-[#B77A27]" />
+
+                <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-400">
+                  State Highlights
+                </span>
+
+              </div>
+
+
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight">
+                A state building
+                <span className="block text-[#B77A27]">
+                  at scale.
+                </span>
+              </h3>
+
+
+              <p className="mt-5 max-w-xl text-sm sm:text-base text-neutral-500 leading-7">
+                A combination of economic ambition, demographic strength,
+                infrastructure and cultural identity is shaping the future
+                of the state's built environment.
+              </p>
+
+
+
+              <div className="mt-10">
+
+                {highlights.map((item, index) => {
+
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.div
+                      key={item.number}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.5,
+                        delay: index * 0.1,
+                      }}
+                      className="
+                        group
+                        flex
+                        items-center
+                        gap-5
+                        py-5
+                        border-b
+                        border-[#DDD5C7]
+                      "
+                    >
+
+                      <span className="font-serif text-2xl text-[#B8893A]/50">
+                        {item.number}
+                      </span>
+
+
+                      <div
+                        className="
+                          w-10
+                          h-10
+                          rounded-full
+                          border
+                          border-[#D8CCBA]
+                          flex
+                          items-center
+                          justify-center
+                          group-hover:bg-[#171717]
+                          group-hover:border-[#171717]
+                          transition-all
+                        "
+                      >
+                        <Icon
+                          className="
+                            w-4
+                            h-4
+                            text-[#B77A27]
+                            group-hover:text-[#D4AF37]
+                          "
+                        />
+                      </div>
+
+
+                      <div className="flex-1">
+
+                        <h4 className="text-sm font-bold tracking-wide">
+                          {item.title}
+                        </h4>
+
+                        <p className="text-xs text-neutral-400 mt-1">
+                          {item.subtitle}
+                        </p>
+
+                      </div>
+
+
+                      <ArrowUpRight
+                        className="
+                          w-4
+                          h-4
+                          text-[#B77A27]
+                          opacity-0
+                          group-hover:opacity-100
+                          transition-opacity
+                        "
+                      />
+
+                    </motion.div>
+                  );
+                })}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        {/* =========================================================
+            FINAL QUOTE
+        ========================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="
+            mt-12
+            lg:mt-14
+            text-center
+            border-t
+            border-b
+            border-[#D8D0C2]
+            py-8
+          "
+        >
+
+          <div className="text-[10px] uppercase tracking-[0.3em] text-[#B77A27] mb-5">
+            The LAF Perspective
+          </div>
+
+          <blockquote
+            className="
+              max-w-4xl
+              mx-auto
+              font-serif
+              text-2xl
+              sm:text-3xl
+              md:text-4xl
+              leading-relaxed
+              text-[#242424]
+            "
+          >
+            “Combining rich cultural heritage with contemporary
+            architecture, sustainable development and a vision for the future.”
+          </blockquote>
+
+        </motion.div>
+
+
+      </div>
+
     </section>
   );
 };

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Sparkles, 
   ChevronDown, 
+  ChevronRight,
   Menu, 
   X, 
   Users, 
@@ -15,7 +16,7 @@ import {
 } from 'lucide-react';
 
 import laaLogo from '../assets/images/logo-left.webp';
-import LAFLogo from '../components/LAFLogo';
+import LAFLogo from '../assets/images/logo.jpeg';
 import taskLogo from '../assets/images/logo-right.webp';
 
 const Navbar = () => {
@@ -51,7 +52,7 @@ const Navbar = () => {
           {/* Subtle shimmer accent line */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-500/10 to-transparent pointer-events-none" />
           
-          <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 relative z-10">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 relative z-10">
             
             {/* Left: Conclave status */}
             <div className="flex items-center gap-2.5 text-[#D4AF37]">
@@ -101,11 +102,11 @@ const Navbar = () => {
             </svg>
           </div>
 
-          <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+          <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
             
             {/* Left: Lucknow Architects Association Card */}
             <div className="flex items-center justify-center md:justify-start flex-1 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center gap-3">
+              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
                 {/* Corner Gold Accent Ticks */}
                 <div className="absolute top-1.5 left-2 text-[9px] text-[#D4AF37]/60 font-mono">✦ LAA</div>
                 
@@ -135,16 +136,16 @@ const Navbar = () => {
             </div>
 
             {/* Center: LAF Main 3.0 Logo (Primary Festival Emblem) */}
-            <div className="flex items-center justify-center flex-1 my-1 md:my-0">
-              <div className="relative group bg-gradient-to-b from-amber-500/5 via-amber-500/10 to-transparent rounded-3xl p-3 md:px-8 md:py-3 border border-[#D4AF37]/30 shadow-lg shadow-amber-500/5 backdrop-blur-sm transition-all duration-300 hover:border-[#D4AF37]/60 hover:shadow-amber-500/15 flex flex-col items-center">
+            <div className="flex items-center justify-center flex-1 my-1 md:my-0 w-full md:w-auto">
+              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
+                {/* Corner Gold Accent Ticks */}
+                <div className="absolute top-1.5 left-2 text-[9px] text-[#D4AF37]/60 font-mono">✦ LAF</div>
                 
-                {/* Architectural Medallion Top Tag */}
-                <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#121214] border border-[#D4AF37]/40 text-[#D4AF37] text-[9.5px] uppercase font-bold tracking-widest -mt-5 shadow-md">
-                  <Building2 className="w-3 h-3 text-amber-400" />
-                  <span>OFFICIAL FESTIVAL EMBLEM</span>
-                </div>
-
-                <LAFLogo className="h-16 sm:h-20 md:h-22 lg:h-24 w-auto cursor-pointer mt-1" />
+                <img
+                  src={LAFLogo}
+                  alt="Lucknow Architecture Festival 3.0"
+                  className="h-16 sm:h-20 md:h-22 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
             </div>
 
@@ -157,7 +158,7 @@ const Navbar = () => {
 
             {/* Right: Partner / Task Logo Card */}
             <div className="flex items-center justify-center md:justify-end flex-1 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center gap-3">
+              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
                 
                 <div className="hidden xl:flex flex-col text-right border-r border-neutral-200 pr-3.5 py-1">
                   <span className="text-[11px] uppercase tracking-wider font-bold text-neutral-800">
@@ -185,11 +186,11 @@ const Navbar = () => {
       </header>
 
       {/* ================= 2. STICKY LUXURY DARK NAVBAR (DIRECT SIBLING OF HEADER FOR FULL-PAGE STICKY) ================= */}
-      <nav className="sticky top-0 w-full bg-[#121214]/98 backdrop-blur-xl border-b border-[#262420] shadow-[0_10px_35px_rgba(0,0,0,0.85)] z-[100] select-none font-sans">
+      <nav className="sticky top-0 w-full bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/20 z-[100] select-none font-sans">
         {/* Multi-stop hairline gold gradient accent line */}
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90" />
 
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-16">
 
             {/* Mobile Brand Title */}
@@ -243,42 +244,50 @@ const Navbar = () => {
                     <AnimatePresence>
                       {isTeamOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                          initial={{ opacity: 0, y: 8, scale: 0.97 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                          transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute left-0 top-full pt-2 w-64 z-[110]"
+                          exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-[110]"
                         >
-                          <div className="bg-[#17171A] border border-[#D4AF37]/30 rounded-2xl shadow-2xl p-2 backdrop-blur-2xl overflow-hidden relative">
-                            {/* Decorative background accent */}
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl pointer-events-none" />
-                            
-                            <div className="text-[10px] font-mono tracking-widest text-[#D4AF37] px-3 py-1 uppercase border-b border-neutral-800/80 mb-1 flex items-center gap-1">
-                              <span>❖</span> Team Directories
+                          <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
+                            {/* Subtle top ambient hairline glow */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent pointer-events-none" />
+                            <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+
+                            {/* Minimal Header */}
+                            <div className="px-3 pt-2 pb-2 flex items-center justify-between text-[10px] font-mono tracking-[0.18em] uppercase text-[#D4AF37]/75 border-b border-white/5 mb-1.5">
+                              <span className="flex items-center gap-1.5">
+                                <span className="text-amber-400/80">✦</span> Team Directories
+                              </span>
+                              <span className="h-1.5 w-1.5 rounded-full bg-amber-400/80 animate-pulse" />
                             </div>
 
-                            {item.dropdown.map((subItem) => {
-                              const IconComponent = subItem.icon;
-                              return (
-                                <a
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  className="group flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-neutral-800/90 transition-all duration-150 border border-transparent hover:border-amber-500/20"
-                                >
-                                  <div className="p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-colors">
-                                    <IconComponent className="w-4 h-4" />
-                                  </div>
-                                  <div>
-                                    <div className="text-xs font-semibold text-neutral-200 group-hover:text-amber-400 transition-colors">
-                                      {subItem.name}
+                            <div className="space-y-1">
+                              {item.dropdown.map((subItem) => {
+                                const IconComponent = subItem.icon;
+                                return (
+                                  <a
+                                    key={subItem.name}
+                                    href={subItem.href}
+                                    className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/[0.05] transition-all duration-200 border border-transparent hover:border-amber-500/20"
+                                  >
+                                    <div className="w-9 h-9 rounded-xl bg-neutral-900/90 border border-white/5 flex items-center justify-center text-amber-400/80 group-hover/item:text-amber-400 group-hover/item:border-amber-500/30 group-hover/item:bg-amber-500/10 group-hover/item:shadow-[0_0_12px_rgba(212,175,55,0.15)] transition-all duration-300 shrink-0">
+                                      <IconComponent className="w-4 h-4" />
                                     </div>
-                                    <div className="text-[10.5px] text-neutral-400 leading-tight">
-                                      {subItem.desc}
+                                    <div className="flex-1 min-w-0">
+                                      <div className="text-[12.5px] font-medium text-neutral-200 group-hover/item:text-amber-300 transition-colors flex items-center justify-between">
+                                        <span>{subItem.name}</span>
+                                        <ChevronRight className="w-3.5 h-3.5 text-amber-400/60 opacity-0 -translate-x-1.5 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                                      </div>
+                                      <div className="text-[10.5px] text-neutral-400 group-hover/item:text-neutral-300 transition-colors truncate">
+                                        {subItem.desc}
+                                      </div>
                                     </div>
-                                  </div>
-                                </a>
-                              );
-                            })}
+                                  </a>
+                                );
+                              })}
+                            </div>
                           </div>
                         </motion.div>
                       )}
@@ -376,4 +385,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;
