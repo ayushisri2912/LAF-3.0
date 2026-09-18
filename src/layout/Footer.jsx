@@ -89,59 +89,7 @@ export default function Footer() {
       {/* Top Hairline Gold Gradient Indicator */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-80" />
 
-      {/* =====================================================
-          TOP CTA (COMPACT HEIGHT)
-      ====================================================== */}
-
-      <div className="relative border-b border-white/10">
-        <div className="pointer-events-none absolute right-[-80px] top-[-100px] h-[300px] w-[300px] rounded-full border border-white/5" />
-        <div className="pointer-events-none absolute right-[40px] top-[-50px] h-[180px] w-[180px] rounded-full border border-[#D4AF37]/20" />
-
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-10 sm:py-12">
-          <div className="grid items-center gap-6 lg:grid-cols-12">
-            
-            <div className="lg:col-span-8">
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-px w-10 bg-[#D4AF37]" />
-                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#D4AF37] font-semibold">
-                  LUCKNOW ARCHITECTURE FESTIVAL 3.0
-                </span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-                Let's build the{" "}
-                <span className="italic text-[#D4AF37]">
-                  next conversation.
-                </span>
-              </h2>
-            </div>
-
-            <div className="lg:col-span-4 lg:flex lg:justify-end">
-              <a
-                href="#registration"
-                className="
-                  group inline-flex items-center gap-3
-                  bg-gradient-to-r from-[#D4AF37] to-amber-500
-                  hover:from-amber-400 hover:to-orange-500
-                  px-6 py-3.5 rounded-full
-                  text-xs font-bold uppercase tracking-wider text-black
-                  shadow-[0_0_20px_rgba(212,175,55,0.3)]
-                  hover:shadow-[0_0_28px_rgba(212,175,55,0.5)]
-                  transition-all duration-300
-                "
-              >
-                <span>LAF REGISTRATION</span>
-                <ArrowUpRight
-                  size={16}
-                  strokeWidth={2}
-                  className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
+     
 
       {/* =====================================================
           MAIN FOOTER CONTENT (COMPACT SPACING & ICONS)

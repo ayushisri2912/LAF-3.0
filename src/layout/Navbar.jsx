@@ -88,7 +88,7 @@ const Navbar = () => {
         </div>
 
         {/* ================= TOP BRANDING HEADER ================= */}
-        <div className="bg-architect-grid bg-[#FAF7F2] relative border-b border-[#D4AF37]/20 py-4 md:py-6 shadow-sm overflow-hidden">
+        <div className="bg-architect-grid bg-[#FAF7F2] relative border-b border-[#D4AF37]/20 py-2 md:py-2.5 shadow-sm overflow-hidden">
           
           {/* Background Architectural Watermark Arches */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.035] flex items-center justify-between px-10">
@@ -102,82 +102,82 @@ const Navbar = () => {
             </svg>
           </div>
 
-          <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+          <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
             
             {/* Left: Lucknow Architects Association Card */}
             <div className="flex items-center justify-center md:justify-start flex-1 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
+              <div className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
                 {/* Corner Gold Accent Ticks */}
-                <div className="absolute top-1.5 left-2 text-[9px] text-[#D4AF37]/60 font-mono">✦ LAA</div>
+                <div className="absolute top-1 left-2 text-[8px] text-[#D4AF37]/60 font-mono">✦ LAA</div>
                 
                 <img
                   src={laaLogo}
                   alt="Lucknow Architects Association"
-                  className="h-16 sm:h-20 md:h-22 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 
-                <div className="hidden xl:flex flex-col border-l border-neutral-200 pl-3.5 py-1">
-                  <span className="text-[11px] uppercase tracking-wider font-bold text-neutral-800">
+                <div className="hidden xl:flex flex-col border-l border-neutral-200 pl-3 py-0.5">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-neutral-800">
                     Lucknow Architects
                   </span>
-                  <span className="text-[10px] tracking-widest text-[#B38F38] font-medium uppercase">
+                  <span className="text-[9px] tracking-widest text-[#B38F38] font-medium uppercase">
                     Association
                   </span>
-                  <span className="text-[9px] text-neutral-400 mt-0.5">Host Body</span>
+                  <span className="text-[8px] text-neutral-400 mt-0.5">Host Body</span>
                 </div>
               </div>
             </div>
 
             {/* Center Vertical Divider Line (Desktop) */}
             <div className="hidden md:flex flex-col items-center justify-center text-[#D4AF37]/40 px-2">
-              <div className="w-[1px] h-10 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
-              <span className="text-[10px] my-1 text-[#D4AF37]/70">❖</span>
-              <div className="w-[1px] h-10 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
+              <div className="w-[1px] h-5 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
+              <span className="text-[8px] my-0.5 text-[#D4AF37]/70">❖</span>
+              <div className="w-[1px] h-5 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
             </div>
 
             {/* Center: LAF Main 3.0 Logo (Primary Festival Emblem) */}
-            <div className="flex items-center justify-center flex-1 my-1 md:my-0 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
+            <div className="flex items-center justify-center flex-1 my-0.5 md:my-0 w-full md:w-auto">
+              <div className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
                 {/* Corner Gold Accent Ticks */}
-                <div className="absolute top-1.5 left-2 text-[9px] text-[#D4AF37]/60 font-mono">✦ LAF</div>
+                <div className="absolute top-1 left-2 text-[8px] text-[#D4AF37]/60 font-mono">✦ LAF</div>
                 
                 <img
                   src={LAFLogo}
                   alt="Lucknow Architecture Festival 3.0"
-                  className="h-16 sm:h-20 md:h-22 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
 
             {/* Right Vertical Divider Line (Desktop) */}
             <div className="hidden md:flex flex-col items-center justify-center text-[#D4AF37]/40 px-2">
-              <div className="w-[1px] h-10 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
-              <span className="text-[10px] my-1 text-[#D4AF37]/70">❖</span>
-              <div className="w-[1px] h-10 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
+              <div className="w-[1px] h-5 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
+              <span className="text-[8px] my-0.5 text-[#D4AF37]/70">❖</span>
+              <div className="w-[1px] h-5 bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent" />
             </div>
 
             {/* Right: Partner / Task Logo Card */}
             <div className="flex items-center justify-center md:justify-end flex-1 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-2xl p-3 sm:p-4 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
+              <div className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
                 
-                <div className="hidden xl:flex flex-col text-right border-r border-neutral-200 pr-3.5 py-1">
-                  <span className="text-[11px] uppercase tracking-wider font-bold text-neutral-800">
+                <div className="hidden xl:flex flex-col text-right border-r border-neutral-200 pr-3 py-0.5">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-neutral-800">
                     Task Marketing
                   </span>
-                  <span className="text-[10px] tracking-widest text-[#B38F38] font-medium uppercase">
+                  <span className="text-[9px] tracking-widest text-[#B38F38] font-medium uppercase">
                     Solutions
                   </span>
-                  <span className="text-[9px] text-neutral-400 mt-0.5">Event Partner</span>
+                  <span className="text-[8px] text-neutral-400 mt-0.5">Event Partner</span>
                 </div>
 
                 <img
                   src={taskLogo}
                   alt="Task Marketing Solutions"
-                  className="h-14 sm:h-18 md:h-20 lg:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-8 sm:h-10 md:h-11 lg:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
 
                 {/* Corner Gold Accent Ticks */}
-                <div className="absolute top-1.5 right-2 text-[9px] text-[#D4AF37]/60 font-mono">TMS ✦</div>
+                <div className="absolute top-1 right-2 text-[8px] text-[#D4AF37]/60 font-mono">TMS ✦</div>
               </div>
             </div>
 
