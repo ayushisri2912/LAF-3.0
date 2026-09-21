@@ -7,6 +7,9 @@ import ParticipationSection from '../components/HomeComponents/ParticipationSect
 import FestivalTeamSection from '../components/HomeComponents/FestivalTeamSection';
 import SupportingOrganizationsSection from '../components/HomeComponents/SupportingOrganizationsSection';
 import LastEventGlanceSection from '../components/HomeComponents/LastEventGlanceSection';
+import AboutLAASection from '../components/HomeComponents/AboutLAASection';
+import LocationLayoutSection from '../components/HomeComponents/LocationLayoutSection';
+import GetInTouchSection from '../components/HomeComponents/GetInTouchSection';
 
 const Home = () => {
   return (
@@ -19,6 +22,9 @@ const Home = () => {
       <FestivalTeamSection/>
       <SupportingOrganizationsSection/>
       <LastEventGlanceSection/>
+      <AboutLAASection/>
+      <LocationLayoutSection/>
+      <GetInTouchSection/>
     </div>
   );
 };

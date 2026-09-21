@@ -15,7 +15,7 @@ import {
   Compass
 } from 'lucide-react';
 
-import laaLogo from '../assets/images/logo-left.webp';
+import laaLogo from '../assets/images/LAA.png';
 import LAFLogo from '../assets/images/logo.jpeg';
 import taskLogo from '../assets/images/logo-right.webp';
 
@@ -48,45 +48,7 @@ const Navbar = () => {
       {/* ================= 1. ARCHITECTURAL TOP BRANDING HEADER ================= */}
       <header className="w-full select-none font-sans">
         {/* ================= ARCHITECTURAL TOP RIBBON ================= */}
-        <div className="bg-[#121214] text-neutral-300 border-b border-[#D4AF37]/25 text-[11px] sm:text-xs py-2 px-4 sm:px-8 relative overflow-hidden">
-          {/* Subtle shimmer accent line */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-500/10 to-transparent pointer-events-none" />
-          
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 relative z-10">
-            
-            {/* Left: Conclave status */}
-            <div className="flex items-center gap-2.5 text-[#D4AF37]">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-              </span>
-              <span className="font-semibold tracking-widest uppercase text-[10.5px]">
-                Lucknow Architecture Festival 3.0 • Edition 2026
-              </span>
-            </div>
-
-            {/* Center: Cultural Theme Slogan */}
-            <div className="hidden md:flex items-center gap-2 text-neutral-400 font-serif italic text-xs tracking-wider">
-              <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>"Heritage Archway to Modern Sustainable Urbanism"</span>
-            </div>
-
-            {/* Right: Venue & Date */}
-            <div className="flex items-center gap-4 text-neutral-300 text-[11px]">
-              <div className="flex items-center gap-1.5 text-neutral-300">
-                <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                <span>Oct 2026</span>
-              </div>
-              <span className="text-neutral-600">|</span>
-              <div className="flex items-center gap-1.5 text-neutral-300">
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                <span>Lucknow, UP</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+       
         {/* ================= TOP BRANDING HEADER ================= */}
         <div className="bg-architect-grid bg-[#FAF7F2] relative border-b border-[#D4AF37]/20 py-2 md:py-2.5 shadow-sm overflow-hidden">
           
@@ -116,15 +78,7 @@ const Navbar = () => {
                   className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 
-                <div className="hidden xl:flex flex-col border-l border-neutral-200 pl-3 py-0.5">
-                  <span className="text-[10px] uppercase tracking-wider font-bold text-neutral-800">
-                    Lucknow Architects
-                  </span>
-                  <span className="text-[9px] tracking-widest text-[#B38F38] font-medium uppercase">
-                    Association
-                  </span>
-                  <span className="text-[8px] text-neutral-400 mt-0.5">Host Body</span>
-                </div>
+               
               </div>
             </div>
 

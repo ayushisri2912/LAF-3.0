@@ -342,91 +342,111 @@ export default function ParticipationSection() {
           </div>
 
           {/* =====================================================
-              OPPORTUNITY GRID (ENHANCED PREMIUM CARDS)
+              OPPORTUNITY LIST (MINIMAL TEXT-BASED EDITORIAL BANDS)
           ====================================================== */}
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="mt-8 border-y border-[#D9D0C2]">
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#D9D0C2]">
+              
+              {/* LEFT COLUMN (01 - 05) */}
+              <div className="divide-y divide-[#D9D0C2]">
+                {opportunities.slice(0, 5).map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={item.number}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: index * 0.04 }}
+                      className="group relative py-7 px-4 sm:px-6 transition-all duration-300 hover:bg-white/60 cursor-pointer overflow-hidden"
+                    >
+                      {/* Left gold indicator on hover */}
+                      <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#B77A27] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
 
-            {opportunities.map((item, index) => {
-              const Icon = item.icon;
+                      <div className="flex items-start gap-5">
+                        {/* Number & Icon badge */}
+                        <div className="flex flex-col items-center gap-2 pt-0.5 shrink-0">
+                          <span className="font-mono text-xs font-bold text-[#B77A27]">
+                            {item.number}
+                          </span>
+                          <div className="w-8 h-8 rounded-lg bg-[#171717] text-[#B77A27] group-hover:bg-[#B77A27] group-hover:text-white flex items-center justify-center transition-colors duration-300 shadow-2xs">
+                            <Icon size={14} strokeWidth={1.5} />
+                          </div>
+                        </div>
 
-              return (
-                <motion.div
-                  key={item.number}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.4,
-                    delay: (index % 5) * 0.04,
-                  }}
-                  className="
-                    group relative min-h-[260px]
-                    p-6 rounded-2xl
-                    bg-white/60 hover:bg-white
-                    border border-[#D9D0C2] hover:border-[#B77A27]/40
-                    shadow-2xs hover:shadow-xl
-                    transition-all duration-300
-                    flex flex-col justify-between
-                    cursor-pointer overflow-hidden
-                  "
-                >
-                  {/* Top hairline hover indicator */}
-                  <div className="absolute top-0 left-0 w-0 h-[3px] bg-gradient-to-r from-[#B77A27] to-amber-400 group-hover:w-full transition-all duration-500" />
+                        {/* Text details */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-3">
+                            <h4 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-[#171717] group-hover:text-[#B77A27] transition-colors duration-200">
+                              {item.title}
+                            </h4>
+                            <ArrowUpRight
+                              size={16}
+                              className="text-neutral-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-[#B77A27] transition-all duration-300 shrink-0"
+                            />
+                          </div>
 
-                  {/* Header Row: Icon + Number Watermark */}
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div className="
-                        w-10 h-10
-                        rounded-xl
-                        border border-[#D9D0C2]
-                        bg-neutral-900/90
-                        flex items-center justify-center
-                        text-amber-400
-                        group-hover:border-[#B77A27]
-                        group-hover:bg-[#B77A27]
-                        group-hover:text-white
-                        transition-all duration-300
-                        shadow-2xs
-                      ">
-                        <Icon
-                          size={18}
-                          strokeWidth={1.5}
-                        />
+                          <p className="mt-2 text-xs sm:text-sm leading-relaxed text-neutral-600 group-hover:text-neutral-800 transition-colors">
+                            {item.text}
+                          </p>
+                        </div>
                       </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
 
-                      <span className="font-serif text-3xl font-medium text-[#D9D0C2] group-hover:text-[#B77A27]/30 transition-colors select-none">
-                        {item.number}
-                      </span>
-                    </div>
+              {/* RIGHT COLUMN (06 - 10) */}
+              <div className="divide-y divide-[#D9D0C2]">
+                {opportunities.slice(5, 10).map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={item.number}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: index * 0.04 }}
+                      className="group relative py-7 px-4 sm:px-6 transition-all duration-300 hover:bg-white/60 cursor-pointer overflow-hidden"
+                    >
+                      {/* Left gold indicator on hover */}
+                      <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#B77A27] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
 
-                    {/* Content */}
-                    <div className="mt-6">
-                      <h4 className="font-serif text-2xl font-semibold text-[#171717] group-hover:text-[#B77A27] transition-colors">
-                        {item.title}
-                      </h4>
+                      <div className="flex items-start gap-5">
+                        {/* Number & Icon badge */}
+                        <div className="flex flex-col items-center gap-2 pt-0.5 shrink-0">
+                          <span className="font-mono text-xs font-bold text-[#B77A27]">
+                            {item.number}
+                          </span>
+                          <div className="w-8 h-8 rounded-lg bg-[#171717] text-[#B77A27] group-hover:bg-[#B77A27] group-hover:text-white flex items-center justify-center transition-colors duration-300 shadow-2xs">
+                            <Icon size={14} strokeWidth={1.5} />
+                          </div>
+                        </div>
 
-                      <p className="text-xs leading-relaxed text-neutral-600 group-hover:text-neutral-700 mt-2.5">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
+                        {/* Text details */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-3">
+                            <h4 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-[#171717] group-hover:text-[#B77A27] transition-colors duration-200">
+                              {item.title}
+                            </h4>
+                            <ArrowUpRight
+                              size={16}
+                              className="text-neutral-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-[#B77A27] transition-all duration-300 shrink-0"
+                            />
+                          </div>
 
-                  {/* Arrow Indicator */}
-                  <div className="mt-4 flex items-center justify-end">
-                    <div className="w-7 h-7 rounded-full border border-neutral-300 group-hover:border-[#B77A27] group-hover:bg-[#B77A27] flex items-center justify-center transition-all duration-300 text-neutral-400 group-hover:text-white">
-                      <ArrowUpRight
-                        size={14}
-                        strokeWidth={1.5}
-                        className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                          <p className="mt-2 text-xs sm:text-sm leading-relaxed text-neutral-600 group-hover:text-neutral-800 transition-colors">
+                            {item.text}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
 
+            </div>
           </div>
         </div>
 
