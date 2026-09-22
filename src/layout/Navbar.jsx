@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { 
   Sparkles, 
   ChevronDown, 
@@ -23,6 +24,26 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTeamOpen, setIsTeamOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('');
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate(href);
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   const navLinks = [
     { name: 'Highlights', href: '#highlights' },
@@ -30,11 +51,11 @@ const Navbar = () => {
     { name: 'Participate', href: '#participate' },
     {
       name: 'Team',
-      href: '#team',
+      href: '#festival-team',
       dropdown: [
-        { name: 'Core Committee', href: '#core-committee', desc: 'Organizing leadership', icon: Users },
-        { name: 'Advisors & Mentors', href: '#advisors', desc: 'Veteran architects & mentors', icon: Award },
-        { name: 'Student Volunteers', href: '#volunteers', desc: 'Future architects & team', icon: GraduationCap },
+        { name: 'Core Committee', href: '/team/core-committee', desc: 'Organizing leadership & Curators', icon: Users },
+        { name: 'Advisors & Mentors', href: '/team/advisors-mentors', desc: 'Veteran architects & mentors', icon: Award },
+        { name: 'Student Volunteers', href: '/team/student-volunteers', desc: 'Future architects & team', icon: GraduationCap },
       ],
     },
     { name: 'Gallery', href: '#gallery' },
@@ -47,8 +68,6 @@ const Navbar = () => {
     <>
       {/* ================= 1. ARCHITECTURAL TOP BRANDING HEADER ================= */}
       <header className="w-full select-none font-sans">
-        {/* ================= ARCHITECTURAL TOP RIBBON ================= */}
-       
         {/* ================= TOP BRANDING HEADER ================= */}
         <div className="bg-architect-grid bg-[#FAF7F2] relative border-b border-[#D4AF37]/20 py-2 md:py-2.5 shadow-sm overflow-hidden">
           
@@ -68,18 +87,14 @@ const Navbar = () => {
             
             {/* Left: Lucknow Architects Association Card */}
             <div className="flex items-center justify-center md:justify-start flex-1 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
-                {/* Corner Gold Accent Ticks */}
+              <Link to="/" className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
                 <div className="absolute top-1 left-2 text-[8px] text-[#D4AF37]/60 font-mono">✦ LAA</div>
-                
                 <img
                   src={laaLogo}
                   alt="Lucknow Architects Association"
                   className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-                
-               
-              </div>
+              </Link>
             </div>
 
             {/* Center Vertical Divider Line (Desktop) */}
@@ -91,16 +106,14 @@ const Navbar = () => {
 
             {/* Center: LAF Main 3.0 Logo (Primary Festival Emblem) */}
             <div className="flex items-center justify-center flex-1 my-0.5 md:my-0 w-full md:w-auto">
-              <div className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
-                {/* Corner Gold Accent Ticks */}
+              <Link to="/" className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
                 <div className="absolute top-1 left-2 text-[8px] text-[#D4AF37]/60 font-mono">✦ LAF</div>
-                
                 <img
                   src={LAFLogo}
                   alt="Lucknow Architecture Festival 3.0"
                   className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-              </div>
+              </Link>
             </div>
 
             {/* Right Vertical Divider Line (Desktop) */}
@@ -113,7 +126,6 @@ const Navbar = () => {
             {/* Right: Partner / Task Logo Card */}
             <div className="flex items-center justify-center md:justify-end flex-1 w-full md:w-auto">
               <div className="group relative bg-white/90 hover:bg-white rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 border border-[#E6DFD3] hover:border-[#D4AF37]/50 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto">
-                
                 <div className="hidden xl:flex flex-col text-right border-r border-neutral-200 pr-3 py-0.5">
                   <span className="text-[10px] uppercase tracking-wider font-bold text-neutral-800">
                     Task Marketing
@@ -129,8 +141,6 @@ const Navbar = () => {
                   alt="Task Marketing Solutions"
                   className="h-8 sm:h-10 md:h-11 lg:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-
-                {/* Corner Gold Accent Ticks */}
                 <div className="absolute top-1 right-2 text-[8px] text-[#D4AF37]/60 font-mono">TMS ✦</div>
               </div>
             </div>
@@ -139,9 +149,8 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* ================= 2. STICKY LUXURY DARK NAVBAR (DIRECT SIBLING OF HEADER FOR FULL-PAGE STICKY) ================= */}
+      {/* ================= 2. STICKY LUXURY DARK NAVBAR ================= */}
       <nav className="sticky top-0 w-full bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/20 z-[100] select-none font-sans">
-        {/* Multi-stop hairline gold gradient accent line */}
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90" />
 
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
@@ -150,7 +159,9 @@ const Navbar = () => {
             {/* Mobile Brand Title */}
             <div className="md:hidden flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-              <span className="text-xs uppercase tracking-widest text-neutral-200 font-bold">LAF 3.0 MENU</span>
+              <Link to="/" className="text-xs uppercase tracking-widest text-neutral-200 font-bold">
+                LAF 3.0 MENU
+              </Link>
             </div>
 
             {/* Mobile Hamburger Button */}
@@ -177,9 +188,9 @@ const Navbar = () => {
                 >
                   <a
                     href={item.href}
-                    onClick={() => setActiveTab(item.name)}
-                    className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 ${
-                      activeTab === item.name
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
+                      location.pathname.startsWith('/team') && item.name === 'Team'
                         ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
                         : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
                     }`}
@@ -188,12 +199,10 @@ const Navbar = () => {
                     {item.dropdown && (
                       <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
                     )}
-
-                    {/* Architectural Hover Underline Glow */}
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
                   </a>
 
-                  {/* Enhanced Dropdown Menu with Framer Motion */}
+                  {/* Dropdown Menu */}
                   {item.dropdown && (
                     <AnimatePresence>
                       {isTeamOpen && (
@@ -205,11 +214,9 @@ const Navbar = () => {
                           className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-[110]"
                         >
                           <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
-                            {/* Subtle top ambient hairline glow */}
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent pointer-events-none" />
                             <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
 
-                            {/* Minimal Header */}
                             <div className="px-3 pt-2 pb-2 flex items-center justify-between text-[10px] font-mono tracking-[0.18em] uppercase text-[#D4AF37]/75 border-b border-white/5 mb-1.5">
                               <span className="flex items-center gap-1.5">
                                 <span className="text-amber-400/80">✦</span> Team Directories
@@ -221,9 +228,10 @@ const Navbar = () => {
                               {item.dropdown.map((subItem) => {
                                 const IconComponent = subItem.icon;
                                 return (
-                                  <a
+                                  <Link
                                     key={subItem.name}
-                                    href={subItem.href}
+                                    to={subItem.href}
+                                    onClick={() => setIsTeamOpen(false)}
                                     className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/[0.05] transition-all duration-200 border border-transparent hover:border-amber-500/20"
                                   >
                                     <div className="w-9 h-9 rounded-xl bg-neutral-900/90 border border-white/5 flex items-center justify-center text-amber-400/80 group-hover/item:text-amber-400 group-hover/item:border-amber-500/30 group-hover/item:bg-amber-500/10 group-hover/item:shadow-[0_0_12px_rgba(212,175,55,0.15)] transition-all duration-300 shrink-0">
@@ -238,7 +246,7 @@ const Navbar = () => {
                                         {subItem.desc}
                                       </div>
                                     </div>
-                                  </a>
+                                  </Link>
                                 );
                               })}
                             </div>
@@ -255,11 +263,10 @@ const Navbar = () => {
             <div className="hidden md:flex items-center pl-4">
               <a
                 href="#registration"
+                onClick={(e) => handleNavClick(e, '#registration')}
                 className="group relative inline-flex items-center justify-center px-5 py-2 text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 border border-amber-300/60 overflow-hidden"
               >
-                {/* Shimmer sweep effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                
                 <span className="relative flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 fill-black text-black animate-pulse" />
                   <span>LAF REGISTRATION</span>
@@ -270,7 +277,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* ================= 4. MOBILE DRAWER MENU ================= */}
+        {/* Mobile Drawer Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -281,8 +288,6 @@ const Navbar = () => {
               className="md:hidden bg-[#141416] border-t border-neutral-800 overflow-hidden"
             >
               <div className="px-5 pt-4 pb-6 space-y-3">
-                
-                {/* Mobile Info Ribbon */}
                 <div className="p-3 rounded-xl bg-neutral-900/90 border border-amber-500/20 text-xs text-neutral-300 flex items-center justify-between">
                   <span className="text-[#D4AF37] font-semibold text-[11px] uppercase">Lucknow Oct 2026</span>
                   <span className="text-[10px] text-neutral-400">Architects Conclave</span>
@@ -292,7 +297,7 @@ const Navbar = () => {
                   <div key={item.name} className="border-b border-neutral-800/60 pb-2">
                     <a
                       href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className="block py-1.5 text-sm font-semibold uppercase tracking-wider text-neutral-200 hover:text-amber-400 transition-colors"
                     >
                       {item.name}
@@ -303,15 +308,15 @@ const Navbar = () => {
                         {item.dropdown.map((sub) => {
                           const SubIcon = sub.icon;
                           return (
-                            <a
+                            <Link
                               key={sub.name}
-                              href={sub.href}
+                              to={sub.href}
                               onClick={() => setIsMobileMenuOpen(false)}
                               className="flex items-center gap-2 py-1 text-xs text-neutral-400 hover:text-amber-400 transition-colors"
                             >
                               <SubIcon className="w-3.5 h-3.5 text-amber-500" />
                               <span>{sub.name}</span>
-                            </a>
+                            </Link>
                           );
                         })}
                       </div>
@@ -322,7 +327,7 @@ const Navbar = () => {
                 <div className="pt-2">
                   <a
                     href="#registration"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, '#registration')}
                     className="w-full flex items-center justify-center gap-2 py-3 text-xs uppercase font-bold tracking-wider text-black bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 rounded-xl shadow-lg shadow-amber-500/20"
                   >
                     <Sparkles className="w-4 h-4 fill-black" />
