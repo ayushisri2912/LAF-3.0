@@ -135,7 +135,7 @@ const GetInTouchSection = () => {
           <div className="flex items-center gap-4">
             <span className="text-xs font-bold text-[#B77A27] font-mono">10</span>
             <span className="w-12 h-px bg-[#B77A27]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#F15A24]">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#B77A27]">
               GET IN TOUCH
             </span>
           </div>
@@ -158,7 +158,7 @@ const GetInTouchSection = () => {
           >
             <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-light leading-[0.96] tracking-[-0.03em] text-[#171717]">
               Get in{" "}
-              <span className="italic text-[#F15A24] font-normal">
+              <span className="italic text-[#B77A27] font-normal">
                 Touch.
               </span>
             </h2>
@@ -190,7 +190,7 @@ const GetInTouchSection = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 bg-white/80 backdrop-blur-xs p-8 sm:p-12 rounded-3xl border border-[#D9D0C2] shadow-sm relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-radial from-[#F15A24]/10 to-transparent pointer-events-none" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-radial from-[#B77A27]/10 to-transparent pointer-events-none" />
 
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D9D0C2]/60">
               <h3 className="font-serif text-2xl font-light text-[#171717]">
@@ -223,7 +223,7 @@ const GetInTouchSection = () => {
                   {/* FIRST NAME */}
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                      Your first name <span className="text-[#F15A24]">*</span>
+                      Your first name <span className="text-[#B77A27]">*</span>
                     </label>
                     <input
                       type="text"
@@ -231,7 +231,7 @@ const GetInTouchSection = () => {
                       placeholder="Your first name"
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#F15A24] focus:bg-white transition-all duration-300"
+                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
                     />
                   </div>
 
@@ -245,7 +245,7 @@ const GetInTouchSection = () => {
                       placeholder="Your contact number"
                       value={formData.contactNumber}
                       onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#F15A24] focus:bg-white transition-all duration-300"
+                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -253,7 +253,7 @@ const GetInTouchSection = () => {
                 {/* EMAIL */}
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                    Your e-mail <span className="text-[#F15A24]">*</span>
+                    Your e-mail <span className="text-[#B77A27]">*</span>
                   </label>
                   <input
                     type="email"
@@ -261,14 +261,14 @@ const GetInTouchSection = () => {
                     placeholder="Your e-mail"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#F15A24] focus:bg-white transition-all duration-300"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
                   />
                 </div>
 
                 {/* MESSAGE */}
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                    Message <span className="text-[#F15A24]">*</span>
+                    Message <span className="text-[#B77A27]">*</span>
                   </label>
                   <textarea
                     required
@@ -276,14 +276,14 @@ const GetInTouchSection = () => {
                     placeholder="Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#F15A24] focus:bg-white transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300 resize-none"
                   />
                 </div>
 
                 {/* SUBMIT BUTTON */}
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl bg-[#F15A24] hover:bg-[#d84d1a] text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
+                  className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl bg-[#B77A27] hover:bg-[#99641D] text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
                 >
                   <span>SUBMIT</span>
                   <Send size={15} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -306,7 +306,7 @@ const GetInTouchSection = () => {
               {/* FOLLOW US */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <Share2 size={16} className="text-[#F15A24]" />
+                  <Share2 size={16} className="text-[#B77A27]" />
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#171717]">
                     Follow Us
                   </span>
@@ -319,7 +319,7 @@ const GetInTouchSection = () => {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className="w-10 h-10 rounded-xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-neutral-600 hover:text-white hover:bg-[#F15A24] hover:border-[#F15A24] transition-all duration-300 shadow-2xs hover:scale-105"
+                        className="w-10 h-10 rounded-xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-neutral-600 hover:text-white hover:bg-[#B77A27] hover:border-[#B77A27] transition-all duration-300 shadow-2xs hover:scale-105"
                       >
                         <IconComponent />
                       </a>
@@ -342,7 +342,7 @@ const GetInTouchSection = () => {
                       href="https://maps.app.goo.gl/UQLY4PHADL96UGU86"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs sm:text-sm text-neutral-600 hover:text-[#F15A24] leading-relaxed block transition-colors group"
+                      className="text-xs sm:text-sm text-neutral-600 hover:text-[#B77A27] leading-relaxed block transition-colors group"
                     >
                       Ekana International Stadium<br />
                       Bharat Ratna Shri Atal Bihari Vajpayee<br />
@@ -372,7 +372,7 @@ const GetInTouchSection = () => {
                       </p>
                       <a
                         href="tel:+918874184076"
-                        className="text-sm font-medium text-[#171717] hover:text-[#F15A24] transition-colors"
+                        className="text-sm font-medium text-[#171717] hover:text-[#B77A27] transition-colors"
                       >
                         +91 8874 1840 76
                       </a>
@@ -383,7 +383,7 @@ const GetInTouchSection = () => {
                       </p>
                       <a
                         href="tel:+919335210024"
-                        className="text-sm font-medium text-[#171717] hover:text-[#F15A24] transition-colors"
+                        className="text-sm font-medium text-[#171717] hover:text-[#B77A27] transition-colors"
                       >
                         +91 9335 2100 24
                       </a>
@@ -404,7 +404,7 @@ const GetInTouchSection = () => {
                     </h4>
                     <a
                       href="mailto:info@taskmarketingsolutions.in"
-                      className="text-sm font-medium text-[#171717] hover:text-[#F15A24] transition-colors break-all"
+                      className="text-sm font-medium text-[#171717] hover:text-[#B77A27] transition-colors break-all"
                     >
                       info@taskmarketingsolutions.in
                     </a>
@@ -415,7 +415,7 @@ const GetInTouchSection = () => {
               {/* EVENT DATE */}
               <div className="pt-6 border-t border-[#D9D0C2]/60">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#F15A24]/10 border border-[#F15A24]/20 flex items-center justify-center text-[#F15A24] shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
                     <Calendar size={17} />
                   </div>
                   <div>
@@ -457,7 +457,7 @@ const GetInTouchSection = () => {
                 href={doc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between p-5 rounded-2xl bg-linear-to-r from-[#8C2300] to-[#A82B00] hover:from-[#A82B00] hover:to-[#C43300] text-white shadow-md hover:shadow-xl transition-all duration-300"
+                className="group flex items-center justify-between p-5 rounded-2xl bg-[#B77A27] hover:bg-[#99641D] text-white shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-center gap-3">
                   <Download size={17} className="text-white/80 group-hover:scale-110 transition-transform" />

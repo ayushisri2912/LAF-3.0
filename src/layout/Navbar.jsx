@@ -48,7 +48,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Highlights', href: '#highlights' },
     { name: 'Agenda', href: '#agenda' },
-    { name: 'Participate', href: '#participate' },
+    { name: 'Participate', href: '/participate' },
     {
       name: 'Team',
       href: '#festival-team',
@@ -190,7 +190,8 @@ const Navbar = () => {
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
-                      location.pathname.startsWith('/team') && item.name === 'Team'
+                      (location.pathname.startsWith('/team') && item.name === 'Team') ||
+                      (location.pathname === '/participate' && item.name === 'Participate')
                         ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
                         : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
                     }`}

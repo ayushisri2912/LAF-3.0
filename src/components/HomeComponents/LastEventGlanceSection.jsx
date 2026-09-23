@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Sparkles, 
   ArrowUpRight, 
@@ -12,6 +12,50 @@ import {
   Users,
   Download
 } from "lucide-react";
+
+/* =========================================================
+   ANIMATED COUNTER COMPONENT (Counts 0 to Target on Scroll)
+========================================================= */
+function AnimatedCounter({ end, duration = 2000, suffix = "+" }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let startTime = null;
+    let animationFrameId;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out cubic
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      const currentCount = Math.floor(easedProgress * end);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isInView, end, duration]);
+
+  return (
+    <span ref={ref}>
+      {count.toLocaleString()}{suffix}
+    </span>
+  );
+}
 
 import event01 from "../../assets/images/LAFevent1.png";
 import event02 from "../../assets/images/LAFevent2.png";
@@ -368,7 +412,9 @@ export default function LastEventGlanceSection() {
                 <Building2 className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">100+</div>
+                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
+                  <AnimatedCounter end={100} suffix="+" />
+                </div>
                 <div className="text-[10.5px] font-bold uppercase tracking-wider text-neutral-500 mt-0.5">Exhibiting Brands</div>
               </div>
             </div>
@@ -379,7 +425,9 @@ export default function LastEventGlanceSection() {
                 <Award className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">1,000+</div>
+                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
+                  <AnimatedCounter end={1000} suffix="+" />
+                </div>
                 <div className="text-[10.5px] font-bold uppercase tracking-wider text-neutral-500 mt-0.5">Architects & Delegates</div>
               </div>
             </div>
@@ -390,7 +438,9 @@ export default function LastEventGlanceSection() {
                 <Users className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">10,000+</div>
+                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
+                  <AnimatedCounter end={10000} suffix="+" />
+                </div>
                 <div className="text-[10.5px] font-bold uppercase tracking-wider text-neutral-500 mt-0.5">Visitors Footfall</div>
               </div>
             </div>

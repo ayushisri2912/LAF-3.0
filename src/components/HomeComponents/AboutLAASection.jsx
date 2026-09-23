@@ -27,36 +27,70 @@ import {
 // ==========================================
 // IMAGES
 // ==========================================
-import mentorImage from "../../assets/images/m1.png";
-import patron1 from "../../assets/images/ob1.png";
-import patron2 from "../../assets/images/ob2.png";
-import patron3 from "../../assets/images/ob3.png";
-import patron4 from "../../assets/images/ob4.png";
+import mentorImage from "../../assets/images/m-1.png";
+import ob11Img from "../../assets/images/ob1.1.png";
+import ob12Img from "../../assets/images/ob1.2.png";
+import ob21Img from "../../assets/images/ob2.1.png";
+import db22Img from "../../assets/images/db2.2.png";
+import cd31Img from "../../assets/images/cd3.1.png";
+import cd32Img from "../../assets/images/cd3.2.png";
+import cd4Img from "../../assets/images/cd-4.png";
 
 // ==========================================
 // DATA
 // ==========================================
 
-const patrons = [
+const mentorData = {
+  name: "Ar. D.C. Thapar",
+  role: "Honorary Mentor",
+  badge: "MENTOR",
+  tag: "LAA GUIDANCE",
+  image: mentorImage,
+  quote: "Experience that shapes the next generation of architects.",
+};
+
+const patronsData = [
   {
-    image: patron1,
     name: "Ar. Ashok Kumar",
-    role: "Patron",
+    role: "Patron / Past President",
+    badge: "PATRON",
+    image: ob11Img,
   },
   {
-    image: patron2,
-    name: "Ar. Ajai Behl",
-    role: "Patron",
+    name: "Ar. Anupam Mittal",
+    role: "Patron / President",
+    badge: "PATRON",
+    image: ob12Img,
   },
   {
-    image: patron3,
-    name: "Dr. Vandana Sehgal",
-    role: "Patron",
+    name: "Ar. Sanjay Patel",
+    role: "Patron / Past President",
+    badge: "PATRON",
+    image: ob21Img,
   },
   {
-    image: patron4,
-    name: "Ar. Sanjay Sinha",
-    role: "Patron",
+    name: "Ar. Devesh Mani",
+    role: "Patron / Gen. Secretary",
+    badge: "PATRON",
+    image: db22Img,
+  },
+  {
+    name: "Ar. Nitin Gangwar",
+    role: "Patron / Secretary",
+    badge: "PATRON",
+    image: cd31Img,
+  },
+  {
+    name: "Ar. Ashutosh Gupta",
+    role: "Patron / Joint Secretary",
+    badge: "PATRON",
+    image: cd32Img,
+  },
+  {
+    name: "Ar. Devendra Kumar",
+    role: "Patron / Treasurer",
+    badge: "PATRON",
+    image: cd4Img,
   },
 ];
 
@@ -487,85 +521,95 @@ const AboutLAASection = () => {
             </p>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-12 items-stretch">
-            {/* MENTOR CARD (FEATURED LEFT) */}
+          <div className="grid gap-8 lg:grid-cols-12 items-stretch">
+            {/* FEATURED UNIQUE MENTOR CARD (LEFT) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="lg:col-span-4 bg-gradient-to-b from-white via-white to-[#F0EBE2] p-8 rounded-2xl border border-[#D9D0C2] shadow-md flex flex-col justify-between text-center relative overflow-hidden group"
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-4 bg-gradient-to-b from-[#FFFDF9] via-white to-[#F7F2EA] p-7 sm:p-8 rounded-3xl border-2 border-[#D4AF37]/40 shadow-lg flex flex-col justify-between text-center relative overflow-hidden group hover:shadow-2xl hover:border-[#B77A27] transition-all duration-500"
             >
-              <div className="absolute top-4 right-4 bg-[#B77A27]/10 text-[#B77A27] text-[9.5px] font-bold uppercase font-mono tracking-widest px-3 py-1 rounded-full border border-[#B77A27]/20">
-                Mentor
+              {/* Gold Top Light Sweep */}
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
+
+              {/* Unique Gold Mentor Badge */}
+              <div className="absolute top-4 right-4 bg-[#B77A27] text-white text-[9.5px] font-bold uppercase font-mono tracking-widest px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
+                <Sparkles size={11} />
+                <span>{mentorData.badge}</span>
               </div>
 
               <div>
-                <p className="text-[10.5px] uppercase tracking-[0.28em] text-[#B77A27] font-bold font-mono mb-6">
-                  LAA GUIDANCE
+                <p className="text-[10.5px] uppercase tracking-[0.28em] text-[#B77A27] font-bold font-mono mb-4 text-left">
+                  ✦ {mentorData.tag}
                 </p>
 
-                {/* Avatar with luxury orbit ring */}
-                <div className="relative mx-auto h-36 w-36 sm:h-40 sm:w-40 my-4">
-                  <div className="absolute -inset-3 rounded-full border border-[#B77A27]/25 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute -inset-6 rounded-full border border-[#B8893A]/15" />
-                  <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-[#F7F4EE] shadow-lg">
+                {/* Avatar with double orbit ring */}
+                <div className="relative mx-auto h-32 w-32 sm:h-36 sm:w-36 my-3">
+                  <div className="absolute -inset-2.5 rounded-full border border-[#B77A27]/30 group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute -inset-5 rounded-full border border-[#B8893A]/15 pointer-events-none" />
+                  <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white shadow-lg bg-white">
                     <img
-                      src={mentorImage}
-                      alt="Ar. D.C. Thapar"
+                      src={mentorData.image}
+                      alt={mentorData.name}
                       className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 </div>
 
-                <h4 className="mt-6 font-serif text-2xl font-semibold text-[#171717]">
-                  Ar. D.C. Thapar
+                <h4 className="mt-4 font-serif text-2xl font-bold text-[#171717] group-hover:text-[#B77A27] transition-colors">
+                  {mentorData.name}
                 </h4>
-                <p className="mt-1 text-[10.5px] font-mono tracking-[0.25em] text-[#B77A27] uppercase font-bold">
-                  Honorary Mentor
+                <p className="mt-0.5 text-xs font-mono tracking-[0.25em] text-[#B77A27] uppercase font-bold">
+                  {mentorData.role}
                 </p>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-[#D9D0C2] text-center">
-                <p className="font-serif italic text-sm text-neutral-600">
-                  "Experience that shapes the next generation of architects."
+              <div className="mt-6 pt-5 border-t border-[#E6DFD3] text-center">
+                <p className="font-serif italic text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  "{mentorData.quote}"
                 </p>
               </div>
             </motion.div>
 
-            {/* PATRONS GRID (RIGHT) */}
-            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-              {patrons.map((person, index) => (
+            {/* PATRONS COMPACT MINIMAL GRID (RIGHT) */}
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5">
+              {patronsData.map((person, index) => (
                 <motion.div
                   key={person.name}
-                  initial={{ opacity: 0, y: 25 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
-                  className="group relative flex flex-col items-center justify-between p-6 rounded-2xl bg-white/70 hover:bg-white border border-[#D9D0C2] hover:border-[#B77A27]/50 shadow-2xs hover:shadow-xl transition-all duration-300 text-center"
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className="group relative flex flex-col items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/80 hover:bg-white border border-[#D9D0C2] hover:border-[#B77A27]/50 shadow-2xs hover:shadow-xl transition-all duration-300 text-center"
                 >
-                  <div className="w-full">
-                    {/* Image orbit ring */}
-                    <div className="relative mx-auto h-24 w-24 sm:h-28 sm:w-28 mb-4">
-                      <div className="absolute -inset-2 rounded-full border border-[#B77A27]/20 group-hover:border-[#B77A27]/50 group-hover:-inset-3 transition-all duration-300" />
-                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-white shadow-md bg-[#EAE5DC]">
+                  {/* Patron Badge */}
+                  <div className="absolute top-2.5 right-2.5 text-[8.5px] font-bold uppercase font-mono tracking-widest px-2 py-0.5 rounded-full bg-amber-50 text-[#B77A27] border border-amber-200/60">
+                    {person.badge}
+                  </div>
+
+                  <div className="w-full flex flex-col items-center pt-2">
+                    {/* Image Circular Ring */}
+                    <div className="relative w-22 h-22 sm:w-26 sm:h-26 rounded-full p-1 bg-gradient-to-b from-[#E6DFD3] via-[#D4AF37]/40 to-transparent group-hover:from-[#B77A27] group-hover:to-amber-300 transition-all duration-300 shadow-sm group-hover:shadow-[0_0_18px_rgba(183,122,39,0.2)] mb-3">
+                      <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white flex items-center justify-center">
                         <img
                           src={person.image}
                           alt={person.name}
-                          className="h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                          className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
                         />
                       </div>
                     </div>
 
-                    <h5 className="font-serif text-base font-semibold text-[#171717] group-hover:text-[#B77A27] transition-colors leading-snug">
+                    <h5 className="font-serif text-sm sm:text-base font-bold text-neutral-900 group-hover:text-[#B77A27] transition-colors leading-snug">
                       {person.name}
                     </h5>
-                    <p className="mt-1 text-[10px] uppercase font-mono tracking-[0.2em] text-neutral-400">
+                    <p className="mt-0.5 text-[10px] text-neutral-500 font-medium">
                       {person.role}
                     </p>
                   </div>
 
-                  <div className="mt-4 h-0.5 w-0 bg-[#B77A27] group-hover:w-10 transition-all duration-300" />
+                  <div className="mt-3 h-0.5 w-0 bg-[#B77A27] group-hover:w-8 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>

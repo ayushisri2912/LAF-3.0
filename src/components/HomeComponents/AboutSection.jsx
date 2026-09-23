@@ -296,7 +296,7 @@ const AboutSection = () => {
 
           {/* GRID OF SECTOR CARDS WITH IMAGES AND NAMES */}
           <div className="relative max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {sectors.map((sector, index) => (
                 <motion.div
                   key={sector.id}
@@ -306,7 +306,7 @@ const AboutSection = () => {
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="group relative"
                 >
-                  <div className="relative min-h-[200px] p-6 rounded-2xl border border-[#D9D0C2] transition-all duration-500 overflow-hidden bg-white/50 group-hover:bg-white/95 group-hover:shadow-xl flex flex-col items-center justify-center text-center">
+                  <div className="relative min-h-[180px] sm:min-h-[200px] p-4 sm:p-6 rounded-2xl border border-[#D9D0C2] transition-all duration-500 overflow-hidden bg-white/50 group-hover:bg-white/95 group-hover:shadow-xl flex flex-col items-center justify-center text-center">
                     {/* Hover color glow */}
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -323,19 +323,19 @@ const AboutSection = () => {
 
                     {/* Image icon container */}
                     <div
-                      className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white border flex items-center justify-center p-3 shadow-[0_8px_25px_rgba(0,0,0,0.05)] transition-all duration-500 group-hover:scale-105"
+                      className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white border flex items-center justify-center p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.05)] transition-all duration-500 group-hover:scale-105 shrink-0"
                       style={{
                         borderColor: `${sector.color}45`,
                         boxShadow: `0 8px 25px ${sector.glow}`,
                       }}
                     >
-                      {/* Dashed circle animation */}
+                      {/* Concentric dashed circle animation */}
                       <div
-                        className="absolute w-[72px] h-[72px] sm:w-[86px] sm:h-[86px] rounded-full border border-dashed opacity-40 group-hover:opacity-90 group-hover:rotate-180 transition-all duration-700 pointer-events-none"
+                        className="absolute inset-1.5 rounded-full border border-dashed opacity-40 group-hover:opacity-90 group-hover:rotate-180 transition-all duration-700 pointer-events-none"
                         style={{ borderColor: sector.color }}
                       />
 
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 overflow-hidden flex items-center justify-center">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 overflow-hidden flex items-center justify-center relative z-10">
                         <img
                           src={sector.img}
                           alt={sector.name}
@@ -344,13 +344,13 @@ const AboutSection = () => {
                       </div>
                     </div>
 
-                    {/* Sector name underneath */}
-                    <div className="relative z-10 mt-4 flex items-center justify-center gap-1.5 px-2">
-                      <h4 className="text-xs sm:text-sm font-black tracking-[0.08em] text-[#191919] uppercase group-hover:tracking-[0.12em] transition-all duration-300">
+                    {/* Sector name underneath - Perfectly centered */}
+                    <div className="relative z-10 mt-3.5 sm:mt-4 w-full flex items-center justify-center px-1">
+                      <h4 className="text-[11px] sm:text-xs md:text-sm font-black tracking-[0.04em] sm:tracking-[0.08em] text-[#191919] uppercase text-center leading-snug group-hover:tracking-[0.06em] sm:group-hover:tracking-[0.1em] transition-all duration-300 max-w-full">
                         {sector.name}
                       </h4>
                       <ArrowUpRight
-                        className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0"
+                        className="w-3.5 h-3.5 absolute right-1.5 sm:right-3 top-1/2 -translate-y-1/2 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0 pointer-events-none hidden sm:block"
                         style={{ color: sector.color }}
                       />
                     </div>

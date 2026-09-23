@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import LAFLogo from "../assets/images/logo.jpeg";
+import CCWSLogo from "../assets/images/CodeCrafterlogo.webp";
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -50,7 +51,7 @@ const YoutubeIcon = () => (
 const quickLinks = [
   { label: "Highlights", href: "#highlights", icon: Sparkles },
   { label: "Agenda", href: "#agenda", icon: Calendar },
-  { label: "Participate", href: "#participation", icon: Handshake },
+  { label: "Participate", href: "/participate", icon: Handshake },
   { label: "About LAA", href: "#about", icon: Building2 },
   { label: "Team", href: "#festival-team", icon: Users },
   { label: "Gallery", href: "#gallery", icon: ImageIcon },
@@ -77,6 +78,16 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -85,89 +96,77 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-[#111114] text-white border-t border-[#D4AF37]/30">
+    <footer className="relative overflow-hidden bg-[#0e0e11] text-white border-t border-[#D4AF37]/30 shadow-2xl">
       {/* Top Hairline Gold Gradient Indicator */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-80" />
 
-     
-
       {/* =====================================================
-          MAIN FOOTER CONTENT (COMPACT SPACING & ICONS)
+          MAIN FOOTER CONTENT (COMPACT LOW-HEIGHT LAYOUT)
       ====================================================== */}
-
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-10 sm:py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-6 sm:py-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12 lg:gap-8 items-start">
+          
           {/* ================= BRAND COLUMN ================= */}
-          <div className="lg:col-span-4">
-            <a href="#" className="group inline-flex items-center gap-3.5">
+          <div className="lg:col-span-4 space-y-3">
+            <a href="#" className="group inline-flex items-center gap-3">
               <img
                 src={LAFLogo}
                 alt="LAF 3.0 Logo"
-                className="h-14 w-auto object-contain rounded-xl border border-[#D4AF37]/40 p-1 bg-white shadow-sm group-hover:scale-105 transition-transform duration-300"
+                className="h-14 sm:h-16 w-auto object-contain rounded-xl border border-[#D4AF37]/40 p-1 bg-white shadow-sm group-hover:scale-105 transition-all duration-300"
               />
               <div>
-                <h3 className="font-serif text-2xl font-semibold leading-none text-white">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-none text-white tracking-tight">
                   Lucknow
                 </h3>
-                <p className="mt-1.5 font-mono text-[9px] tracking-[0.25em] text-[#D4AF37] font-semibold uppercase">
+                <p className="mt-1 font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D4AF37] font-bold uppercase">
                   ARCHITECTURE FESTIVAL 3.0
                 </p>
               </div>
             </a>
 
-            <p className="mt-4 max-w-sm text-xs leading-relaxed text-neutral-400">
-              A platform bringing architecture, design, culture,
-              sustainability and professional exchange together in Lucknow.
+            <p className="text-xs sm:text-sm leading-relaxed text-neutral-300 font-light max-w-sm pt-0.5">
+              A platform bringing architecture, design, culture, sustainability and
+              professional exchange together in Lucknow.
             </p>
 
-            <div className="mt-4 flex items-center gap-2.5 text-neutral-400 text-xs">
-              <MapPin size={15} className="text-[#D4AF37] shrink-0" />
+            <div className="flex items-center gap-2 text-xs text-neutral-300 font-medium">
+              <MapPin size={14} className="text-[#D4AF37] shrink-0" />
               <span>Lucknow, Uttar Pradesh, India</span>
             </div>
 
-            {/* REAL SOCIAL ICONS WITH HOVER GLOW */}
-            <div className="mt-5 flex items-center gap-2.5">
+            {/* Social Icons Strip */}
+            <div className="flex items-center gap-2 pt-1">
               {socialLinks.map((social) => {
-                const IconComponent = social.icon;
+                const Icon = social.icon;
                 return (
                   <a
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="
-                      w-9 h-9 rounded-xl
-                      bg-neutral-900 border border-white/10
-                      flex items-center justify-center
-                      text-neutral-400
-                      hover:text-black hover:bg-[#D4AF37] hover:border-[#D4AF37]
-                      hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]
-                      transition-all duration-300
-                    "
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 border border-white/15 text-neutral-300 hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300"
                   >
-                    <IconComponent size={16} />
+                    <Icon />
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* ================= EXPLORE COLUMN WITH ICONS ================= */}
-          <div className="lg:col-span-2">
-            <p className="mb-4 font-mono text-[10px] font-bold tracking-[0.3em] uppercase text-[#D4AF37]">
+          {/* ================= QUICK LINKS ================= */}
+          <div className="lg:col-span-3">
+            <h4 className="font-mono text-xs tracking-[0.2em] text-[#D4AF37] font-bold uppercase mb-3 pb-0.5 border-b border-[#D4AF37]/20 inline-block">
               EXPLORE
-            </p>
-
-            <ul className="space-y-2.5">
+            </h4>
+            <ul className="grid grid-cols-2 gap-2">
               {quickLinks.map((link) => {
-                const LinkIcon = link.icon;
+                const Icon = link.icon;
                 return (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group flex items-center gap-2.5 text-xs text-neutral-300 hover:text-amber-400 transition-colors"
+                      className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
                     >
-                      <LinkIcon className="w-3.5 h-3.5 text-[#D4AF37]/70 group-hover:text-amber-400 transition-colors" />
+                      <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
                       <span>{link.label}</span>
                     </a>
                   </li>
@@ -176,29 +175,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ================= FESTIVAL COLUMN WITH ICONS ================= */}
+          {/* ================= FESTIVAL SECTIONS ================= */}
           <div className="lg:col-span-2">
-            <p className="mb-4 font-mono text-[10px] font-bold tracking-[0.3em] uppercase text-[#D4AF37]">
+            <h4 className="font-mono text-xs tracking-[0.2em] text-[#D4AF37] font-bold uppercase mb-3 pb-0.5 border-b border-[#D4AF37]/20 inline-block">
               FESTIVAL
-            </p>
-
-            <ul className="space-y-2.5">
+            </h4>
+            <ul className="space-y-2">
               {festivalLinks.map((link) => {
-                const LinkIcon = link.icon;
+                const Icon = link.icon;
                 return (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group flex items-center justify-between text-xs text-neutral-300 hover:text-amber-400 transition-colors"
+                      className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
                     >
-                      <span className="flex items-center gap-2.5">
-                        <LinkIcon className="w-3.5 h-3.5 text-[#D4AF37]/70 group-hover:text-amber-400 transition-colors" />
-                        <span>{link.label}</span>
-                      </span>
-                      <ArrowUpRight
-                        size={12}
-                        className="text-[#D4AF37] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
-                      />
+                      <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
+                      <span>{link.label}</span>
                     </a>
                   </li>
                 );
@@ -206,35 +198,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ================= DOWNLOADS COLUMN ================= */}
-          <div className="lg:col-span-4">
-            <p className="mb-4 font-mono text-[10px] font-bold tracking-[0.3em] uppercase text-[#D4AF37]">
+          {/* ================= DOWNLOADS ================= */}
+          <div className="lg:col-span-3">
+            <h4 className="font-mono text-xs tracking-[0.2em] text-[#D4AF37] font-bold uppercase mb-3 pb-0.5 border-b border-[#D4AF37]/20 inline-block">
               EVENT DOCUMENTS
-            </p>
-
+            </h4>
             <div className="space-y-2">
               {downloads.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="
-                    group flex items-center justify-between
-                    rounded-xl border border-white/10 bg-white/[0.02]
-                    px-3.5 py-2.5
-                    hover:border-[#D4AF37]/50 hover:bg-white/[0.05]
-                    transition-all duration-200
-                  "
+                  className="group flex items-center justify-between rounded-xl bg-neutral-900/90 border border-white/15 px-3 py-2 text-xs sm:text-sm text-neutral-200 hover:border-[#D4AF37]/60 hover:bg-neutral-900 transition-all duration-300"
                 >
                   <div className="flex items-center gap-2.5">
-                    <FileText className="w-4 h-4 text-[#D4AF37]" />
-                    <span className="text-xs font-medium text-neutral-300 group-hover:text-white transition-colors">
-                      {item.label}
-                    </span>
+                    <FileText size={14} className="text-[#D4AF37]" />
+                    <span className="font-semibold">{item.label}</span>
                   </div>
-                  <Download
-                    size={14}
-                    className="text-neutral-400 group-hover:text-[#D4AF37] transition-all group-hover:-translate-y-0.5"
-                  />
+                  <Download size={13} className="text-neutral-400 group-hover:text-[#D4AF37] transition-colors" />
                 </a>
               ))}
             </div>
@@ -243,21 +223,20 @@ export default function Footer() {
         </div>
 
         {/* ================= CONTACT STRIP (COMPACT) ================= */}
-        <div className="mt-8 border-y border-white/10 py-5">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            
+        <div className="mt-5 pt-4 border-t border-white/10">
+          <div className="grid gap-3 md:grid-cols-3">
             <a
               href="tel:+918874184076"
-              className="group flex items-center gap-3.5"
+              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.03] transition-colors"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-white/10 group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/10 transition-colors">
-                <Phone size={15} className="text-[#D4AF37]" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/15 transition-all duration-300 shrink-0">
+                <Phone size={15} />
               </div>
               <div>
-                <p className="text-[8px] font-mono tracking-[0.2em] text-neutral-400 uppercase">
+                <p className="text-[9px] font-mono tracking-[0.18em] text-[#D4AF37] font-bold uppercase">
                   TASK MARKETING SOLUTIONS
                 </p>
-                <span className="text-xs font-semibold text-neutral-200 group-hover:text-amber-400 transition-colors">
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors">
                   +91 8874 1840 76
                 </span>
               </div>
@@ -265,16 +244,16 @@ export default function Footer() {
 
             <a
               href="tel:+919335210024"
-              className="group flex items-center gap-3.5"
+              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.03] transition-colors"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-white/10 group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/10 transition-colors">
-                <Phone size={15} className="text-[#D4AF37]" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/15 transition-all duration-300 shrink-0">
+                <Phone size={15} />
               </div>
               <div>
-                <p className="text-[8px] font-mono tracking-[0.2em] text-neutral-400 uppercase">
+                <p className="text-[9px] font-mono tracking-[0.18em] text-[#D4AF37] font-bold uppercase">
                   LUCKNOW ARCHITECTS ASSOCIATION
                 </p>
-                <span className="text-xs font-semibold text-neutral-200 group-hover:text-amber-400 transition-colors">
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors">
                   +91 9335 2100 24
                 </span>
               </div>
@@ -282,47 +261,69 @@ export default function Footer() {
 
             <a
               href="mailto:info@taskmarketingsolutions.in"
-              className="group flex items-center gap-3.5"
+              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.03] transition-colors"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-white/10 group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/10 transition-colors">
-                <Mail size={15} className="text-[#D4AF37]" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/15 transition-all duration-300 shrink-0">
+                <Mail size={15} />
               </div>
               <div>
-                <p className="text-[8px] font-mono tracking-[0.2em] text-neutral-400 uppercase">
+                <p className="text-[9px] font-mono tracking-[0.18em] text-[#D4AF37] font-bold uppercase">
                   EMAIL ENQUIRIES
                 </p>
-                <span className="text-xs font-semibold text-neutral-200 group-hover:text-amber-400 transition-colors break-all">
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors break-all">
                   info@taskmarketingsolutions.in
                 </span>
               </div>
             </a>
-
           </div>
         </div>
 
-        {/* ================= BOTTOM BAR (COMPACT) ================= */}
-        <div className="flex flex-col items-center justify-between gap-4 py-5 md:flex-row">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] text-neutral-400 md:justify-start font-mono">
+        {/* ================= BOTTOM BAR WITH TRANSPARENT THEMED CCWS LOGO ================= */}
+        <div className="flex flex-col items-center justify-between gap-3 py-3.5 md:flex-row border-t border-white/10 mt-4 text-neutral-300 font-mono text-xs">
+          {/* Left: Copyright */}
+          <div>
             <span>© {new Date().getFullYear()} LUCKNOW ARCHITECTURE FESTIVAL 3.0</span>
-            <span className="hidden h-3 w-px bg-white/10 sm:block" />
-            <a href="#" className="hover:text-amber-400 transition-colors">PRIVACY POLICY</a>
-            <span className="hidden h-3 w-px bg-white/10 sm:block" />
-            <a href="#" className="hover:text-amber-400 transition-colors">TERMS OF USE</a>
           </div>
 
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="group flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-neutral-400 hover:text-amber-400 transition-colors"
-          >
-            <span>BACK TO TOP</span>
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 border border-white/10 group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-all">
-              <ArrowUp size={14} />
-            </span>
-          </button>
+          {/* Center: Precision Crafted Credit with Transparent Gold-Themed CCWS Logo */}
+          <div className="flex flex-wrap items-center justify-center gap-2 text-neutral-300 font-mono">
+            <span className="text-[#D4AF37] font-bold text-xs font-mono">&lt;/&gt;</span>
+            <span className="tracking-tight">Precision Crafted with Digital Intelligence by</span>
+            <a
+              href="https://codecrafter.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 hover:scale-105 transition-transform duration-300"
+            >
+              <img
+                src={CCWSLogo}
+                alt="CodeCrafter Web Solutions"
+                className="h-6 w-auto object-contain brightness-0 invert sepia-100 saturate-[500%] hue-rotate-[15deg] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] transition-all duration-300"
+              />
+            </a>
+          </div>
+
+          {/* Right: Privacy Policy & Terms of Use */}
+          <div className="flex items-center gap-4">
+            <a href="#" className="hover:text-[#D4AF37] transition-colors">PRIVACY POLICY</a>
+            <span className="h-3 w-px bg-white/20" />
+            <a href="#" className="hover:text-[#D4AF37] transition-colors">TERMS OF USE</a>
+          </div>
         </div>
 
       </div>
+
+      {/* Floating UI Side Back To Top Button */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Back to Top"
+        className={`fixed bottom-6 right-6 z-50 group flex items-center justify-center w-11 h-11 rounded-full bg-[#111114]/90 border border-[#D4AF37]/70 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black hover:scale-110 active:scale-95 shadow-[0_4px_25px_rgba(212,175,55,0.3)] backdrop-blur-md transition-all duration-300 cursor-pointer ${
+          showScrollTop ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-5 pointer-events-none"
+        }`}
+      >
+        <ArrowUp size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+      </button>
     </footer>
   );
 }
