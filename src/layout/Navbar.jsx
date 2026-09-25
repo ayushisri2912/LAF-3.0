@@ -46,7 +46,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Highlights', href: '#highlights' },
+    { name: 'Highlights', href: '/highlights' },
     { name: 'Agenda', href: '#agenda' },
     { name: 'Participate', href: '/participate' },
     {
@@ -58,10 +58,10 @@ const Navbar = () => {
         { name: 'Student Volunteers', href: '/team/student-volunteers', desc: 'Future architects & team', icon: GraduationCap },
       ],
     },
-    { name: 'Gallery', href: '#gallery' },
+    { name: 'Gallery', href: '/gallery' },
     { name: 'About', href: '#about' },
     { name: 'Committees', href: '#committees' },
-    { name: 'Location', href: '#location' },
+    { name: 'Location', href: '/location' },
   ];
 
   return (
@@ -191,7 +191,10 @@ const Navbar = () => {
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
                       (location.pathname.startsWith('/team') && item.name === 'Team') ||
-                      (location.pathname === '/participate' && item.name === 'Participate')
+                      (location.pathname === '/participate' && item.name === 'Participate') ||
+                      (location.pathname === '/highlights' && item.name === 'Highlights') ||
+                      (location.pathname === '/gallery' && item.name === 'Gallery') ||
+                      (location.pathname === '/location' && item.name === 'Location')
                         ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
                         : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
                     }`}

@@ -10,11 +10,11 @@ import ipaLogo from "../../assets/images/org04-1.png";
 import fsaiLogo from "../../assets/images/org05-1.png";
 
 // Organization Key Persons (Part 2)
-import iudiPerson from "../../assets/images/org0.2.png";
-import iiaPerson from "../../assets/images/org02.2.png";
-import iiidPerson from "../../assets/images/org03 (1-2).png";
-import ipaPerson from "../../assets/images/org04-2.png";
-import fsaiPerson from "../../assets/images/org05-2.png";
+import iudiPerson from "../../assets/images/conveners-1.png";
+import iiaPerson from "../../assets/images/sp-2.png";
+import iiidPerson from "../../assets/images/sp-3.png";
+import ipaPerson from "../../assets/images/sp-4.png";
+import fsaiPerson from "../../assets/images/sp-5.png";
 
 const organizations = [
   {
