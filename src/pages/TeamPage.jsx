@@ -22,6 +22,38 @@ import cc4Img from "../assets/images/cc-4.png";
 import cc5Img from "../assets/images/cc-5.png";
 import cc6Img from "../assets/images/cc-6.png";
 
+import jc1Img from "../assets/images/am1-1.png";
+import jc2Img from "../assets/images/am1-2.png";
+import jc3Img from "../assets/images/am2-1.png";
+import jc4Img from "../assets/images/am2-2.png";
+import jc5Img from "../assets/images/am3-1.png";
+import jc6Img from "../assets/images/am3-2.png";
+import jc7Img from "../assets/images/am4-1.png";
+import jc8Img from "../assets/images/am4-2.png";
+import jc9Img from "../assets/images/am5-1.png";
+import jc10Img from "../assets/images/am5-2.png";
+import jc11Img from "../assets/images/am6-1.png";
+import jc12Img from "../assets/images/am6-2.png";
+import jc13Img from "../assets/images/am7-1.png";
+import jc14Img from "../assets/images/am7-2.png";
+import jc15Img from "../assets/images/am8-1.png";
+import jc16Img from "../assets/images/am9-1.png";
+import jc17Img from "../assets/images/am9-2.png";
+import jc18Img from "../assets/images/am10-1.png";
+import jc19Img from "../assets/images/am10-2.png";
+import jc20Img from "../assets/images/am11-1.png";
+import jc21Img from "../assets/images/am11-2.png";
+import jc22Img from "../assets/images/am12-1.png";
+import jc23Img from "../assets/images/am12-2.png";
+import jc24Img from "../assets/images/am13-1.png";
+import jc25Img from "../assets/images/am13-2.png";
+import jc26Img from "../assets/images/am14-2.png";
+import jc27Img from "../assets/images/am16-2.png";
+import jc28Img from "../assets/images/am17-1.png";
+import jc29Img from "../assets/images/am17-2.png";
+
+
+
 const BASE_URL = "https://lucknowarchitecturefestival.in/img/comm1/";
 
 export const convenorLeadershipMembers = [
@@ -74,12 +106,39 @@ export const teamCategories = {
     description: "Senior architects, advisors, and joint convenors guiding LAF 3.0 with vision, wisdom, and industry experience.",
     icon: Award,
     countLabel: "15 MEMBERS",
-    members: Array.from({ length: 15 }, (_, index) => ({
-      id: `jc-${index + 1}`,
-      name: `Advisor & Mentor ${index + 1}`,
-      role: "Senior Advisory Member",
-      image: `${BASE_URL}jc${index + 1}.png`,
-    })),
+   members: [
+  { id: "jc-1", name: "Dr. Arun Kanpur", role: "Senior Advisory Member", image: jc1Img },
+  { id: "jc-2", name: "Ar. Ashish Gupta", role: "Senior Advisory Member", image: jc2Img },
+  { id: "jc-3", name: "Ar. Faraz Usmani", role: "Senior Advisory Member", image: jc3Img },
+  { id: "jc-4", name: "Ar. Vishal Mathur", role: "Senior Advisory Member", image: jc4Img },
+  { id: "jc-5", name: "Ar. Alok Kumar", role: "Senior Advisory Member", image: jc5Img },
+  { id: "jc-6", name: "Ar. Rajarshi", role: "Senior Advisory Member", image: jc6Img },
+  { id: "jc-7", name: "Ar. Aviral Agrawal", role: "Senior Advisory Member", image: jc7Img },
+  { id: "jc-8", name: "Ar. Vishal Jain", role: "Senior Advisory Member", image: jc8Img },
+  { id: "jc-9", name: "Ar. Sandeep Negi", role: "Senior Advisory Member", image: jc9Img },
+  { id: "jc-10", name: "Ar.Layak Singh", role: "Senior Advisory Member", image: jc10Img },
+  { id: "jc-11", name: "Ar Pragya Singh", role: "Senior Advisory Member", image: jc11Img },
+  { id: "jc-12", name: "Ar. Chhaya Shukla", role: "Senior Advisory Member", image: jc12Img },
+  { id: "jc-13", name: "Ar Paarul Saxena ", role: "Senior Advisory Member", image: jc13Img },
+  { id: "jc-14", name: "Ar. Rajit Agrawal", role: "Senior Advisory Member", image: jc14Img },
+  { id: "jc-15", name: "Ar. Devyani Dayal", role: "Senior Advisory Member", image: jc15Img },
+  { id: "jc-16", name: "Ar. Shikhar Singh ", role: "Senior Advisory Member", image: jc16Img },
+  { id: "jc-17", name: "Ar. Sweksha Yadav", role: "Senior Advisory Member", image: jc17Img },
+  { id: "jc-18", name: "Ar. Gopal Tripathi", role: "Senior Advisory Member", image: jc18Img },
+  { id: "jc-19", name: "Ar. Rohit Gupta", role: "Senior Advisory Member", image: jc19Img },
+  { id: "jc-20", name: "Ar. Umesh Gupta", role: "Senior Advisory Member", image: jc20Img },
+  { id: "jc-21", name: "Ar. Pankaj Mishra", role: "Senior Advisory Member", image: jc21Img },
+  { id: "jc-22", name: "Ar. Karan Dev ", role: "Senior Advisory Member", image: jc22Img },
+  { id: "jc-23", name: "Ar. Ashutosh Gupta", role: "Senior Advisory Member", image: jc23Img },
+  { id: "jc-24", name: "Ar. Deepti Pandey", role: "Senior Advisory Member", image: jc24Img },
+  { id: "jc-25", name: "Ar. Swati Bhatia", role: "Senior Advisory Member", image: jc25Img },
+  { id: "jc-26", name: "Ar. Yati Kumar Mishra", role: "Senior Advisory Member", image: jc26Img },
+  { id: "jc-27", name: "Ar. Nishant Upadhyay", role: "Senior Advisory Member", image: jc27Img },
+  { id: "jc-28", name: "Ar. Anjaneya Sharma", role: "Senior Advisory Member", image: jc28Img },
+  { id: "jc-29", name: "Ar. Chandra Bhushan Chaudhary", role: "Senior Advisory Member", image: jc29Img }
+
+
+],
   },
   "student-volunteers": {
     id: "student-volunteers",
