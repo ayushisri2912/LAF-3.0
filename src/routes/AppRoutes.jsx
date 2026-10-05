@@ -6,6 +6,7 @@ import ParticipatePage from '../pages/ParticipatePage';
 import HighlightPage from '../pages/HighlightPage';
 import GalleryPage from '../pages/GalleryPage';
 import LocationPage from '../pages/LocationPage';
+import RegistrationPage from '../pages/RegistrationPage';
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,8 @@ const AppRoutes = () => {
       <Route path="/participation" element={<ParticipatePage />} />
       <Route path="/team" element={<TeamPage />} />
       <Route path="/team/:submenu" element={<TeamPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
+      <Route path="/registration" element={<RegistrationPage />} />
     </Routes>
   );
 };

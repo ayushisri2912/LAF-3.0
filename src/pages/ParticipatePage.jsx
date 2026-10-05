@@ -526,15 +526,15 @@ export default function ParticipatePage() {
                   <Download size={15} />
                 </a>
 
-                <a
-                  href="#"
+                <Link
+                  to="/register"
                   className="group flex items-center justify-between px-4 py-3.5 rounded-xl bg-white/10 hover:bg-[#D4AF37] border border-white/20 hover:border-[#D4AF37] text-white hover:text-black font-bold transition-all duration-300"
                 >
                   <span className="text-[9px] tracking-[0.14em] uppercase font-bold">
-                    PARTICIPATE
+                    PARTICIPATE / REGISTER
                   </span>
                   <ArrowUpRight size={15} />
-                </a>
+                </Link>
 
                 <a
                   href="#"

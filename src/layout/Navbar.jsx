@@ -265,9 +265,8 @@ const Navbar = () => {
 
             {/* Desktop Premium CTA Button */}
             <div className="hidden md:flex items-center pl-4">
-              <a
-                href="#registration"
-                onClick={(e) => handleNavClick(e, '#registration')}
+              <Link
+                to="/register"
                 className="group relative inline-flex items-center justify-center px-5 py-2 text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 border border-amber-300/60 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -275,7 +274,7 @@ const Navbar = () => {
                   <Sparkles className="w-3.5 h-3.5 fill-black text-black animate-pulse" />
                   <span>LAF REGISTRATION</span>
                 </span>
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -329,14 +328,14 @@ const Navbar = () => {
                 ))}
 
                 <div className="pt-2">
-                  <a
-                    href="#registration"
-                    onClick={(e) => handleNavClick(e, '#registration')}
+                  <Link
+                    to="/register"
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="w-full flex items-center justify-center gap-2 py-3 text-xs uppercase font-bold tracking-wider text-black bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 rounded-xl shadow-lg shadow-amber-500/20"
                   >
                     <Sparkles className="w-4 h-4 fill-black" />
                     <span>LAF Registration</span>
-                  </a>
+                  </Link>
                 </div>
 
               </div>

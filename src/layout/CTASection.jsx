@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -137,8 +138,8 @@ const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-9"
         >
-          <a
-            href="#registration"
+          <Link
+            to="/register"
             className="group relative inline-flex items-center gap-3 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#140D08] bg-[#D6AA46] rounded-full shadow-[0_0_30px_rgba(214,170,70,0.25)] hover:shadow-[0_0_45px_rgba(214,170,70,0.45)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
           >
             {/* Shimmer sweep effect */}
@@ -147,7 +148,7 @@ const CTASection = () => {
             <UsersRound className="w-4 h-4 fill-black text-black" />
             <span>LAF REGISTRATION</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
+          </Link>
         </motion.div>
 
         {/* Minimal Event Info Bar */}
