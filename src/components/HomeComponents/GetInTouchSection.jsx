@@ -49,11 +49,11 @@ const YoutubeIcon = () => (
 );
 
 const socialLinks = [
-  { label: "Facebook", href: "#", icon: FacebookIcon },
-  { label: "Twitter", href: "#", icon: TwitterIcon },
-  { label: "Instagram", href: "#", icon: InstagramIcon },
-  { label: "LinkedIn", href: "#", icon: LinkedinIcon },
-  { label: "YouTube", href: "#", icon: YoutubeIcon },
+  { label: "Facebook", href: "https://www.facebook.com/share/r/14tqyZYGyx5/", icon: FacebookIcon },
+  { label: "Twitter", href: "https://x.com/LucnowA/status/2098022161361625279?s=20", icon: TwitterIcon },
+  { label: "Instagram", href: "https://www.instagram.com/reel/DdGzeFOApim/", icon: InstagramIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/feed/update/urn:li:activity:7503787276993429504", icon: LinkedinIcon },
+  { label: "YouTube", href: "https://youtube.com/shorts/Wcr1sJ3jdPg?feature=share", icon: YoutubeIcon },
 ];
 
 const documentDownloads = [
@@ -180,7 +180,7 @@ const GetInTouchSection = () => {
         {/* =====================================================
             MAIN FORM & CONTACT INFO GRID
         ====================================================== */}
-        <div className="grid gap-10 lg:grid-cols-12 items-start">
+        <div className="grid gap-10 lg:grid-cols-12 items-stretch">
           
           {/* ================= LEFT COLUMN: FORM ================= */}
           <motion.div
@@ -188,7 +188,7 @@ const GetInTouchSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 bg-white/80 backdrop-blur-xs p-8 sm:p-12 rounded-3xl border border-[#D9D0C2] shadow-sm relative overflow-hidden"
+            className="lg:col-span-7 bg-white/80 backdrop-blur-xs p-8 sm:p-12 rounded-3xl border border-[#D9D0C2] shadow-sm relative overflow-hidden h-full flex flex-col justify-between"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-radial from-[#B77A27]/10 to-transparent pointer-events-none" />
 
@@ -218,76 +218,80 @@ const GetInTouchSection = () => {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* FIRST NAME */}
+              <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col justify-between">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {/* FIRST NAME */}
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
+                        Your first name <span className="text-[#B77A27]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your first name"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
+                      />
+                    </div>
+
+                    {/* CONTACT NUMBER */}
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
+                        Your contact number
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="Your contact number"
+                        value={formData.contactNumber}
+                        onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                        className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+
+                  {/* EMAIL */}
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                      Your first name <span className="text-[#B77A27]">*</span>
+                      Your e-mail <span className="text-[#B77A27]">*</span>
                     </label>
                     <input
-                      type="text"
+                      type="email"
                       required
-                      placeholder="Your first name"
-                      value={formData.firstName}
-                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      placeholder="Your e-mail"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
                     />
                   </div>
 
-                  {/* CONTACT NUMBER */}
+                  {/* MESSAGE */}
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                      Your contact number
+                      Message <span className="text-[#B77A27]">*</span>
                     </label>
-                    <input
-                      type="tel"
-                      placeholder="Your contact number"
-                      value={formData.contactNumber}
-                      onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
+                    <textarea
+                      required
+                      rows={5}
+                      placeholder="Message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300 resize-none"
                     />
                   </div>
-                </div>
-
-                {/* EMAIL */}
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                    Your e-mail <span className="text-[#B77A27]">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="Your e-mail"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
-                  />
-                </div>
-
-                {/* MESSAGE */}
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                    Message <span className="text-[#B77A27]">*</span>
-                  </label>
-                  <textarea
-                    required
-                    rows={5}
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300 resize-none"
-                  />
                 </div>
 
                 {/* SUBMIT BUTTON */}
-                <button
-                  type="submit"
-                  className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl bg-[#B77A27] hover:bg-[#99641D] text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
-                >
-                  <span>SUBMIT</span>
-                  <Send size={15} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl bg-[#B77A27] hover:bg-[#99641D] text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
+                  >
+                    <span>SUBMIT</span>
+                    <Send size={15} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </button>
+                </div>
               </form>
             )}
           </motion.div>
@@ -298,10 +302,10 @@ const GetInTouchSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-5 h-full"
           >
             {/* CONTACT DETAILS CARD */}
-            <div className="bg-white/80 backdrop-blur-xs p-8 sm:p-10 rounded-3xl border border-[#D9D0C2] shadow-sm space-y-8">
+            <div className="bg-white/80 backdrop-blur-xs p-8 sm:p-10 rounded-3xl border border-[#D9D0C2] shadow-sm space-y-6 h-full flex flex-col justify-between">
               
               {/* FOLLOW US */}
               <div>
@@ -318,6 +322,8 @@ const GetInTouchSection = () => {
                       <a
                         key={social.label}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label={social.label}
                         className="w-10 h-10 rounded-xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-neutral-600 hover:text-white hover:bg-[#B77A27] hover:border-[#B77A27] transition-all duration-300 shadow-2xs hover:scale-105"
                       >
@@ -329,7 +335,7 @@ const GetInTouchSection = () => {
               </div>
 
               {/* POSTAL ADDRESS */}
-              <div className="pt-6 border-t border-[#D9D0C2]/60">
+              <div className="pt-5 border-t border-[#D9D0C2]/60">
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
                     <MapPin size={17} />
@@ -357,7 +363,7 @@ const GetInTouchSection = () => {
               </div>
 
               {/* PHONES */}
-              <div className="pt-6 border-t border-[#D9D0C2]/60">
+              <div className="pt-5 border-t border-[#D9D0C2]/60">
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
                     <Phone size={17} />
@@ -393,7 +399,7 @@ const GetInTouchSection = () => {
               </div>
 
               {/* EMAIL */}
-              <div className="pt-6 border-t border-[#D9D0C2]/60">
+              <div className="pt-5 border-t border-[#D9D0C2]/60">
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
                     <Mail size={17} />
@@ -408,23 +414,6 @@ const GetInTouchSection = () => {
                     >
                       info@taskmarketingsolutions.in
                     </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* EVENT DATE */}
-              <div className="pt-6 border-t border-[#D9D0C2]/60">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
-                    <Calendar size={17} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#171717] mb-1">
-                      Event Date
-                    </h4>
-                    <p className="text-sm font-serif font-normal text-[#171717]">
-                      10, 11, 12 January 2025
-                    </p>
                   </div>
                 </div>
               </div>

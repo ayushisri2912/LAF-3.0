@@ -5,18 +5,13 @@ import {
   ArrowLeft, 
   ChevronRight, 
   Sparkles, 
-  Building2, 
   UserCheck, 
   Store, 
   UploadCloud, 
   CheckCircle2, 
   CreditCard, 
-  QrCode, 
-  ShieldCheck, 
   FileText, 
-  HelpCircle, 
   ChevronDown, 
-  Info,
   PhoneCall,
   Mail,
   MapPin,
@@ -113,40 +108,42 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0E1217] text-white font-sans selection:bg-[#D4AF37]/30 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#FAF7F2] text-[#171717] font-sans selection:bg-[#D4AF37]/30 pb-24 relative overflow-hidden">
       
       {/* Background Architectural Grid & Subtle Watermarks */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0 opacity-[0.25]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+              linear-gradient(rgba(180, 140, 60, 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(180, 140, 60, 0.08) 1px, transparent 1px)
             `,
-            backgroundSize: "44px 44px",
+            backgroundSize: "48px 48px",
           }}
         />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[160px]" />
-        <div className="absolute top-2/3 right-10 w-[500px] h-[400px] bg-amber-600/10 rounded-full blur-[140px]" />
+        <div className="absolute left-[6%] top-0 bottom-0 w-px bg-[#D4AF37]/15" />
+        <div className="absolute right-[6%] top-0 bottom-0 w-px bg-[#D4AF37]/15" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-amber-500/5 rounded-full blur-[140px]" />
+        <div className="absolute top-2/3 right-10 w-[450px] h-[350px] bg-[#D4AF37]/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-6">
         
         {/* ================= BREADCRUMBS & TOP NAV ================= */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <Link
             to="/"
-            className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-300 hover:text-amber-400 transition-colors bg-white/5 border border-white/10 hover:border-amber-500/40 rounded-full px-4 py-2 backdrop-blur-md"
+            className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 hover:text-[#B77A27] transition-colors bg-white/80 border border-[#E6DFD3] hover:border-[#B77A27]/40 rounded-full px-4 py-2 shadow-2xs backdrop-blur-md"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
             <span>Back to Home</span>
           </Link>
 
-          <div className="flex items-center gap-2 text-[11px] font-mono tracking-widest text-neutral-400 uppercase">
-            <Link to="/" className="hover:text-amber-400 transition-colors">LAF 3.0</Link>
-            <ChevronRight className="w-3 h-3 text-amber-500" />
-            <span className="text-amber-400 font-bold">REGISTRATION PORTAL</span>
+          <div className="flex items-center gap-2 text-[11px] font-mono tracking-widest text-neutral-500 uppercase">
+            <Link to="/" className="hover:text-[#B77A27] transition-colors">LAF 3.0</Link>
+            <ChevronRight className="w-3 h-3 text-[#B77A27]" />
+            <span className="text-[#B77A27] font-bold">REGISTRATION PORTAL</span>
           </div>
         </div>
 
@@ -155,9 +152,9 @@ const RegistrationPage = () => {
           <motion.div
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900/90 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#E6DFD3] text-[#B77A27] text-xs font-mono font-bold tracking-widest uppercase mb-4 shadow-2xs"
           >
-            <Sparkles className="w-3.5 h-3.5 fill-amber-400 animate-pulse" />
+            <Sparkles className="w-3.5 h-3.5 fill-[#B77A27] text-[#B77A27] animate-pulse" />
             <span>LAF 3.0 OFFICIAL REGISTRATION & DELEGATES CONCLAVE</span>
           </motion.div>
 
@@ -165,11 +162,11 @@ const RegistrationPage = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-tight"
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#171717] leading-tight"
           >
             Join North India's Premier <br className="hidden sm:inline" />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#D4AF37] to-amber-500">
-              Architectural & Lifestyle Conclave
+            <span className="italic font-serif text-[#B77A27]">
+              Architectural &amp; Lifestyle Conclave
             </span>
           </motion.h1>
 
@@ -177,22 +174,22 @@ const RegistrationPage = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-sm sm:text-base text-neutral-300 max-w-2xl mx-auto leading-relaxed font-light"
+            className="mt-4 text-sm sm:text-base text-neutral-600 max-w-2xl mx-auto leading-relaxed font-normal"
           >
-            Register as an <strong className="text-amber-300 font-semibold">Architect Delegate</strong> to join the symposium & membership network, or register as an <strong className="text-amber-300 font-semibold">Exhibitor / Brand Partner</strong> to showcase your products at LAF 3.0.
+            Register as an <strong className="text-[#B77A27] font-semibold">Architect Delegate</strong> to join the symposium & membership network, or register as an <strong className="text-[#B77A27] font-semibold">Exhibitor / Brand Partner</strong> to showcase your products at LAF 3.0.
           </motion.p>
 
           {/* ================= DUAL FORM MODE TOGGLE SWITCHER ================= */}
           <div className="mt-8 flex items-center justify-center">
-            <div className="bg-[#161B22] p-1.5 rounded-2xl border border-[#D4AF37]/30 shadow-2xl flex flex-wrap items-center justify-center gap-2 max-w-full">
+            <div className="bg-white/80 p-1.5 rounded-2xl border border-[#E6DFD3] shadow-sm flex flex-wrap items-center justify-center gap-2 max-w-full backdrop-blur-md">
               
               {/* Architect Mode Button */}
               <button
                 onClick={() => setActiveFormMode('architect')}
                 className={`flex items-center gap-2.5 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
                   activeFormMode === 'architect'
-                    ? 'bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 text-black shadow-lg shadow-amber-500/20 scale-[1.02]'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/5'
+                    ? 'bg-[#B77A27] text-white shadow-md shadow-[#B77A27]/20 scale-[1.02]'
+                    : 'text-neutral-600 hover:text-[#171717] hover:bg-neutral-100/80'
                 }`}
               >
                 <UserCheck className="w-4 h-4" />
@@ -204,78 +201,65 @@ const RegistrationPage = () => {
                 onClick={() => setActiveFormMode('exhibitor')}
                 className={`flex items-center gap-2.5 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
                   activeFormMode === 'exhibitor'
-                    ? 'bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 text-black shadow-lg shadow-amber-500/20 scale-[1.02]'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/5'
+                    ? 'bg-[#B77A27] text-white shadow-md shadow-[#B77A27]/20 scale-[1.02]'
+                    : 'text-neutral-600 hover:text-[#171717] hover:bg-neutral-100/80'
                 }`}
               >
                 <Store className="w-4 h-4" />
                 <span>Exhibitors & Brand Form</span>
               </button>
 
-              {/* Side-by-Side Dual View Button (Desktop) */}
-              <button
-                onClick={() => setActiveFormMode('dual')}
-                className={`hidden lg:flex items-center gap-2.5 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                  activeFormMode === 'dual'
-                    ? 'bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 text-black shadow-lg shadow-amber-500/20 scale-[1.02]'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                <Layers className="w-4 h-4" />
-                <span>Dual View (Both Forms)</span>
-              </button>
-
             </div>
           </div>
         </div>
 
-        {/* ================= MAIN DUAL FORM CONTENT CONTAINER ================= */}
+        {/* ================= MAIN FORM CONTENT CONTAINER ================= */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
 
           {/* LEFT / MAIN FORMS COLUMN */}
-          <div className={`${activeFormMode === 'dual' ? 'lg:col-span-12' : 'lg:col-span-8'} transition-all duration-500`}>
+          <div className="lg:col-span-8">
             
-            <div className={`grid ${activeFormMode === 'dual' ? 'lg:grid-cols-2 gap-8' : 'grid-cols-1'}`}>
+            <div className="grid grid-cols-1">
               
               {/* ================= ARCHITECT REGISTRATION FORM ================= */}
-              {(activeFormMode === 'architect' || activeFormMode === 'dual') && (
+              {activeFormMode === 'architect' && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-[#12161F]/90 backdrop-blur-xl border border-[#D4AF37]/30 rounded-3xl p-6 sm:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
+                  className="bg-white/90 backdrop-blur-xl border border-[#E6DFD3] rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
                   
                   {/* Form Header */}
-                  <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-6">
+                  <div className="flex items-center justify-between border-b border-[#E6DFD3] pb-5 mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                      <div className="w-10 h-10 rounded-2xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27]">
                         <UserCheck className="w-5 h-5" />
                       </div>
                       <div>
-                        <h2 className="text-lg sm:text-xl font-bold font-serif text-white tracking-wide">
+                        <h2 className="text-lg sm:text-xl font-bold font-serif text-[#171717] tracking-wide">
                           Architect Registration
                         </h2>
-                        <p className="text-xs text-neutral-400">
+                        <p className="text-xs text-neutral-500">
                           Delegates & Lucknow Architects Association Membership
                         </p>
                       </div>
                     </div>
                     
-                    <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold uppercase">
+                    <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#B77A27]/10 border border-[#B77A27]/25 text-[#B77A27] font-bold uppercase">
                       COA Verified
                     </span>
                   </div>
 
                   {/* Step Tabs */}
-                  <div className="flex items-center justify-between mb-6 bg-black/40 p-1.5 rounded-xl border border-white/5 text-xs font-semibold">
+                  <div className="flex items-center justify-between mb-6 bg-[#FAF7F2] p-1.5 rounded-xl border border-[#E6DFD3] text-xs font-semibold">
                     <button
                       type="button"
                       onClick={() => setArchStep(1)}
                       className={`flex-1 py-2 px-3 rounded-lg transition-all ${
                         archStep === 1 
-                          ? 'bg-[#D4AF37] text-black font-bold shadow-md' 
-                          : 'text-neutral-400 hover:text-white'
+                          ? 'bg-[#B77A27] text-white font-bold shadow-2xs' 
+                          : 'text-neutral-600 hover:text-[#171717]'
                       }`}
                     >
                       Step 1: Personal Details
@@ -285,8 +269,8 @@ const RegistrationPage = () => {
                       onClick={() => setArchStep(2)}
                       className={`flex-1 py-2 px-3 rounded-lg transition-all ${
                         archStep === 2 
-                          ? 'bg-[#D4AF37] text-black font-bold shadow-md' 
-                          : 'text-neutral-400 hover:text-white'
+                          ? 'bg-[#B77A27] text-white font-bold shadow-2xs' 
+                          : 'text-neutral-600 hover:text-[#171717]'
                       }`}
                     >
                       Step 2: Payment & Pay Receipt
@@ -306,14 +290,14 @@ const RegistrationPage = () => {
                         {/* Title & Full Name */}
                         <div className="grid grid-cols-12 gap-3">
                           <div className="col-span-4 sm:col-span-3">
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Title
                             </label>
                             <select
                               name="title"
                               value={archData.title}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             >
                               <option value="Ar.">Ar.</option>
                               <option value="Prof.">Prof.</option>
@@ -323,7 +307,7 @@ const RegistrationPage = () => {
                             </select>
                           </div>
                           <div className="col-span-8 sm:col-span-9">
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Full Name *
                             </label>
                             <input
@@ -333,7 +317,7 @@ const RegistrationPage = () => {
                               placeholder="e.g. Ramesh Kumar Verma"
                               value={archData.fullName}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
@@ -341,7 +325,7 @@ const RegistrationPage = () => {
                         {/* COA Number & Category */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               COA Registration No. *
                             </label>
                             <input
@@ -351,18 +335,18 @@ const RegistrationPage = () => {
                               placeholder="CA/20XX/XXXXX"
                               value={archData.coaNumber}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Membership Category
                             </label>
                             <select
                               name="category"
                               value={archData.category}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             >
                               <option value="Life Member Architect">Life Member Architect (LAA)</option>
                               <option value="Executive Member">Executive Member</option>
@@ -375,7 +359,7 @@ const RegistrationPage = () => {
                         {/* Email & Phone */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Email Address *
                             </label>
                             <input
@@ -385,11 +369,11 @@ const RegistrationPage = () => {
                               placeholder="architect@domain.com"
                               value={archData.email}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Phone / WhatsApp No. *
                             </label>
                             <input
@@ -399,14 +383,14 @@ const RegistrationPage = () => {
                               placeholder="+91 98765 43210"
                               value={archData.phone}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
 
                         {/* Firm / Office Name & Address */}
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                             Firm Name & Office Address *
                           </label>
                           <textarea
@@ -416,14 +400,14 @@ const RegistrationPage = () => {
                             placeholder="Complete Firm Name and Office Address in Lucknow/UP"
                             value={archData.officeAddress}
                             onChange={handleArchInputChange}
-                            className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                            className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                           />
                         </div>
 
                         {/* Proposer Name & LAA Number */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Proposer LAA Member Name (Optional)
                             </label>
                             <input
@@ -432,11 +416,11 @@ const RegistrationPage = () => {
                               placeholder="Endorsed by LAA Member"
                               value={archData.proposerName}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               LAA Membership No. (If Existing)
                             </label>
                             <input
@@ -445,25 +429,25 @@ const RegistrationPage = () => {
                               placeholder="LAA-XXXX"
                               value={archData.laaNumber}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
 
                         {/* COA Certificate / ID File Upload */}
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                             Upload COA Certificate / ID Proof
                           </label>
-                          <div className="border-2 border-dashed border-neutral-700 hover:border-amber-400 rounded-2xl p-4 text-center cursor-pointer transition-colors bg-black/20 relative">
+                          <div className="border-2 border-dashed border-[#E6DFD3] hover:border-[#B77A27] rounded-2xl p-4 text-center cursor-pointer transition-colors bg-[#FAF7F2]/60 hover:bg-white relative">
                             <input
                               type="file"
                               accept="image/*,.pdf"
                               onChange={(e) => setArchCoaFile(e.target.files[0])}
                               className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                             />
-                            <UploadCloud className="w-6 h-6 text-amber-400 mx-auto mb-1" />
-                            <span className="text-xs text-neutral-300 block">
+                            <UploadCloud className="w-6 h-6 text-[#B77A27] mx-auto mb-1" />
+                            <span className="text-xs text-neutral-700 block font-medium">
                               {archCoaFile ? archCoaFile.name : 'Click or drag COA Certificate file (PDF / JPG)'}
                             </span>
                             <span className="text-[10px] text-neutral-500 mt-0.5 block">Max size: 5MB</span>
@@ -474,7 +458,7 @@ const RegistrationPage = () => {
                           <button
                             type="button"
                             onClick={() => setArchStep(2)}
-                            className="w-full py-3 px-6 rounded-xl bg-[#D4AF37] hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center gap-2"
+                            className="w-full py-3 px-6 rounded-xl bg-[#B77A27] hover:bg-[#a0681f] text-white font-bold uppercase tracking-wider text-xs shadow-md shadow-[#B77A27]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                           >
                             <span>Proceed to Payment Step 2</span>
                             <ChevronRight className="w-4 h-4" />
@@ -492,15 +476,15 @@ const RegistrationPage = () => {
                         className="space-y-4"
                       >
                         {/* Payment Guidance Box */}
-                        <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 space-y-2">
-                          <div className="flex items-center gap-2 font-bold text-amber-400 text-sm">
+                        <div className="p-4 rounded-2xl bg-[#FFFDF5] border border-[#EAD8B1] text-xs text-neutral-700 space-y-2">
+                          <div className="flex items-center gap-2 font-bold text-[#B77A27] text-sm">
                             <CreditCard className="w-4 h-4" />
-                            <span>Payment Instructions & Bank Account Details</span>
+                            <span>Payment Instructions &amp; Bank Account Details</span>
                           </div>
-                          <p className="text-neutral-300 text-[11.5px] leading-relaxed">
-                            Life Membership / Delegate Fee: <strong className="text-amber-300">₹5,000 + 18% GST (₹900) = ₹5,900/- Total</strong>
+                          <p className="text-neutral-700 text-[11.5px] leading-relaxed">
+                            Life Membership / Delegate Fee: <strong className="text-[#B77A27]">₹5,000 + 18% GST (₹900) = ₹5,900/- Total</strong>
                           </p>
-                          <div className="grid grid-cols-2 gap-2 text-[10.5px] font-mono bg-black/40 p-2.5 rounded-xl border border-white/5 text-neutral-300">
+                          <div className="grid grid-cols-2 gap-2 text-[10.5px] font-mono bg-white p-2.5 rounded-xl border border-[#E6DFD3] text-neutral-700">
                             <div>Bank: PNB (Punjab National Bank)</div>
                             <div>A/C: 06871011001027</div>
                             <div>IFSC: PUNB0068710</div>
@@ -511,7 +495,7 @@ const RegistrationPage = () => {
                         {/* Payment Details Inputs */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Transaction ID / UTR No. *
                             </label>
                             <input
@@ -521,11 +505,11 @@ const RegistrationPage = () => {
                               placeholder="e.g. UPI/123456789012"
                               value={archData.txnId}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Payment Date
                             </label>
                             <input
@@ -533,14 +517,14 @@ const RegistrationPage = () => {
                               name="paymentDate"
                               value={archData.paymentDate}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
 
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Name of Bank / Payment App
                             </label>
                             <input
@@ -549,11 +533,11 @@ const RegistrationPage = () => {
                               placeholder="GPay / PhonePe / PNB / SBI"
                               value={archData.bankName}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Cheque / Ref No. (If applicable)
                             </label>
                             <input
@@ -562,17 +546,17 @@ const RegistrationPage = () => {
                               placeholder="Cheque No."
                               value={archData.chequeNumber}
                               onChange={handleArchInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
 
                         {/* Upload Receipt */}
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                             Upload Payment Receipt Screenshot / Copy *
                           </label>
-                          <div className="border-2 border-dashed border-neutral-700 hover:border-amber-400 rounded-2xl p-4 text-center cursor-pointer transition-colors bg-black/20 relative">
+                          <div className="border-2 border-dashed border-[#E6DFD3] hover:border-[#B77A27] rounded-2xl p-4 text-center cursor-pointer transition-colors bg-[#FAF7F2]/60 hover:bg-white relative">
                             <input
                               type="file"
                               required
@@ -580,8 +564,8 @@ const RegistrationPage = () => {
                               onChange={(e) => setArchReceiptFile(e.target.files[0])}
                               className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                             />
-                            <UploadCloud className="w-6 h-6 text-amber-400 mx-auto mb-1" />
-                            <span className="text-xs text-neutral-300 block">
+                            <UploadCloud className="w-6 h-6 text-[#B77A27] mx-auto mb-1" />
+                            <span className="text-xs text-neutral-700 block font-medium">
                               {archReceiptFile ? archReceiptFile.name : 'Upload Payment Receipt (Screenshot / PDF)'}
                             </span>
                           </div>
@@ -596,9 +580,9 @@ const RegistrationPage = () => {
                             required
                             checked={archData.declaration}
                             onChange={handleArchInputChange}
-                            className="mt-0.5 accent-amber-500 w-4 h-4 rounded cursor-pointer"
+                            className="mt-0.5 accent-[#B77A27] w-4 h-4 rounded cursor-pointer"
                           />
-                          <label htmlFor="archDeclaration" className="text-xs text-neutral-300 leading-normal cursor-pointer select-none">
+                          <label htmlFor="archDeclaration" className="text-xs text-neutral-600 leading-normal cursor-pointer select-none">
                             I hereby declare that I possess a recognized degree in Architecture and the information provided is accurate to the best of my knowledge.
                           </label>
                         </div>
@@ -607,16 +591,16 @@ const RegistrationPage = () => {
                           <button
                             type="button"
                             onClick={() => setArchStep(1)}
-                            className="py-3 px-5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-200 font-bold uppercase tracking-wider text-xs transition-colors"
+                            className="py-3 px-5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold uppercase tracking-wider text-xs transition-colors cursor-pointer"
                           >
                             Back to Step 1
                           </button>
 
                           <button
                             type="submit"
-                            className="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-black font-extrabold uppercase tracking-wider text-xs shadow-xl shadow-amber-500/25 transition-all flex items-center justify-center gap-2"
+                            className="flex-1 py-3 px-6 rounded-xl bg-[#B77A27] hover:bg-[#a0681f] text-white font-bold uppercase tracking-wider text-xs shadow-md shadow-[#B77A27]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                           >
-                            <Sparkles className="w-4 h-4 fill-black" />
+                            <Sparkles className="w-4 h-4 fill-white" />
                             <span>Complete Architect Registration</span>
                           </button>
                         </div>
@@ -629,59 +613,59 @@ const RegistrationPage = () => {
               )}
 
               {/* ================= EXHIBITOR REGISTRATION FORM ================= */}
-              {(activeFormMode === 'exhibitor' || activeFormMode === 'dual') && (
+              {activeFormMode === 'exhibitor' && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: activeFormMode === 'dual' ? 0.15 : 0 }}
-                  className="bg-[#12161F]/90 backdrop-blur-xl border border-[#D4AF37]/30 rounded-3xl p-6 sm:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
+                  transition={{ duration: 0.4 }}
+                  className="bg-white/90 backdrop-blur-xl border border-[#E6DFD3] rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
                   
                   {/* Form Header */}
-                  <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-6">
+                  <div className="flex items-center justify-between border-b border-[#E6DFD3] pb-5 mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400">
+                      <div className="w-10 h-10 rounded-2xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27]">
                         <Store className="w-5 h-5" />
                       </div>
                       <div>
-                        <h2 className="text-lg sm:text-xl font-bold font-serif text-white tracking-wide">
-                          Exhibitors & Brand Registration
+                        <h2 className="text-lg sm:text-xl font-bold font-serif text-[#171717] tracking-wide">
+                          Exhibitors &amp; Brand Registration
                         </h2>
-                        <p className="text-xs text-neutral-400">
-                          Book your Stall & Partner Pavilion at LAF 3.0
+                        <p className="text-xs text-neutral-500">
+                          Book your Stall &amp; Partner Pavilion at LAF 3.0
                         </p>
                       </div>
                     </div>
                     
-                    <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 font-bold uppercase">
+                    <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#B77A27]/10 border border-[#B77A27]/25 text-[#B77A27] font-bold uppercase">
                       Brand Partner
                     </span>
                   </div>
 
                   {/* Step Tabs */}
-                  <div className="flex items-center justify-between mb-6 bg-black/40 p-1.5 rounded-xl border border-white/5 text-xs font-semibold">
+                  <div className="flex items-center justify-between mb-6 bg-[#FAF7F2] p-1.5 rounded-xl border border-[#E6DFD3] text-xs font-semibold">
                     <button
                       type="button"
                       onClick={() => setExhibitorStep(1)}
                       className={`flex-1 py-2 px-3 rounded-lg transition-all ${
                         exhibitorStep === 1 
-                          ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold shadow-md' 
-                          : 'text-neutral-400 hover:text-white'
+                          ? 'bg-[#B77A27] text-white font-bold shadow-2xs' 
+                          : 'text-neutral-600 hover:text-[#171717]'
                       }`}
                     >
-                      Step 1: Brand & Space Details
+                      Step 1: Brand &amp; Space Details
                     </button>
                     <button
                       type="button"
                       onClick={() => setExhibitorStep(2)}
                       className={`flex-1 py-2 px-3 rounded-lg transition-all ${
                         exhibitorStep === 2 
-                          ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold shadow-md' 
-                          : 'text-neutral-400 hover:text-white'
+                          ? 'bg-[#B77A27] text-white font-bold shadow-2xs' 
+                          : 'text-neutral-600 hover:text-[#171717]'
                       }`}
                     >
-                      Step 2: Payment & Booking
+                      Step 2: Payment &amp; Booking
                     </button>
                   </div>
 
@@ -698,7 +682,7 @@ const RegistrationPage = () => {
                         {/* Company & Representative Name */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Company / Brand Name *
                             </label>
                             <input
@@ -708,11 +692,11 @@ const RegistrationPage = () => {
                               placeholder="e.g. Apex Luxury Lighting & Interiors"
                               value={exhibitorData.companyName}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Contact Person Name *
                             </label>
                             <input
@@ -722,7 +706,7 @@ const RegistrationPage = () => {
                               placeholder="e.g. Vikram Singh"
                               value={exhibitorData.contactPerson}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
@@ -730,7 +714,7 @@ const RegistrationPage = () => {
                         {/* Designation & Email */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Designation *
                             </label>
                             <input
@@ -740,11 +724,11 @@ const RegistrationPage = () => {
                               placeholder="e.g. Director / Marketing Lead"
                               value={exhibitorData.designation}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Official Email *
                             </label>
                             <input
@@ -754,7 +738,7 @@ const RegistrationPage = () => {
                               placeholder="info@brand.com"
                               value={exhibitorData.email}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
@@ -762,7 +746,7 @@ const RegistrationPage = () => {
                         {/* Phone & Website */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Mobile / WhatsApp No. *
                             </label>
                             <input
@@ -772,11 +756,11 @@ const RegistrationPage = () => {
                               placeholder="+91 98765 00000"
                               value={exhibitorData.phone}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-[#D4AF37]/90 font-mono mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Company Website / Catalog URL
                             </label>
                             <input
@@ -785,7 +769,7 @@ const RegistrationPage = () => {
                               placeholder="https://www.brand.com"
                               value={exhibitorData.website}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
@@ -793,33 +777,33 @@ const RegistrationPage = () => {
                         {/* Industry Sector & Space Type */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Product Sector / Category
                             </label>
                             <select
                               name="industrySector"
                               value={exhibitorData.industrySector}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             >
-                              <option value="Luxury Interiors & Decor">Luxury Interiors & Decor</option>
-                              <option value="Architectural Lighting & Automation">Architectural Lighting & Automation</option>
-                              <option value="Structural & Facade Materials">Structural & Facade Materials</option>
-                              <option value="Tiles, Bathware & Stone">Tiles, Bathware & Stone</option>
-                              <option value="Furniture & Outdoor Solutions">Furniture & Outdoor Solutions</option>
-                              <option value="Green Building Tech & HVAC">Green Building Tech & HVAC</option>
+                              <option value="Luxury Interiors & Decor">Luxury Interiors &amp; Decor</option>
+                              <option value="Architectural Lighting & Automation">Architectural Lighting &amp; Automation</option>
+                              <option value="Structural & Facade Materials">Structural &amp; Facade Materials</option>
+                              <option value="Tiles, Bathware & Stone">Tiles, Bathware &amp; Stone</option>
+                              <option value="Furniture & Outdoor Solutions">Furniture &amp; Outdoor Solutions</option>
+                              <option value="Green Building Tech & HVAC">Green Building Tech &amp; HVAC</option>
                               <option value="Other Premium Products">Other Premium Products</option>
                             </select>
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Stall / Pavilion Space Required
                             </label>
                             <select
                               name="spaceRequired"
                               value={exhibitorData.spaceRequired}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             >
                               <option value="Executive Stall (9 sqm)">Executive Stall (9 sqm / 3x3m)</option>
                               <option value="Gold Stall (18 sqm)">Gold Stall (18 sqm / 6x3m)</option>
@@ -831,7 +815,7 @@ const RegistrationPage = () => {
 
                         {/* Special Requirements */}
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                             Special Display / Power / Height Requirements
                           </label>
                           <textarea
@@ -840,24 +824,24 @@ const RegistrationPage = () => {
                             placeholder="e.g., Require 3-phase 5kW power, extra spotlighting, heavy floor load capacity..."
                             value={exhibitorData.specialRequirements}
                             onChange={handleExhibitorInputChange}
-                            className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                            className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                           />
                         </div>
 
                         {/* Brand Logo Upload */}
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                             Upload Brand Logo (Vector / High Res PNG)
                           </label>
-                          <div className="border-2 border-dashed border-neutral-700 hover:border-orange-400 rounded-2xl p-4 text-center cursor-pointer transition-colors bg-black/20 relative">
+                          <div className="border-2 border-dashed border-[#E6DFD3] hover:border-[#B77A27] rounded-2xl p-4 text-center cursor-pointer transition-colors bg-[#FAF7F2]/60 hover:bg-white relative">
                             <input
                               type="file"
                               accept="image/*"
                               onChange={(e) => setExhibitorLogoFile(e.target.files[0])}
                               className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                             />
-                            <UploadCloud className="w-6 h-6 text-orange-400 mx-auto mb-1" />
-                            <span className="text-xs text-neutral-300 block">
+                            <UploadCloud className="w-6 h-6 text-[#B77A27] mx-auto mb-1" />
+                            <span className="text-xs text-neutral-700 block font-medium">
                               {exhibitorLogoFile ? exhibitorLogoFile.name : 'Upload Brand Logo (PNG / SVG)'}
                             </span>
                           </div>
@@ -867,7 +851,7 @@ const RegistrationPage = () => {
                           <button
                             type="button"
                             onClick={() => setExhibitorStep(2)}
-                            className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-black font-bold uppercase tracking-wider text-xs shadow-lg shadow-orange-500/20 transition-all flex items-center justify-center gap-2"
+                            className="w-full py-3 px-6 rounded-xl bg-[#B77A27] hover:bg-[#a0681f] text-white font-bold uppercase tracking-wider text-xs shadow-md shadow-[#B77A27]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                           >
                             <span>Proceed to Payment Step 2</span>
                             <ChevronRight className="w-4 h-4" />
@@ -885,15 +869,15 @@ const RegistrationPage = () => {
                         className="space-y-4"
                       >
                         {/* Exhibitor Payment Box */}
-                        <div className="p-4 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-xs text-orange-200 space-y-2">
-                          <div className="flex items-center gap-2 font-bold text-orange-400 text-sm">
+                        <div className="p-4 rounded-2xl bg-[#FFFDF5] border border-[#EAD8B1] text-xs text-neutral-700 space-y-2">
+                          <div className="flex items-center gap-2 font-bold text-[#B77A27] text-sm">
                             <CreditCard className="w-4 h-4" />
-                            <span>Stall Token Deposit & Bank Account Details</span>
+                            <span>Stall Token Deposit &amp; Bank Account Details</span>
                           </div>
-                          <p className="text-neutral-300 text-[11.5px] leading-relaxed">
-                            Advance Stall Booking Token Deposit: <strong className="text-amber-300">₹10,000 / ₹25,000</strong> (Adjustable in final invoice).
+                          <p className="text-neutral-700 text-[11.5px] leading-relaxed">
+                            Advance Stall Booking Token Deposit: <strong className="text-[#B77A27]">₹10,000 / ₹25,000</strong> (Adjustable in final invoice).
                           </p>
-                          <div className="grid grid-cols-2 gap-2 text-[10.5px] font-mono bg-black/40 p-2.5 rounded-xl border border-white/5 text-neutral-300">
+                          <div className="grid grid-cols-2 gap-2 text-[10.5px] font-mono bg-white p-2.5 rounded-xl border border-[#E6DFD3] text-neutral-700">
                             <div>Bank: PNB (Punjab National Bank)</div>
                             <div>A/C: 06871011001027</div>
                             <div>IFSC: PUNB0068710</div>
@@ -904,7 +888,7 @@ const RegistrationPage = () => {
                         {/* Transaction ID & Date */}
                         <div className="grid sm:grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Transaction ID / UTR No. *
                             </label>
                             <input
@@ -914,11 +898,11 @@ const RegistrationPage = () => {
                               placeholder="e.g. UTR / NEFT Reference No."
                               value={exhibitorData.txnId}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                           <div>
-                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                            <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                               Payment Date
                             </label>
                             <input
@@ -926,17 +910,17 @@ const RegistrationPage = () => {
                               name="paymentDate"
                               value={exhibitorData.paymentDate}
                               onChange={handleExhibitorInputChange}
-                              className="w-full bg-[#1A202C] border border-neutral-700 focus:border-amber-400 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                              className="w-full bg-[#FDFBF7] border border-[#E6DFD3] focus:border-[#B77A27] focus:bg-white rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#B77A27]/20 transition-all"
                             />
                           </div>
                         </div>
 
                         {/* Upload Receipt */}
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-300 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-bold text-neutral-700 mb-1">
                             Upload Payment Confirmation / Bank Receipt *
                           </label>
-                          <div className="border-2 border-dashed border-neutral-700 hover:border-orange-400 rounded-2xl p-4 text-center cursor-pointer transition-colors bg-black/20 relative">
+                          <div className="border-2 border-dashed border-[#E6DFD3] hover:border-[#B77A27] rounded-2xl p-4 text-center cursor-pointer transition-colors bg-[#FAF7F2]/60 hover:bg-white relative">
                             <input
                               type="file"
                               required
@@ -944,8 +928,8 @@ const RegistrationPage = () => {
                               onChange={(e) => setExhibitorReceiptFile(e.target.files[0])}
                               className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                             />
-                            <UploadCloud className="w-6 h-6 text-orange-400 mx-auto mb-1" />
-                            <span className="text-xs text-neutral-300 block">
+                            <UploadCloud className="w-6 h-6 text-[#B77A27] mx-auto mb-1" />
+                            <span className="text-xs text-neutral-700 block font-medium">
                               {exhibitorReceiptFile ? exhibitorReceiptFile.name : 'Upload Payment Receipt Screenshot / PDF'}
                             </span>
                           </div>
@@ -960,9 +944,9 @@ const RegistrationPage = () => {
                             required
                             checked={exhibitorData.declaration}
                             onChange={handleExhibitorInputChange}
-                            className="mt-0.5 accent-orange-500 w-4 h-4 rounded cursor-pointer"
+                            className="mt-0.5 accent-[#B77A27] w-4 h-4 rounded cursor-pointer"
                           />
-                          <label htmlFor="exhibitorDeclaration" className="text-xs text-neutral-300 leading-normal cursor-pointer select-none">
+                          <label htmlFor="exhibitorDeclaration" className="text-xs text-neutral-600 leading-normal cursor-pointer select-none">
                             I declare that our brand agrees to LAF 3.0 exhibition floor guidelines and stall space allocation rules.
                           </label>
                         </div>
@@ -971,16 +955,16 @@ const RegistrationPage = () => {
                           <button
                             type="button"
                             onClick={() => setExhibitorStep(1)}
-                            className="py-3 px-5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-200 font-bold uppercase tracking-wider text-xs transition-colors"
+                            className="py-3 px-5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold uppercase tracking-wider text-xs transition-colors cursor-pointer"
                           >
                             Back to Step 1
                           </button>
 
                           <button
                             type="submit"
-                            className="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-black font-extrabold uppercase tracking-wider text-xs shadow-xl shadow-orange-500/25 transition-all flex items-center justify-center gap-2"
+                            className="flex-1 py-3 px-6 rounded-xl bg-[#B77A27] hover:bg-[#a0681f] text-white font-bold uppercase tracking-wider text-xs shadow-md shadow-[#B77A27]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                           >
-                            <Sparkles className="w-4 h-4 fill-black" />
+                            <Sparkles className="w-4 h-4 fill-white" />
                             <span>Submit Exhibitor Stall Request</span>
                           </button>
                         </div>
@@ -997,35 +981,34 @@ const RegistrationPage = () => {
           </div>
 
           {/* RIGHT SIDEBAR: ACCORDION, PROCESS & MEMBERSHIP BENEFITS */}
-          {activeFormMode !== 'dual' && (
-            <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-6">
               
               {/* ACCORDION INFORMATION BOX */}
-              <div className="bg-[#12161F]/90 backdrop-blur-xl border border-[#D4AF37]/30 rounded-3xl p-6 shadow-xl space-y-4">
+              <div className="bg-white/90 backdrop-blur-xl border border-[#E6DFD3] rounded-3xl p-6 shadow-sm space-y-4">
                 
-                <div className="flex items-center gap-2 pb-3 border-b border-white/10 text-amber-400 font-serif font-bold text-lg">
-                  <FileText className="w-5 h-5 text-amber-400" />
-                  <span>Registration & Process Guide</span>
+                <div className="flex items-center gap-2 pb-3 border-b border-[#E6DFD3] text-[#B77A27] font-serif font-bold text-lg">
+                  <FileText className="w-5 h-5 text-[#B77A27]" />
+                  <span>Registration &amp; Process Guide</span>
                 </div>
 
                 <div className="space-y-3">
                   
                   {/* Accordion Item 1: Eligibility */}
-                  <div className="border border-white/10 rounded-2xl overflow-hidden bg-black/20">
+                  <div className="border border-[#E6DFD3] rounded-2xl overflow-hidden bg-[#FDFBF7]">
                     <button
                       type="button"
                       onClick={() => setActiveAccordion(activeAccordion === 'eligibility' ? null : 'eligibility')}
-                      className="w-full flex items-center justify-between p-4 text-left font-bold text-xs uppercase tracking-wider text-amber-300 hover:bg-white/5 transition-colors"
+                      className="w-full flex items-center justify-between p-4 text-left font-bold text-xs uppercase tracking-wider text-[#B77A27] hover:bg-[#FAF7F2] transition-colors cursor-pointer"
                     >
                       <span className="flex items-center gap-2">
-                        <Award className="w-4 h-4 text-amber-400" />
+                        <Award className="w-4 h-4 text-[#B77A27]" />
                         Eligibility Criteria
                       </span>
-                      <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform ${activeAccordion === 'eligibility' ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 text-[#B77A27] transition-transform ${activeAccordion === 'eligibility' ? 'rotate-180' : ''}`} />
                     </button>
                     {activeAccordion === 'eligibility' && (
-                      <div className="p-4 text-xs text-neutral-300 space-y-2 border-t border-white/5 bg-black/40 leading-relaxed">
-                        <ul className="list-disc pl-4 space-y-1 text-neutral-300">
+                      <div className="p-4 text-xs text-neutral-600 space-y-2 border-t border-[#E6DFD3] bg-white leading-relaxed">
+                        <ul className="list-disc pl-4 space-y-1 text-neutral-600">
                           <li>Degree in Architecture (B.Arch) from a COA recognized institution/university.</li>
                           <li>Possess valid Council of Architecture (COA) registration number.</li>
                           <li>Practicing or living in Lucknow, UP, or neighboring districts.</li>
@@ -1036,24 +1019,24 @@ const RegistrationPage = () => {
                   </div>
 
                   {/* Accordion Item 2: Membership & Conclave Benefits */}
-                  <div className="border border-white/10 rounded-2xl overflow-hidden bg-black/20">
+                  <div className="border border-[#E6DFD3] rounded-2xl overflow-hidden bg-[#FDFBF7]">
                     <button
                       type="button"
                       onClick={() => setActiveAccordion(activeAccordion === 'benefits' ? null : 'benefits')}
-                      className="w-full flex items-center justify-between p-4 text-left font-bold text-xs uppercase tracking-wider text-amber-300 hover:bg-white/5 transition-colors"
+                      className="w-full flex items-center justify-between p-4 text-left font-bold text-xs uppercase tracking-wider text-[#B77A27] hover:bg-[#FAF7F2] transition-colors cursor-pointer"
                     >
                       <span className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-amber-400" />
-                        Delegate & Member Benefits
+                        <Sparkles className="w-4 h-4 text-[#B77A27]" />
+                        Delegate &amp; Member Benefits
                       </span>
-                      <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform ${activeAccordion === 'benefits' ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 text-[#B77A27] transition-transform ${activeAccordion === 'benefits' ? 'rotate-180' : ''}`} />
                     </button>
                     {activeAccordion === 'benefits' && (
-                      <div className="p-4 text-xs text-neutral-300 space-y-2 border-t border-white/5 bg-black/40 leading-relaxed">
-                        <ul className="list-disc pl-4 space-y-1 text-neutral-300">
-                          <li>Access to all 3 Days of LAF 3.0 Conclave, Keynotes & Panel Symposiums.</li>
-                          <li>Direct networking with 500+ eminent architects, buyers & government dignitaries.</li>
-                          <li>Delegate Kit, Certificate of Participation & CPD points.</li>
+                      <div className="p-4 text-xs text-neutral-600 space-y-2 border-t border-[#E6DFD3] bg-white leading-relaxed">
+                        <ul className="list-disc pl-4 space-y-1 text-neutral-600">
+                          <li>Access to all 3 Days of LAF 3.0 Conclave, Keynotes &amp; Panel Symposiums.</li>
+                          <li>Direct networking with 500+ eminent architects, buyers &amp; government dignitaries.</li>
+                          <li>Delegate Kit, Certificate of Participation &amp; CPD points.</li>
                           <li>LAA General Body Meeting (GBM) voting and directory inclusion rights.</li>
                         </ul>
                       </div>
@@ -1061,27 +1044,27 @@ const RegistrationPage = () => {
                   </div>
 
                   {/* Accordion Item 3: Fee & Bank Details */}
-                  <div className="border border-white/10 rounded-2xl overflow-hidden bg-black/20">
+                  <div className="border border-[#E6DFD3] rounded-2xl overflow-hidden bg-[#FDFBF7]">
                     <button
                       type="button"
                       onClick={() => setActiveAccordion(activeAccordion === 'fee' ? null : 'fee')}
-                      className="w-full flex items-center justify-between p-4 text-left font-bold text-xs uppercase tracking-wider text-amber-300 hover:bg-white/5 transition-colors"
+                      className="w-full flex items-center justify-between p-4 text-left font-bold text-xs uppercase tracking-wider text-[#B77A27] hover:bg-[#FAF7F2] transition-colors cursor-pointer"
                     >
                       <span className="flex items-center gap-2">
-                        <CreditCard className="w-4 h-4 text-amber-400" />
-                        Fee Details & Bank Info
+                        <CreditCard className="w-4 h-4 text-[#B77A27]" />
+                        Fee Details &amp; Bank Info
                       </span>
-                      <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform ${activeAccordion === 'fee' ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 text-[#B77A27] transition-transform ${activeAccordion === 'fee' ? 'rotate-180' : ''}`} />
                     </button>
                     {activeAccordion === 'fee' && (
-                      <div className="p-4 text-xs text-neutral-300 space-y-2 border-t border-white/5 bg-black/40 leading-relaxed font-mono">
-                        <p className="text-amber-300 font-bold">Life Time Membership Fee:</p>
-                        <p className="text-neutral-200">Rs. 5000/- + 18% GST (Rs. 900) = <span className="text-amber-400 font-bold">Rs. 5900/-</span></p>
-                        <hr className="border-white/10 my-2" />
-                        <p className="text-neutral-400">Name of Bank: Punjab National Bank</p>
-                        <p className="text-neutral-400">A/C Name: Lucknow Architects Association</p>
-                        <p className="text-neutral-400">A/C No.: 06871011001027</p>
-                        <p className="text-neutral-400">IFSC Code: PUNB0068710</p>
+                      <div className="p-4 text-xs text-neutral-600 space-y-2 border-t border-[#E6DFD3] bg-white leading-relaxed font-mono">
+                        <p className="text-[#B77A27] font-bold">Life Time Membership Fee:</p>
+                        <p className="text-neutral-700">Rs. 5000/- + 18% GST (Rs. 900) = <span className="text-[#B77A27] font-bold">Rs. 5900/-</span></p>
+                        <hr className="border-[#E6DFD3] my-2" />
+                        <p className="text-neutral-600">Name of Bank: Punjab National Bank</p>
+                        <p className="text-neutral-600">A/C Name: Lucknow Architects Association</p>
+                        <p className="text-neutral-600">A/C No.: 06871011001027</p>
+                        <p className="text-neutral-600">IFSC Code: PUNB0068710</p>
                       </div>
                     )}
                   </div>
@@ -1091,34 +1074,33 @@ const RegistrationPage = () => {
               </div>
 
               {/* HELPLINE & CONTACT CARD */}
-              <div className="bg-[#12161F]/90 backdrop-blur-xl border border-[#D4AF37]/30 rounded-3xl p-6 shadow-xl space-y-3">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-amber-400 font-bold block">
+              <div className="bg-white/90 backdrop-blur-xl border border-[#E6DFD3] rounded-3xl p-6 shadow-sm space-y-3">
+                <span className="text-[10px] font-mono tracking-widest uppercase text-[#B77A27] font-bold block">
                   ✦ NEED ASSISTANCE?
                 </span>
-                <h3 className="font-serif text-lg font-bold text-white">
+                <h3 className="font-serif text-lg font-bold text-[#171717]">
                   Registration Support Desk
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-neutral-600 leading-relaxed">
                   Have questions regarding COA verification, stall dimensions or payment assistance?
                 </p>
                 <div className="pt-2 space-y-2 text-xs">
-                  <a href="tel:917007973079" className="flex items-center gap-2.5 text-neutral-200 hover:text-amber-400 transition-colors">
-                    <PhoneCall className="w-4 h-4 text-amber-400" />
+                  <a href="tel:917007973079" className="flex items-center gap-2.5 text-neutral-700 hover:text-[#B77A27] transition-colors font-medium">
+                    <PhoneCall className="w-4 h-4 text-[#B77A27]" />
                     <span>+91 70079 73079</span>
                   </a>
-                  <a href="mailto:info@lucknowarchitects.com" className="flex items-center gap-2.5 text-neutral-200 hover:text-amber-400 transition-colors">
-                    <Mail className="w-4 h-4 text-amber-400" />
+                  <a href="mailto:info@lucknowarchitects.com" className="flex items-center gap-2.5 text-neutral-700 hover:text-[#B77A27] transition-colors font-medium">
+                    <Mail className="w-4 h-4 text-[#B77A27]" />
                     <span>info@lucknowarchitects.com</span>
                   </a>
-                  <div className="flex items-start gap-2.5 text-neutral-400 text-[11px] pt-1">
-                    <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 text-neutral-500 text-[11px] pt-1">
+                    <MapPin className="w-4 h-4 text-[#B77A27] shrink-0 mt-0.5" />
                     <span>2/75A, Vibhuti Khand, Gomti Nagar, Lucknow - 226010, UP</span>
                   </div>
                 </div>
               </div>
 
             </div>
-          )}
 
         </div>
 
@@ -1131,34 +1113,34 @@ const RegistrationPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] bg-neutral-900/50 backdrop-blur-sm flex items-center justify-center p-4"
           >
             <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
+              initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="bg-[#161B24] border border-[#D4AF37]/50 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center relative shadow-[0_0_50px_rgba(212,175,55,0.25)]"
+              exit={{ scale: 0.95, y: 15 }}
+              className="bg-white border border-[#E6DFD3] rounded-3xl p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl"
             >
               <button 
                 onClick={() => setSubmittedModal(null)}
-                className="absolute top-4 right-4 text-neutral-400 hover:text-white p-1 rounded-full bg-white/5"
+                className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-700 p-1 rounded-full bg-neutral-100 hover:bg-neutral-200 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-black flex items-center justify-center mx-auto mb-4 shadow-lg shadow-amber-500/30">
+              <div className="w-16 h-16 rounded-full bg-[#B77A27] text-white flex items-center justify-center mx-auto mb-4 shadow-md shadow-[#B77A27]/25">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
 
-              <span className="text-[10px] font-mono tracking-widest text-amber-400 font-bold uppercase block mb-1">
+              <span className="text-[10px] font-mono tracking-widest text-[#B77A27] font-bold uppercase block mb-1">
                 REGISTRATION SUBMITTED
               </span>
 
-              <h3 className="font-serif text-2xl font-bold text-white mb-2">
+              <h3 className="font-serif text-2xl font-bold text-[#171717] mb-2">
                 Thank You for Registering!
               </h3>
 
-              <p className="text-xs text-neutral-300 leading-relaxed mb-6">
+              <p className="text-xs text-neutral-600 leading-relaxed mb-6">
                 {submittedModal === 'architect'
                   ? `Your Architect Delegate registration details & payment receipt (Txn: ${archData.txnId || 'Received'}) have been successfully submitted for verification.`
                   : `Your Exhibitor Stall booking request & payment receipt (Txn: ${exhibitorData.txnId || 'Received'}) have been received.`
@@ -1166,14 +1148,14 @@ const RegistrationPage = () => {
                 Our organizing desk will verify the details and send your official confirmation ticket to your email.
               </p>
 
-              <div className="p-3 bg-black/50 rounded-2xl border border-white/10 text-[11px] font-mono text-neutral-400 mb-6 flex justify-between">
+              <div className="p-3 bg-[#FAF7F2] rounded-2xl border border-[#E6DFD3] text-[11px] font-mono text-neutral-600 mb-6 flex justify-between">
                 <span>Status: Under Verification</span>
-                <span className="text-amber-400 font-bold">LAF-3.0-REG</span>
+                <span className="text-[#B77A27] font-bold">LAF-3.0-REG</span>
               </div>
 
               <button
                 onClick={() => setSubmittedModal(null)}
-                className="w-full py-3 px-6 rounded-xl bg-[#D4AF37] hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs shadow-lg transition-all"
+                className="w-full py-3 px-6 rounded-xl bg-[#B77A27] hover:bg-[#a0681f] text-white font-bold uppercase tracking-wider text-xs shadow-md transition-all cursor-pointer"
               >
                 Done / Return to Registration
               </button>

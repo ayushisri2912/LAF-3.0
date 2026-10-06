@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
-import heroBgImage from '../../assets/images/hero1.png';
+import heroBgImage from '../../assets/images/hero2.png';
 
 const HeroSection = () => {
   return (
@@ -22,9 +22,9 @@ const HeroSection = () => {
         className="
           absolute inset-0
           bg-gradient-to-b
-          from-[#071421]/20
-          via-[#071421]/35
-          to-[#071421]/65
+          from-[#071421]/10
+          via-[#071421]/16
+          to-[#071421]/20
         "
       />
 
@@ -83,8 +83,8 @@ const HeroSection = () => {
               font-serif
               italic
               font-medium
-              text-[#C28B16]
-              drop-shadow-[0_2px_5px_rgba(0,0,0,0.9)]
+              text-[#fbc551]
+              drop-shadow-[0_2px_5px_rgba(0,0,0,0.7)]
             "
           >
             Design,
@@ -98,8 +98,8 @@ const HeroSection = () => {
               font-serif
               italic
               font-medium
-              text-[#C28B16]
-              drop-shadow-[0_2px_5px_rgba(0,0,0,0.9)]
+               text-[#fbc551]
+              drop-shadow-[0_2px_5px_rgba(0,0,0,0.7)]
             "
           >
             Luxury
@@ -132,7 +132,7 @@ const HeroSection = () => {
                 h-[2px]
                 bg-gradient-to-r
                 from-transparent
-                to-[#D4A72C]
+                to-[#d3b154]
               "
             />
 
@@ -146,7 +146,7 @@ const HeroSection = () => {
                 font-black
                 tracking-[0.08em]
                 leading-none
-                text-[#D4A72C]
+                text-[#cbab53]
                 drop-shadow-[0_4px_8px_rgba(0,0,0,0.95)]
               "
             >

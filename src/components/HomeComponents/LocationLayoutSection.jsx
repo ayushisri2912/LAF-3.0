@@ -92,7 +92,7 @@ const LocationLayoutSection = () => {
 
             <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl leading-[1.1] font-medium tracking-tight text-[#171717]">
               Location{" "}
-              <span className="block font-serif italic text-[#B77A27] mt-1 sm:mt-2">
+              <span className="font-serif italic text-[#B77A27]">
                 &amp; Layout.
               </span>
             </h2>
@@ -235,23 +235,23 @@ const LocationLayoutSection = () => {
             <span className="absolute bottom-0 right-0 h-7 w-px bg-[#B77A27]" />
             <span className="absolute bottom-0 right-0 h-px w-7 bg-[#B77A27]" />
 
-            {/* IMAGE */}
-            <div className="group relative overflow-hidden bg-[#FAFAF8] rounded-xl">
+            {/* MASTER PLAN CONTAINER — FULL UNCLIPPED MAP */}
+            <div className="group relative overflow-hidden bg-white rounded-xl w-full flex items-center justify-center border border-[#E6DFD3] p-2 sm:p-4 shadow-2xs">
               <img
                 src={layoutImage}
-                alt="Lucknow Architecture Festival Location and Layout"
-                className="h-auto max-h-[850px] w-full object-contain transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
+                alt="Lucknow Architecture Festival Location and Master Plan"
+                className="w-full h-auto max-h-[750px] object-contain transition-transform duration-700 ease-out group-hover:scale-[1.01]"
               />
 
               {/* HOVER OVERLAY */}
-              <div className="pointer-events-none absolute inset-0 bg-[#171717]/0 transition-all duration-500 group-hover:bg-[#171717]/[0.04]" />
+              <div className="pointer-events-none absolute inset-0 bg-[#171717]/0 transition-all duration-500 group-hover:bg-[#171717]/[0.02]" />
 
               {/* PLAN TAG */}
-              <div className="absolute bottom-5 left-5 bg-white/95 border border-[#D9D0C2] px-5 py-3.5 backdrop-blur-sm rounded-xl shadow-md">
+              <div className="absolute bottom-5 left-5 bg-white/95 border border-[#D9D0C2] px-5 py-3 backdrop-blur-md rounded-xl shadow-md z-10">
                 <p className="text-[9.5px] font-bold uppercase tracking-[0.25em] text-[#B77A27] font-mono">
                   LOCATION &amp; LAYOUT
                 </p>
-                <p className="mt-1 font-serif text-lg font-semibold text-[#171717]">
+                <p className="mt-0.5 font-serif text-base sm:text-lg font-semibold text-[#171717]">
                   Festival Master Plan
                 </p>
               </div>
@@ -267,7 +267,7 @@ const LocationLayoutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-16 border-y border-[#D9D0C2] py-8 sm:py-10"
+          className="mt-16 border-t border-[#D9D0C2] pt-8 sm:pt-10"
         >
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
@@ -302,24 +302,6 @@ const LocationLayoutSection = () => {
             </a>
           </div>
         </motion.div>
-
-        {/* =====================================================
-            ARCHITECTURAL FOOTNOTE
-        ====================================================== */}
-        <div className="mt-10 flex flex-col justify-between gap-4 border-t border-[#D9D0C2] pt-6 md:flex-row md:items-center">
-          <div className="flex items-center gap-3">
-            <MapPin size={15} strokeWidth={1.5} className="text-[#B77A27]" />
-            <span className="text-[9.5px] font-bold tracking-[0.25em] text-neutral-500 uppercase font-mono">
-              LUCKNOW ARCHITECTURAL FESTIVAL
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="text-[9.5px] font-bold tracking-[0.2em] text-neutral-500 uppercase font-mono">
-              LOCATION · LAYOUT · EXPERIENCE
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

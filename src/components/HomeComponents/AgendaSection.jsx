@@ -244,7 +244,7 @@ const AgendaSection = () => {
   return (
     <section
       id="agenda"
-      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] py-14 sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] pt-4 sm:pt-6 lg:pt-8 pb-14 sm:pb-16 lg:pb-20"
     >
       {/* ARCHITECTURAL BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none">
@@ -287,7 +287,7 @@ const AgendaSection = () => {
 
             <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl leading-[1.1] font-medium tracking-tight text-[#171717]">
               Agenda{" "}
-              <span className="block font-serif italic text-[#B77A27] mt-1 sm:mt-2">
+              <span className="font-serif italic text-[#B77A27]">
                 of Ideas.
               </span>
             </h2>

@@ -70,11 +70,18 @@ const downloads = [
   { label: "Event Layout", href: "#" },
 ];
 
+const TwitterIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+  </svg>
+);
+
 const socialLinks = [
-  { label: "Instagram", href: "#", icon: InstagramIcon },
-  { label: "Facebook", href: "#", icon: FacebookIcon },
-  { label: "LinkedIn", href: "#", icon: LinkedinIcon },
-  { label: "YouTube", href: "#", icon: YoutubeIcon },
+  { label: "Facebook", href: "https://www.facebook.com/share/r/14tqyZYGyx5/", icon: FacebookIcon },
+  { label: "Twitter", href: "https://x.com/LucnowA/status/2098022161361625279?s=20", icon: TwitterIcon },
+  { label: "Instagram", href: "https://www.instagram.com/reel/DdGzeFOApim/", icon: InstagramIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/feed/update/urn:li:activity:7503787276993429504", icon: LinkedinIcon },
+  { label: "YouTube", href: "https://youtube.com/shorts/Wcr1sJ3jdPg?feature=share", icon: YoutubeIcon },
 ];
 
 export default function Footer() {
@@ -142,6 +149,8 @@ export default function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
                     className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 border border-white/15 text-neutral-300 hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300"
                   >

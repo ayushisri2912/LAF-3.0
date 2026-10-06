@@ -184,9 +184,12 @@ const HighlightsSection = () => {
         overflow-hidden
         bg-[#F7F4EE]
         text-[#171717]
-        py-14
-        sm:py-16
-        lg:py-20
+        pt-4
+        sm:pt-6
+        lg:pt-8
+        pb-4
+        sm:pb-6
+        lg:pb-8
       "
     >
 
@@ -1327,13 +1330,13 @@ const HighlightsSection = () => {
             duration: 0.8,
           }}
           className="
-            mt-12
-            lg:mt-14
+            mt-6
+            lg:mt-8
             border-t
             border-b
             border-[#D9D0C2]
-            py-6
-            sm:py-8
+            py-4
+            sm:py-5
             text-center
           "
         >

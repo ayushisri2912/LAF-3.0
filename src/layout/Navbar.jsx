@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { 
@@ -24,6 +24,15 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTeamOpen, setIsTeamOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -150,11 +159,23 @@ const Navbar = () => {
       </header>
 
       {/* ================= 2. STICKY LUXURY DARK NAVBAR ================= */}
-      <nav className="sticky top-0 w-full bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/20 z-[100] select-none font-sans">
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90" />
+      <nav className={`sticky top-0 w-full z-[100] select-none font-sans transition-all duration-300 ${
+        isScrolled 
+          ? 'pointer-events-none py-2 sm:py-2.5' 
+          : 'bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/20'
+      }`}>
+        <div className={`max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 ${
+          isScrolled ? 'pointer-events-auto' : ''
+        }`}>
+          <div className={`transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-[#121214]/98 backdrop-blur-xl border border-[#D4AF37]/30 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden' 
+              : ''
+          }`}>
+            <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90" />
 
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16">
+            <div className={`transition-all duration-300 ${isScrolled ? 'px-4 sm:px-6 lg:px-8' : ''}`}>
+              <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 sm:h-16' : 'h-16'}`}>
 
             {/* Mobile Brand Title */}
             <div className="md:hidden flex items-center gap-2">
@@ -277,11 +298,11 @@ const Navbar = () => {
               </Link>
             </div>
 
-          </div>
-        </div>
+              </div>
+            </div>
 
-        {/* Mobile Drawer Menu */}
-        <AnimatePresence>
+            {/* Mobile Drawer Menu */}
+            <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
@@ -342,6 +363,8 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
+          </div>
+        </div>
       </nav>
     </>
   );

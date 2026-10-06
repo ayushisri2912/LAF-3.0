@@ -87,11 +87,11 @@ export default function FestivalTeamSection() {
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl leading-[1.08] font-medium tracking-tight text-[#171717]">
                 The Minds{" "}
-                <span className="block font-serif italic text-[#B77A27] mt-0.5 sm:mt-1 font-normal">
-                  behind the
+                <span className="font-serif italic text-[#B77A27] font-normal">
+                  behind
                 </span>
-                <span className="block font-serif font-medium text-[#171717] mt-0.5">
-                  Festival.
+                <span className="block font-serif font-medium text-[#171717] mt-1 sm:mt-2">
+                  the Festival.
                 </span>
               </h2>
             </motion.div>

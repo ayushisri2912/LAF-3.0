@@ -318,18 +318,18 @@ const LocationPage = () => {
               </button>
             </div>
 
-            {/* Main Plan Image */}
+            {/* Main Plan Image Container — Full Unclipped Layout */}
             <div
               onClick={() => setIsMapZoomed(true)}
-              className="relative rounded-2xl overflow-hidden bg-[#FAF7F2] border border-[#E6DFD3] cursor-pointer group-hover:shadow-lg transition-all"
+              className="relative rounded-2xl overflow-hidden bg-white border border-[#E6DFD3] cursor-pointer group-hover:shadow-lg transition-all p-2 sm:p-4 flex items-center justify-center"
             >
               <img
                 src={layoutImage}
                 alt="Lucknow Architecture Festival HD Master Layout"
-                className="w-full h-auto max-h-[600px] object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                className="w-full h-auto max-h-[650px] object-contain transition-transform duration-700 group-hover:scale-[1.01]"
               />
 
-              <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white text-xs">
+              <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white text-xs z-10">
                 <span className="text-[10px] font-mono text-amber-400 block uppercase tracking-wider">Interactive Master Plan</span>
                 <span className="font-serif font-medium text-sm">Click to expand high-resolution layout</span>
               </div>

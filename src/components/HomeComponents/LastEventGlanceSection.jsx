@@ -286,7 +286,7 @@ export default function LastEventGlanceSection() {
           </div>
         </div>
 
-        {/* ================= GALLERY MASONRY GRID ================= */}
+        {/* ================= SIMPLE IMAGE GALLERY GRID ================= */}
         <motion.div
           layout
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6"
@@ -296,55 +296,19 @@ export default function LastEventGlanceSection() {
               <motion.div
                 key={image.src}
                 layout
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedIndex(index)}
-                className="group relative cursor-pointer bg-white rounded-2xl overflow-hidden border border-[#E6DFD3] hover:border-[#D4AF37]/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(212,175,55,0.15)] transition-all duration-500 flex flex-col justify-between"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 aspect-[4/3] border border-[#E6DFD3] hover:border-[#B38F38]/60 shadow-xs hover:shadow-xl transition-all duration-500"
               >
-                {/* Image Container with crisp aspect ratio */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-100">
-                  <img
-                    src={image.src}
-                    alt={image.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  
-                  {/* Subtle Top Index Badge */}
-                  <div className="absolute top-3 left-3 bg-[#121214]/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20 text-white font-mono text-[9px] font-bold tracking-widest opacity-90 group-hover:opacity-100 transition-opacity">
-                    ✦ {image.id}
-                  </div>
-
-                  {/* Top Right Zoom Icon Indicator */}
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md border border-white/40 flex items-center justify-center text-neutral-800 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 shadow-md">
-                    <Maximize2 className="w-3.5 h-3.5 text-[#B38F38]" />
-                  </div>
-
-                  {/* Dark Bottom Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <div className="text-left w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-amber-400 font-bold block mb-1">
-                        {image.categoryLabel}
-                      </span>
-                      <h4 className="text-xs font-semibold text-white truncate drop-shadow-sm">
-                        {image.title}
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Minimal Card Footer Caption (Always Visible) */}
-                <div className="p-3.5 bg-white border-t border-neutral-100 flex items-center justify-between text-xs">
-                  <span className="font-medium text-neutral-800 truncate pr-2 text-[11.5px]">
-                    {image.title}
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-[#B38F38] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
-                </div>
-
-                {/* Bottom Gold Hover Accent Line */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 transition-all duration-500 group-hover:w-full" />
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
               </motion.div>
             ))}
           </AnimatePresence>
