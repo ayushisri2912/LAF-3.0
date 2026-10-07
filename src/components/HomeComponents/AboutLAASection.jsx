@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   Building2,
   UsersRound,
-  Plus,
   Sparkles,
   GraduationCap,
   BookOpen,
@@ -20,12 +19,11 @@ import {
   ShieldCheck,
   UserCheck,
   Search,
-  CheckCircle2,
   ChevronRight,
 } from "lucide-react";
 
 // ==========================================
-// IMAGES
+// IMAGES IMPORTS
 // ==========================================
 import mentorImage from "../../assets/images/m-1.png";
 import ob11Img from "../../assets/images/ob1.1.png";
@@ -35,6 +33,55 @@ import db22Img from "../../assets/images/db2.2.png";
 import cd31Img from "../../assets/images/cd3.1.png";
 import cd32Img from "../../assets/images/cd3.2.png";
 import cd4Img from "../../assets/images/cd-4.png";
+
+import con1Img from "../../assets/images/conveners-1.png";
+import con2Img from "../../assets/images/conveners-2.png";
+import con3Img from "../../assets/images/conveners-3.png";
+
+import cc1Img from "../../assets/images/cc-1.png";
+import cc2Img from "../../assets/images/cc-2.png";
+import cc3Img from "../../assets/images/cc-3.png";
+import cc4Img from "../../assets/images/cc-4.png";
+import cc5Img from "../../assets/images/cc-5.png";
+import cc6Img from "../../assets/images/cc-6.png";
+
+import jc1Img from "../../assets/images/am1-1.png";
+import jc2Img from "../../assets/images/am1-2.png";
+import jc3Img from "../../assets/images/am2-1.png";
+import jc4Img from "../../assets/images/am2-2.png";
+import jc5Img from "../../assets/images/am3-1.png";
+import jc6Img from "../../assets/images/am3-2.png";
+import jc7Img from "../../assets/images/am4-1.png";
+import jc8Img from "../../assets/images/am4-2.png";
+import jc9Img from "../../assets/images/am5-1.png";
+import jc10Img from "../../assets/images/am5-2.png";
+import jc11Img from "../../assets/images/am6-1.png";
+import jc12Img from "../../assets/images/am6-2.png";
+import jc13Img from "../../assets/images/am7-1.png";
+import jc14Img from "../../assets/images/am7-2.png";
+import jc15Img from "../../assets/images/am8-1.png";
+import jc16Img from "../../assets/images/am9-1.png";
+import jc17Img from "../../assets/images/am9-2.png";
+import jc18Img from "../../assets/images/am10-1.png";
+import jc19Img from "../../assets/images/am10-2.png";
+import jc20Img from "../../assets/images/am11-1.png";
+import jc21Img from "../../assets/images/am11-2.png";
+import jc22Img from "../../assets/images/am12-1.png";
+import jc23Img from "../../assets/images/am12-2.png";
+import jc24Img from "../../assets/images/am13-1.png";
+import jc25Img from "../../assets/images/am13-2.png";
+import jc26Img from "../../assets/images/am14-2.png";
+import jc27Img from "../../assets/images/am16-2.png";
+import jc28Img from "../../assets/images/am17-1.png";
+import jc29Img from "../../assets/images/am17-2.png";
+
+import sp2Img from "../../assets/images/sp-2.png";
+
+// Helper function to resolve convener circular photo avatars
+const getMemberAvatar = (name, customImg) => {
+  if (customImg) return customImg;
+  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=181716&color=D4AF37&bold=true&size=128`;
+};
 
 // ==========================================
 // DATA
@@ -129,6 +176,10 @@ const committeesData = [
     category: "Education & Culture",
     icon: GraduationCap,
     subtitle: "Knowledge · Education · Pedagogy",
+    conveners: [
+      { name: "Ar. Suparna Sircar", role: "Convener", image: sp2Img },
+      { name: "Dr. Ritu Gulati", role: "Co-Convener", image: jc12Img },
+    ],
     members: [
       "Ar. Vivek Karmakar",
       "Ar. Mohit Kumar Agarwal",
@@ -143,9 +194,13 @@ const committeesData = [
     category: "Education & Culture",
     icon: BookOpen,
     subtitle: "Skill Development · Professional Training",
+    conveners: [
+      { name: "Ar. D. P. Singh", role: "Convener", image: con1Img },
+      { name: "Ar. Deepti Pandey Rana", role: "Co-Convener", image: jc24Img },
+    ],
     members: [
-      "Ar. Amit Raj",
       "Ar. Deepti Sagar",
+      "Ar. Amit Raj",
       "Ar. Vaibhav Kulshrestha",
       "Ar. Prashant Tiwari",
       "Ar. Kabir Kumar",
@@ -157,6 +212,10 @@ const committeesData = [
     category: "Community & Welfare",
     icon: Trophy,
     subtitle: "Community Fitness · Tournaments",
+    conveners: [
+      { name: "Ar. Shubhendra Bajpayee", role: "Convener", image: cc3Img },
+      { name: "Ar. Sandeep Negi", role: "Co-Convener", image: jc9Img },
+    ],
     members: [
       "Ar. Vinay Vishwkarma",
       "Ar. Soharab Khan",
@@ -170,6 +229,10 @@ const committeesData = [
     category: "Community & Welfare",
     icon: Coffee,
     subtitle: "Member Relations · Guest Experience",
+    conveners: [
+      { name: "Ar. Vaibhav Goel", role: "Convener", image: cc4Img },
+      { name: "Ar. Aviral Agarwal", role: "Co-Convener", image: jc7Img },
+    ],
     members: [
       "Ar. Kalankar Raj Gupta",
       "Ar. Salman Nasir",
@@ -183,9 +246,11 @@ const committeesData = [
     category: "Education & Culture",
     icon: Palette,
     subtitle: "Art · Heritage · Architectural Exhibits",
+    conveners: [
+      { name: "Ar. Namit Tondon", role: "Convener", image: cc5Img },
+      { name: "Ar. Nishant Upadhyay", role: "Co-Convener", image: jc27Img },
+    ],
     members: [
-      "Ar. Namit Tondon",
-      "Ar. Nishant Upadhyay",
       "Ar. Rohit Agarwal",
       "Dr. Anjaneya Sharma",
     ],
@@ -196,9 +261,11 @@ const committeesData = [
     category: "Operations & Media",
     icon: CalendarDays,
     subtitle: "Event Operations · Logistics & Hosting",
+    conveners: [
+      { name: "Ar. Shipra Singh", role: "Convener", image: jc11Img },
+      { name: "Ar. Krishna Mohan Prajapati", role: "Co-Convener", image: cc6Img },
+    ],
     members: [
-      "Ar. Shipra Singh",
-      "Ar. Krishna Mohan Prajapati",
       "Ar. Shishir Srivastva",
       "Ar. Abhishek Baidya",
       "Ar. Ashutosh Gupta",
@@ -210,9 +277,11 @@ const committeesData = [
     category: "Operations & Media",
     icon: UsersRound,
     subtitle: "Network Growth · Member Registry",
+    conveners: [
+      { name: "Ar. Awadhesh Verma", role: "Convener", image: con2Img },
+      { name: "Ar. Imran Khan", role: "Co-Convener", image: jc3Img },
+    ],
     members: [
-      "Ar. Awadhesh Verma",
-      "Ar. Imran Khan",
       "Ar. Alok Kumar",
       "Ar. Vishal Mathur",
     ],
@@ -223,9 +292,11 @@ const committeesData = [
     category: "Operations & Media",
     icon: Newspaper,
     subtitle: "Press Relations · Branding & Outreach",
+    conveners: [
+      { name: "Ar. Prafull Gupta", role: "Convener", image: cc1Img },
+      { name: "Ar. Priyanka Rastogi", role: "Co-Convener", image: jc25Img },
+    ],
     members: [
-      "Ar. Prafull Gupta",
-      "Ar. Priyanka Rastogi",
       "Ar. Rohit Verma",
       "Ar. Shrish Pratap Singh",
       "Ar. Vandana Patel",
@@ -237,9 +308,11 @@ const committeesData = [
     category: "Operations & Media",
     icon: PenLine,
     subtitle: "Journal Publications · Design Standards",
+    conveners: [
+      { name: "Ar. Sushil Gupta", role: "Convener", image: cc3Img },
+      { name: "Ar. Shiyak Singh", role: "Co-Convener", image: jc10Img },
+    ],
     members: [
-      "Ar. Sushil Gupta",
-      "Ar. Shiyak Singh",
       "Ar. Saurav Verma",
       "Ar. Rajarshi",
       "Ar. Sayan Munshi",
@@ -251,9 +324,11 @@ const committeesData = [
     category: "Practice & Governance",
     icon: Scale,
     subtitle: "Governance · Advisory & Professional Ethics",
+    conveners: [
+      { name: "Ar. Sanjeev Kumar Singh", role: "Convener", image: cc4Img },
+      { name: "Ar. Arvind Gupta", role: "Co-Convener", image: jc23Img },
+    ],
     members: [
-      "Ar. Sanjeev Kumar Singh",
-      "Ar. Arvind Gupta",
       "Ar. Ashish Gupta",
       "Ar. Nitin Singh",
       "Ar. Alok Srivastava",
@@ -265,9 +340,11 @@ const committeesData = [
     category: "Community & Welfare",
     icon: HeartHandshake,
     subtitle: "Community Bonding · Family Welfare",
+    conveners: [
+      { name: "Ar. Vivek Agarwal", role: "Convener", image: con3Img },
+      { name: "Ar. Faraj Ahmad Usmani", role: "Co-Convener", image: jc3Img },
+    ],
     members: [
-      "Ar. Vivek Agarwal",
-      "Ar. Faraj Ahmad Usmani",
       "Ar. Umesh Gupta",
       "Ar. Gaurav Gupta",
       "Ar. Narayan Pandey",
@@ -279,9 +356,11 @@ const committeesData = [
     category: "Community & Welfare",
     icon: Sparkles,
     subtitle: "Civic Outreach · Sustainable Urban Impact",
+    conveners: [
+      { name: "Ar. Shikhar Singh", role: "Convener", image: jc16Img },
+      { name: "Ar. Roli Singh", role: "Co-Convener", image: jc17Img },
+    ],
     members: [
-      "Ar. Shikhar Singh",
-      "Ar. Roli Singh",
       "Ar. Akhilesh Pal",
       "Ar. Utkarsh Shukla",
     ],
@@ -292,8 +371,12 @@ const committeesData = [
     category: "Practice & Governance",
     icon: Landmark,
     subtitle: "Urban Policy · Govt Liaison & Standards",
+    conveners: [
+      { name: "Ar. Anupam Mittal", role: "Convener", image: con3Img },
+      { name: "Ar. Rajat Kant Mittal", role: "Co-Convener", image: con1Img },
+    ],
     members: [
-      "LAA Strategic Governance Wing",
+      "LAA Governance Wing",
       "Policy & Urban Affairs Panel",
     ],
   },
@@ -310,7 +393,16 @@ const AboutLAASection = () => {
       selectedCategory === "All" || item.category === selectedCategory;
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.members.some((m) => m.toLowerCase().includes(searchQuery.toLowerCase()));
+      (item.conveners &&
+        item.conveners.some((c) =>
+          c.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )) ||
+      (item.members &&
+        item.members.some((m) =>
+          (typeof m === "string" ? m : m.name)
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        ));
     return matchesCategory && matchesSearch;
   });
 
@@ -617,7 +709,7 @@ const AboutLAASection = () => {
         </div>
 
         {/* =====================================================
-            LAA COMMITTEES SHOWCASE (FULL 13 COMMITTEES)
+            LAA COMMITTEES SHOWCASE (REDESIGNED WITH STANDALONE CIRCULAR CONVENER HEADSHOTS)
         ====================================================== */}
         <div id="committees" className="mt-24">
           {/* HEADER & FILTER BAR */}
@@ -669,8 +761,8 @@ const AboutLAASection = () => {
             </div>
           </div>
 
-          {/* COMMITTEES GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* COMMITTEES GRID - CARDS WITH STANDALONE CIRCULAR HEADSHOT CONVENERS & PLAIN TEXT MEMBERS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             <AnimatePresence mode="popLayout">
               {filteredCommittees.map((item, index) => {
                 const IconComponent = item.icon;
@@ -682,51 +774,101 @@ const AboutLAASection = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: index * 0.03 }}
-                    className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white/70 hover:bg-white border border-[#D9D0C2] hover:border-[#B77A27]/50 shadow-2xs hover:shadow-xl transition-all duration-300"
+                    className="group flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white/85 hover:bg-white border border-[#E6DFD3] hover:border-[#B77A27]/60 shadow-2xs hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                   >
+                    {/* Top Right Ambient Glow */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/5 rounded-full blur-2xl pointer-events-none group-hover:bg-amber-400/10 transition-colors" />
+
                     <div>
                       {/* CARD TOP BAR */}
                       <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-xs font-bold text-[#B77A27] bg-[#B77A27]/10 px-2.5 py-1 rounded-md border border-[#B77A27]/20">
-                          {item.id}
+                        <span className="font-mono text-xs font-bold text-[#B77A27] bg-amber-100/60 px-3 py-1 rounded-full border border-[#B77A27]/25 flex items-center gap-1.5 shadow-2xs">
+                          <span>✦</span> {item.id}
                         </span>
 
-                        <div className="h-10 w-10 rounded-xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-[#B77A27] group-hover:bg-[#B77A27] group-hover:text-white transition-colors duration-300">
-                          <IconComponent size={20} strokeWidth={1.5} />
+                        <div className="h-10 w-10 rounded-2xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-[#B77A27] group-hover:bg-[#B77A27] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-2xs">
+                          <IconComponent size={19} strokeWidth={1.5} />
                         </div>
                       </div>
 
                       {/* TITLE & SUBTITLE */}
-                      <h4 className="font-serif text-xl font-semibold text-[#171717] group-hover:text-[#B77A27] transition-colors">
+                      <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#171717] group-hover:text-[#B77A27] transition-colors leading-tight">
                         {item.title}
                       </h4>
-                      <p className="mt-1 text-[11px] font-mono tracking-wider text-neutral-500 uppercase">
+                      <p className="mt-1.5 text-[10.5px] font-mono tracking-wider text-neutral-500 uppercase">
                         {item.subtitle}
                       </p>
 
-                      {/* MEMBERS LIST */}
-                      <div className="mt-6 pt-4 border-t border-[#D9D0C2]">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B77A27] block mb-3 font-mono">
-                          COMMITTEE MEMBERS
-                        </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {item.members.map((member) => (
-                            <span
-                              key={member}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F7F4EE] hover:bg-[#EAE5DC] border border-[#D9D0C2] text-[11px] text-neutral-700 transition-colors"
-                            >
-                              <CheckCircle2 size={11} className="text-[#B77A27]" />
-                              <span>{member}</span>
-                            </span>
-                          ))}
+                      {/* ========================================================= */}
+                      {/* CONVENERS & CO-CONVENERS (STANDALONE PROMINENT CIRCULAR AVATARS) */}
+                      {/* ========================================================= */}
+                      {item.conveners && item.conveners.length > 0 && (
+                        <div className="mt-6 pt-5 border-t border-[#E6DFD3]">
+                          <div className="flex items-center justify-around gap-3 py-2">
+                            {item.conveners.map((convener) => (
+                              <div
+                                key={convener.name}
+                                className="flex flex-col items-center text-center group/person cursor-pointer flex-1"
+                              >
+                                {/* Circular Face Photo Avatar (Medium/Large Size: w-20 h-20 sm:w-22 sm:h-22) */}
+                                <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-full p-1 bg-gradient-to-b from-[#E6DFD3] via-[#D4AF37]/50 to-amber-200 group-hover/person:from-[#B77A27] group-hover/person:to-amber-400 transition-all duration-300 shadow-md group-hover/person:shadow-[0_0_20px_rgba(183,122,39,0.25)] mb-2.5">
+                                  <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white flex items-center justify-center">
+                                    <img
+                                      src={getMemberAvatar(convener.name, convener.image)}
+                                      alt={convener.name}
+                                      className="w-full h-full object-cover rounded-full group-hover/person:scale-105 transition-transform duration-500"
+                                      onError={(e) => {
+                                        e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(convener.name)}&background=181716&color=D4AF37&bold=true&size=128`;
+                                      }}
+                                    />
+                                  </div>
+                                </div>
+
+                                {/* Convener Name */}
+                                <h5 className="font-serif text-xs sm:text-sm font-bold text-[#171717] group-hover/person:text-[#B77A27] transition-colors leading-snug max-w-[130px]">
+                                  {convener.name}
+                                </h5>
+
+                                {/* Convener Role Badge */}
+                                <span className="inline-block mt-1 text-[8.5px] font-mono font-bold tracking-widest uppercase text-[#B77A27] bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/80">
+                                  {convener.role}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
+
+                      {/* ========================================================= */}
+                      {/* COMMITTEE MEMBERS (PLAIN TEXT NAMES ONLY - NO IMAGES) */}
+                      {/* ========================================================= */}
+                      {item.members && item.members.length > 0 && (
+                        <div className="mt-5 pt-4 border-t border-[#E6DFD3]">
+                          <span className="text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#B77A27] block mb-3 font-mono">
+                            COMMITTEE MEMBERS
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {item.members.map((member) => {
+                              const memberName = typeof member === "string" ? member : member.name;
+                              return (
+                                <span
+                                  key={memberName}
+                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F7F4EE] hover:bg-white border border-[#E6DFD3] text-[11px] font-medium text-neutral-700 transition-colors"
+                                >
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#B77A27]/80" />
+                                  <span>{memberName}</span>
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    {/* FOOTER */}
-                    <div className="mt-6 pt-4 border-t border-[#D9D0C2]/60 flex items-center justify-between text-xs text-neutral-400 font-mono">
-                      <span>{item.category}</span>
-                      <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform text-[#B77A27]" />
+                    {/* CARD FOOTER */}
+                    <div className="mt-6 pt-4 border-t border-[#E6DFD3]/80 flex items-center justify-between text-xs text-neutral-400 font-mono">
+                      <span className="tracking-wider text-[10.5px] text-neutral-500">{item.category}</span>
+                      <ChevronRight size={15} className="group-hover:translate-x-1.5 transition-transform text-[#B77A27]" />
                     </div>
                   </motion.div>
                 );
@@ -744,7 +886,7 @@ const AboutLAASection = () => {
                   setSearchQuery("");
                   setSelectedCategory("All");
                 }}
-                className="mt-4 px-5 py-2 rounded-full bg-[#171717] text-white text-xs font-medium hover:bg-[#B77A27] transition-colors"
+                className="mt-4 px-5 py-2 rounded-full bg-[#171717] text-white text-xs font-medium hover:bg-[#B77A27] transition-colors cursor-pointer"
               >
                 Reset Search Filters
               </button>

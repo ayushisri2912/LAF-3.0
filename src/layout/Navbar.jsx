@@ -162,14 +162,14 @@ const Navbar = () => {
       <nav className={`sticky top-0 w-full z-[100] select-none font-sans transition-all duration-300 ${
         isScrolled 
           ? 'pointer-events-none py-2 sm:py-2.5' 
-          : 'bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/20'
+          : 'bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/10'
       }`}>
         <div className={`max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 ${
           isScrolled ? 'pointer-events-auto' : ''
         }`}>
           <div className={`transition-all duration-300 ${
             isScrolled 
-              ? 'bg-[#121214]/98 backdrop-blur-xl border border-[#D4AF37]/30 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden' 
+              ? 'bg-[#121214]/98 backdrop-blur-xl border border-[#D4AF37]/30 rounded-2xl shadow-[0_6px_20px_rgba(0,0,0,0.12)] overflow-hidden' 
               : ''
           }`}>
             <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90" />
@@ -238,7 +238,7 @@ const Navbar = () => {
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                           className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-[110]"
                         >
-                          <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
+                          <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.3)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent pointer-events-none" />
                             <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
 

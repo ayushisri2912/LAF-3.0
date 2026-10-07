@@ -20,7 +20,7 @@ const AppRoutes = () => {
       <Route path="/team" element={<TeamPage />} />
       <Route path="/team/:submenu" element={<TeamPage />} />
       <Route path="/register" element={<RegistrationPage />} />
-      <Route path="/registration" element={<RegistrationPage />} />
+      {/* <Route path="/registration" element={<RegistrationPage />} /> */}
     </Routes>
   );
 };
