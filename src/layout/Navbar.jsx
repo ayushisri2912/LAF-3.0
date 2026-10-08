@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link, NavLink } from 'react-router-dom';
 import { 
   Sparkles, 
   ChevronDown, 
@@ -23,7 +23,6 @@ import taskLogo from '../assets/images/logo-right.webp';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTeamOpen, setIsTeamOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,14 +37,17 @@ const Navbar = () => {
   const location = useLocation();
 
   const handleNavClick = (e, href) => {
+    e.preventDefault();
     if (href.startsWith('#')) {
-      e.preventDefault();
       if (location.pathname !== '/') {
         navigate('/' + href);
       } else {
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        } else {
+          window.location.hash = href;
         }
       }
     } else {
@@ -196,92 +198,120 @@ const Navbar = () => {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center justify-center flex-1 gap-2 lg:gap-4">
-              {navLinks.map((item) => (
-                <div
-                  key={item.name}
-                  className="relative group py-2 flex items-center"
-                  onMouseEnter={() => {
-                    if (item.dropdown) setIsTeamOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    if (item.dropdown) setIsTeamOpen(false);
-                  }}
-                >
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
-                      (location.pathname.startsWith('/team') && item.name === 'Team') ||
-                      (location.pathname === '/participate' && item.name === 'Participate') ||
-                      (location.pathname === '/highlights' && item.name === 'Highlights') ||
-                      (location.pathname === '/gallery' && item.name === 'Gallery') ||
-                      (location.pathname === '/location' && item.name === 'Location')
-                        ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
-                        : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
-                    }`}
+              {navLinks.map((item) => {
+                const isRoute = !item.href.startsWith('#');
+                const isTeamActive = item.name === 'Team' && location.pathname.startsWith('/team');
+                const isHashActive = location.pathname === '/' && location.hash === item.href;
+
+                return (
+                  <div
+                    key={item.name}
+                    className="relative group py-2 flex items-center"
+                    onMouseEnter={() => {
+                      if (item.dropdown) setIsTeamOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      if (item.dropdown) setIsTeamOpen(false);
+                    }}
                   >
-                    <span>{item.name}</span>
-                    {item.dropdown && (
-                      <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
+                    {isRoute ? (
+                      <NavLink
+                        to={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={({ isActive }) =>
+                          `relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
+                            isActive || isTeamActive
+                              ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
+                              : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
+                          }`
+                        }
+                      >
+                        <span>{item.name}</span>
+                        {item.dropdown && (
+                          <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
+                        )}
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
+                      </NavLink>
+                    ) : (
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
+                          isHashActive || isTeamActive
+                            ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
+                            : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
+                        }`}
+                      >
+                        <span>{item.name}</span>
+                        {item.dropdown && (
+                          <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
+                        )}
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
+                      </a>
                     )}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
-                  </a>
 
-                  {/* Dropdown Menu */}
-                  {item.dropdown && (
-                    <AnimatePresence>
-                      {isTeamOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-[110]"
-                        >
-                          <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.3)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent pointer-events-none" />
-                            <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+                    {/* Dropdown Menu */}
+                    {item.dropdown && (
+                      <AnimatePresence>
+                        {isTeamOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-[110]"
+                          >
+                            <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.3)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
+                              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent pointer-events-none" />
+                              <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
 
-                            <div className="px-3 pt-2 pb-2 flex items-center justify-between text-[10px] font-mono tracking-[0.18em] uppercase text-[#D4AF37]/75 border-b border-white/5 mb-1.5">
-                              <span className="flex items-center gap-1.5">
-                                <span className="text-amber-400/80">✦</span> Team Directories
-                              </span>
-                              <span className="h-1.5 w-1.5 rounded-full bg-amber-400/80 animate-pulse" />
-                            </div>
+                              <div className="px-3 pt-2 pb-2 flex items-center justify-between text-[10px] font-mono tracking-[0.18em] uppercase text-[#D4AF37]/75 border-b border-white/5 mb-1.5">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="text-amber-400/80">✦</span> Team Directories
+                                </span>
+                                <span className="h-1.5 w-1.5 rounded-full bg-amber-400/80 animate-pulse" />
+                              </div>
 
-                            <div className="space-y-1">
-                              {item.dropdown.map((subItem) => {
-                                const IconComponent = subItem.icon;
-                                return (
-                                  <Link
-                                    key={subItem.name}
-                                    to={subItem.href}
-                                    onClick={() => setIsTeamOpen(false)}
-                                    className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/[0.05] transition-all duration-200 border border-transparent hover:border-amber-500/20"
-                                  >
-                                    <div className="w-9 h-9 rounded-xl bg-neutral-900/90 border border-white/5 flex items-center justify-center text-amber-400/80 group-hover/item:text-amber-400 group-hover/item:border-amber-500/30 group-hover/item:bg-amber-500/10 group-hover/item:shadow-[0_0_12px_rgba(212,175,55,0.15)] transition-all duration-300 shrink-0">
-                                      <IconComponent className="w-4 h-4" />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                      <div className="text-[12.5px] font-medium text-neutral-200 group-hover/item:text-amber-300 transition-colors flex items-center justify-between">
-                                        <span>{subItem.name}</span>
-                                        <ChevronRight className="w-3.5 h-3.5 text-amber-400/60 opacity-0 -translate-x-1.5 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                              <div className="space-y-1">
+                                {item.dropdown.map((subItem) => {
+                                  const IconComponent = subItem.icon;
+                                  return (
+                                    <NavLink
+                                      key={subItem.name}
+                                      to={subItem.href}
+                                      onClick={() => setIsTeamOpen(false)}
+                                      className={({ isActive }) =>
+                                        `group/item flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 border ${
+                                          isActive
+                                            ? 'bg-white/[0.08] border-amber-500/40 text-amber-300'
+                                            : 'hover:bg-white/[0.05] border-transparent hover:border-amber-500/20 text-neutral-200'
+                                        }`
+                                      }
+                                    >
+                                      <div className="w-9 h-9 rounded-xl bg-neutral-900/90 border border-white/5 flex items-center justify-center text-amber-400/80 group-hover/item:text-amber-400 group-hover/item:border-amber-500/30 group-hover/item:bg-amber-500/10 group-hover/item:shadow-[0_0_12px_rgba(212,175,55,0.15)] transition-all duration-300 shrink-0">
+                                        <IconComponent className="w-4 h-4" />
                                       </div>
-                                      <div className="text-[10.5px] text-neutral-400 group-hover/item:text-neutral-300 transition-colors truncate">
-                                        {subItem.desc}
+                                      <div className="flex-1 min-w-0">
+                                        <div className="text-[12.5px] font-medium text-neutral-200 group-hover/item:text-amber-300 transition-colors flex items-center justify-between">
+                                          <span>{subItem.name}</span>
+                                          <ChevronRight className="w-3.5 h-3.5 text-amber-400/60 opacity-0 -translate-x-1.5 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                                        </div>
+                                        <div className="text-[10.5px] text-neutral-400 group-hover/item:text-neutral-300 transition-colors truncate">
+                                          {subItem.desc}
+                                        </div>
                                       </div>
-                                    </div>
-                                  </Link>
-                                );
-                              })}
+                                    </NavLink>
+                                  );
+                                })}
+                              </div>
                             </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </div>
-              ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Desktop Premium CTA Button */}
@@ -317,36 +347,62 @@ const Navbar = () => {
                   <span className="text-[10px] text-neutral-400">Architects Conclave</span>
                 </div>
 
-                {navLinks.map((item) => (
-                  <div key={item.name} className="border-b border-neutral-800/60 pb-2">
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className="block py-1.5 text-sm font-semibold uppercase tracking-wider text-neutral-200 hover:text-amber-400 transition-colors"
-                    >
-                      {item.name}
-                    </a>
-                    
-                    {item.dropdown && (
-                      <div className="pl-3 mt-1.5 space-y-2 border-l border-amber-500/30 ml-1">
-                        {item.dropdown.map((sub) => {
-                          const SubIcon = sub.icon;
-                          return (
-                            <Link
-                              key={sub.name}
-                              to={sub.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="flex items-center gap-2 py-1 text-xs text-neutral-400 hover:text-amber-400 transition-colors"
-                            >
-                              <SubIcon className="w-3.5 h-3.5 text-amber-500" />
-                              <span>{sub.name}</span>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                {navLinks.map((item) => {
+                  const isRoute = !item.href.startsWith('#');
+                  const isTeamActive = item.name === 'Team' && location.pathname.startsWith('/team');
+                  const isHashActive = location.pathname === '/' && location.hash === item.href;
+
+                  return (
+                    <div key={item.name} className="border-b border-neutral-800/60 pb-2">
+                      {isRoute ? (
+                        <NavLink
+                          to={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={({ isActive }) =>
+                            `block py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                              isActive || isTeamActive ? 'text-amber-400' : 'text-neutral-200 hover:text-amber-400'
+                            }`
+                          }
+                        >
+                          {item.name}
+                        </NavLink>
+                      ) : (
+                        <a
+                          href={item.href}
+                          onClick={(e) => handleNavClick(e, item.href)}
+                          className={`block py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                            isHashActive || isTeamActive ? 'text-amber-400' : 'text-neutral-200 hover:text-amber-400'
+                          }`}
+                        >
+                          {item.name}
+                        </a>
+                      )}
+                      
+                      {item.dropdown && (
+                        <div className="pl-3 mt-1.5 space-y-2 border-l border-amber-500/30 ml-1">
+                          {item.dropdown.map((sub) => {
+                            const SubIcon = sub.icon;
+                            return (
+                              <NavLink
+                                key={sub.name}
+                                to={sub.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={({ isActive }) =>
+                                  `flex items-center gap-2 py-1 text-xs transition-colors ${
+                                    isActive ? 'text-amber-400 font-semibold' : 'text-neutral-400 hover:text-amber-400'
+                                  }`
+                                }
+                              >
+                                <SubIcon className="w-3.5 h-3.5 text-amber-500" />
+                                <span>{sub.name}</span>
+                              </NavLink>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
 
                 <div className="pt-2">
                   <Link

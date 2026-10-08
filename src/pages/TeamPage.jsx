@@ -52,9 +52,35 @@ import jc27Img from "../assets/images/am16-2.png";
 import jc28Img from "../assets/images/am17-1.png";
 import jc29Img from "../assets/images/am17-2.png";
 
-
-
-const BASE_URL = "https://lucknowarchitecturefestival.in/img/comm1/";
+import sv1Img from "../assets/images/sv-1.png";
+import sv2Img from "../assets/images/sv-2.png";
+import sv3Img from "../assets/images/sv-3.png";
+import sv4Img from "../assets/images/sv-4.png";
+import sv5Img from "../assets/images/sv-5.png";
+import sv6Img from "../assets/images/sv-6.png";
+import sv7Img from "../assets/images/sv-7.png";
+import sv8Img from "../assets/images/sv-8.png";
+import sv9Img from "../assets/images/sv-9.png";
+import sv10Img from "../assets/images/sv-10.png";
+import sv11Img from "../assets/images/sv-11.png";
+import sv12Img from "../assets/images/sv-12.png";
+import sv13Img from "../assets/images/sv-13.png";
+import sv14Img from "../assets/images/sv-14.png";
+import sv15Img from "../assets/images/sv-15.png";
+import sv16Img from "../assets/images/sv-16.png";
+import sv17Img from "../assets/images/sv-17.png";
+import sv18Img from "../assets/images/sv-18.png";
+import sv19Img from "../assets/images/sv-19.png";
+import sv20Img from "../assets/images/sv-20.png";
+import sv21Img from "../assets/images/sv-21.png";
+import sv22Img from "../assets/images/sv-22.png";
+import sv23Img from "../assets/images/sv-23.png";
+import sv24Img from "../assets/images/sv-24.png";
+import sv25Img from "../assets/images/sv-25.png";
+import sv26Img from "../assets/images/sv-26.png";
+import sv27Img from "../assets/images/sv-27.png";
+import sv28Img from "../assets/images/sv-28.png";
+import sv29Img from "../assets/images/sv-29.png";
 
 export const convenorLeadershipMembers = [
   {
@@ -147,13 +173,38 @@ export const teamCategories = {
     subtitle: "03 · VOLUNTEERS & COORDINATORS",
     description: "The enthusiastic coordinators and student volunteers leading logistics, guest relations, and ground execution.",
     icon: GraduationCap,
-    countLabel: "15 MEMBERS",
-    members: Array.from({ length: 15 }, (_, index) => ({
-      id: `co-${index + 1}`,
-      name: `Coordinator / Volunteer ${index + 1}`,
-      role: "Event Coordinator",
-      image: `${BASE_URL}co${index + 1}.png`,
-    })),
+    countLabel: "29 MEMBERS",
+    members: [
+      { id: "sv-1", name: "Ar. D. P. Singh", role: "Event Coordinator", image: sv1Img },
+      { id: "sv-2", name: "Ar. Sanjay Mathur", role: "Event Coordinator", image: sv2Img },
+      { id: "sv-3", name: "Ar. Anita Srivastva", role: "Event Coordinator", image: sv3Img },
+      { id: "sv-4", name: "Ar. Neeraj Kushwaha", role: "Event Coordinator", image: sv4Img },
+      { id: "sv-5", name: "Ar. Avinash Ghai", role: "Event Coordinator", image: sv5Img },
+      { id: "sv-6", name: "Ar. Ritu Gulati", role: "Event Coordinator", image: sv6Img },
+      { id: "sv-7", name: "Ar. Shubra Mittal", role: "Event Coordinator", image: sv7Img },
+      { id: "sv-8", name: "Ar. Anshu Singh", role: "Event Coordinator", image: sv8Img },
+      { id: "sv-9", name: "Ar. Prashant K. Singh", role: "Event Coordinator", image: sv9Img },
+      { id: "sv-10", name: "Ar. Alok Verma", role: "Event Coordinator", image: sv10Img },
+      { id: "sv-11", name: "Ar. Shubhendra Vajpayee", role: "Event Coordinator", image: sv11Img },
+      { id: "sv-12", name: "Ar. Vaibhav Goel", role: "Event Coordinator", image: sv12Img },
+      { id: "sv-13", name: "Ar. Brijesh", role: "Event Coordinator", image: sv13Img },
+      { id: "sv-14", name: "Ar. Rahul Jadon", role: "Event Coordinator", image: sv14Img },
+      { id: "sv-15", name: "Ar. Krishna Mohan Prajapati", role: "Event Coordinator", image: sv15Img },
+      { id: "sv-16", name: "Ar. Rohit Parmar", role: "Event Coordinator", image: sv16Img },
+      { id: "sv-17", name: "Ar. Amit Singh", role: "Event Coordinator", image: sv17Img },
+      { id: "sv-18", name: "Ar. Shipra Singh", role: "Event Coordinator", image: sv18Img },
+      { id: "sv-19", name: "Ar. Juwairia Qummurudin", role: "Event Coordinator", image: sv19Img },
+      { id: "sv-20", name: "Ar. Awadhesh Verma", role: "Event Coordinator", image: sv20Img },
+      { id: "sv-21", name: "Ar. Himanshu Diwaker", role: "Event Coordinator", image: sv21Img },
+      { id: "sv-22", name: "Ar. Vandana Patel", role: "Event Coordinator", image: sv22Img },
+      { id: "sv-23", name: "Ar. Naveen Singh", role: "Event Coordinator", image: sv23Img },
+      { id: "sv-24", name: "Ar. Kabir", role: "Event Coordinator", image: sv24Img },
+      { id: "sv-25", name: "Ar. Shriyak Singh", role: "Event Coordinator", image: sv25Img },
+      { id: "sv-26", name: "Ar. Roli Singh", role: "Event Coordinator", image: sv26Img },
+      { id: "sv-27", name: "Ar. Namit Tandon", role: "Event Coordinator", image: sv27Img },
+      { id: "sv-28", name: "Ar. Anil Rastogi", role: "Event Coordinator", image: sv28Img },
+      { id: "sv-29", name: "Ar. Akhilesh Pal", role: "Event Coordinator", image: sv29Img },
+    ],
   },
 };
 

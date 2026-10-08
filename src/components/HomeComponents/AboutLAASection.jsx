@@ -56,7 +56,7 @@ import jc8Img from "../../assets/images/am4-2.png";
 import jc9Img from "../../assets/images/am5-1.png";
 import jc10Img from "../../assets/images/am5-2.png";
 import jc11Img from "../../assets/images/am6-1.png";
-import jc12Img from "../../assets/images/am6-2.png";
+import jc12Img from "../../assets/images/committee1.png";
 import jc13Img from "../../assets/images/am7-1.png";
 import jc14Img from "../../assets/images/am7-2.png";
 import jc15Img from "../../assets/images/am8-1.png";
@@ -75,7 +75,7 @@ import jc27Img from "../../assets/images/am16-2.png";
 import jc28Img from "../../assets/images/am17-1.png";
 import jc29Img from "../../assets/images/am17-2.png";
 
-import sp2Img from "../../assets/images/sp-2.png";
+import sp2Img from "../../assets/images/54f541e1-f042-457e-9b6c-aedadf9664ef.png";
 
 // Helper function to resolve convener circular photo avatars
 const getMemberAvatar = (name, customImg) => {
@@ -154,7 +154,8 @@ const leadershipWings = [
   },
   {
     title: "OFFICE BEARERS",
-    desc: "Executive management & operations",
+    desc: 
+    "Executive management & operations",
     icon: UserCheck,
   },
   {

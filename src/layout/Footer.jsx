@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   ArrowUpRight,
   ArrowUp,
@@ -49,19 +50,19 @@ const YoutubeIcon = () => (
 );
 
 const quickLinks = [
-  { label: "Highlights", href: "#highlights", icon: Sparkles },
+  { label: "Highlights", href: "/highlights", icon: Sparkles },
   { label: "Agenda", href: "#agenda", icon: Calendar },
   { label: "Participate", href: "/participate", icon: Handshake },
   { label: "About LAA", href: "#about", icon: Building2 },
   { label: "Team", href: "#festival-team", icon: Users },
-  { label: "Gallery", href: "#gallery", icon: ImageIcon },
+  { label: "Gallery", href: "/gallery", icon: ImageIcon },
 ];
 
 const festivalLinks = [
   { label: "Committees", href: "#committees", icon: Users },
-  { label: "Location", href: "#location", icon: MapPin },
+  { label: "Location", href: "/location", icon: MapPin },
   { label: "Contact", href: "#contact", icon: Mail },
-  { label: "Registration", href: "#registration", icon: Award },
+  { label: "Registration", href: "/register", icon: Award },
 ];
 
 const downloads = [
@@ -86,6 +87,8 @@ const socialLinks = [
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -102,6 +105,23 @@ export default function Footer() {
     });
   };
 
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        } else {
+          window.location.hash = href;
+        }
+      }
+    }
+  };
+
   return (
     <footer className="relative overflow-hidden bg-[#0e0e11] text-white border-t border-[#D4AF37]/30 shadow-2xl">
       {/* Top Hairline Gold Gradient Indicator */}
@@ -115,7 +135,7 @@ export default function Footer() {
           
           {/* ================= BRAND COLUMN ================= */}
           <div className="lg:col-span-4 space-y-3">
-            <a href="#" className="group inline-flex items-center gap-3">
+            <Link to="/" className="group inline-flex items-center gap-3">
               <img
                 src={LAFLogo}
                 alt="LAF 3.0 Logo"
@@ -129,7 +149,7 @@ export default function Footer() {
                   ARCHITECTURE FESTIVAL 3.0
                 </p>
               </div>
-            </a>
+            </Link>
 
             <p className="text-xs sm:text-sm leading-relaxed text-neutral-300 font-light max-w-sm pt-0.5">
               A platform bringing architecture, design, culture, sustainability and
@@ -169,15 +189,27 @@ export default function Footer() {
             <ul className="grid grid-cols-2 gap-2">
               {quickLinks.map((link) => {
                 const Icon = link.icon;
+                const isRoute = !link.href.startsWith('#');
                 return (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
-                    >
-                      <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
-                      <span>{link.label}</span>
-                    </a>
+                    {isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                      >
+                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
+                        <span>{link.label}</span>
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                      >
+                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
+                        <span>{link.label}</span>
+                      </a>
+                    )}
                   </li>
                 );
               })}
@@ -192,15 +224,27 @@ export default function Footer() {
             <ul className="space-y-2">
               {festivalLinks.map((link) => {
                 const Icon = link.icon;
+                const isRoute = !link.href.startsWith('#');
                 return (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
-                    >
-                      <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
-                      <span>{link.label}</span>
-                    </a>
+                    {isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                      >
+                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
+                        <span>{link.label}</span>
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                      >
+                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
+                        <span>{link.label}</span>
+                      </a>
+                    )}
                   </li>
                 );
               })}
