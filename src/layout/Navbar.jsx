@@ -13,7 +13,8 @@ import {
   MapPin, 
   Calendar, 
   Building2,
-  Compass
+  Compass,
+  Home
 } from 'lucide-react';
 
 import laaLogo from '../assets/images/LAA.png';
@@ -38,7 +39,16 @@ const Navbar = () => {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    if (href.startsWith('#')) {
+    if (href === '/') {
+      if (location.pathname !== '/') {
+        navigate('/');
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (location.hash) {
+          window.history.pushState(null, '', '/');
+        }
+      }
+    } else if (href.startsWith('#')) {
       if (location.pathname !== '/') {
         navigate('/' + href);
       } else {
@@ -57,6 +67,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
+    { name: 'Home', href: '/', isHome: true },
     { name: 'Highlights', href: '/highlights' },
     { name: 'Agenda', href: '#agenda' },
     { name: 'Participate', href: '/participate' },
@@ -171,10 +182,10 @@ const Navbar = () => {
         }`}>
           <div className={`transition-all duration-300 ${
             isScrolled 
-              ? 'bg-[#121214]/98 backdrop-blur-xl border border-[#D4AF37]/30 rounded-2xl shadow-[0_6px_20px_rgba(0,0,0,0.12)] overflow-hidden' 
+              ? 'bg-[#121214]/98 backdrop-blur-xl border border-[#D4AF37]/30 rounded-2xl shadow-[0_6px_20px_rgba(0,0,0,0.12)]' 
               : ''
           }`}>
-            <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90" />
+            <div className={`h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90 ${isScrolled ? 'rounded-t-2xl' : ''}`} />
 
             <div className={`transition-all duration-300 ${isScrolled ? 'px-4 sm:px-6 lg:px-8' : ''}`}>
               <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 sm:h-16' : 'h-16'}`}>
@@ -199,6 +210,27 @@ const Navbar = () => {
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center justify-center flex-1 gap-2 lg:gap-4">
               {navLinks.map((item) => {
+                if (item.isHome) {
+                  const isHomeActive = location.pathname === '/' && !location.hash;
+                  return (
+                    <NavLink
+                      key="Home"
+                      to="/"
+                      onClick={(e) => handleNavClick(e, '/')}
+                      title="Home"
+                      aria-label="Home"
+                      className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 p-2 rounded-full flex items-center justify-center cursor-pointer group ${
+                        isHomeActive
+                          ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30 shadow-[0_0_12px_rgba(212,175,55,0.2)]'
+                          : 'text-neutral-300 hover:text-amber-400 hover:bg-neutral-900/50'
+                      }`}
+                    >
+                      <Home className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
+                    </NavLink>
+                  );
+                }
+
                 const isRoute = !item.href.startsWith('#');
                 const isTeamActive = item.name === 'Team' && location.pathname.startsWith('/team');
                 const isHashActive = location.pathname === '/' && location.hash === item.href;
@@ -217,7 +249,10 @@ const Navbar = () => {
                     {isRoute ? (
                       <NavLink
                         to={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          if (item.dropdown) setIsTeamOpen(false);
+                        }}
                         className={({ isActive }) =>
                           `relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
                             isActive || isTeamActive
@@ -235,7 +270,12 @@ const Navbar = () => {
                     ) : (
                       <a
                         href={item.href}
-                        onClick={(e) => handleNavClick(e, item.href)}
+                        onClick={(e) => {
+                          if (item.dropdown) {
+                            setIsTeamOpen((prev) => !prev);
+                          }
+                          handleNavClick(e, item.href);
+                        }}
                         className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
                           isHashActive || isTeamActive
                             ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
@@ -348,6 +388,24 @@ const Navbar = () => {
                 </div>
 
                 {navLinks.map((item) => {
+                  if (item.isHome) {
+                    const isHomeActive = location.pathname === '/' && !location.hash;
+                    return (
+                      <div key="Home" className="border-b border-neutral-800/60 pb-2">
+                        <NavLink
+                          to="/"
+                          onClick={(e) => handleNavClick(e, '/')}
+                          className={`flex items-center gap-2 py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                            isHomeActive ? 'text-amber-400' : 'text-neutral-200 hover:text-amber-400'
+                          }`}
+                        >
+                          <Home className="w-4 h-4 text-amber-400" />
+                          <span>Home</span>
+                        </NavLink>
+                      </div>
+                    );
+                  }
+
                   const isRoute = !item.href.startsWith('#');
                   const isTeamActive = item.name === 'Team' && location.pathname.startsWith('/team');
                   const isHashActive = location.pathname === '/' && location.hash === item.href;
