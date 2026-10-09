@@ -116,8 +116,8 @@ const MemberCard = ({ member, index }) => {
               onError={() => setImgError(true)}
             />
           ) : (
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFFDF9] via-[#F7F2EA] to-[#E6DFD3] flex flex-col items-center justify-center border border-[#D4AF37]/30 shadow-inner">
-              <span className="font-serif font-bold text-xl sm:text-2xl text-[#B77A27] tracking-wider select-none">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-[#1E1B18] via-[#141210] to-[#0D0B0A] flex flex-col items-center justify-center border-2 border-[#D4AF37]/50 shadow-inner group-hover:border-[#D4AF37] transition-colors duration-300">
+              <span className="font-serif font-bold text-3xl sm:text-4xl text-[#F3E5C8] group-hover:text-[#FDE68A] tracking-wider select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 {initials}
               </span>
             </div>

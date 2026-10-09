@@ -52,7 +52,7 @@ const LazyAboutVideo = ({ src }) => {
   return (
     <div
       ref={containerRef}
-      className="relative h-[420px] sm:h-[460px] lg:h-[480px] w-full rounded-[22px] overflow-hidden border-2 border-[#B07A24]/40 bg-[#0A0D12] shadow-xl group flex items-center justify-center"
+      className="relative w-full aspect-[9/16] rounded-[22px] overflow-hidden border-2 border-[#B07A24]/40 bg-[#0A0D12] shadow-xl group flex items-center justify-center"
     >
       <video
         src={shouldLoad ? src : undefined}
@@ -270,73 +270,56 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+            className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch"
           >
-            {/* LEFT COLUMN: TEXT CONTENT */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              {/* Eyebrow Label */}
-              {/* <div className="flex items-center gap-3 mb-3.5">
-                <span className="text-xs font-mono font-bold tracking-[0.25em] text-[#B07A24] uppercase">
-                  01 — THE OPPORTUNITY
-                </span>
-              </div> */}
+            {/* LEFT COLUMN: TEXT CONTENT (Stretched to match video height) */}
+            <div className="lg:col-span-7 flex flex-col justify-between py-1 sm:py-2">
+              <div>
+                {/* Eyebrow Label */}
                 <div className="flex items-center gap-4 mb-5">
+                  <span className="text-xs sm:text-sm font-bold text-[#B77A27]">01</span>
+                  <span className="w-12 h-px bg-[#B77A27]" />
+                  <span className="text-xs tracking-[0.3em] uppercase text-neutral-400 font-medium">
+                    THE OPPORTUNITY
+                  </span>
+                </div>
 
-            <span className="text-xs font-bold text-[#B77A27]">
-              01
-            </span>
+                {/* Serif Heading with Italic Muted Gold Accent */}
+                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] font-medium tracking-tight text-[#1C1C1A] leading-[1.16] mb-6">
+                  Where heritage meets{" "}
+                  <span className="italic font-serif text-[#B07A24]">
+                    contemporary ambition.
+                  </span>
+                </h3>
 
-            <span className="w-12 h-px bg-[#B77A27]" />
-
-            <span
-              className="
-                text-[10px]
-                tracking-[0.3em]
-                uppercase
-                text-neutral-400
-              "
-            >
-               THE OPPORTUNITY
-            </span>
-
-          </div>
-
-
-              {/* Serif Heading with Italic Muted Gold Accent */}
-              <h3 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-medium tracking-tight text-[#1C1C1A] leading-[1.18] mb-5">
-                Where heritage meets{" "}
-                <span className="italic font-serif text-[#B07A24]">
-                  contemporary ambition.
-                </span>
-              </h3>
-
-              {/* Descriptive Paragraphs */}
-              <div className="space-y-4 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl font-normal">
-                <p>
-                  The economic transformation of Uttar Pradesh has created
-                  significant opportunities across real estate, infrastructure,
-                  tourism and urban development. Lucknow, as the state capital,
-                  represents an important intersection of culture, commerce and
-                  contemporary urban growth.
-                </p>
-                <p>
-                  Its historic identity combined with modern development creates a
-                  distinctive environment for architects, designers, developers
-                  and the wider built environment ecosystem.
-                </p>
+                {/* Descriptive Paragraphs with Larger Font Size */}
+                <div className="space-y-5 text-base sm:text-lg lg:text-[17.5px] text-neutral-600 leading-[1.7] font-normal w-full">
+                  <p>
+                    The economic transformation of Uttar Pradesh has created
+                    significant opportunities across real estate, infrastructure,
+                    tourism and urban development. Lucknow, as the state capital,
+                    represents an important intersection of culture, commerce and
+                    contemporary urban growth.
+                  </p>
+                  <p>
+                    Its historic identity combined with modern development creates a
+                    distinctive environment for architects, designers, developers
+                    and the wider built environment ecosystem.
+                  </p>
+                </div>
               </div>
 
               {/* Location Identity Row & Discover Link */}
-              <div className="pt-6 border-t border-[#E6DFD3] mt-8 flex flex-wrap items-center justify-between gap-4">
+              <div className="pt-6 sm:pt-8 border-t border-[#E6DFD3] mt-8 lg:mt-10 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-9 h-9 rounded-full border border-[#B07A24]/30 flex items-center justify-center text-[#B07A24] bg-[#B07A24]/5 shrink-0">
+                  <div className="w-10 h-10 rounded-full border border-[#B07A24]/30 flex items-center justify-center text-[#B07A24] bg-[#B07A24]/5 shrink-0">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono font-bold tracking-[0.2em] text-[#1C1C1A] uppercase">
+                    <div className="text-xs font-mono font-bold tracking-[0.2em] text-[#1C1C1A] uppercase">
                       LUCKNOW
                     </div>
-                    <div className="text-xs text-neutral-500 font-light mt-0.5">
+                    <div className="text-xs sm:text-sm text-neutral-500 font-light mt-0.5">
                       Heritage • Architecture • Future
                     </div>
                   </div>
@@ -344,21 +327,21 @@ const AboutSection = () => {
 
                 <a
                   href="#highlights"
-                  className="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1C1C1A] hover:text-[#B07A24] transition-colors"
+                  className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#1C1C1A] hover:text-[#B07A24] transition-colors"
                 >
                   <span>Discover More</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B07A24] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-[#B07A24] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: EDITORIAL ARCHITECTURAL VIDEO */}
-            <div className="lg:col-span-6 relative mt-6 lg:mt-0 flex items-center justify-center">
-              <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[480px] lg:max-w-[560px]">
+            {/* RIGHT COLUMN: EDITORIAL ARCHITECTURAL VIDEO (Unchanged height/width) */}
+            <div className="lg:col-span-5 relative mt-6 lg:mt-0 flex items-center justify-center">
+              <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px]">
                 {/* Thin Antique Gold Offset Border Frame */}
                 <div className="absolute -inset-2.5 sm:-inset-3.5 rounded-[26px] border border-[#B07A24]/30 pointer-events-none translate-x-2.5 translate-y-2.5 sm:translate-x-3.5 sm:translate-y-3.5" />
 
-                {/* Main Video Container — Expanded Width & Height Aligned with Left Text */}
+                {/* Main Video Container — Original Video Aspect Ratio */}
                 <LazyAboutVideo src={aboutVideo} />
               </div>
             </div>

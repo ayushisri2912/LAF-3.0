@@ -363,7 +363,7 @@ const Navbar = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <span className="relative flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 fill-black text-black animate-pulse" />
-                  <span>LAF REGISTRATION</span>
+                  <span> REGISTRATION</span>
                 </span>
               </Link>
             </div>
