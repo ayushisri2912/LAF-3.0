@@ -94,7 +94,7 @@ const GetInTouchSection = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] py-16 sm:py-24 lg:py-32 font-sans border-t border-[#D9D0C2]"
+      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-24 lg:pb-32 font-sans"
     >
       {/* =====================================================
           ARCHITECTURAL BACKGROUND (MATCHES ALL HOMEPAGE SECTIONS)
@@ -133,7 +133,7 @@ const GetInTouchSection = () => {
           className="mb-14 flex items-center justify-between border-b border-[#D9D0C2] pb-6"
         >
           <div className="flex items-center gap-4">
-            <span className="text-xs font-bold text-[#B77A27] font-mono">10</span>
+            <span className="text-xs font-bold text-[#B77A27] font-mono">11</span>
             <span className="w-12 h-px bg-[#B77A27]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#B77A27]">
               GET IN TOUCH

@@ -233,11 +233,32 @@ const AboutSection = () => {
             {/* LEFT COLUMN: TEXT CONTENT */}
             <div className="lg:col-span-6 flex flex-col justify-center">
               {/* Eyebrow Label */}
-              <div className="flex items-center gap-3 mb-3.5">
+              {/* <div className="flex items-center gap-3 mb-3.5">
                 <span className="text-xs font-mono font-bold tracking-[0.25em] text-[#B07A24] uppercase">
                   01 — THE OPPORTUNITY
                 </span>
-              </div>
+              </div> */}
+                <div className="flex items-center gap-4 mb-5">
+
+            <span className="text-xs font-bold text-[#B77A27]">
+              01
+            </span>
+
+            <span className="w-12 h-px bg-[#B77A27]" />
+
+            <span
+              className="
+                text-[10px]
+                tracking-[0.3em]
+                uppercase
+                text-neutral-400
+              "
+            >
+               THE OPPORTUNITY
+            </span>
+
+          </div>
+
 
               {/* Serif Heading with Italic Muted Gold Accent */}
               <h3 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-medium tracking-tight text-[#1C1C1A] leading-[1.18] mb-5">
@@ -494,12 +515,29 @@ const AboutSection = () => {
               viewport={{ once: true }}
               className="flex justify-center items-center gap-3 mb-3.5"
             >
-              <span className="h-px w-10 bg-[#B77A27]/60" />
+              {/* <span className="h-px w-10 bg-[#B77A27]/60" />
               <span className="text-xs font-mono font-bold tracking-[0.25em] text-[#B77A27] uppercase">
                 03 — STATE HIGHLIGHTS
               </span>
-              <span className="h-px w-10 bg-[#B77A27]/60" />
+              <span className="h-px w-10 bg-[#B77A27]/60" /> */}
+              <span className="text-xs font-bold text-[#B77A27]">
+              02
+            </span>
+
+            <span className="w-12 h-px bg-[#B77A27]" />
+
+            <span
+              className="
+                text-[10px]
+                tracking-[0.3em]
+                uppercase
+                text-neutral-400
+              "
+            >
+               STATE HIGHLIGHTS
+            </span>
             </motion.div>
+             
 
             <motion.h3
               initial={{ opacity: 0, y: 20 }}

@@ -35,7 +35,7 @@ const LocationLayoutSection = () => {
   return (
     <section
       id="location-layout"
-      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] py-14 sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] pt-6 sm:pt-8 lg:pt-10 pb-6 sm:pb-8 lg:pb-10"
     >
       {/* =====================================================
           ARCHITECTURAL BACKGROUND (MATCHING AGENDA SECTION)

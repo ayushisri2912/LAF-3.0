@@ -20,6 +20,7 @@ import {
   UserCheck,
   Search,
   ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 
 // ==========================================
@@ -81,6 +82,179 @@ import sp2Img from "../../assets/images/54f541e1-f042-457e-9b6c-aedadf9664ef.png
 const getMemberAvatar = (name, customImg) => {
   if (customImg) return customImg;
   return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=181716&color=D4AF37&bold=true&size=128`;
+};
+
+// Helper function to generate member initials for avatar placeholder
+const getMemberInitials = (name) => {
+  if (!name) return "LAF";
+  const cleanName = name
+    .replace(/^(Ar\.|Dr\.|Er\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s*/i, "")
+    .trim();
+  const words = cleanName.split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "LAF";
+  if (words.length === 1) return words[0].substring(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+};
+
+// Member Card Component matching Core Committee styling
+const MemberCard = ({ member, index }) => {
+  const [imgError, setImgError] = useState(false);
+  const initials = getMemberInitials(member.name);
+  const formattedIndex = index < 10 ? `0${index}` : index;
+
+  return (
+    <div className="group flex flex-col items-center p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white hover:bg-[#FDFBF7] border border-[#E6DFD3] hover:border-[#B77A27]/50 shadow-2xs hover:shadow-xl transition-all duration-300 cursor-pointer text-center w-[210px] sm:w-[230px] md:w-[240px] shrink-0 snap-start hover:-translate-y-1">
+      {/* Avatar circular frame with gold double ring border */}
+      <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-b from-[#E6DFD3] via-[#D4AF37]/50 to-transparent group-hover:from-[#B77A27] group-hover:to-amber-300 transition-all duration-300 shadow-md group-hover:shadow-[0_0_22px_rgba(183,122,39,0.22)] mb-4">
+        <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white flex items-center justify-center">
+          {member.image && !imgError ? (
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFFDF9] via-[#F7F2EA] to-[#E6DFD3] flex flex-col items-center justify-center border border-[#D4AF37]/30 shadow-inner">
+              <span className="font-serif font-bold text-xl sm:text-2xl text-[#B77A27] tracking-wider select-none">
+                {initials}
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="w-full">
+        <span className="text-[9.5px] font-mono tracking-widest text-[#B77A27] font-bold uppercase block truncate">
+          LAF 3.0 · #{formattedIndex}
+        </span>
+        <h4 className="font-serif text-base font-bold text-neutral-900 group-hover:text-[#B77A27] transition-colors mt-1 leading-snug line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
+          {member.name}
+        </h4>
+        <p className="text-xs text-neutral-500 font-medium mt-1 truncate">
+          {member.role}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+// Committee Slider Row Component (Heading Card + Independent Slider)
+const CommitteeSliderRow = ({ committee, index }) => {
+  const sliderRef = React.useRef(null);
+  const IconComponent = committee.icon || GraduationCap;
+
+  // Normalize conveners & members into unified list of member objects
+  const allMembers = React.useMemo(() => {
+    const convenersList = (committee.conveners || []).map((c) => ({
+      name: c.name,
+      role: c.role || "Convener",
+      image: c.image || null,
+    }));
+
+    const membersList = (committee.members || []).map((m) => {
+      if (typeof m === "string") {
+        return {
+          name: m,
+          role: "Committee Member",
+          image: null,
+        };
+      }
+      return {
+        name: m.name,
+        role: m.role || "Committee Member",
+        image: m.image || null,
+      };
+    });
+
+    return [...convenersList, ...membersList];
+  }, [committee]);
+
+  const handleScroll = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = direction === "left" ? -300 : 300;
+      sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.4, delay: index * 0.04 }}
+      className="mb-14"
+    >
+      {/* ================= COMMITTEE HEADING CARD ================= */}
+      <div className="bg-white/80 backdrop-blur-xs rounded-3xl p-6 sm:p-8 border border-[#E6DFD3] border-b-2 border-b-[#D4AF37]/30 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6 relative overflow-hidden">
+        {/* Subtle Ambient Gold Accent Glow */}
+        <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div>
+          {/* Top Category Tag matching Core Committee section in Image 1 */}
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#B77A27] animate-pulse shrink-0" />
+            <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#B77A27]">
+              {committee.id} · {committee.category?.toUpperCase()}
+            </span>
+          </div>
+
+          {/* Heading + Icon */}
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-2xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-[#B77A27] shrink-0 shadow-2xs">
+              <IconComponent size={22} strokeWidth={1.5} />
+            </div>
+            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#171717]">
+              {committee.title}
+            </h3>
+          </div>
+
+          {/* Subtitle */}
+          {committee.subtitle && (
+            <p className="mt-2 text-xs sm:text-sm font-mono tracking-wider text-neutral-500 uppercase">
+              {committee.subtitle}
+            </p>
+          )}
+        </div>
+
+        {/* MEMBER COUNT & INDEPENDENT SLIDER NAVIGATION ARROWS */}
+        <div className="flex items-center gap-4 self-start md:self-auto shrink-0">
+          <span className="font-mono text-xs font-bold tracking-[0.25em] text-[#B77A27] uppercase bg-amber-100/70 px-4 py-2 rounded-full border border-[#D4AF37]/40 shadow-2xs">
+            MEMBERS ({allMembers.length.toString().padStart(2, "0")})
+          </span>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleScroll("left")}
+              aria-label={`Previous members of ${committee.title}`}
+              className="w-10 h-10 rounded-full bg-white hover:bg-[#171717] border border-[#D9D0C2] hover:border-[#171717] text-neutral-700 hover:text-amber-400 flex items-center justify-center transition-all shadow-2xs cursor-pointer active:scale-95"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => handleScroll("right")}
+              aria-label={`Next members of ${committee.title}`}
+              className="w-10 h-10 rounded-full bg-white hover:bg-[#171717] border border-[#D9D0C2] hover:border-[#171717] text-neutral-700 hover:text-amber-400 flex items-center justify-center transition-all shadow-2xs cursor-pointer active:scale-95"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= INDEPENDENT HORIZONTAL SLIDER ================= */}
+      <div
+        ref={sliderRef}
+        className="flex flex-nowrap overflow-x-auto gap-5 pb-4 pt-1 no-scrollbar scrollbar-none snap-x snap-mandatory scroll-smooth"
+      >
+        {allMembers.map((member, idx) => (
+          <MemberCard key={member.name + idx} member={member} index={idx + 1} />
+        ))}
+      </div>
+    </motion.div>
+  );
 };
 
 // ==========================================
@@ -410,7 +584,7 @@ const AboutLAASection = () => {
   return (
     <section
       id="about-laa"
-      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] py-14 sm:py-16 lg:py-20 font-sans"
+      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] pt-14 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 lg:pb-10 font-sans"
     >
       {/* =====================================================
           ARCHITECTURAL BACKGROUND (MATCHES ALL HOMEPAGE SECTIONS)
@@ -451,7 +625,7 @@ const AboutLAASection = () => {
           className="mb-14 flex items-center justify-between border-b border-[#D9D0C2] pb-6"
         >
           <div className="flex items-center gap-4">
-            <span className="text-xs font-bold text-[#B77A27] font-mono">09</span>
+            <span className="text-xs font-bold text-[#B77A27] font-mono">08</span>
             <span className="w-12 h-px bg-[#B77A27]" />
             <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-mono">
               THE ASSOCIATION · EST. 1960S
@@ -718,10 +892,15 @@ const AboutLAASection = () => {
             <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-[#D9D0C2] pb-6 gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-2">
+                    <span className="text-xs font-bold text-[#B77A27] font-mono">09</span>
                   <span className="h-px w-8 bg-[#B77A27]" />
-                  <span className="text-[10.5px] font-mono font-bold uppercase tracking-[0.28em] text-[#B77A27]">
+                  
+                  {/* <span className="text-[10.5px] font-mono font-bold uppercase tracking-[0.28em] text-[#B77A27]">
                     LAA WORKING STRUCTURE
-                  </span>
+                  </span> */}
+                   <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-mono">
+                    LAA WORKING STRUCTURE
+            </span>
                 </div>
                 <h3 className="font-serif text-4xl sm:text-5xl tracking-tight text-[#171717]">
                   LAA Committees
@@ -762,118 +941,16 @@ const AboutLAASection = () => {
             </div>
           </div>
 
-          {/* COMMITTEES GRID - CARDS WITH STANDALONE CIRCULAR HEADSHOT CONVENERS & PLAIN TEXT MEMBERS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {/* COMMITTEES LIST - EACH COMMITTEE HAS A HEADING CARD & INDEPENDENT HORIZONTAL SLIDER */}
+          <div>
             <AnimatePresence mode="popLayout">
-              {filteredCommittees.map((item, index) => {
-                const IconComponent = item.icon;
-                return (
-                  <motion.div
-                    key={item.id + item.title}
-                    layout
-                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4, delay: index * 0.03 }}
-                    className="group flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white/85 hover:bg-white border border-[#E6DFD3] hover:border-[#B77A27]/60 shadow-2xs hover:shadow-xl transition-all duration-300 relative overflow-hidden"
-                  >
-                    {/* Top Right Ambient Glow */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/5 rounded-full blur-2xl pointer-events-none group-hover:bg-amber-400/10 transition-colors" />
-
-                    <div>
-                      {/* CARD TOP BAR */}
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-xs font-bold text-[#B77A27] bg-amber-100/60 px-3 py-1 rounded-full border border-[#B77A27]/25 flex items-center gap-1.5 shadow-2xs">
-                          <span>✦</span> {item.id}
-                        </span>
-
-                        <div className="h-10 w-10 rounded-2xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-[#B77A27] group-hover:bg-[#B77A27] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-2xs">
-                          <IconComponent size={19} strokeWidth={1.5} />
-                        </div>
-                      </div>
-
-                      {/* TITLE & SUBTITLE */}
-                      <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#171717] group-hover:text-[#B77A27] transition-colors leading-tight">
-                        {item.title}
-                      </h4>
-                      <p className="mt-1.5 text-[10.5px] font-mono tracking-wider text-neutral-500 uppercase">
-                        {item.subtitle}
-                      </p>
-
-                      {/* ========================================================= */}
-                      {/* CONVENERS & CO-CONVENERS (STANDALONE PROMINENT CIRCULAR AVATARS) */}
-                      {/* ========================================================= */}
-                      {item.conveners && item.conveners.length > 0 && (
-                        <div className="mt-6 pt-5 border-t border-[#E6DFD3]">
-                          <div className="flex items-center justify-around gap-3 py-2">
-                            {item.conveners.map((convener) => (
-                              <div
-                                key={convener.name}
-                                className="flex flex-col items-center text-center group/person cursor-pointer flex-1"
-                              >
-                                {/* Circular Face Photo Avatar (Medium/Large Size: w-20 h-20 sm:w-22 sm:h-22) */}
-                                <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-full p-1 bg-gradient-to-b from-[#E6DFD3] via-[#D4AF37]/50 to-amber-200 group-hover/person:from-[#B77A27] group-hover/person:to-amber-400 transition-all duration-300 shadow-md group-hover/person:shadow-[0_0_20px_rgba(183,122,39,0.25)] mb-2.5">
-                                  <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white flex items-center justify-center">
-                                    <img
-                                      src={getMemberAvatar(convener.name, convener.image)}
-                                      alt={convener.name}
-                                      className="w-full h-full object-cover rounded-full group-hover/person:scale-105 transition-transform duration-500"
-                                      onError={(e) => {
-                                        e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(convener.name)}&background=181716&color=D4AF37&bold=true&size=128`;
-                                      }}
-                                    />
-                                  </div>
-                                </div>
-
-                                {/* Convener Name */}
-                                <h5 className="font-serif text-xs sm:text-sm font-bold text-[#171717] group-hover/person:text-[#B77A27] transition-colors leading-snug max-w-[130px]">
-                                  {convener.name}
-                                </h5>
-
-                                {/* Convener Role Badge */}
-                                <span className="inline-block mt-1 text-[8.5px] font-mono font-bold tracking-widest uppercase text-[#B77A27] bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/80">
-                                  {convener.role}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* ========================================================= */}
-                      {/* COMMITTEE MEMBERS (PLAIN TEXT NAMES ONLY - NO IMAGES) */}
-                      {/* ========================================================= */}
-                      {item.members && item.members.length > 0 && (
-                        <div className="mt-5 pt-4 border-t border-[#E6DFD3]">
-                          <span className="text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#B77A27] block mb-3 font-mono">
-                            COMMITTEE MEMBERS
-                          </span>
-                          <div className="flex flex-wrap gap-1.5">
-                            {item.members.map((member) => {
-                              const memberName = typeof member === "string" ? member : member.name;
-                              return (
-                                <span
-                                  key={memberName}
-                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F7F4EE] hover:bg-white border border-[#E6DFD3] text-[11px] font-medium text-neutral-700 transition-colors"
-                                >
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#B77A27]/80" />
-                                  <span>{memberName}</span>
-                                </span>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* CARD FOOTER */}
-                    <div className="mt-6 pt-4 border-t border-[#E6DFD3]/80 flex items-center justify-between text-xs text-neutral-400 font-mono">
-                      <span className="tracking-wider text-[10.5px] text-neutral-500">{item.category}</span>
-                      <ChevronRight size={15} className="group-hover:translate-x-1.5 transition-transform text-[#B77A27]" />
-                    </div>
-                  </motion.div>
-                );
-              })}
+              {filteredCommittees.map((item, index) => (
+                <CommitteeSliderRow
+                  key={item.id + item.title}
+                  committee={item}
+                  index={index}
+                />
+              ))}
             </AnimatePresence>
           </div>
 
@@ -903,7 +980,7 @@ const AboutLAASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-20 border-y border-[#D9D0C2] py-8 sm:py-10"
+          className="mt-10 sm:mt-12 border-y border-[#D9D0C2] py-6 sm:py-8"
         >
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>

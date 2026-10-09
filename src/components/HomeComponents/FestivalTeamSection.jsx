@@ -78,7 +78,7 @@ export default function FestivalTeamSection() {
               className="lg:col-span-7"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-bold text-[#B77A27] font-mono">05</span>
+                <span className="text-xs font-bold text-[#B77A27] font-mono">07</span>
                 <span className="w-10 h-px bg-[#B77A27]" />
                 <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-500 font-mono font-semibold">
                   LAF 3.0 · THE PEOPLE

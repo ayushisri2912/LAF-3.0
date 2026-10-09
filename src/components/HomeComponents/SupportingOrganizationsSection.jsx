@@ -92,7 +92,7 @@ export default function SupportingOrganizationsSection() {
   return (
     <section
       id="supporting-organizations"
-      className="relative overflow-hidden bg-[#FAF8F5] py-20 sm:py-24 lg:py-28 select-none font-sans border-t border-[#E6DFD3]"
+      className="relative overflow-hidden bg-[#FAF8F5] pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-8 lg:pb-10 select-none font-sans border-t border-[#E6DFD3]"
     >
       {/* Architectural Grid Background */}
       <div
@@ -123,7 +123,7 @@ export default function SupportingOrganizationsSection() {
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.1]">
                 Supporting{" "}
-                <span className="italic text-[#B38F38] font-serif font-normal">
+                <span className="italic text-[#B77A27] font-serif font-normal">
                   Organizations
                 </span>
               </h2>
@@ -134,7 +134,7 @@ export default function SupportingOrganizationsSection() {
             </div>
 
             <div className="hidden lg:flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white border border-[#E6DFD3] shadow-2xs">
-              <Compass className="w-5 h-5 text-[#B38F38]" />
+              <Compass className="w-5 h-5 text-[#B77A27]" />
               <div className="text-left">
                 <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-800">Key Partners</div>
                 <div className="text-[10px] font-mono text-neutral-500">5 Institutional Logos</div>
@@ -212,7 +212,7 @@ export default function SupportingOrganizationsSection() {
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.1]">
                 Supporting{" "}
-                <span className="italic text-[#B38F38] font-serif font-normal">
+                <span className="italic text-[#B77A27] font-serif font-normal">
                   Leadership
                 </span>
               </h2>
@@ -288,7 +288,7 @@ export default function SupportingOrganizationsSection() {
         </div>
 
         {/* Bottom Footnote Ribbon */}
-        <div className="mt-16 sm:mt-20 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E6DFD3] pt-6 text-xs text-neutral-500">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E6DFD3]/40 pt-4 text-xs text-neutral-500">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#B38F38]" />
             <span>Building connections across architecture, design, and construction sectors.</span>

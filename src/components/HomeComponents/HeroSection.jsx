@@ -6,11 +6,11 @@ import heroBgImage from '../../assets/images/hero2.png';
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-[610px] sm:h-[640px] lg:h-[650px] overflow-hidden bg-[#101820] font-sans">
+    <section className="relative w-full h-[650px] sm:h-[700px] lg:h-[740px] overflow-hidden bg-[#101820] font-sans">
 
       {/* ================= BACKGROUND IMAGE ================= */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
         style={{
           backgroundImage: `url(${heroBgImage})`,
         }}

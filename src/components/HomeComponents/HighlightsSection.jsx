@@ -282,7 +282,7 @@ const HighlightsSection = () => {
           <div className="flex items-center gap-4 mb-5">
 
             <span className="text-xs font-bold text-[#B77A27]">
-              02
+              03
             </span>
 
             <span className="w-12 h-px bg-[#B77A27]" />
@@ -814,7 +814,7 @@ const HighlightsSection = () => {
               <div className="flex items-center gap-3">
 
                 <span className="text-xs font-bold text-[#B77A27]">
-                  03
+                  04
                 </span>
 
                 <span className="w-10 h-px bg-[#B77A27]" />
@@ -1037,7 +1037,7 @@ const HighlightsSection = () => {
     <div className="flex items-center gap-3">
 
       <span className="text-xs font-bold text-[#B77A27]">
-        04
+        05
       </span>
 
       <span className="h-px w-10 bg-[#B77A27]" />

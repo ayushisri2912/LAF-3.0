@@ -278,7 +278,7 @@ const AgendaSection = () => {
             transition={{ duration: 0.7 }}
           >
             <div className="flex items-center gap-4 mb-5">
-              <span className="text-xs font-bold text-[#B77A27]">03</span>
+              <span className="text-xs font-bold text-[#B77A27]">06</span>
               <span className="w-12 h-px bg-[#B77A27]" />
               <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-mono">
                 PROGRAMME

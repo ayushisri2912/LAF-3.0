@@ -223,7 +223,7 @@ export default function LastEventGlanceSection() {
   return (
     <section
       id="last-event"
-      className="relative overflow-hidden bg-[#FAF8F5] py-20 sm:py-24 lg:py-28 select-none font-sans border-t border-[#E6DFD3]"
+      className="relative overflow-hidden bg-[#FAF8F5] pt-6 sm:pt-8 lg:pt-10 pb-20 sm:pb-24 lg:pb-28 select-none font-sans"
     >
       {/* Subtle Architectural Grid Background */}
       <div
@@ -250,7 +250,7 @@ export default function LastEventGlanceSection() {
 
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.1]">
               Last Event{" "}
-              <span className="italic text-[#B38F38] font-serif">
+              <span className="italic text-[#B77A27] font-serif">
                 at a Glance.
               </span>
             </h2>
