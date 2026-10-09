@@ -29,6 +29,48 @@ import highlight4 from "../../assets/images/highlight-4.webp";
 
 
 
+const LazyAboutVideo = ({ src }) => {
+  const containerRef = React.useRef(null);
+  const [shouldLoad, setShouldLoad] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative h-[420px] sm:h-[460px] lg:h-[480px] w-full rounded-[22px] overflow-hidden border-2 border-[#B07A24]/40 bg-[#0A0D12] shadow-xl group flex items-center justify-center"
+    >
+      <video
+        src={shouldLoad ? src : undefined}
+        preload={shouldLoad ? "metadata" : "none"}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover rounded-[20px]"
+      />
+      <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-[10.5px] sm:text-[11px] font-mono text-white tracking-wider uppercase flex items-center gap-2 shadow-2xs z-10">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#B07A24] animate-pulse" />
+        <span>Lucknow • Uttar Pradesh</span>
+      </div>
+    </div>
+  );
+};
+
 const AboutSection = () => {
   const sectors = [
     {
@@ -317,21 +359,7 @@ const AboutSection = () => {
                 <div className="absolute -inset-2.5 sm:-inset-3.5 rounded-[26px] border border-[#B07A24]/30 pointer-events-none translate-x-2.5 translate-y-2.5 sm:translate-x-3.5 sm:translate-y-3.5" />
 
                 {/* Main Video Container — Expanded Width & Height Aligned with Left Text */}
-                <div className="relative h-[420px] sm:h-[460px] lg:h-[480px] w-full rounded-[22px] overflow-hidden border-2 border-[#B07A24]/40 bg-[#0A0D12] shadow-xl group flex items-center justify-center">
-                  <video
-                    src={aboutVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover rounded-[20px]"
-                  />
-                  {/* Subtle Caption Pill */}
-                  <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-[10.5px] sm:text-[11px] font-mono text-white tracking-wider uppercase flex items-center gap-2 shadow-2xs z-10">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B07A24] animate-pulse" />
-                    <span>Lucknow • Uttar Pradesh</span>
-                  </div>
-                </div>
+                <LazyAboutVideo src={aboutVideo} />
               </div>
             </div>
           </motion.div>
