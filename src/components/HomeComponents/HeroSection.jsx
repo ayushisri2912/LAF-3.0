@@ -9,16 +9,16 @@ const HeroSection = () => {
     <section className="relative w-full h-[650px] sm:h-[700px] lg:h-[740px] overflow-hidden bg-[#101820] font-sans">
 
       {/* ================= BACKGROUND IMAGE ================= */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
         style={{
           backgroundImage: `url(${heroBgImage})`,
         }}
-      />
+      /> */}
 
       {/* ================= DARK CENTER OVERLAY ================= */}
       {/* Keeps image bright but makes text readable */}
-      <div
+      {/* <div
         className="
           absolute inset-0
           bg-gradient-to-b
@@ -26,7 +26,29 @@ const HeroSection = () => {
           via-[#071421]/16
           to-[#071421]/20
         "
-      />
+      /> */}
+
+
+      
+{/* ================= BACKGROUND IMAGE ================= */}
+<div
+  className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
+  style={{
+    backgroundImage: `url(${heroBgImage})`,
+  }}
+/>
+
+{/* ================= SOFT BRIGHT OVERLAY ================= */}
+<div
+  className="
+    absolute inset-0
+    bg-gradient-to-b
+    from-white/10
+    via-transparent
+    to-[#111111]/10
+  "
+/>
+
 
       {/* Center readability */}
       <div
