@@ -40,11 +40,11 @@ import {
 } from "lucide-react";
 
 // Images from assets
-import highlightImage from "../assets/images/image-6.jpg";
-import marketersImg from "../assets/images/01_marketers_platform.png";
-import architectsMeetImg from "../assets/images/02_architects_meet.png";
-import highlightMainImg from "../assets/images/heighlight.jpeg";
-import highlight2Img from "../assets/images/heighlight-2.jpeg";
+import highlightImage from "../assets/images/image-6.webp";
+import marketersImg from "../assets/images/01_marketers_platform.webp";
+import architectsMeetImg from "../assets/images/02_architects_meet.webp";
+import highlightMainImg from "../assets/images/heighlight.webp";
+import highlight2Img from "../assets/images/heighlight-2.webp";
 
 const HighlightPage = () => {
   const navigate = useNavigate();

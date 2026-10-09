@@ -9,23 +9,23 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-import pilgrimageImg from "../../assets/images/laf3.0-1.png";
-import transportationImg from "../../assets/images/laf3.2.png";
-import economyImg from "../../assets/images/laf3.0-3.png";
-import sportsImg from "../../assets/images/laf3.0-4.png";
-import tourismImg from "../../assets/images/laf3.0-5.png";
-import cuisineImg from "../../assets/images/laf3.0-6.png";
-import investUpImg from "../../assets/images/laf3.0-7.png";
-import odopImg from "../../assets/images/laf3.0-8.png";
-import craftImg from "../../assets/images/laf3.0-10.png";
-import educationImg from "../../assets/images/laf3.0 12.png";
-import cultureImg from "../../assets/images/laf3.0 13.png";
-import lucknowImg from "../../assets/images/image-6.jpg";
+import pilgrimageImg from "../../assets/images/laf3.0-1.webp";
+import transportationImg from "../../assets/images/laf3.2.webp";
+import economyImg from "../../assets/images/laf3.0-3.webp";
+import sportsImg from "../../assets/images/laf3.0-4.webp";
+import tourismImg from "../../assets/images/laf3.0-5.webp";
+import cuisineImg from "../../assets/images/laf3.0-6.webp";
+import investUpImg from "../../assets/images/laf3.0-7.webp";
+import odopImg from "../../assets/images/laf3.0-8.webp";
+import craftImg from "../../assets/images/laf3.0-10.webp";
+import educationImg from "../../assets/images/laf3.0-12.webp";
+import cultureImg from "../../assets/images/laf3.0-13.webp";
+import lucknowImg from "../../assets/images/image-6.webp";
 import aboutVideo from "../../assets/images/about-vido.mp4";
-import highlight1 from "../../assets/images/1-1.png";
-import highlight2 from "../../assets/images/highlight-2.png";
-import highlight3 from "../../assets/images/highlight-3.png";
-import highlight4 from "../../assets/images/highlight-4.png";
+import highlight1 from "../../assets/images/1-1.webp";
+import highlight2 from "../../assets/images/highlight-2.webp";
+import highlight3 from "../../assets/images/highlight-3.webp";
+import highlight4 from "../../assets/images/highlight-4.webp";
 
 
 

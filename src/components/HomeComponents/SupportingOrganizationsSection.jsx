@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { Sparkles, Compass, Users, Award, ShieldCheck } from "lucide-react";
 
 // Organization Logos (Part 1)
-import iudiLogo from "../../assets/images/org0.1.png";
-import iiaLogo from "../../assets/images/org02.1.png";
-import iiidLogo from "../../assets/images/org03 (1-1).png";
-import ipaLogo from "../../assets/images/org04-1.png";
-import fsaiLogo from "../../assets/images/org05-1.png";
+import iudiLogo from "../../assets/images/org0.1.webp";
+import iiaLogo from "../../assets/images/org02.1.webp";
+import iiidLogo from "../../assets/images/org03-1-1.webp";
+import ipaLogo from "../../assets/images/org04-1.webp";
+import fsaiLogo from "../../assets/images/org05-1.webp";
 
 // Organization Key Persons (Part 2)
-import iudiPerson from "../../assets/images/conveners-1.png";
-import iiaPerson from "../../assets/images/sp-2.png";
-import iiidPerson from "../../assets/images/sp-3.png";
-import ipaPerson from "../../assets/images/sp-4.png";
-import fsaiPerson from "../../assets/images/sp-5.png";
+import iudiPerson from "../../assets/images/conveners-1.webp";
+import iiaPerson from "../../assets/images/sp-2.webp";
+import iiidPerson from "../../assets/images/sp-3.webp";
+import ipaPerson from "../../assets/images/sp-4.webp";
+import fsaiPerson from "../../assets/images/sp-5.webp";
 
 const organizations = [
   {

@@ -26,57 +26,57 @@ import {
 // ==========================================
 // IMAGES IMPORTS
 // ==========================================
-import mentorImage from "../../assets/images/m-1.png";
-import ob11Img from "../../assets/images/ob1.1.png";
-import ob12Img from "../../assets/images/ob1.2.png";
-import ob21Img from "../../assets/images/ob2.1.png";
-import db22Img from "../../assets/images/db2.2.png";
-import cd31Img from "../../assets/images/cd3.1.png";
-import cd32Img from "../../assets/images/cd3.2.png";
-import cd4Img from "../../assets/images/cd-4.png";
+import mentorImage from "../../assets/images/m-1.webp";
+import ob11Img from "../../assets/images/ob1.1.webp";
+import ob12Img from "../../assets/images/ob1.2.webp";
+import ob21Img from "../../assets/images/ob2.1.webp";
+import db22Img from "../../assets/images/db2.2.webp";
+import cd31Img from "../../assets/images/cd3.1.webp";
+import cd32Img from "../../assets/images/cd3.2.webp";
+import cd4Img from "../../assets/images/cd-4.webp";
 
-import con1Img from "../../assets/images/conveners-1.png";
-import con2Img from "../../assets/images/conveners-2.png";
-import con3Img from "../../assets/images/conveners-3.png";
+import con1Img from "../../assets/images/conveners-1.webp";
+import con2Img from "../../assets/images/conveners-2.webp";
+import con3Img from "../../assets/images/conveners-3.webp";
 
-import cc1Img from "../../assets/images/cc-1.png";
-import cc2Img from "../../assets/images/cc-2.png";
-import cc3Img from "../../assets/images/cc-3.png";
-import cc4Img from "../../assets/images/cc-4.png";
-import cc5Img from "../../assets/images/cc-5.png";
-import cc6Img from "../../assets/images/cc-6.png";
+import cc1Img from "../../assets/images/cc-1.webp";
+import cc2Img from "../../assets/images/cc-2.webp";
+import cc3Img from "../../assets/images/cc-3.webp";
+import cc4Img from "../../assets/images/cc-4.webp";
+import cc5Img from "../../assets/images/cc-5.webp";
+import cc6Img from "../../assets/images/cc-6.webp";
 
-import jc1Img from "../../assets/images/am1-1.png";
-import jc2Img from "../../assets/images/am1-2.png";
-import jc3Img from "../../assets/images/am2-1.png";
-import jc4Img from "../../assets/images/am2-2.png";
-import jc5Img from "../../assets/images/am3-1.png";
-import jc6Img from "../../assets/images/am3-2.png";
-import jc7Img from "../../assets/images/am4-1.png";
-import jc8Img from "../../assets/images/am4-2.png";
-import jc9Img from "../../assets/images/am5-1.png";
-import jc10Img from "../../assets/images/am5-2.png";
-import jc11Img from "../../assets/images/am6-1.png";
-import jc12Img from "../../assets/images/committee1.png";
-import jc13Img from "../../assets/images/am7-1.png";
-import jc14Img from "../../assets/images/am7-2.png";
-import jc15Img from "../../assets/images/am8-1.png";
-import jc16Img from "../../assets/images/am9-1.png";
-import jc17Img from "../../assets/images/am9-2.png";
-import jc18Img from "../../assets/images/am10-1.png";
-import jc19Img from "../../assets/images/am10-2.png";
-import jc20Img from "../../assets/images/am11-1.png";
-import jc21Img from "../../assets/images/am11-2.png";
-import jc22Img from "../../assets/images/am12-1.png";
-import jc23Img from "../../assets/images/am12-2.png";
-import jc24Img from "../../assets/images/am13-1.png";
-import jc25Img from "../../assets/images/am13-2.png";
-import jc26Img from "../../assets/images/am14-2.png";
-import jc27Img from "../../assets/images/am16-2.png";
-import jc28Img from "../../assets/images/am17-1.png";
-import jc29Img from "../../assets/images/am17-2.png";
+import jc1Img from "../../assets/images/am1-1.webp";
+import jc2Img from "../../assets/images/am1-2.webp";
+import jc3Img from "../../assets/images/am2-1.webp";
+import jc4Img from "../../assets/images/am2-2.webp";
+import jc5Img from "../../assets/images/am3-1.webp";
+import jc6Img from "../../assets/images/am3-2.webp";
+import jc7Img from "../../assets/images/am4-1.webp";
+import jc8Img from "../../assets/images/am4-2.webp";
+import jc9Img from "../../assets/images/am5-1.webp";
+import jc10Img from "../../assets/images/am5-2.webp";
+import jc11Img from "../../assets/images/am6-1.webp";
+import jc12Img from "../../assets/images/committee1.webp";
+import jc13Img from "../../assets/images/am7-1.webp";
+import jc14Img from "../../assets/images/am7-2.webp";
+import jc15Img from "../../assets/images/am8-1.webp";
+import jc16Img from "../../assets/images/am9-1.webp";
+import jc17Img from "../../assets/images/am9-2.webp";
+import jc18Img from "../../assets/images/am10-1.webp";
+import jc19Img from "../../assets/images/am10-2.webp";
+import jc20Img from "../../assets/images/am11-1.webp";
+import jc21Img from "../../assets/images/am11-2.webp";
+import jc22Img from "../../assets/images/am12-1.webp";
+import jc23Img from "../../assets/images/am12-2.webp";
+import jc24Img from "../../assets/images/am13-1.webp";
+import jc25Img from "../../assets/images/am13-2.webp";
+import jc26Img from "../../assets/images/am14-2.webp";
+import jc27Img from "../../assets/images/am16-2.webp";
+import jc28Img from "../../assets/images/am17-1.webp";
+import jc29Img from "../../assets/images/am17-2.webp";
 
-import sp2Img from "../../assets/images/54f541e1-f042-457e-9b6c-aedadf9664ef.png";
+import sp2Img from "../../assets/images/54f541e1-f042-457e-9b6c-aedadf9664ef.webp";
 
 // Helper function to resolve convener circular photo avatars
 const getMemberAvatar = (name, customImg) => {

@@ -28,10 +28,10 @@ import {
 } from "lucide-react";
 
 // Image Imports
-import layoutImage from "../assets/images/LAF2.0-Layout-HD.png";
-import lucknowImg from "../assets/images/lucknow-img.jpeg";
-import archImage from "../assets/images/image-6.jpg";
-import highlightImg from "../assets/images/heighlight.jpeg";
+import layoutImage from "../assets/images/LAF2.0-Layout-HD.webp";
+import lucknowImg from "../assets/images/lucknow-img.webp";
+import archImage from "../assets/images/image-6.webp";
+import highlightImg from "../assets/images/heighlight.webp";
 
 const venueZones = [
   {

@@ -8,7 +8,7 @@ import {
   Compass,
 } from "lucide-react";
 
-import layoutImage from "../../assets/images/LAF2.0-Layout-HD.png";
+import layoutImage from "../../assets/images/LAF2.0-Layout-HD.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },

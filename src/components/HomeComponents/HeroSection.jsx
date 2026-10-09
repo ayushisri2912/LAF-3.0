@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
-import heroBgImage from '../../assets/images/hero2.png';
+import heroBgImage from '../../assets/images/hero2.webp';
 
 const HeroSection = () => {
   return (

@@ -17,7 +17,7 @@ import {
   FileText,
 } from "lucide-react";
 
-import LAFLogo from "../assets/images/logo.jpeg";
+import LAFLogo from "../assets/images/logo.webp";
 import CCWSLogo from "../assets/images/CodeCrafterlogo.webp";
 
 const InstagramIcon = () => (

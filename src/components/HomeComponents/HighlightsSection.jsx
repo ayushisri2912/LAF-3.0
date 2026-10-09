@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import highlightImage from "../../assets/images/image-6.jpg";
+import highlightImage from "../../assets/images/image-6.webp";
 import {
   Megaphone,
   UsersRound,

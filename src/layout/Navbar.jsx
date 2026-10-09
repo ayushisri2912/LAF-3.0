@@ -17,8 +17,8 @@ import {
   Home
 } from 'lucide-react';
 
-import laaLogo from '../assets/images/LAA.png';
-import LAFLogo from '../assets/images/logo.jpeg';
+import laaLogo from '../assets/images/LAA.webp';
+import LAFLogo from '../assets/images/logo.webp';
 import taskLogo from '../assets/images/logo-right.webp';
 
 const Navbar = () => {

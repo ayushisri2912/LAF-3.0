@@ -57,22 +57,22 @@ function AnimatedCounter({ end, duration = 2000, suffix = "+" }) {
   );
 }
 
-import event01 from "../../assets/images/LAFevent1.png";
-import event02 from "../../assets/images/LAFevent2.png";
-import event03 from "../../assets/images/LAFEvent3.png";
-import event04 from "../../assets/images/LAFevent4.png";
-import event05 from "../../assets/images/lAFevent5.png";
-import event06 from "../../assets/images/LAFevent6.png";
-import event07 from "../../assets/images/LAFevent7.png";
-import event08 from "../../assets/images/LAFevent8.png";
-import event09 from "../../assets/images/LAFevent9.png";
-import event10 from "../../assets/images/LAFevent10.png";
-import event11 from "../../assets/images/LAFevent11.png";
-import event12 from "../../assets/images/LAFevent12.png";
-import event13 from "../../assets/images/LAFevent13.png";
-import event14 from "../../assets/images/LAFevent14.png";
-import event15 from "../../assets/images/LAFevent15.png";
-import event16 from "../../assets/images/LAFevent16.png";
+import event01 from "../../assets/images/LAFevent1.webp";
+import event02 from "../../assets/images/LAFevent2.webp";
+import event03 from "../../assets/images/LAFEvent3.webp";
+import event04 from "../../assets/images/LAFevent4.webp";
+import event05 from "../../assets/images/lAFevent5.webp";
+import event06 from "../../assets/images/LAFevent6.webp";
+import event07 from "../../assets/images/LAFevent7.webp";
+import event08 from "../../assets/images/LAFevent8.webp";
+import event09 from "../../assets/images/LAFevent9.webp";
+import event10 from "../../assets/images/LAFevent10.webp";
+import event11 from "../../assets/images/LAFevent11.webp";
+import event12 from "../../assets/images/LAFevent12.webp";
+import event13 from "../../assets/images/LAFevent13.webp";
+import event14 from "../../assets/images/LAFevent14.webp";
+import event15 from "../../assets/images/LAFevent15.webp";
+import event16 from "../../assets/images/LAFevent16.webp";
 
 const eventImages = [
   {

@@ -26,33 +26,33 @@ import {
 } from "lucide-react";
 
 // Image Imports
-import event01 from "../assets/images/LAFevent1.png";
-import event02 from "../assets/images/LAFevent2.png";
-import event03 from "../assets/images/LAFEvent3.png";
-import event04 from "../assets/images/LAFevent4.png";
-import event05 from "../assets/images/lAFevent5.png";
-import event06 from "../assets/images/LAFevent6.png";
-import event07 from "../assets/images/LAFevent7.png";
-import event08 from "../assets/images/LAFevent8.png";
-import event09 from "../assets/images/LAFevent9.png";
-import event10 from "../assets/images/LAFevent10.png";
-import event11 from "../assets/images/LAFevent11.png";
-import event12 from "../assets/images/LAFevent12.png";
-import event13 from "../assets/images/LAFevent13.png";
-import event14 from "../assets/images/LAFevent14.png";
-import event15 from "../assets/images/LAFevent15.png";
-import event16 from "../assets/images/LAFevent16.png";
-import event17 from "../assets/images/LAFevent17.png";
-import event18 from "../assets/images/Lafevent18.png";
-import event19 from "../assets/images/LAFevent19.png";
+import event01 from "../assets/images/LAFevent1.webp";
+import event02 from "../assets/images/LAFevent2.webp";
+import event03 from "../assets/images/LAFEvent3.webp";
+import event04 from "../assets/images/LAFevent4.webp";
+import event05 from "../assets/images/lAFevent5.webp";
+import event06 from "../assets/images/LAFevent6.webp";
+import event07 from "../assets/images/LAFevent7.webp";
+import event08 from "../assets/images/LAFevent8.webp";
+import event09 from "../assets/images/LAFevent9.webp";
+import event10 from "../assets/images/LAFevent10.webp";
+import event11 from "../assets/images/LAFevent11.webp";
+import event12 from "../assets/images/LAFevent12.webp";
+import event13 from "../assets/images/LAFevent13.webp";
+import event14 from "../assets/images/LAFevent14.webp";
+import event15 from "../assets/images/LAFevent15.webp";
+import event16 from "../assets/images/LAFevent16.webp";
+import event17 from "../assets/images/LAFevent17.webp";
+import event18 from "../assets/images/Lafevent18.webp";
+import event19 from "../assets/images/LAFevent19.webp";
 
-import highlightMain from "../assets/images/heighlight.jpeg";
-import highlight2 from "../assets/images/heighlight-2.jpeg";
-import highlight3 from "../assets/images/heighlight-3.jpeg";
-import highlight4 from "../assets/images/heighlight-4.jpg";
-import highlight5 from "../assets/images/heighlight-5.jpg";
-import image6 from "../assets/images/image-6.jpg";
-import lucknowImg from "../assets/images/lucknow-img.jpeg";
+import highlightMain from "../assets/images/heighlight.webp";
+import highlight2 from "../assets/images/heighlight-2.webp";
+import highlight3 from "../assets/images/heighlight-3.webp";
+import highlight4 from "../assets/images/heighlight-4.webp";
+import highlight5 from "../assets/images/heighlight-5.webp";
+import image6 from "../assets/images/image-6.webp";
+import lucknowImg from "../assets/images/lucknow-img.webp";
 
 const galleryData = [
   {
