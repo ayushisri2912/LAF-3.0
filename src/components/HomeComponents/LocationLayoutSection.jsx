@@ -8,7 +8,7 @@ import {
   Compass,
 } from "lucide-react";
 
-import layoutImage from "../../assets/images/LAF2.0-Layout-HD.webp";
+import layoutImage from "../../assets/images/LAFmap.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -247,14 +247,7 @@ const LocationLayoutSection = () => {
               <div className="pointer-events-none absolute inset-0 bg-[#171717]/0 transition-all duration-500 group-hover:bg-[#171717]/[0.02]" />
 
               {/* PLAN TAG */}
-              <div className="absolute bottom-5 left-5 bg-white/95 border border-[#D9D0C2] px-5 py-3 backdrop-blur-md rounded-xl shadow-md z-10">
-                <p className="text-[9.5px] font-bold uppercase tracking-[0.25em] text-[#B77A27] font-mono">
-                  LOCATION &amp; LAYOUT
-                </p>
-                <p className="mt-0.5 font-serif text-base sm:text-lg font-semibold text-[#171717]">
-                  Festival Master Plan
-                </p>
-              </div>
+              
             </div>
           </div>
         </motion.div>
