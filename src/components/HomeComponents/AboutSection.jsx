@@ -21,55 +21,12 @@ import craftImg from "../../assets/images/laf3.0-10.webp";
 import educationImg from "../../assets/images/laf3.0-12.webp";
 import cultureImg from "../../assets/images/laf3.0-13.webp";
 import lucknowImg from "../../assets/images/image-6.webp";
-import aboutVideo from "../../assets/images/about-vido.mp4";
-import highlight1 from "../../assets/images/1-1.webp";
-import highlight2 from "../../assets/images/highlight-2.webp";
-import highlight3 from "../../assets/images/highlight-3.webp";
-import highlight4 from "../../assets/images/highlight-4.webp";
+import highlight1 from "../../assets/images/card1.png";
+import highlight2 from "../../assets/images/card2.png";
+import highlight3 from "../../assets/images/card3.png";
+import highlight4 from "../../assets/images/card4.png";
 
 
-
-const LazyAboutVideo = ({ src }) => {
-  const containerRef = React.useRef(null);
-  const [shouldLoad, setShouldLoad] = React.useState(false);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px" }
-    );
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full aspect-[9/16] rounded-[22px] overflow-hidden border-2 border-[#B07A24]/40 bg-[#0A0D12] shadow-xl group flex items-center justify-center"
-    >
-      <video
-        src={shouldLoad ? src : undefined}
-        preload={shouldLoad ? "metadata" : "none"}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover rounded-[20px]"
-      />
-      <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-[10.5px] sm:text-[11px] font-mono text-white tracking-wider uppercase flex items-center gap-2 shadow-2xs z-10">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#B07A24] animate-pulse" />
-        <span>Lucknow • Uttar Pradesh</span>
-      </div>
-    </div>
-  );
-};
 
 const AboutSection = () => {
   const sectors = [
@@ -232,11 +189,11 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="flex justify-center items-center gap-4 mb-6"
           >
-            <span className="h-px w-12 bg-[#B8893A]" />
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-[#9B6B24]">
+            <span className="h-px w-12 bg-[#B77A27]" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-[#B77A27]">
               About Uttar Pradesh
             </span>
-            <span className="h-px w-12 bg-[#B8893A]" />
+            <span className="h-px w-12 bg-[#B77A27]" />
           </motion.div>
 
           <motion.h2
@@ -263,90 +220,92 @@ const AboutSection = () => {
           </motion.p>
         </div>
 
-        {/* THE OPPORTUNITY — EDITORIAL TWO-COLUMN ARCHITECTURAL LAYOUT */}
-        <div className="mt-14 lg:mt-20 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch"
-          >
-            {/* LEFT COLUMN: TEXT CONTENT (Stretched to match video height) */}
-            <div className="lg:col-span-7 flex flex-col justify-between py-1 sm:py-2">
-              <div>
-                {/* Eyebrow Label */}
-                <div className="flex items-center gap-4 mb-5">
-                  <span className="text-xs sm:text-sm font-bold text-[#B77A27]">01</span>
-                  <span className="w-12 h-px bg-[#B77A27]" />
-                  <span className="text-xs tracking-[0.3em] uppercase text-neutral-400 font-medium">
-                    THE OPPORTUNITY
-                  </span>
-                </div>
-
-                {/* Serif Heading with Italic Muted Gold Accent */}
-                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[52px] font-medium tracking-tight text-[#1C1C1A] leading-[1.16] mb-6">
-                  Where heritage meets{" "}
-                  <span className="italic font-serif text-[#B07A24]">
-                    contemporary ambition.
-                  </span>
-                </h3>
-
-                {/* Descriptive Paragraphs with Larger Font Size */}
-                <div className="space-y-5 text-base sm:text-lg lg:text-[17.5px] text-neutral-600 leading-[1.7] font-normal w-full">
-                  <p>
-                    The economic transformation of Uttar Pradesh has created
-                    significant opportunities across real estate, infrastructure,
-                    tourism and urban development. Lucknow, as the state capital,
-                    represents an important intersection of culture, commerce and
-                    contemporary urban growth.
-                  </p>
-                  <p>
-                    Its historic identity combined with modern development creates a
-                    distinctive environment for architects, designers, developers
-                    and the wider built environment ecosystem.
-                  </p>
-                </div>
-              </div>
-
-              {/* Location Identity Row & Discover Link */}
-              <div className="pt-6 sm:pt-8 border-t border-[#E6DFD3] mt-8 lg:mt-10 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-full border border-[#B07A24]/30 flex items-center justify-center text-[#B07A24] bg-[#B07A24]/5 shrink-0">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-mono font-bold tracking-[0.2em] text-[#1C1C1A] uppercase">
-                      LUCKNOW
-                    </div>
-                    <div className="text-xs sm:text-sm text-neutral-500 font-light mt-0.5">
-                      Heritage • Architecture • Future
-                    </div>
-                  </div>
-                </div>
-
-                <a
-                  href="#highlights"
-                  className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#1C1C1A] hover:text-[#B07A24] transition-colors"
-                >
-                  <span>Discover More</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#B07A24] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-              </div>
+        {/* TWO-PART EDITORIAL TEXT SECTION (As in Reference Image 2) */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-12 lg:mt-16 w-full max-w-6xl mx-auto"
+        >
+          <div className="relative grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-stretch">
+            {/* Left Part */}
+            <div className="flex items-center">
+              <p className="text-neutral-700 text-base sm:text-[17px] lg:text-[18px] leading-[1.85] font-normal tracking-[0.01em]">
+                The economic trend has consequently developed into a magnet for
+                real estate. The state&apos;s lifestyle and amenities are improving
+                because of these advancements. Being the state&apos;s capital,
+                Lucknow has enormous potential. As a result of increases in per
+                capita income, productivity, favourable market prices, and large
+                credit flow in the city, demand for branded consumer goods and
+                property has recently surged.
+              </p>
             </div>
 
-            {/* RIGHT COLUMN: EDITORIAL ARCHITECTURAL VIDEO (Unchanged height/width) */}
-            <div className="lg:col-span-5 relative mt-6 lg:mt-0 flex items-center justify-center">
-              <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px]">
-                {/* Thin Antique Gold Offset Border Frame */}
-                <div className="absolute -inset-2.5 sm:-inset-3.5 rounded-[26px] border border-[#B07A24]/30 pointer-events-none translate-x-2.5 translate-y-2.5 sm:translate-x-3.5 sm:translate-y-3.5" />
+            {/* Vertical Center Divider Line (Orange - Exact match to Image 2) */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 bg-[#B8893A]" />
+            <div className="block md:hidden w-20 h-[2px] bg-[#B8893A] mx-auto my-2" />
 
-                {/* Main Video Container — Original Video Aspect Ratio */}
-                <LazyAboutVideo src={aboutVideo} />
-              </div>
+            {/* Right Part */}
+            <div className="flex items-center">
+              <p className="text-neutral-700 text-base sm:text-[17px] lg:text-[18px] leading-[1.85] font-normal tracking-[0.01em]">
+                Being a hub of heritage as well as a fast emerging economy, it
+                attracts an influx of people from all surrounding cities,
+                districts and villages. Lucknow offers a distinctive business
+                philosophy that combines the city&apos;s rich cultural heritage with
+                contemporary business methods. With the highest density of young
+                population, UP is the richest state when we talk about
+                demographic resources.
+              </p>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
+        <br/><br/>
+
+         {/* STAGGERED GRID WRAPPER */}
+          <div className="relative">
+            
+            {/* 4 STAGGERED UNIFORM IMAGE CARDS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
+              {highlights.map((item, index) => {
+                const isEven = index % 2 === 1; // Index 1 & 3 (Image 2 & Image 4) are staggered down
+                return (
+                  <motion.div
+                    key={item.number}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.12 }}
+                    className={`group relative flex flex-col items-center text-center transition-transform duration-500 ${
+                      isEven ? "lg:translate-y-14" : "lg:translate-y-0"
+                    }`}
+                  >
+                    {/* STEP NUMBER NODE BADGE: [01], [02], [03], [04] */}
+                    <div className="flex items-center justify-center mb-5 relative w-full">
+                      {/* Connecting line segment behind node */}
+                      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1.5px] bg-[#B77A27]/30 z-0" />
+                      
+                      {/* Node Badge */}
+                      <div className="relative z-10 bg-[#FAF7F2] border-2 border-[#B77A27] text-[#B77A27] font-mono text-xs font-bold px-4 py-1 rounded-full shadow-xs group-hover:bg-[#B77A27] group-hover:text-white transition-all duration-300">
+                        [{item.number}]
+                      </div>
+                    </div>
+
+                    {/* UNIFORM UNIFIED SIZE IMAGE CONTAINER (EXACT SAME SIZE FOR ALL 4 IMAGES) */}
+                    <div className="w-full aspect-[1920/819] relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-md group-hover:border-[#B77A27] group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.03] bg-white">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          <br/>
 
         {/* GROWTH SECTORS */}
         <section className="relative mt-20 lg:mt-28">
@@ -358,14 +317,14 @@ const AboutSection = () => {
             className="text-center mb-14 lg:mb-20"
           >
             <div className="flex items-center justify-center gap-4 mb-5">
-              <span className="w-12 h-px bg-[#C58B2B]" />
-              <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-[#A66A16]">
+              <span className="w-12 h-px bg-[#B77A27]" />
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-[#B77A27]">
                 Growth Sectors
               </span>
-              <span className="w-12 h-px bg-[#C58B2B]" />
+              <span className="w-12 h-px bg-[#B77A27]" />
             </div>
 
-            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-medium leading-tight text-[#171717]">
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-medium leading-tight text-[#181818]">
               The many dimensions{" "}
               <span className="text-[#B77A27]">of Uttar Pradesh.</span>
             </h3>
@@ -375,7 +334,7 @@ const AboutSection = () => {
               whileInView={{ width: 80 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="h-[2px] bg-[#C58B2B] mx-auto mt-6"
+              className="h-[2px] bg-[#B77A27] mx-auto mt-6"
             />
 
             <p className="max-w-2xl mx-auto mt-5 text-sm text-neutral-500 leading-6">
@@ -453,7 +412,7 @@ const AboutSection = () => {
                     </div>
 
                     {/* SECTOR NAME UNDERNEATH */}
-                    <h4 className="mt-3 text-xs sm:text-sm font-bold tracking-wider text-[#171717] text-center uppercase group-hover:text-[#B77A27] transition-colors max-w-[130px] leading-snug">
+                    <h4 className="mt-3 text-xs sm:text-sm font-bold tracking-wider text-[#181818] text-center uppercase group-hover:text-[#B77A27] transition-colors max-w-[130px] leading-snug">
                       {sector.name}
                     </h4>
 
@@ -504,122 +463,18 @@ const AboutSection = () => {
             <span className="h-px w-10 bg-[#D0C6B7]" />
             <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-neutral-400">
               Heritage
-              <span className="mx-2 text-[#C58B2B]">•</span>
+              <span className="mx-2 text-[#B77A27]">•</span>
               Infrastructure
-              <span className="mx-2 text-[#C58B2B]">•</span>
+              <span className="mx-2 text-[#B77A27]">•</span>
               Innovation
-              <span className="mx-2 text-[#C58B2B]">•</span>
+              <span className="mx-2 text-[#B77A27]">•</span>
               Growth
             </span>
             <span className="h-px w-10 bg-[#D0C6B7]" />
           </motion.div>
         </section>
 
-        {/* STATE HIGHLIGHTS — STAGGERED ARCHITECTURAL GALLERY (IMAGE 1 & 3 TOP, IMAGE 2 & 4 OFFSET DOWN) */}
-        <div id="highlights" className="mt-8 lg:mt-12 w-full pb-16 lg:pb-24">
-          
-          {/* SECTION HEADER (CENTERED & ELEGANT) */}
-          <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex justify-center items-center gap-3 mb-3.5"
-            >
-              {/* <span className="h-px w-10 bg-[#B77A27]/60" />
-              <span className="text-xs font-mono font-bold tracking-[0.25em] text-[#B77A27] uppercase">
-                03 — STATE HIGHLIGHTS
-              </span>
-              <span className="h-px w-10 bg-[#B77A27]/60" /> */}
-              <span className="text-xs font-bold text-[#B77A27]">
-              02
-            </span>
-
-            <span className="w-12 h-px bg-[#B77A27]" />
-
-            <span
-              className="
-                text-[10px]
-                tracking-[0.3em]
-                uppercase
-                text-neutral-400
-              "
-            >
-               STATE HIGHLIGHTS
-            </span>
-            </motion.div>
-             
-
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="font-serif text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-[#171717] leading-tight"
-            >
-              A state building{" "}
-              <span className="italic font-serif text-[#B77A27]">
-                at scale.
-              </span>
-            </motion.h3>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl mx-auto font-normal"
-            >
-              A combination of economic ambition, demographic strength,
-              infrastructure and cultural identity is shaping the future of the
-              state's built environment.
-            </motion.p>
-          </div>
-
-          {/* STAGGERED GRID WRAPPER */}
-          <div className="relative">
-            
-            {/* 4 STAGGERED UNIFORM IMAGE CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
-              {highlights.map((item, index) => {
-                const isEven = index % 2 === 1; // Index 1 & 3 (Image 2 & Image 4) are staggered down
-                return (
-                  <motion.div
-                    key={item.number}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.12 }}
-                    className={`group relative flex flex-col items-center text-center transition-transform duration-500 ${
-                      isEven ? "lg:translate-y-14" : "lg:translate-y-0"
-                    }`}
-                  >
-                    {/* STEP NUMBER NODE BADGE: [01], [02], [03], [04] */}
-                    <div className="flex items-center justify-center mb-5 relative w-full">
-                      {/* Connecting line segment behind node */}
-                      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1.5px] bg-[#B77A27]/30 z-0" />
-                      
-                      {/* Node Badge */}
-                      <div className="relative z-10 bg-[#FAF7F2] border-2 border-[#B77A27] text-[#B77A27] font-mono text-xs font-bold px-4 py-1 rounded-full shadow-xs group-hover:bg-[#B77A27] group-hover:text-white transition-all duration-300">
-                        [{item.number}]
-                      </div>
-                    </div>
-
-                    {/* UNIFORM UNIFIED SIZE IMAGE CONTAINER (EXACT SAME SIZE FOR ALL 4 IMAGES) */}
-                    <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden bg-[#0A0D12] border border-[#D4AF37]/30 shadow-md group-hover:border-[#B77A27] group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.03] flex items-center justify-center p-2.5">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-contain rounded-xl"
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-        </div>
+        
 
         {/* FINAL QUOTE */}
         <motion.div
@@ -628,13 +483,7 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="mt-6 lg:mt-8 text-center border-t border-b border-[#D8D0C2] py-5"
         >
-          <div className="text-[10px] uppercase tracking-[0.3em] text-[#B77A27] mb-5">
-            The LAF Perspective
-          </div>
-          <blockquote className="max-w-4xl mx-auto font-serif text-2xl sm:text-3xl md:text-4xl leading-relaxed text-[#242424]">
-            “Combining rich cultural heritage with contemporary architecture,
-            sustainable development and a vision for the future.”
-          </blockquote>
+        
         </motion.div>
       </div>
     </section>

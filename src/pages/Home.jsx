@@ -9,12 +9,14 @@ import LastEventGlanceSection from '../components/HomeComponents/LastEventGlance
 import AboutLAASection from '../components/HomeComponents/AboutLAASection';
 import LocationLayoutSection from '../components/HomeComponents/LocationLayoutSection';
 import GetInTouchSection from '../components/HomeComponents/GetInTouchSection';
+import LAFHistory from '../components/HomeComponents/LAFHistory';
 
 const Home = () => {
   return (
     <div className="w-full">
       <HeroSection />
       <AboutSection />
+      <LAFHistory/>
       <HighlightsSection/>
       <AgendaSection/>
       <FestivalTeamSection/>

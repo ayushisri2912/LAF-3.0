@@ -425,37 +425,28 @@ const HighlightsSection = () => {
       Extravaganza
     </h3>
 
-    <div className="mt-4 h-[2px] w-12 bg-[#C58B2B]" />
+    <div className="mt-4 flex items-center gap-2">
+      <div className="h-[2px] w-12 bg-[#C58B2B]" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#C58B2B]" />
+    </div>
 
-    <p className="mt-7 max-w-xs text-sm leading-6 text-gray-400">
-      A platform for architecture, design, business,
-      culture and meaningful professional exchange.
+    {/* Description Paragraph from 2nd Image */}
+    <p className="mt-7 max-w-xs text-[12.5px] leading-relaxed text-gray-300 font-normal">
+      The <span className="text-white font-bold">FESTIVAL</span> will also display an exciting program of{' '}
+      <span className="text-[#C58B2B] font-bold tracking-wide">
+        EXHIBITIONS, INSTALLATIONS, SYMPOSIA, LECTURES AND WORKSHOPS
+      </span>{' '}
+      promoting and celebrating architecture's contribution to the state's culture, sustainability and economy.
     </p>
 
     {/* Bottom Info */}
-    <div className="mt-6 flex items-center gap-3">
-
-      <div
-        className="
-          flex
-          h-9
-          w-9
-          shrink-0
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-[#B77A27]/60
-          text-[#C58B2B]
-        "
-      >
-        ↗
-      </div>
-
-      <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500">
-        Architecture · Culture · Ideas
+    <div className="mt-8 flex items-center justify-between">
+      <span className="text-[9px] uppercase tracking-[0.25em] text-[#C58B2B] font-mono">
+        • Architecture &amp; Culture
       </span>
-
+      <span className="text-[9px] uppercase tracking-[0.25em] text-neutral-400 font-mono">
+        Lucknow / India
+      </span>
     </div>
 
   </div>

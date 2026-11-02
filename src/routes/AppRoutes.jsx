@@ -2,7 +2,9 @@ import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 
+
 // Route-level Code Splitting for secondary pages
+const About = lazy(() => import('../pages/About'));
 const TeamPage = lazy(() => import('../pages/TeamPage'));
 const ParticipatePage = lazy(() => import('../pages/ParticipatePage'));
 const HighlightPage = lazy(() => import('../pages/HighlightPage'));
@@ -27,6 +29,7 @@ const AppRoutes = () => {
     <Suspense fallback={<PageFallback />}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About/>} />
         <Route path="/highlights" element={<HighlightPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/location" element={<LocationPage />} />
