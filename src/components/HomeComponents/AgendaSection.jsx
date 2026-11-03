@@ -1,240 +1,186 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  Clock3,
-  MapPin,
-  Utensils,
-  Landmark,
-  Presentation,
-  Users,
-  Palette,
-  Trophy,
-  Film,
-  Building2,
-  Download,
-  Sparkles,
-} from "lucide-react";
+import { Clock3, MapPin, Download } from "lucide-react";
+import LAFLogo from "../LAFLogo";
 
 const agendaDays = [
   {
-    number: "01",
-    label: "DAY ONE",
-    title: "FOUNDATIONS",
-    subtitle: "Ideas · Urbanism · Exchange",
+    dayNumber: "01",
+    label: "DAY 1",
     events: [
       {
-        time: "09:00 – 10:00",
-        title: "Arrival of Delegates and Registrations at Venue",
-        category: "REGISTRATION",
-        icon: Users,
+        time: "9:00 - 10:00",
+        title: "Arrival of Delegate and Registrations at Venue",
+        dotColor: "#5B21B6", // Deep Purple
       },
       {
-        time: "10:00 – 11:30",
+        time: "10:00 - 11:30",
         title: "Inaugural Session of LAF 3.0",
-        category: "OPENING SESSION",
-        icon: Landmark,
-        featured: true,
+        dotColor: "#06B6D4", // Teal / Cyan
       },
       {
-        time: "11:30 – 13:00",
-        title:
-          "Technical Session 1: The Future of Urban Development: How Green Buildings are Shaping Sustainable Cities",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
-        featured: true,
+        time: "11:30 - 13:00",
+        title: "Technical Session 1:",
+        subtitle: "The Future of Urban Development",
+        dotColor: "#EAB308", // Yellow / Amber
       },
       {
-        time: "13:00 – 14:00",
+        time: "13:00 - 14:00",
         title: "Networking Lunch",
-        category: "NETWORKING",
-        icon: Utensils,
+        dotColor: "#16A34A", // Green
       },
       {
-        time: "14:00 – 15:00",
-        title:
-          "Technical Session 2: Public Spaces for the Future Designing Inclusive and Adaptive Urban Areas",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
+        time: "14:00 - 15:00",
+        title: "Technical Session 2:",
+        subtitle: "Public Spaces for the Future",
+        dotColor: "#06B6D4", // Teal / Cyan
       },
       {
-        time: "15:00 – 16:00",
+        time: "15:00 - 16:00",
         title: "Live Workshops",
-        category: "WORKSHOP",
-        icon: Palette,
+        dotColor: "#5B21B6", // Deep Purple
       },
       {
-        time: "16:00 – 17:00",
+        time: "16:00 - 17:00",
         title: "Delegates Visit to Exhibition Pavilion",
-        category: "EXHIBITION",
-        icon: Landmark,
+        dotColor: "#EAB308", // Yellow / Amber
       },
       {
         time: "17:30 Onwards",
         title: "Cultural Programmes",
-        category: "CULTURE",
-        icon: Palette,
+        dotColor: "#16A34A", // Green
       },
       {
         time: "19:00 Onwards",
         title: "Architects Grand Dinner",
-        category: "DINNER",
-        icon: Utensils,
+        dotColor: "#06B6D4", // Teal / Cyan
       },
     ],
   },
-
   {
-    number: "02",
-    label: "DAY TWO",
-    title: "INNOVATION",
-    subtitle: "Technology · Sustainability · Exchange",
+    dayNumber: "02",
+    label: "DAY 2",
     events: [
       {
-        time: "10:00 – 10:30",
+        time: "6:30 - 10:30",
         title: "Film Screening",
-        category: "SCREENING",
-        icon: Film,
+        dotColor: "#5B21B6", // Deep Purple
       },
       {
-        time: "10:30 – 11:00",
+        time: "10:00 - 11:00",
         title: "Delegates Visit to Exhibition Pavilion",
-        category: "EXHIBITION",
-        icon: Landmark,
+        dotColor: "#06B6D4", // Teal / Cyan
       },
       {
-        time: "11:00 – 12:00",
-        title:
-          "Technical Session 1: Energy Efficiency in Green Buildings: Best Practices and Emerging Technologies",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
-        featured: true,
+        time: "11:00 - 11:30",
+        title: "Technical Session 1:",
+        subtitle: "Energy Efficiency in Green Buildings",
+        dotColor: "#EAB308", // Yellow / Amber
       },
       {
-        time: "12:00 – 13:00",
-        title:
-          "Technical Session 2: The 15-Minute City – Designing Urban Areas for Accessibility and Local Living",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
+        time: "11:30 - 12:30",
+        title: "Technical Session 2:",
+        subtitle: "The 15-Minute City",
+        dotColor: "#16A34A", // Green
       },
       {
-        time: "13:00 – 14:00",
+        time: "12:30 - 13:30",
         title: "Networking Lunch",
-        category: "NETWORKING",
-        icon: Utensils,
+        dotColor: "#06B6D4", // Teal / Cyan
       },
       {
-        time: "14:00 – 14:30",
+        time: "13:30 - 14:30",
         title: "Key Note Presentation",
-        category: "KEYNOTE",
-        icon: Presentation,
+        dotColor: "#5B21B6", // Deep Purple
       },
       {
-        time: "14:30 – 15:30",
-        title:
-          "Technical Session 3: Adaptive Reuse and Regeneration - Transforming Heritage Buildings into Modern Urban Spaces",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
-        featured: true,
+        time: "14:30 - 15:30",
+        title: "Technical Session 3:",
+        subtitle: "Adaptive Reuse & Regeneration",
+        dotColor: "#EAB308", // Yellow / Amber
       },
       {
-        time: "15:30 – 16:30",
+        time: "15:30 - 16:00",
         title: "Live Workshops",
-        category: "WORKSHOP",
-        icon: Palette,
+        dotColor: "#16A34A", // Green
       },
       {
-        time: "16:30 – 17:30",
+        time: "16:00 - 17:30",
         title: "Delegates Visit to Exhibition Pavilion",
-        category: "EXHIBITION",
-        icon: Landmark,
+        dotColor: "#5B21B6", // Deep Purple
       },
       {
-        time: "17:30 Onwards",
+        time: "17:30 - 17:45",
         title: "Cultural Programmes",
-        category: "CULTURE",
-        icon: Palette,
-      },
-      {
-        time: "19:00 Onwards",
-        title: "Gala Dinner of LAF 3.0",
-        category: "DINNER",
-        icon: Utensils,
-        featured: true,
-      },
-    ],
-  },
-
-  {
-    number: "03",
-    label: "DAY THREE",
-    title: "HERITAGE",
-    subtitle: "History · Future · Celebration",
-    events: [
-      {
-        time: "06:30 – 09:30",
-        title: "Heritage Walk",
-        category: "HERITAGE",
-        icon: Landmark,
-        featured: true,
-      },
-      {
-        time: "10:00 – 11:00",
-        title: "Jury Panel for ADC",
-        category: "JURY PANEL",
-        icon: Users,
-      },
-      {
-        time: "11:00 – 11:30",
-        title: "Key Note Presentation",
-        category: "KEYNOTE",
-        icon: Presentation,
-      },
-      {
-        time: "11:30 – 12:30",
-        title:
-          "Technical Session 1: Beyond Skyscrapers - Rethinking High-Density Urban Design",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
-        featured: true,
-      },
-      {
-        time: "12:30 – 13:30",
-        title:
-          "Technical Session 2: Urban Mobility and Connectivity - Designing Cities for the Future of Transportation",
-        category: "TECHNICAL SESSION",
-        icon: Building2,
-      },
-      {
-        time: "13:30 – 14:30",
-        title: "Networking Lunch",
-        category: "NETWORKING",
-        icon: Utensils,
-      },
-      {
-        time: "14:30 – 15:30",
-        title: "Delegates Visit to Exhibition Pavilion",
-        category: "EXHIBITION",
-        icon: Landmark,
-      },
-      {
-        time: "15:30 – 16:00",
-        title: "Preview of LAA & Future events",
-        category: "PREVIEW",
-        icon: ArrowUpRight,
-      },
-      {
-        time: "16:00 – 17:30",
-        title: "Valedictory Ceremony",
-        category: "CLOSING CEREMONY",
-        icon: Trophy,
-        featured: true,
+        dotColor: "#06B6D4", // Teal / Cyan
       },
       {
         time: "17:45 Onwards",
+        title: "Gala Dinner of LAF 3.0",
+        dotColor: "#EAB308", // Yellow / Amber
+      },
+    ],
+  },
+  {
+    dayNumber: "03",
+    label: "DAY 3",
+    events: [
+      {
+        time: "10:00 - 10:30",
+        title: "Heritage Walk",
+        dotColor: "#5B21B6", // Deep Purple
+      },
+      {
+        time: "10:30 - 11:00",
+        title: "Jury Panel for ADC",
+        dotColor: "#06B6D4", // Teal / Cyan
+      },
+      {
+        time: "11:00 - 12:00",
+        title: "Key Note Presentation",
+        dotColor: "#EAB308", // Yellow / Amber
+      },
+      {
+        time: "12:00 - 13:00",
+        title: "Technical Session 1:",
+        subtitle: "Beyond Skyscrapers - High-Density Design",
+        dotColor: "#16A34A", // Green
+      },
+      {
+        time: "13:00 - 14:00",
+        title: "Technical Session 2:",
+        subtitle: "Urban Mobility & Connectivity",
+        dotColor: "#06B6D4", // Teal / Cyan
+      },
+      {
+        time: "14:00 - 14:30",
+        title: "Networking Lunch",
+        dotColor: "#5B21B6", // Deep Purple
+      },
+      {
+        time: "14:30 - 15:30",
+        title: "Delegates Visit to Exhibition Pavilion",
+        dotColor: "#EAB308", // Yellow / Amber
+      },
+      {
+        time: "15:30 - 16:30",
+        title: "Preview of LAA & Future events",
+        dotColor: "#16A34A", // Green
+      },
+      {
+        time: "16:30 - 17:30",
+        title: "Valedictory Ceremony",
+        dotColor: "#5B21B6", // Deep Purple
+      },
+      {
+        time: "17:30 Onwards",
+        title: "Vote of Thanks by Ar. Repunjay Patel President- LAA",
+        dotColor: "#06B6D4", // Teal / Cyan
+      },
+      {
+        time: "19:00 Onwards",
         title: "Cultural Programmes",
-        category: "CULTURE",
-        icon: Palette,
+        dotColor: "#EAB308", // Yellow / Amber
       },
     ],
   },
@@ -244,222 +190,135 @@ const AgendaSection = () => {
   return (
     <section
       id="agenda"
-      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] pt-4 sm:pt-6 lg:pt-8 pb-14 sm:pb-16 lg:pb-20"
+      className="relative overflow-hidden bg-[#FAF8F5] text-[#171717] pt-12 sm:pt-16 pb-16 sm:pb-20"
     >
-      {/* ARCHITECTURAL BACKGROUND */}
+      {/* ARCHITECTURAL BLUEPRINT GRID BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute inset-0 opacity-[0.28]"
+          className="absolute inset-0 opacity-[0.35]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(120,90,40,0.07) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(120,90,40,0.07) 1px, transparent 1px)
+              linear-gradient(rgba(217, 119, 6, 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(217, 119, 6, 0.08) 1px, transparent 1px)
             `,
-            backgroundSize: "44px 44px",
+            backgroundSize: "36px 36px",
           }}
         />
 
-        <div className="absolute -left-40 top-40 w-[500px] h-[500px] rounded-full border border-[#B8893A]/10" />
-        <div className="absolute -left-20 top-60 w-[350px] h-[350px] rounded-full border border-[#B8893A]/10" />
-        <div className="absolute -right-40 bottom-20 w-[550px] h-[550px] rounded-full border border-[#B8893A]/10" />
-        <div className="absolute right-[10%] top-[24%] h-[320px] w-[320px] rounded-full border border-[#B8893A]/10" />
-
-        <div className="absolute left-[8%] top-[15%] h-24 w-24 border-l border-t border-[#B8893A]/20" />
-        <div className="absolute bottom-[10%] right-[8%] h-24 w-24 border-b border-r border-[#B8893A]/20" />
+        {/* Ambient atmospheric warm glow gradients */}
+        <div className="absolute -left-32 top-20 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-orange-200/20 to-amber-200/10 blur-3xl" />
+        <div className="absolute -right-32 bottom-20 w-[460px] h-[460px] rounded-full bg-gradient-to-tl from-purple-200/20 to-pink-200/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* SECTION HEADER */}
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] items-end mb-12 lg:mb-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        {/* SECTION HEADER MATCHING FOCUS SECTORS THEME */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-4 mb-5">
-              <span className="text-xs font-bold text-[#B77A27]">06</span>
-              <span className="w-12 h-px bg-[#B77A27]" />
-              <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-mono">
-                PROGRAMME
-              </span>
-            </div>
+          
 
-            <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl leading-[1.1] font-medium tracking-tight text-[#171717]">
-              Agenda{" "}
-              <span className="font-serif italic text-[#B77A27]">
-                of Ideas.
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] text-[#171717] font-semibold tracking-tight leading-tight">
+              Agenda:{" "}
+              <span className="font-serif italic font-bold bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] bg-clip-text text-transparent">
+                LAF 3.0
               </span>
             </h2>
 
-            <div className="mt-6 flex items-center gap-4">
-              <div className="h-px w-16 bg-[#B77A27]/60" />
-              <span className="font-mono text-[10.5px] tracking-[0.25em] uppercase text-[#B77A27]">
-                03 DAYS / 01 FESTIVAL
-              </span>
-            </div>
+            {/* Gradient Pill Underline Bar */}
+            <div className="w-28 sm:w-36 h-[5px] rounded-full bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] mt-3 sm:mt-3.5" />
           </motion.div>
 
+          {/* Right Logo matching Image 3 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="flex flex-col justify-end"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex items-center gap-5 self-start lg:self-auto"
           >
-            <p className="text-base sm:text-lg leading-relaxed text-neutral-600">
-              A three-day programme of architecture, urbanism, sustainability,
-              technology, heritage, professional exchange and cultural
-              expression.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {[
-                "ARCHITECTURE",
-                "URBANISM",
-                "CULTURE",
-                "SUSTAINABILITY",
-                "HERITAGE",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="border border-[#B8893A]/30 bg-white/50 px-3.5 py-1.5 text-[9.5px] font-bold tracking-[0.18em] text-[#80581B] rounded-full shadow-2xs"
-                >
-                  {item}
-                </span>
-              ))}
+            <div className="w-[1.5px] h-14 bg-[#EA580C]/30 hidden sm:block" />
+            <div className="flex items-center gap-3">
+              <LAFLogo className="h-14 sm:h-16 w-auto" />
             </div>
           </motion.div>
         </div>
 
-        {/* 3 SIDE-BY-SIDE COLUMNS FOR DAY ONE, DAY TWO, DAY THREE */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
-          {agendaDays.map((day) => (
-            <div
-              key={day.number}
-              id={`agenda-day-${day.number}`}
-              className="bg-[#F7F4EE] border border-[#D9D0C2] rounded-2xl overflow-hidden shadow-sm flex flex-col h-full"
+        {/* 3 SIDE-BY-SIDE COLUMNS (DAY 1, DAY 2, DAY 3) MATCHING IMAGE 3 */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {agendaDays.map((day, dayIdx) => (
+            <motion.div
+              key={day.dayNumber}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: dayIdx * 0.1 }}
+              className="bg-white/95 backdrop-blur-xs rounded-[28px] border border-[#E8E2D8] p-5 sm:p-6 lg:p-7 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_35px_rgba(234,88,12,0.08)] transition-all duration-300 flex flex-col justify-between"
             >
-              {/* COLUMN DAY HEADER */}
-              <div className="relative p-6 sm:p-7 bg-white border-b border-[#D9D0C2] overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#B77A27] via-amber-500 to-[#B77A27]" />
-
-                <span className="absolute -right-2 -top-4 font-serif text-8xl font-medium text-[#E6DFC5]/40 select-none pointer-events-none">
-                  {day.number}
-                </span>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#B77A27]">
-                      {day.label}
-                    </span>
-                    <span className="h-px w-6 bg-[#B77A27]/40" />
-                    <span className="text-[9px] font-mono text-neutral-400">
-                      LAF 3.0
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl font-serif font-semibold tracking-tight text-[#171717]">
-                    {day.title}
-                  </h3>
-
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-neutral-500 font-mono">
-                    {day.subtitle}
-                  </p>
+              {/* Top Pill Header matching Image 3 */}
+              <div className="flex justify-center mb-6 sm:mb-7">
+                <div className="inline-flex items-center justify-center px-10 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#EA580C] to-[#F97316] text-white font-extrabold text-base sm:text-lg tracking-wider shadow-md shadow-orange-500/25">
+                  {day.label}
                 </div>
               </div>
 
-              {/* EVENTS TIMELINE LIST FOR THIS DAY */}
-              <div className="p-4 sm:p-5 space-y-3 flex-1">
-                {day.events.map((event, index) => {
-                  const Icon = event.icon;
-                  return (
-                    <motion.div
-                      key={`${day.number}-${index}`}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.02 }}
-                      className={`group relative p-4 rounded-xl border transition-all duration-300 flex flex-col gap-2 ${
-                        event.featured
-                          ? "bg-[#B77A27]/[0.06] border-[#B77A27]/50 shadow-xs hover:bg-white hover:shadow-md"
-                          : "bg-white/80 border-[#D9D0C2]/70 hover:bg-white hover:border-[#B77A27]/40 hover:shadow-sm"
-                      }`}
-                    >
-                      {/* Time & Category Header */}
-                      <div className="flex items-center justify-between gap-2 flex-wrap">
-                        <span className="font-mono text-[11px] font-bold tracking-wide text-[#B77A27] bg-[#B77A27]/10 px-2 py-0.5 rounded-md">
-                          {event.time}
-                        </span>
+              {/* TIMELINE LIST: Left timing | Center connecting line & dots | Right text */}
+              <div className="flex flex-col space-y-1 sm:space-y-1.5 flex-1">
+                {day.events.map((event, index) => (
+                  <div
+                    key={index}
+                    className="group relative flex items-center gap-3 sm:gap-3.5 py-1.5 sm:py-2 px-2 rounded-xl transition-all duration-200 hover:bg-orange-50/50"
+                  >
+                    {/* Left: Timing */}
+                    <div className="w-[84px] sm:w-[96px] shrink-0 text-right font-bold text-xs sm:text-[13px] text-[#1E293B] tracking-tight group-hover:text-[#EA580C] transition-colors">
+                      {event.time}
+                    </div>
 
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[9px] font-bold tracking-[0.18em] uppercase text-neutral-500 group-hover:text-[#B77A27] transition-colors">
-                            {event.category}
-                          </span>
-                          {event.featured && (
-                            <span className="bg-[#B77A27] text-white px-1.5 py-0.5 text-[7.5px] font-bold tracking-[0.15em] rounded-xs uppercase">
-                              FEATURED
-                            </span>
-                          )}
-                        </div>
-                      </div>
+                    {/* Center: Timeline Connecting Line & Colored Dot */}
+                    <div className="relative self-stretch flex items-center justify-center w-5 shrink-0">
+                      {/* Top connecting line segment */}
+                      {index !== 0 && (
+                        <div className="absolute top-0 bottom-1/2 w-[2px] bg-[#FDA4AF]" />
+                      )}
+                      {/* Bottom connecting line segment */}
+                      {index !== day.events.length - 1 && (
+                        <div className="absolute top-1/2 bottom-0 w-[2px] bg-[#FDA4AF]" />
+                      )}
+                      {/* Colored Dot on Timeline */}
+                      <span
+                        className="relative z-10 w-3.5 h-3.5 rounded-full border-2 border-white shadow-xs group-hover:scale-125 transition-transform duration-200 shrink-0"
+                        style={{ backgroundColor: event.dotColor }}
+                      />
+                    </div>
 
-                      {/* Icon & Title */}
-                      <div className="flex items-start gap-3 mt-1">
-                        <div
-                          className={`h-8 w-8 shrink-0 flex items-center justify-center rounded-lg border transition-all duration-300 ${
-                            event.featured
-                              ? "border-[#B77A27] bg-[#B77A27] text-white"
-                              : "border-neutral-200 bg-[#F7F4EE] text-neutral-600 group-hover:border-[#B77A27] group-hover:bg-[#B77A27]/10 group-hover:text-[#B77A27]"
-                          }`}
-                        >
-                          <Icon size={14} strokeWidth={1.5} />
-                        </div>
-
-                        <h4 className="text-xs sm:text-sm font-semibold leading-snug text-[#171717] group-hover:text-[#B77A27] transition-colors duration-200">
-                          {event.title}
-                        </h4>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+                    {/* Right: Event Title & Subtitle */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs sm:text-[13px] font-bold text-[#111827] leading-snug group-hover:text-[#EA580C] transition-colors">
+                        {event.title}
+                      </p>
+                      {event.subtitle && (
+                        <p className="text-[11px] text-neutral-500 font-medium mt-0.5 leading-snug">
+                          {event.subtitle}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* CLOSING STATEMENT */}
+        {/* DOWNLOAD BUTTONS WITH FESTIVAL THEME */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 lg:mt-14 border-y border-[#D9D0C2] py-6 sm:py-8"
+          className="mt-12 sm:mt-16 grid gap-4 sm:grid-cols-3"
         >
-          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
-            <div>
-              <span className="text-[9.5px] font-bold tracking-[0.3em] uppercase text-[#B77A27]">
-                THE FESTIVAL EXPERIENCE
-              </span>
-
-              <h3 className="mt-3 max-w-3xl font-serif text-2xl sm:text-3xl lg:text-4xl leading-tight text-[#171717]">
-                Exhibitions, installations, symposia, lectures and workshops
-                celebrating architecture's contribution to culture,
-                sustainability and economy.
-              </h3>
-            </div>
-
-            <div className="hidden md:block">
-              <div className="h-20 w-20 rounded-full border border-[#B77A27]/40 p-2">
-                <div className="flex h-full w-full items-center justify-center rounded-full border border-[#B77A27]/30 bg-[#B77A27]/10 text-[#B77A27]">
-                  <Sparkles size={22} strokeWidth={1.5} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* DOWNLOAD BUTTONS */}
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
           {[
             "DOWNLOAD EVENT BROCHURE",
             "DOWNLOAD PARTICIPATION FORM",
@@ -468,36 +327,36 @@ const AgendaSection = () => {
             <a
               key={label}
               href="#"
-              className="group flex items-center justify-between bg-[#151515] border border-[#B77A27]/30 hover:border-[#B77A27] px-6 py-5 text-white transition-all duration-300 hover:bg-[#1c1c1f] shadow-sm hover:shadow-xl rounded-xl relative overflow-hidden"
+              className="group flex items-center justify-between bg-white border border-[#E8E2D8] hover:border-[#EA580C] px-6 py-4 text-[#171717] transition-all duration-300 hover:shadow-lg rounded-2xl relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#B77A27] group-hover:w-1.5 transition-all duration-300" />
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#EA580C] to-[#D91A5B] group-hover:w-2 transition-all duration-300" />
               <div>
-                <span className="block text-[9px] font-bold tracking-[0.25em] text-[#B77A27] uppercase">
-                  DOCUMENT
+                <span className="block text-[9px] font-bold tracking-[0.25em] text-[#EA580C] uppercase">
+                  OFFICIAL DOCUMENT
                 </span>
-                <span className="mt-1 block text-xs sm:text-sm font-semibold tracking-wide text-neutral-200 group-hover:text-white transition-colors">
+                <span className="mt-1 block text-xs sm:text-sm font-semibold tracking-wide text-neutral-800 group-hover:text-[#EA580C] transition-colors">
                   {label}
                 </span>
               </div>
-              <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#B77A27]/50 group-hover:bg-[#B77A27] group-hover:text-black flex items-center justify-center transition-all duration-300 text-[#B77A27]">
+              <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 group-hover:border-[#EA580C] group-hover:bg-[#EA580C] group-hover:text-white flex items-center justify-center transition-all duration-300 text-[#EA580C]">
                 <Download size={16} />
               </div>
             </a>
           ))}
-        </div>
+        </motion.div>
 
         {/* FOOTER META */}
-        <div className="mt-10 flex flex-col justify-between gap-4 border-t border-[#D9D0C2] pt-6 md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col justify-between gap-4 border-t border-[#E8E2D8] pt-6 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3">
-            <Clock3 size={15} strokeWidth={1.5} className="text-[#B77A27]" />
-            <span className="text-[9.5px] font-bold tracking-[0.25em] text-neutral-500 uppercase">
-              THREE DAYS OF IDEAS &amp; EXCHANGE
+            <Clock3 size={15} strokeWidth={1.5} className="text-[#EA580C]" />
+            <span className="text-[10px] font-bold tracking-[0.25em] text-neutral-500 uppercase">
+              THREE DAYS OF IDEAS &amp; ARCHITECTURAL EXCHANGE
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <MapPin size={15} strokeWidth={1.5} className="text-[#B77A27]" />
-            <span className="text-[9.5px] font-bold tracking-[0.2em] text-neutral-500 uppercase">
+            <MapPin size={15} strokeWidth={1.5} className="text-[#EA580C]" />
+            <span className="text-[10px] font-bold tracking-[0.2em] text-neutral-500 uppercase">
               LUCKNOW · INDIA
             </span>
           </div>

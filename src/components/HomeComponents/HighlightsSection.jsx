@@ -1,16 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
-import highlightImage from "../../assets/images/image-6.webp";
+import highlightImg from "../../assets/images/highlight-img.png";
+import bgHist from "../../assets/images/bg-hist.png";
+
+import secArt from "../../assets/images/sectors/sec-art.png";
+import secArchitecture from "../../assets/images/sectors/sec-architecture.png";
+import secInteriors from "../../assets/images/sectors/sec-interiors.png";
+import secConstruction from "../../assets/images/sectors/sec-construction.png";
+import secMaterials from "../../assets/images/sectors/sec-materials.png";
+import secGreentech from "../../assets/images/sectors/sec-greentech.png";
+import secTech from "../../assets/images/sectors/sec-tech.png";
+import secEquipments from "../../assets/images/sectors/sec-equipments.png";
+import secTechniques from "../../assets/images/sectors/sec-techniques.png";
+import secSustainability from "../../assets/images/sectors/sec-sustainability.png";
+import secSmartbuilding from "../../assets/images/sectors/sec-smartbuilding.png";
+import secRealestate from "../../assets/images/sectors/sec-realestate.png";
+import secAcademics from "../../assets/images/sectors/sec-academics.png";
+import secGovernment from "../../assets/images/sectors/sec-government.png";
+import khArchitects from "../../assets/images/key_highlights/kh-architects.png";
+import khMarketers from "../../assets/images/key_highlights/kh-marketers.png";
+import khEngagement from "../../assets/images/key_highlights/kh-engagement.png";
+import khBrand from "../../assets/images/key_highlights/kh-brand.png";
+import khFinancing from "../../assets/images/key_highlights/kh-financing.png";
+import khExperts from "../../assets/images/key_highlights/kh-experts.png";
+import khArt from "../../assets/images/key_highlights/kh-art.png";
+import khMedia from "../../assets/images/key_highlights/kh-media.png";
+import khSkyline from "../../assets/images/key_highlights/kh-skyline.png";
+
 import {
   Megaphone,
   UsersRound,
+  MonitorPlay,
+  Presentation,
+  Coins,
+  Palette,
   Newspaper,
   MessageSquareText,
   BriefcaseBusiness,
   Sparkles,
   ArrowUpRight,
   Building2,
-  Palette,
   Boxes,
   Leaf,
   Cpu,
@@ -20,49 +49,72 @@ import {
   Landmark,
   Store,
   Handshake,
-  Presentation,
   WalletCards,
   MousePointerClick,
   Gift,
+  Armchair,
+  HardHat,
+  Settings,
+  Layers,
+  Sprout,
+  HouseWifi,
 } from "lucide-react";
 
 const HighlightsSection = () => {
   const experiences = [
     {
       icon: Megaphone,
-      title: "Brand Reach",
+      title: "BRAND REACH",
       text: "A platform for brands to reach their target audience.",
-      color: "#F97316",
+      borderColor: "border-[#FED7AA]",
+      iconBg: "bg-[#FFEDD5]",
+      iconColor: "text-[#EA580C]",
+      barColor: "bg-[#EA580C]",
     },
     {
       icon: UsersRound,
-      title: "Engagement",
+      title: "ENGAGEMENT ACTIVITIES",
       text: "Engagement activities designed around the target group.",
-      color: "#8B5CF6",
+      borderColor: "border-[#E9D5FF]",
+      iconBg: "bg-[#F3E8FF]",
+      iconColor: "text-[#8B5CF6]",
+      barColor: "bg-[#8B5CF6]",
     },
     {
-      icon: Newspaper,
-      title: "Media Amplification",
+      icon: MonitorPlay,
+      title: "MEDIA AMPLIFICATION",
       text: "Wide-ranging pre-promotional and media opportunities.",
-      color: "#3B82F6",
+      borderColor: "border-[#BAE6FD]",
+      iconBg: "bg-[#E0F2FE]",
+      iconColor: "text-[#0284C7]",
+      barColor: "bg-[#0284C7]",
     },
     {
-      icon: MessageSquareText,
-      title: "Seminars & Workshops",
+      icon: Presentation,
+      title: "SEMINARS & WORKSHOPS",
       text: "Architects, experts and professionals meet to exchange ideas.",
-      color: "#10B981",
+      borderColor: "border-[#BBF7D0]",
+      iconBg: "bg-[#DCFCE7]",
+      iconColor: "text-[#10B981]",
+      barColor: "bg-[#10B981]",
     },
     {
-      icon: BriefcaseBusiness,
-      title: "Financing Facilities",
+      icon: Coins,
+      title: "FINANCING FACILITIES",
       text: "Opportunities for on-spot financing and financial interaction.",
-      color: "#EAB308",
+      borderColor: "border-[#FEF08A]",
+      iconBg: "bg-[#FEF9C3]",
+      iconColor: "text-[#EAB308]",
+      barColor: "bg-[#EAB308]",
     },
     {
-      icon: Sparkles,
-      title: "Art & Culture",
+      icon: Palette,
+      title: "ART & CULTURE",
       text: "Display of art, culture, heritage and creative expression.",
-      color: "#EC4899",
+      borderColor: "border-[#FBCFE8]",
+      iconBg: "bg-[#FCE7F3]",
+      iconColor: "text-[#EC4899]",
+      barColor: "bg-[#EC4899]",
     },
   ];
 
@@ -70,111 +122,198 @@ const HighlightsSection = () => {
     {
       name: "ART",
       icon: Palette,
+      iconColor: "text-[#EA580C]",
+      iconBg: "bg-[#FFEDD5]",
+      borderColor: "border-[#FED7AA]",
+      cardBg: "bg-[#FFF7ED]/70",
+      image: secArt,
     },
     {
       name: "ARCHITECTURE",
       icon: Building2,
+      iconColor: "text-[#8B5CF6]",
+      iconBg: "bg-[#F3E8FF]",
+      borderColor: "border-[#DDD6FE]",
+      cardBg: "bg-[#FAF5FF]/70",
+      image: secArchitecture,
     },
     {
       name: "INTERIORS",
-      icon: Sparkles,
+      icon: Armchair,
+      iconColor: "text-[#D97706]",
+      iconBg: "bg-[#FEF3C7]",
+      borderColor: "border-[#FDE68A]",
+      cardBg: "bg-[#FFFBEB]/70",
+      image: secInteriors,
     },
     {
       name: "CONSTRUCTION",
-      icon: Wrench,
+      icon: HardHat,
+      iconColor: "text-[#2563EB]",
+      iconBg: "bg-[#DBEAFE]",
+      borderColor: "border-[#BFDBFE]",
+      cardBg: "bg-[#EFF6FF]/70",
+      image: secConstruction,
     },
     {
       name: "BUILDING MATERIALS",
       icon: Boxes,
+      iconColor: "text-[#EA580C]",
+      iconBg: "bg-[#FFEDD5]",
+      borderColor: "border-[#FED7AA]",
+      cardBg: "bg-[#FFF7ED]/70",
+      image: secMaterials,
     },
     {
       name: "GREEN TECH",
       icon: Leaf,
+      iconColor: "text-[#16A34A]",
+      iconBg: "bg-[#DCFCE7]",
+      borderColor: "border-[#BBF7D0]",
+      cardBg: "bg-[#F0FDF4]/70",
+      image: secGreentech,
     },
     {
       name: "NEW TECHNOLOGIES",
       icon: Cpu,
+      iconColor: "text-[#9333EA]",
+      iconBg: "bg-[#F3E8FF]",
+      borderColor: "border-[#E9D5FF]",
+      cardBg: "bg-[#FAF5FF]/70",
+      image: secTech,
     },
     {
       name: "BUILDING EQUIPMENTS",
-      icon: Wrench,
+      icon: Settings,
+      iconColor: "text-[#0284C7]",
+      iconBg: "bg-[#E0F2FE]",
+      borderColor: "border-[#BAE6FD]",
+      cardBg: "bg-[#F0F9FF]/70",
+      image: secEquipments,
     },
     {
       name: "BUILDING TECHNIQUES",
-      icon: Building2,
+      icon: Layers,
+      iconColor: "text-[#E11D48]",
+      iconBg: "bg-[#FFE4E6]",
+      borderColor: "border-[#FECDD3]",
+      cardBg: "bg-[#FFF1F2]/70",
+      image: secTechniques,
     },
     {
       name: "SUSTAINABILITY",
-      icon: Leaf,
+      icon: Sprout,
+      iconColor: "text-[#059669]",
+      iconBg: "bg-[#D1FAE5]",
+      borderColor: "border-[#A7F3D0]",
+      cardBg: "bg-[#ECFDF5]/70",
+      image: secSustainability,
     },
     {
       name: "SMART BUILDING",
-      icon: ShieldCheck,
+      icon: HouseWifi,
+      iconColor: "text-[#D97706]",
+      iconBg: "bg-[#FEF9C3]",
+      borderColor: "border-[#FEF08A]",
+      cardBg: "bg-[#FEFCE8]/70",
+      image: secSmartbuilding,
     },
     {
       name: "REAL ESTATE",
-      icon: Landmark,
+      icon: Building2,
+      iconColor: "text-[#2563EB]",
+      iconBg: "bg-[#DBEAFE]",
+      borderColor: "border-[#BFDBFE]",
+      cardBg: "bg-[#EFF6FF]/70",
+      image: secRealestate,
     },
     {
       name: "ACADEMICS",
       icon: GraduationCap,
+      iconColor: "text-[#DB2777]",
+      iconBg: "bg-[#FCE7F3]",
+      borderColor: "border-[#FBCFE8]",
+      cardBg: "bg-[#FDF2F8]/70",
+      image: secAcademics,
     },
     {
       name: "GOVERNMENT SCHEMES & DEPARTMENTS",
       icon: Landmark,
+      iconColor: "text-[#7C3AED]",
+      iconBg: "bg-[#EDE9FE]",
+      borderColor: "border-[#DDD6FE]",
+      cardBg: "bg-[#FAF5FF]/70",
+      image: secGovernment,
+      span: "sm:col-span-2 lg:col-span-2",
     },
   ];
 
   const keyHighlights = [
-  {
-    number: "01",
-    icon: Store,
-    title: "MARKETERS PLATFORM",
-    text: "A platform for marketers to showcase their products and services.",
-  },
-  {
-    number: "02",
-    icon: Handshake,
-    title: "ARCHITECTS MEET",
-    text: "Architects meet, seminars and workshops for professional exchange.",
-  },
-  {
-    number: "03",
-    icon: Presentation,
-    title: "EXPERTS INTERFACE",
-    text: "Experts interface, knowledge sharing and interactive workshops.",
-  },
-  {
-    number: "04",
-    icon: WalletCards,
-    title: "FINANCING FACILITY",
-    text: "On-spot loan and financing facility for relevant participants.",
-  },
-  {
-    number: "05",
-    icon: MousePointerClick,
-    title: "BRAND REACH",
-    text: "A platform for brands to reach out to their target audience.",
-  },
-  {
-    number: "06",
-    icon: Gift,
-    title: "ENGAGEMENT ACTIVITY",
-    text: "Engagement activities with the target group, including lucky draws and more.",
-  },
-  {
-    number: "07",
-    icon: Palette,
-    title: "ART & CULTURE",
-    text: "Display of art, culture, heritage and creative expression.",
-  },
-  {
-    number: "08",
-    icon: Newspaper,
-    title: "MEDIA AMPLIFICATION",
-    text: "Wide arrays of pre-promotional tools and media opportunities.",
-  },
-];
+    {
+      id: "architects",
+      title: "Architects meet/ seminars and workshops",
+      icon: khArchitects,
+      borderColor: "border-[#DDD6FE]",
+      cornerBg: "bg-gradient-to-tl from-[#F3E8FF] via-transparent to-transparent",
+      dividerColor: "bg-[#8B5CF6]/50",
+    },
+    {
+      id: "marketers",
+      title: "A platform for marketers to showcase their products and services.",
+      icon: khMarketers,
+      borderColor: "border-[#FED7AA]",
+      cornerBg: "bg-gradient-to-tl from-[#FFEDD5] via-transparent to-transparent",
+      dividerColor: "bg-[#EA580C]/50",
+    },
+    {
+      id: "engagement",
+      title: "Engagement activity with the target group/ audience in the form of lucky draws and much more.",
+      icon: khEngagement,
+      borderColor: "border-[#E9D5FF]",
+      cornerBg: "bg-gradient-to-tl from-[#F3E8FF] via-transparent to-transparent",
+      dividerColor: "bg-[#9333EA]/50",
+    },
+    {
+      id: "brand",
+      title: "A platform for brands to reach out to their target audience.",
+      icon: khBrand,
+      borderColor: "border-[#FED7AA]",
+      cornerBg: "bg-gradient-to-tl from-[#FFEDD5] via-transparent to-transparent",
+      dividerColor: "bg-[#EA580C]/50",
+    },
+    {
+      id: "financing",
+      title: "On spot loan and financing facility.",
+      icon: khFinancing,
+      borderColor: "border-[#FECDD3]",
+      cornerBg: "bg-gradient-to-tl from-[#FFE4E6] via-transparent to-transparent",
+      dividerColor: "bg-[#E11D48]/50",
+    },
+    {
+      id: "experts",
+      title: "Experts interface and workshops.",
+      icon: khExperts,
+      borderColor: "border-[#FEF08A]",
+      cornerBg: "bg-gradient-to-tl from-[#FEF9C3] via-transparent to-transparent",
+      dividerColor: "bg-[#D97706]/50",
+    },
+    {
+      id: "art",
+      title: "Display of art, culture, heritage and much more.",
+      icon: khArt,
+      borderColor: "border-[#FBCFE8]",
+      cornerBg: "bg-gradient-to-tl from-[#FCE7F3] via-transparent to-transparent",
+      dividerColor: "bg-[#DB2777]/50",
+    },
+    {
+      id: "media",
+      title: "Media amplification with wide arrays of pre-promotional tools.",
+      icon: khMedia,
+      borderColor: "border-[#DDD6FE]",
+      cornerBg: "bg-gradient-to-tl from-[#EDE9FE] via-transparent to-transparent",
+      dividerColor: "bg-[#7C3AED]/50",
+    },
+  ];
 
   return (
     <section
@@ -182,1126 +321,393 @@ const HighlightsSection = () => {
       className="
         relative
         overflow-hidden
-        bg-[#F7F4EE]
+        bg-[#FAF8F5]
         text-[#171717]
-        pt-4
-        sm:pt-6
-        lg:pt-8
-        pb-4
-        sm:pb-6
-        lg:pb-8
+        py-12
+        sm:py-16
+        lg:py-20
       "
     >
-
-      {/* =====================================================
-          ARCHITECTURAL BACKGROUND
-      ====================================================== */}
-
-      <div className="absolute inset-0 pointer-events-none">
-
-        {/* Grid */}
-
-        <div
-          className="absolute inset-0 opacity-[0.28]"
-          style={{
-            backgroundImage: `
-              linear-gradient(
-                rgba(120,90,40,0.07) 1px,
-                transparent 1px
-              ),
-              linear-gradient(
-                90deg,
-                rgba(120,90,40,0.07) 1px,
-                transparent 1px
-              )
-            `,
-            backgroundSize: "44px 44px",
-          }}
-        />
-
-        {/* Large circles */}
-
-        <div
-          className="
-            absolute
-            -left-40
-            top-40
-            w-[500px]
-            h-[500px]
-            rounded-full
-            border
-            border-[#B8893A]/10
-          "
-        />
-
-        <div
-          className="
-            absolute
-            -left-20
-            top-60
-            w-[350px]
-            h-[350px]
-            rounded-full
-            border
-            border-[#B8893A]/10
-          "
-        />
-
-        <div
-          className="
-            absolute
-            -right-40
-            bottom-20
-            w-[550px]
-            h-[550px]
-            rounded-full
-            border
-            border-[#B8893A]/10
-          "
-        />
-
-      </div>
-
-
-
-      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
-
+      <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* =====================================================
-            SECTION HEADER
+            SECTION HEADER (Matching Image 1)
         ====================================================== */}
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16 lg:mb-20"
+          className="mb-10 sm:mb-12 lg:mb-14"
         >
 
-          <div className="flex items-center gap-4 mb-5">
+          {/* Gradient Serif Title: Highlights. */}
+          <h2 className="inline-block font-serif font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.15] pb-2 sm:pb-3 pr-2 bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] bg-clip-text text-transparent">
+            Highlights.
+          </h2>
 
-            <span className="text-xs font-bold text-[#B77A27]">
-              03
-            </span>
-
-            <span className="w-12 h-px bg-[#B77A27]" />
-
-            <span
-              className="
-                text-[10px]
-                tracking-[0.3em]
-                uppercase
-                text-neutral-400
-              "
-            >
-              Festival Highlights
-            </span>
-
-          </div>
-
-
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-
-            <div>
-
-              <h2
-                className="
-                  font-serif
-                  text-4xl
-                  sm:text-5xl
-                  lg:text-6xl
-                  leading-tight
-                  font-medium
-                "
-              >
-            
-
-                <span className="text-[#B77A27]">
-                  {" "}Highlights.
-                </span>
-              </h2>
-
-
-              <div className="w-16 h-[2px] bg-[#C58B2B] mt-6" />
-
-            </div>
-
-
-           
-
-          </div>
-
+          {/* Gradient Pill Underline Bar */}
+          <div className="w-28 sm:w-36 h-[5px] rounded-full bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] mt-1 sm:mt-1.5" />
         </motion.div>
 
-
-
         {/* =====================================================
-            HERO HIGHLIGHT
+            HERO HIGHLIGHT (2-Column Layout matching Image 1)
         ====================================================== */}
-
-        <div
-          className="
-            grid
-            lg:grid-cols-12
-            gap-8
-            lg:gap-12
-            items-stretch
-          "
-        >
-
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
 
           {/* ===================================================
-              LEFT VISUAL PANEL
+              LEFT VISUAL PANEL (Feature Experience Card)
           ==================================================== */}
+          <div className="relative group lg:col-span-4 flex flex-col">
+            {/* Decorative Top-Left Orange Corner Accent (matching Image 1) */}
+            <div className="absolute -top-2.5 -left-2.5 w-28 h-28 rounded-tl-[38px] bg-gradient-to-br from-[#EA580C] to-[#F97316] pointer-events-none -z-0" />
 
-          {/* LEFT ARCHITECTURAL CARD */}
-   {/* LEFT ARCHITECTURAL CARD */}
-<div className="relative min-h-[560px] overflow-hidden bg-[#151515] p-4 lg:col-span-4">
+            {/* Main Dark Plum/Purple Card */}
+            <div className="relative z-10 rounded-[30px] sm:rounded-[34px] bg-[#38164B] overflow-hidden shadow-xl flex-1 flex flex-col justify-between border border-[#4C1D66]">
+              {/* Top Photo using highlight-img.png */}
+              <div className="relative w-full h-[250px] sm:h-[275px] overflow-hidden">
+                <img
+                  src={highlightImg}
+                  alt="Lucknow Rumi Darwaza - 3 Days of International Flavour"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Smooth gradient blend into the card background */}
+                {/* Smooth light shaded gradient so the photo remains visible while blending into card */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(56, 22, 75, 0.2) 75%, #38164B 100%)",
+                  }}
+                />
+              </div>
 
-  {/* Outer Border */}
-  <div className="pointer-events-none absolute inset-3 border border-[#B77A27]/40" />
-
-  {/* LAF Label */}
-  <div className="absolute left-7 top-7 z-20">
-    <span className="text-[9px] uppercase tracking-[0.4em] text-[#C58B2B]">
-      LAF 2.0
-    </span>
-  </div>
-
-  {/* Architectural Image */}
-  <div className="relative mx-auto mt-6 h-[245px] w-[82%] overflow-hidden rounded-t-[150px]">
-
-    <img
-      src={highlightImage}
-      alt="Lucknow Architecture"
-      className="
-        h-full
-        w-full
-        object-cover
-        grayscale
-        contrast-125
-        transition-transform
-        duration-700
-        hover:scale-105
-      "
-    />
-
-    {/* Dark Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#151515]/90" />
-
-    {/* Gold Overlay */}
-    <div className="absolute inset-0 bg-[#B77A27]/10 mix-blend-overlay" />
-
-  </div>
-
-  {/* Architectural Border */}
-  <div
-    className="
-      pointer-events-none
-      absolute
-      left-[9%]
-      right-[9%]
-      top-6
-      h-[245px]
-      rounded-t-[150px]
-      border
-      border-[#B77A27]/50
-    "
-  />
-
-  {/* Main Content */}
-  <div className="relative z-10 px-7 pt-7">
-
-    <p className="text-[10px] uppercase tracking-[0.35em] text-[#C58B2B]">
-      International Flavour
-    </p>
-
-    <p className="mt-5 text-[11px] uppercase tracking-[0.3em] text-gray-400">
-      3 Days Of
-    </p>
-
-    <h3 className="mt-1 font-serif text-4xl text-[#F5F1E8]">
-      Extravaganza
-    </h3>
-
-    <div className="mt-4 flex items-center gap-2">
-      <div className="h-[2px] w-12 bg-[#C58B2B]" />
-      <span className="w-1.5 h-1.5 rounded-full bg-[#C58B2B]" />
-    </div>
-
-    {/* Description Paragraph from 2nd Image */}
-    <p className="mt-7 max-w-xs text-[12.5px] leading-relaxed text-gray-300 font-normal">
-      The <span className="text-white font-bold">FESTIVAL</span> will also display an exciting program of{' '}
-      <span className="text-[#C58B2B] font-bold tracking-wide">
-        EXHIBITIONS, INSTALLATIONS, SYMPOSIA, LECTURES AND WORKSHOPS
-      </span>{' '}
-      promoting and celebrating architecture's contribution to the state's culture, sustainability and economy.
-    </p>
-
-    {/* Bottom Info */}
-    <div className="mt-8 flex items-center justify-between">
-      <span className="text-[9px] uppercase tracking-[0.25em] text-[#C58B2B] font-mono">
-        • Architecture &amp; Culture
-      </span>
-      <span className="text-[9px] uppercase tracking-[0.25em] text-neutral-400 font-mono">
-        Lucknow / India
-      </span>
-    </div>
-
-  </div>
-
-  {/* Decorative Circle */}
-  <div
-    className="
-      pointer-events-none
-      absolute
-      -bottom-24
-      -right-24
-      h-64
-      w-64
-      rounded-full
-      border
-      border-[#B77A27]/20
-    "
-  />
-
-  {/* Small Decorative Circle */}
-  <div
-    className="
-      pointer-events-none
-      absolute
-      -bottom-10
-      right-10
-      h-40
-      w-40
-      rounded-full
-      border
-      border-[#B77A27]/10
-    "
-  />
-
-  {/* Location */}
-  <div className="absolute bottom-5 right-6 z-20">
-    <span className="text-[8px] uppercase tracking-[0.35em] text-white/30">
-      Lucknow / India
-    </span>
-  </div>
-
-</div>
-
-          {/* ===================================================
-              RIGHT CONTENT
-          ==================================================== */}
-
-          <div className="lg:col-span-8">
-
-
-            {/* =================================================
-                INTRO
-            ================================================== */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.7,
-              }}
-              className="
-                border-b
-                border-[#D9D0C2]
-                pb-8
-              "
-            >
-
-              <div className="flex items-center justify-between gap-5">
-
+              {/* Content Block */}
+              <div className="p-6 sm:p-7 pt-2 flex-1 flex flex-col justify-between">
                 <div>
-
-                  <span
-                    className="
-                      text-[10px]
-                      uppercase
-                      tracking-[0.25em]
-                      text-[#B77A27]
-                    "
-                  >
-                    The Experience
+                  <span className="inline-block text-[10px] sm:text-[11px] font-sans font-bold tracking-[0.25em] text-[#C4B5FD] uppercase mb-2">
+                    THE EXPERIENCE
                   </span>
 
-
-                  <h3
-                    className="
-                      mt-3
-                      font-serif
-                      text-3xl
-                      sm:text-4xl
-                      leading-tight
-                    "
-                  >
-                    Ideas that connect
-                    <span className="text-[#B77A27]">
-                      {" "}people &amp; possibilities.
+                  <h3 className="flex flex-col leading-tight">
+                    <span className="font-sans font-bold text-white text-xl sm:text-2xl tracking-wide uppercase">
+                      3 DAYS OF
+                    </span>
+                    <span className="font-serif text-white text-2xl sm:text-[27px] font-normal mt-0.5">
+                      International Flavour
+                    </span>
+                    <span className="font-serif italic font-bold text-[#F59E0B] text-3xl sm:text-[35px] mt-0.5 leading-none">
+                      Extravaganza
                     </span>
                   </h3>
 
+                  <p className="mt-4 text-neutral-200/90 text-xs sm:text-[13px] leading-relaxed font-normal">
+                    The festival will also display an exciting program of exhibitions,
+                    installations, symposia, lectures and workshops, celebrating architecture's
+                    contribution to culture, sustainability and the economy.
+                  </p>
                 </div>
 
-
-                <div
-                  className="
-                    hidden
-                    sm:flex
-                    w-16
-                    h-16
-                    rounded-full
-                    border
-                    border-[#D4C6B2]
-                    items-center
-                    justify-center
-                  "
-                >
-
-                  <Sparkles className="w-5 h-5 text-[#B77A27]" />
-
-                </div>
-
+                {/* Golden bottom accent bar */}
+                <div className="w-14 h-1 rounded-full bg-[#EAB308] mt-6 mb-1" />
               </div>
-
-
-              <p
-                className="
-                  mt-5
-                  max-w-3xl
-                  text-sm
-                  leading-7
-                  text-neutral-500
-                "
-              >
-                The festival programme brings together exhibitions,
-                installations, symposia, lectures and workshops,
-                celebrating architecture's contribution to culture,
-                sustainability and the economy.
-              </p>
-
-            </motion.div>
-
-
-
-            {/* =================================================
-                SIX EXPERIENCE ITEMS
-            ================================================== */}
-
-            <div
-              className="
-                grid
-                sm:grid-cols-2
-                lg:grid-cols-3
-                gap-0
-                mt-2
-              "
-            >
-
-              {experiences.map((item, index) => {
-
-                const Icon = item.icon;
-
-                return (
-
-                  <motion.div
-                    key={item.title}
-                    initial={{
-                      opacity: 0,
-                      y: 20,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.07,
-                    }}
-                    className="group"
-                  >
-
-                    <div
-                      className="
-                        relative
-                        min-h-[190px]
-                        px-5
-                        py-7
-                        border-b
-                        border-r
-                        border-[#D9D0C2]
-                        overflow-hidden
-                        transition-all
-                        duration-500
-                        hover:bg-white/70
-                      "
-                    >
-
-                      {/* hover glow */}
-
-                      <div
-                        className="
-                          absolute
-                          inset-0
-                          opacity-0
-                          group-hover:opacity-100
-                          transition-opacity
-                          duration-500
-                        "
-                        style={{
-                          background: `
-                            radial-gradient(
-                              circle at 20% 20%,
-                              ${item.color}18,
-                              transparent 60%
-                            )
-                          `,
-                        }}
-                      />
-
-
-                      <div className="relative z-10">
-
-                        <div
-                          className="
-                            w-11
-                            h-11
-                            rounded-full
-                            border
-                            flex
-                            items-center
-                            justify-center
-                            transition-all
-                            duration-500
-                            group-hover:scale-110
-                          "
-                          style={{
-                            borderColor: `${item.color}55`,
-                            backgroundColor: `${item.color}0D`,
-                          }}
-                        >
-
-                          <Icon
-                            className="w-5 h-5"
-                            style={{
-                              color: item.color,
-                            }}
-                          />
-
-                        </div>
-
-
-                        <h4
-                          className="
-                            mt-5
-                            text-xs
-                            font-black
-                            uppercase
-                            tracking-[0.13em]
-                          "
-                        >
-                          {item.title}
-                        </h4>
-
-
-                        <p
-                          className="
-                            mt-2
-                            text-xs
-                            leading-5
-                            text-neutral-500
-                          "
-                        >
-                          {item.text}
-                        </p>
-
-
-                        <div
-                          className="
-                            mt-5
-                            h-[2px]
-                            w-6
-                            group-hover:w-12
-                            transition-all
-                            duration-500
-                          "
-                          style={{
-                            backgroundColor: item.color,
-                          }}
-                        />
-
-                      </div>
-
-                    </div>
-
-                  </motion.div>
-
-                );
-
-              })}
-
             </div>
-
           </div>
 
-        </div>
-
-
-
-        {/* =====================================================
-            FOCUS SECTORS
-        ====================================================== */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-          className="mt-16 lg:mt-20"
-        >
-
-          {/* Header */}
-
-          <div
-            className="
-              flex
-              flex-col
-              md:flex-row
-              md:items-end
-              md:justify-between
-              gap-6
-              mb-8
-            "
-          >
-
-            <div>
-
-              <div className="flex items-center gap-3">
-
-                <span className="text-xs font-bold text-[#B77A27]">
-                  04
+          {/* ===================================================
+              RIGHT CONTENT (Festival Experience Intro + 6 Cards)
+          ==================================================== */}
+          <div className="lg:col-span-8 flex flex-col justify-between">
+            {/* Header intro */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              {/* Flanked Label */}
+              <div className="flex items-center gap-3 mb-2.5">
+                <span className="w-8 sm:w-12 h-px bg-[#F97316]" />
+                <span className="text-xs sm:text-[12.5px] font-sans font-bold tracking-[0.25em] uppercase text-[#171717]">
+                  THE FESTIVAL EXPERIENCE
                 </span>
-
-                <span className="w-10 h-px bg-[#B77A27]" />
-
-                <span
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.25em]
-                    text-neutral-400
-                  "
-                >
-                  Focus Areas
-                </span>
-
+                <span className="w-8 sm:w-12 h-px bg-[#F97316]" />
               </div>
 
-
-              <h3
-                className="
-                  mt-4
-                  font-serif
-                  text-3xl
-                  sm:text-4xl
-                  md:text-5xl
-                "
-              >
-                Built around the
-                <span className="text-[#B77A27]">
-                  {" "}future of design.
+              {/* Heading */}
+              <h3 className="font-serif text-3xl sm:text-4xl lg:text-[40px] text-[#171717] font-medium leading-[1.2]">
+                Ideas that connect{" "}
+                <span className="font-serif italic font-normal text-[#F26522]">
+                  people &amp;{" "}
+                </span>
+                <span className="font-serif italic font-normal text-[#C21458]">
+                  possibilities.
                 </span>
               </h3>
 
+              {/* Subtitle paragraph */}
+              <p className="mt-3 text-neutral-600 text-xs sm:text-sm lg:text-[14px] leading-relaxed max-w-2xl font-normal">
+                A multidisciplinary platform that brings together exhibitions,
+                installations, symposia, lectures and workshops, celebrating design,
+                heritage, culture, sustainability and the economy.
+              </p>
+            </motion.div>
+
+            {/* Grid of 6 Distinct Floating Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 mt-6 sm:mt-7">
+              {experiences.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.06 }}
+                    className="h-full"
+                  >
+                    <div
+                      className={`h-full p-5 sm:p-5.5 rounded-[22px] sm:rounded-[26px] bg-white border ${item.borderColor} shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-md transition-all duration-300 flex flex-col justify-between`}
+                    >
+                      <div className="flex items-start gap-3.5">
+                        {/* Rounded Icon Square */}
+                        <div
+                          className={`w-12 h-12 rounded-2xl ${item.iconBg} flex items-center justify-center flex-shrink-0`}
+                        >
+                          <Icon className={`w-6 h-6 ${item.iconColor}`} />
+                        </div>
+
+                        {/* Text block */}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-sans font-bold text-xs sm:text-[13px] text-[#111827] uppercase tracking-wider leading-snug">
+                            {item.title}
+                          </h4>
+                          <p className="mt-1.5 text-neutral-500 text-[11.5px] sm:text-xs leading-relaxed font-normal">
+                            {item.text}
+                          </p>
+                          {/* Color Accent Indicator Line under text */}
+                          <div
+                            className={`w-8 h-[3px] rounded-full ${item.barColor} mt-3.5`}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
-
-
-            <div className="text-right">
-
-              <div
-                className="
-                  font-serif
-                  text-4xl
-                  text-[#B77A27]
-                "
-              >
-                14
-              </div>
-
-              <div
-                className="
-                  text-[9px]
-                  uppercase
-                  tracking-[0.25em]
-                  text-neutral-400
-                "
-              >
-                Focus Sectors
-              </div>
-
-            </div>
-
           </div>
+        </div>
+      </div>
 
-
-
-          {/* Sector Grid */}
-
-          <div
-            className="
-              border-t
-              border-l
-              border-[#D9D0C2]
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              lg:grid-cols-3
-            "
-          >
-
-            {sectors.map((sector, index) => {
-
-              const Icon = sector.icon;
-
-              return (
-
-                <motion.div
-                  key={sector.name}
-                  initial={{
-                    opacity: 0,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    delay: index * 0.04,
-                  }}
-                  className="
-                    group
-                    relative
-                    min-h-[95px]
-                    border-r
-                    border-b
-                    border-[#D9D0C2]
-                    px-6
-                    py-6
-                    flex
-                    items-center
-                    gap-4
-                    overflow-hidden
-                    transition-all
-                    duration-500
-                    hover:bg-white
-                  "
-                >
-
-                  {/* Hover line */}
-
-                  <div
-                    className="
-                      absolute
-                      left-0
-                      bottom-0
-                      h-[2px]
-                      w-0
-                      group-hover:w-full
-                      transition-all
-                      duration-500
-                      bg-[#B77A27]
-                    "
-                  />
-
-
-                  <div
-                    className="
-                      w-9
-                      h-9
-                      rounded-full
-                      border
-                      border-[#D9CBB7]
-                      flex
-                      items-center
-                      justify-center
-                      flex-shrink-0
-                      transition-all
-                      duration-500
-                      group-hover:border-[#B77A27]
-                      group-hover:bg-[#B77A27]
-                    "
-                  >
-
-                    <Icon
-                      className="
-                        w-4
-                        h-4
-                        text-[#B77A27]
-                        group-hover:text-white
-                        transition-colors
-                      "
-                    />
-
-                  </div>
-
-
-                  <span
-                    className="
-                      text-[11px]
-                      sm:text-xs
-                      font-bold
-                      tracking-[0.1em]
-                      text-[#333]
-                    "
-                  >
-                    {sector.name}
+      {/* =====================================================
+          FOCUS SECTORS (Matching Image 1) - FULL WIDTH COVER
+      ====================================================== */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative w-full my-16 sm:my-20 lg:my-24 py-16 sm:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${bgHist})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
+            {/* Header matching Image 1 */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
+              <div>
+                <h3 className="font-serif text-3xl sm:text-4xl lg:text-[44px] text-[#171717] font-normal tracking-tight leading-tight">
+                  Built around the{" "}
+                  <span className="font-serif italic font-bold bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] bg-clip-text text-transparent">
+                    future of design.
                   </span>
+                </h3>
 
+                {/* Gradient Pill Underline Bar matching Image 1 */}
+                <div className="w-28 sm:w-36 h-[5px] rounded-full bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] mt-3 sm:mt-3.5" />
+              </div>
 
-                  <ArrowUpRight
-                    className="
-                      ml-auto
-                      w-4
-                      h-4
-                      text-[#B77A27]
-                      opacity-0
-                      -translate-x-2
-                      group-hover:opacity-100
-                      group-hover:translate-x-0
-                      transition-all
-                    "
-                  />
+              {/* Right Counter matching Image 1 */}
+              <div className="flex items-center gap-3.5 sm:gap-4 self-start sm:self-auto">
+                {/* Thin vertical orange accent line */}
+                <div className="w-[1.5px] h-10 bg-[#F97316] opacity-80" />
 
-                </motion.div>
+                <div className="flex flex-col items-center">
+                  <span className="font-serif italic font-bold text-4xl sm:text-5xl lg:text-[52px] bg-gradient-to-r from-[#EA580C] via-[#E11D48] to-[#9333EA] bg-clip-text text-transparent leading-none">
+                    14
+                  </span>
+                  <span className="font-sans font-bold text-[10px] sm:text-[11.5px] tracking-[0.25em] text-[#111827] uppercase mt-1">
+                    FOCUS SECTORS
+                  </span>
+                </div>
+              </div>
+            </div>
 
-              );
+            {/* 14 Sector Cards Grid (3 Columns, matching Image 1) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-4.5">
+              {sectors.map((sector, index) => {
+                const Icon = sector.icon;
+                return (
+                  <motion.div
+                    key={sector.name}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.03 }}
+                    className={sector.span || ""}
+                  >
+                    <div
+                      className={`
+                        relative
+                        overflow-hidden
+                        h-[74px] sm:h-[78px]
+                        rounded-[22px] sm:rounded-[26px]
+                        border ${sector.borderColor}
+                        ${sector.cardBg}
+                        backdrop-blur-sm
+                        bg-white/85
+                        shadow-[0_2px_12px_rgba(0,0,0,0.02)]
+                        hover:shadow-md hover:-translate-y-0.5
+                        transition-all duration-300
+                        px-4 sm:px-5
+                        flex items-center justify-between
+                        group
+                      `}
+                    >
+                      {/* Left: Icon Badge + Name */}
+                      <div className="flex items-center gap-3.5 z-10 min-w-0 pr-2">
+                        <div
+                          className={`w-11 h-11 rounded-full ${sector.iconBg} flex items-center justify-center flex-shrink-0 shadow-sm`}
+                        >
+                          <Icon className={`w-5 h-5 ${sector.iconColor}`} />
+                        </div>
 
-            })}
+                        <span className="font-sans font-bold text-xs sm:text-[12.5px] tracking-wider text-[#111827] uppercase leading-snug">
+                          {sector.name}
+                        </span>
+                      </div>
 
+                      {/* Right: Architectural line sketch watermark matching Image 1 */}
+                      <div className="absolute right-0 top-0 bottom-0 w-[42%] max-w-[130px] flex items-center justify-end pointer-events-none select-none pr-1">
+                        <img
+                          src={sector.image}
+                          alt=""
+                          className="h-[88%] w-auto object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-300"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            
           </div>
-
         </motion.div>
 
-          {/* =====================================================
-    KEY HIGHLIGHTS
-====================================================== */}
-
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
-  className="mt-24 lg:mt-32"
->
-
-  {/* Header */}
-  <div className="mb-10 lg:mb-14">
-
-    <div className="flex items-center gap-3">
-
-      <span className="text-xs font-bold text-[#B77A27]">
-        05
-      </span>
-
-      <span className="h-px w-10 bg-[#B77A27]" />
-
-      <span className="
-        text-[10px]
-        uppercase
-        tracking-[0.28em]
-        text-neutral-400
-      ">
-        Festival Experience
-      </span>
-
-    </div>
-
-
-    <div className="
-      mt-5
-      flex
-      flex-col
-      gap-5
-      lg:flex-row
-      lg:items-end
-      lg:justify-between
-    ">
-
-      <h3 className="
-        max-w-2xl
-        font-serif
-        text-4xl
-        leading-tight
-        sm:text-5xl
-        lg:text-6xl
-      ">
-        Key
-        <span className="text-[#B77A27]">
-          {" "}Highlights.
-        </span>
-      </h3>
-
-    </div>
-
-  </div>
-  
-      <p className="
-        max-w-md
-        text-sm
-        leading-7
-        text-neutral-500
-      ">
-        A curated experience connecting brands,
-        professionals, experts, culture and the
-        wider built-environment ecosystem.
-      </p>
-       <br/>
-
-
-  {/* Highlights Grid */}
-  <div className="
-    border-t
-    border-l
-    border-[#D9D0C2]
-    grid
-    grid-cols-1
-    sm:grid-cols-2
-    lg:grid-cols-4
-  ">
-
-    {keyHighlights.map((item, index) => {
-
-      const Icon = item.icon;
-
-      return (
-
+      <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
+        {/* =====================================================
+            KEY HIGHLIGHTS (Matching Image 2)
+        ====================================================== */}
         <motion.div
-          key={item.number}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.06,
-          }}
-          className="group relative"
+          transition={{ duration: 0.8 }}
+          className="mt-20 lg:mt-28"
         >
+          {/* Header matching Image 2 */}
+          <div className="mb-8 sm:mb-10">
+            <h3 className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-[#171717] leading-none">
+              Key{" "}
+               <span className="font-serif italic font-bold bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] bg-clip-text text-transparent">
+                    Highlights.
+              </span>
+            </h3>
 
-          <div className="
-            relative
-            min-h-[250px]
-            overflow-hidden
-            border-r
-            border-b
-            border-[#D9D0C2]
-            bg-transparent
-            px-6
-            py-7
-            transition-all
-            duration-500
-            hover:bg-white/70
-          ">
+            {/* Gradient underline pill matching Image 2 */}
+            <div className="w-14 sm:w-16 h-1 rounded-full bg-gradient-to-r from-[#EA580C] to-[#EAB308] mt-3 mb-3.5" />
 
-            {/* Background Number */}
-            <span className="
-              pointer-events-none
-              absolute
-              right-4
-              top-2
-              font-serif
-              text-6xl
-              leading-none
-              text-[#B77A27]/[0.06]
-              transition-all
-              duration-500
-              group-hover:text-[#B77A27]/[0.12]
-            ">
-              {item.number}
-            </span>
-
-
-            {/* Icon */}
-            <div className="
-              relative
-              z-10
-              flex
-              h-12
-              w-12
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-[#D9CBB7]
-              bg-[#F7F4EE]
-              transition-all
-              duration-500
-              group-hover:border-[#B77A27]
-              group-hover:bg-[#B77A27]
-            ">
-
-              <Icon
-                className="
-                  h-5
-                  w-5
-                  text-[#B77A27]
-                  transition-colors
-                  duration-500
-                  group-hover:text-white
-                "
-              />
-
-            </div>
-
-
-            {/* Content */}
-            <div className="relative z-10 mt-7">
-
-              <div className="
-                mb-3
-                flex
-                items-center
-                gap-2
-              ">
-
-                <span className="
-                  text-[9px]
-                  font-bold
-                  tracking-[0.2em]
-                  text-[#B77A27]
-                ">
-                  {item.number}
-                </span>
-
-                <span className="
-                  h-px
-                  w-5
-                  bg-[#D9D0C2]
-                " />
-
-              </div>
-
-
-              <h4 className="
-                text-[11px]
-                font-black
-                uppercase
-                tracking-[0.14em]
-                text-[#222]
-              ">
-                {item.title}
-              </h4>
-
-
-              <p className="
-                mt-3
-                text-xs
-                leading-6
-                text-neutral-500
-              ">
-                {item.text}
-              </p>
-
-            </div>
-
-
-            {/* Bottom Accent */}
-            <div className="
-              absolute
-              bottom-0
-              left-0
-              h-[2px]
-              w-0
-              bg-[#B77A27]
-              transition-all
-              duration-500
-              group-hover:w-full
-            " />
-
-
-            {/* Corner Arrow */}
-            <ArrowUpRight
-              className="
-                absolute
-                bottom-6
-                right-5
-                h-4
-                w-4
-                text-[#B77A27]
-                opacity-0
-                -translate-x-2
-                translate-y-2
-                transition-all
-                duration-500
-                group-hover:translate-x-0
-                group-hover:translate-y-0
-                group-hover:opacity-100
-              "
-            />
-
+            {/* Subtitle */}
+            <p className="max-w-xl text-neutral-600 text-xs sm:text-[13.5px] leading-relaxed font-normal">
+              A curated experience connecting brands, professionals, experts,
+              culture and the wider built–environment ecosystem.
+            </p>
           </div>
 
+          {/* 8 Highlights Grid (4 Columns x 2 Rows) matching Image 2 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5">
+            {keyHighlights.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
+                className="h-full"
+              >
+                <div
+                  className={`
+                    relative
+                    overflow-hidden
+                    h-full
+                    min-h-[120px] sm:min-h-[128px]
+                    rounded-2xl
+                    bg-white
+                    border ${item.borderColor}
+                    shadow-[0_2px_12px_rgba(0,0,0,0.02)]
+                    hover:shadow-md hover:-translate-y-0.5
+                    transition-all duration-300
+                    p-3.5 sm:p-4
+                    flex items-center gap-3 sm:gap-3.5
+                    group
+                  `}
+                >
+                  {/* Bottom-right diagonal shaded corner matching Image 2 */}
+                  <div
+                    className={`absolute bottom-0 right-0 w-16 h-16 pointer-events-none rounded-br-2xl ${item.cornerBg}`}
+                  />
+
+                  {/* Left: Custom Graphic Icon */}
+                  <div className="w-14 sm:w-16 h-14 sm:h-16 flex items-center justify-center flex-shrink-0 z-10">
+                    <img
+                      src={item.icon}
+                      alt=""
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Middle: Vertical Separator Line matching Image 2 */}
+                  <div
+                    className={`w-[1.5px] h-10 sm:h-12 ${item.dividerColor} flex-shrink-0 z-10`}
+                  />
+
+                  {/* Right: Text Description */}
+                  <div className="flex-1 min-w-0 z-10">
+                    <p className="font-sans font-bold text-[11.5px] sm:text-xs text-[#111827] leading-snug">
+                      {item.title}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom Gradient Skyline Illustration & Line matching Image 2 */}
+          <div className="mt-10 sm:mt-14 w-full flex flex-col items-center pointer-events-none select-none">
+            <img
+              src={khSkyline}
+              alt="Lucknow Architecture Skyline"
+              className="w-full max-w-3xl h-auto object-contain opacity-95"
+            />
+            {/* Orange/Amber Horizontal Line below skyline matching Image 2 */}
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-[#EA580C] to-transparent mt-1" />
+          </div>
         </motion.div>
-
-      );
-
-    })}
-
-  </div>
-
-
-  {/* Bottom Statement */}
-  <div className="
-    mt-8
-    flex
-    items-center
-    justify-between
-    gap-5
-  ">
-
-    <div className="h-px flex-1 bg-[#D9D0C2]" />
-
-    <span className="
-      text-[9px]
-      uppercase
-      tracking-[0.3em]
-      text-neutral-400
-    ">
-      Architecture · Industry · Culture · Ideas
-    </span>
-
-    <div className="h-px flex-1 bg-[#D9D0C2]" />
-
-  </div>
-
-</motion.div>
 
         {/* =====================================================
             CLOSING STATEMENT

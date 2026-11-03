@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation, Link, NavLink } from 'react-router-dom';
 import { 
   Sparkles, 
   ChevronDown, 
-  ChevronRight,
+  ChevronRight, 
   Menu, 
   X, 
   Users, 
   Award, 
   GraduationCap, 
-  MapPin, 
-  Calendar, 
-  Building2,
-  Compass,
   Home
 } from 'lucide-react';
 
@@ -25,6 +21,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTeamOpen, setIsTeamOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const teamMenuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +29,17 @@ const Navbar = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (teamMenuRef.current && !teamMenuRef.current.contains(e.target)) {
+        setIsTeamOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
   
   const navigate = useNavigate();
@@ -171,312 +179,353 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* ================= 2. STICKY LUXURY DARK NAVBAR ================= */}
-      <nav className={`sticky top-0 w-full z-[100] select-none font-sans transition-all duration-300 ${
-        isScrolled 
-          ? 'pointer-events-none py-2 sm:py-2.5' 
-          : 'bg-[#121214]/98 backdrop-blur-xl border-b border-[#D4AF37]/10'
-      }`}>
-        <div className={`max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 ${
-          isScrolled ? 'pointer-events-auto' : ''
-        }`}>
-          <div className={`transition-all duration-300 ${
-            isScrolled 
-              ? 'bg-[#121214]/98 backdrop-blur-xl border border-[#D4AF37]/30 rounded-2xl shadow-[0_6px_20px_rgba(0,0,0,0.12)]' 
-              : ''
-          }`}>
-            <div className={`h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400 via-[#D4AF37] to-transparent opacity-90 ${isScrolled ? 'rounded-t-2xl' : ''}`} />
+      {/* ================= 2. STICKY BRAND GRADIENT NAVBAR ================= */}
+      <nav
+        className={`sticky top-0 w-full z-[100] select-none font-sans transition-all duration-300 ${
+          isScrolled
+            ? 'pointer-events-none py-2 sm:py-2.5'
+            : 'border-b border-white/10 shadow-md'
+        }`}
+        style={
+          !isScrolled
+            ? {
+                background:
+                  'linear-gradient(90deg, #FB7801 0%, #EC2656 20%, #D8066B 40%, #930777 65%, #4E0C7B 85%, #3C086E 100%)',
+              }
+            : undefined
+        }
+      >
+        <div
+          className={`max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 ${
+            isScrolled ? 'pointer-events-auto' : ''
+          }`}
+        >
+          {/* Main Navbar Bar (No overflow-hidden so dropdown can extend below) */}
+          <div
+            className={`transition-all duration-300 relative ${
+              isScrolled
+                ? 'border border-white/20 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]'
+                : ''
+            }`}
+            style={
+              isScrolled
+                ? {
+                    background:
+                      'linear-gradient(90deg, #FB7801 0%, #EC2656 20%, #D8066B 40%, #930777 65%, #4E0C7B 85%, #3C086E 100%)',
+                  }
+                : undefined
+            }
+          >
+            {/* Top Sheen Line */}
+            <div
+              className={`h-[1px] w-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-80 ${
+                isScrolled ? 'rounded-t-2xl' : ''
+              }`}
+            />
 
-            <div className={`transition-all duration-300 ${isScrolled ? 'px-4 sm:px-6 lg:px-8' : ''}`}>
+            {/* Left corner diagonal decorative accent stripe matching Image 1 (clipped inside its own container) */}
+            <div
+              className={`absolute top-0 left-0 w-8 h-full pointer-events-none overflow-hidden z-0 ${
+                isScrolled ? 'rounded-l-2xl' : ''
+              }`}
+            >
+              <div className="w-4 h-[160%] bg-gradient-to-b from-[#FDE047] via-[#F97316] to-[#DB2777] [transform:skewX(-26deg)] -ml-2 -mt-2 opacity-95 shadow-sm" />
+            </div>
+
+            <div className={`transition-all duration-300 relative z-10 ${isScrolled ? 'px-4 sm:px-6 lg:px-8' : ''}`}>
               <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 sm:h-16' : 'h-16'}`}>
 
-            {/* Mobile Brand Title */}
-            <div className="md:hidden flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-              <Link to="/" className="text-xs uppercase tracking-widest text-neutral-200 font-bold">
-                LAF 3.0 MENU
-              </Link>
-            </div>
+                {/* Mobile Brand Title */}
+                <div className="md:hidden flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-amber-300 animate-pulse" />
+                  <Link to="/" className="text-xs uppercase tracking-widest text-white font-bold">
+                    LAF 3.0 MENU
+                  </Link>
+                </div>
 
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-amber-400 bg-neutral-900 border border-neutral-800 hover:text-white hover:bg-neutral-800 focus:outline-none transition-all"
-              aria-label="Toggle Navigation"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+                {/* Mobile Hamburger Button */}
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="md:hidden p-2 rounded-xl text-white bg-white/10 border border-white/20 hover:bg-white/20 focus:outline-none transition-all"
+                  aria-label="Toggle Navigation"
+                >
+                  {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center justify-center flex-1 gap-2 lg:gap-4">
-              {navLinks.map((item) => {
-                if (item.isHome) {
-                  const isHomeActive = location.pathname === '/' && !location.hash;
-                  return (
-                    <NavLink
-                      key="Home"
-                      to="/"
-                      onClick={(e) => handleNavClick(e, '/')}
-                      title="Home"
-                      aria-label="Home"
-                      className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 p-2 rounded-full flex items-center justify-center cursor-pointer group ${
-                        isHomeActive
-                          ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30 shadow-[0_0_12px_rgba(212,175,55,0.2)]'
-                          : 'text-neutral-300 hover:text-amber-400 hover:bg-neutral-900/50'
-                      }`}
-                    >
-                      <Home className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
-                    </NavLink>
-                  );
-                }
+                {/* Desktop Navigation Links */}
+                <div className="hidden md:flex items-center justify-center flex-1 gap-1.5 lg:gap-3">
+                  {navLinks.map((item) => {
+                    if (item.isHome) {
+                      const isHomeActive = location.pathname === '/' && !location.hash;
+                      return (
+                        <React.Fragment key="Home">
+                          <NavLink
+                            to="/"
+                            onClick={(e) => handleNavClick(e, '/')}
+                            title="Home"
+                            aria-label="Home"
+                            className={`relative transition-all duration-200 p-2 rounded-full flex items-center justify-center cursor-pointer group ${
+                              isHomeActive
+                                ? 'text-[#FA7400] bg-white shadow-md'
+                                : 'text-white bg-white/15 hover:bg-white/25 shadow-xs'
+                            }`}
+                          >
+                            <Home className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                          </NavLink>
 
-                const isRoute = !item.href.startsWith('#');
-                const isTeamActive = item.name === 'Team' && location.pathname.startsWith('/team');
-                const isHashActive = location.pathname === '/' && location.hash === item.href;
+                          {/* Divider after Home */}
+                          <div className="w-[1px] h-4 bg-white/30 mx-1" />
+                        </React.Fragment>
+                      );
+                    }
 
-                return (
-                  <div
-                    key={item.name}
-                    className="relative group py-2 flex items-center"
-                    onMouseEnter={() => {
-                      if (item.dropdown) setIsTeamOpen(true);
-                    }}
-                    onMouseLeave={() => {
-                      if (item.dropdown) setIsTeamOpen(false);
-                    }}
-                  >
-                    {isRoute ? (
-                      <NavLink
-                        to={item.href}
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
+                    const isRoute = !item.href.startsWith('#');
+                    const isTeamActive = item.name === 'Team' && (location.pathname.startsWith('/team') || location.hash === '#festival-team');
+                    const isHashActive = location.pathname === '/' && location.hash === item.href;
+
+                    return (
+                      <div
+                        key={item.name}
+                        ref={item.dropdown ? teamMenuRef : null}
+                        className="relative group py-2 flex items-center"
+                        onMouseEnter={() => {
+                          if (item.dropdown) setIsTeamOpen(true);
+                        }}
+                        onMouseLeave={() => {
                           if (item.dropdown) setIsTeamOpen(false);
                         }}
-                        className={({ isActive }) =>
-                          `relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
-                            isActive || isTeamActive
-                              ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
-                              : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
-                          }`
-                        }
                       >
-                        <span>{item.name}</span>
-                        {item.dropdown && (
-                          <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
-                        )}
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
-                      </NavLink>
-                    ) : (
-                      <a
-                        href={item.href}
-                        onClick={(e) => {
-                          if (item.dropdown) {
-                            setIsTeamOpen((prev) => !prev);
-                          }
-                          handleNavClick(e, item.href);
-                        }}
-                        className={`relative text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
-                          isHashActive || isTeamActive
-                            ? 'text-amber-400 bg-neutral-900/80 border border-amber-500/30'
-                            : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
-                        }`}
-                      >
-                        <span>{item.name}</span>
-                        {item.dropdown && (
-                          <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
-                        )}
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
-                      </a>
-                    )}
-
-                    {/* Dropdown Menu */}
-                    {item.dropdown && (
-                      <AnimatePresence>
-                        {isTeamOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-[110]"
+                        {isRoute ? (
+                          <NavLink
+                            to={item.href}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              if (item.dropdown) setIsTeamOpen(false);
+                            }}
+                            className={({ isActive }) =>
+                              `relative text-[12px] lg:text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
+                                isActive || isTeamActive
+                                  ? 'text-[#55197D] bg-white shadow-sm'
+                                  : 'text-white/95 hover:text-white hover:bg-white/15'
+                              }`
+                            }
                           >
-                            <div className="bg-[#111114]/95 border border-[#D4AF37]/20 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.3)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
-                              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent pointer-events-none" />
-                              <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
-
-                              <div className="px-3 pt-2 pb-2 flex items-center justify-between text-[10px] font-mono tracking-[0.18em] uppercase text-[#D4AF37]/75 border-b border-white/5 mb-1.5">
-                                <span className="flex items-center gap-1.5">
-                                  <span className="text-amber-400/80">✦</span> Team Directories
-                                </span>
-                                <span className="h-1.5 w-1.5 rounded-full bg-amber-400/80 animate-pulse" />
-                              </div>
-
-                              <div className="space-y-1">
-                                {item.dropdown.map((subItem) => {
-                                  const IconComponent = subItem.icon;
-                                  return (
-                                    <NavLink
-                                      key={subItem.name}
-                                      to={subItem.href}
-                                      onClick={() => setIsTeamOpen(false)}
-                                      className={({ isActive }) =>
-                                        `group/item flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 border ${
-                                          isActive
-                                            ? 'bg-white/[0.08] border-amber-500/40 text-amber-300'
-                                            : 'hover:bg-white/[0.05] border-transparent hover:border-amber-500/20 text-neutral-200'
-                                        }`
-                                      }
-                                    >
-                                      <div className="w-9 h-9 rounded-xl bg-neutral-900/90 border border-white/5 flex items-center justify-center text-amber-400/80 group-hover/item:text-amber-400 group-hover/item:border-amber-500/30 group-hover/item:bg-amber-500/10 group-hover/item:shadow-[0_0_12px_rgba(212,175,55,0.15)] transition-all duration-300 shrink-0">
-                                        <IconComponent className="w-4 h-4" />
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <div className="text-[12.5px] font-medium text-neutral-200 group-hover/item:text-amber-300 transition-colors flex items-center justify-between">
-                                          <span>{subItem.name}</span>
-                                          <ChevronRight className="w-3.5 h-3.5 text-amber-400/60 opacity-0 -translate-x-1.5 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
-                                        </div>
-                                        <div className="text-[10.5px] text-neutral-400 group-hover/item:text-neutral-300 transition-colors truncate">
-                                          {subItem.desc}
-                                        </div>
-                                      </div>
-                                    </NavLink>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          </motion.div>
+                            <span>{item.name}</span>
+                            {item.dropdown && (
+                              <ChevronDown className={`w-3.5 h-3.5 opacity-80 group-hover:opacity-100 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
+                            )}
+                          </NavLink>
+                        ) : (
+                          <a
+                            href={item.href}
+                            onClick={(e) => {
+                              if (item.dropdown) {
+                                setIsTeamOpen((prev) => !prev);
+                              }
+                              handleNavClick(e, item.href);
+                            }}
+                            className={`relative text-[12px] lg:text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer ${
+                              isHashActive || isTeamActive
+                                ? 'text-[#55197D] bg-white shadow-sm'
+                                : 'text-white/95 hover:text-white hover:bg-white/15'
+                            }`}
+                          >
+                            <span>{item.name}</span>
+                            {item.dropdown && (
+                              <ChevronDown className={`w-3.5 h-3.5 opacity-80 group-hover:opacity-100 transition-transform duration-300 ${isTeamOpen ? 'rotate-180' : ''}`} />
+                            )}
+                          </a>
                         )}
-                      </AnimatePresence>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
 
-            {/* Desktop Premium CTA Button */}
-            <div className="hidden md:flex items-center pl-4">
-              <Link
-                to="/register"
-                className="group relative inline-flex items-center justify-center px-5 py-2 text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 border border-amber-300/60 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                <span className="relative flex items-center gap-2">
-                  <Sparkles className="w-3.5 h-3.5 fill-black text-black animate-pulse" />
-                  <span> REGISTRATION</span>
-                </span>
-              </Link>
-            </div>
+                        {/* Dropdown Menu for Team Submenus */}
+                        {item.dropdown && (
+                          <AnimatePresence>
+                            {isTeamOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-72 z-[110]"
+                              >
+                                <div className="bg-[#2D0A4E]/98 border border-white/20 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.4)] p-2 backdrop-blur-2xl overflow-hidden relative group/card">
+                                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
+
+                                  <div className="px-3 pt-2 pb-2 flex items-center justify-between text-[10px] font-mono tracking-[0.18em] uppercase text-amber-300 border-b border-white/10 mb-1.5">
+                                    <span className="flex items-center gap-1.5">
+                                      <span className="text-amber-400">✦</span> Team Directories
+                                    </span>
+                                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    {item.dropdown.map((subItem) => {
+                                      const IconComponent = subItem.icon;
+                                      return (
+                                        <NavLink
+                                          key={subItem.name}
+                                          to={subItem.href}
+                                          onClick={() => setIsTeamOpen(false)}
+                                          className={({ isActive }) =>
+                                            `group/item flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 border ${
+                                              isActive
+                                                ? 'bg-white/20 border-white/30 text-white font-semibold'
+                                                : 'hover:bg-white/10 border-transparent hover:border-white/15 text-white/90'
+                                            }`
+                                          }
+                                        >
+                                          <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-amber-300 group-hover/item:text-amber-200 group-hover/item:border-white/20 group-hover/item:bg-white/15 transition-all duration-300 shrink-0">
+                                            <IconComponent className="w-4 h-4" />
+                                          </div>
+                                          <div className="flex-1 min-w-0">
+                                            <div className="text-[12.5px] font-medium text-white group-hover/item:text-amber-200 transition-colors flex items-center justify-between">
+                                              <span>{subItem.name}</span>
+                                              <ChevronRight className="w-3.5 h-3.5 text-amber-300 opacity-0 -translate-x-1.5 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200" />
+                                            </div>
+                                            <div className="text-[10.5px] text-white/60 group-hover/item:text-white/80 transition-colors truncate">
+                                              {subItem.desc}
+                                            </div>
+                                          </div>
+                                        </NavLink>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Desktop Premium CTA Button */}
+                <div className="hidden md:flex items-center pl-2">
+                  {/* Divider before Registration button */}
+                  <div className="w-[1px] h-4 bg-white/30 mr-3" />
+
+                  <Link
+                    to="/register"
+                    className="group relative inline-flex items-center justify-center px-5 py-2 text-xs font-bold uppercase tracking-wider text-neutral-950 bg-gradient-to-r from-[#FFB800] via-[#FFAE00] to-[#FF9E00] rounded-full shadow-[0_2px_15px_rgba(255,184,0,0.35)] hover:shadow-[0_4px_25px_rgba(255,184,0,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border border-amber-200/50 overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <span className="relative flex items-center gap-2">
+                      <Sparkles className="w-3.5 h-3.5 fill-neutral-950 text-neutral-950" />
+                      <span>REGISTRATION</span>
+                    </span>
+                  </Link>
+                </div>
 
               </div>
             </div>
 
             {/* Mobile Drawer Menu */}
             <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden bg-[#141416] border-t border-neutral-800 overflow-hidden"
-            >
-              <div className="px-5 pt-4 pb-6 space-y-3">
-                <div className="p-3 rounded-xl bg-neutral-900/90 border border-amber-500/20 text-xs text-neutral-300 flex items-center justify-between">
-                  <span className="text-[#D4AF37] font-semibold text-[11px] uppercase">Lucknow Oct 2026</span>
-                  <span className="text-[10px] text-neutral-400">Architects Conclave</span>
-                </div>
-
-                {navLinks.map((item) => {
-                  if (item.isHome) {
-                    const isHomeActive = location.pathname === '/' && !location.hash;
-                    return (
-                      <div key="Home" className="border-b border-neutral-800/60 pb-2">
-                        <NavLink
-                          to="/"
-                          onClick={(e) => handleNavClick(e, '/')}
-                          className={`flex items-center gap-2 py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
-                            isHomeActive ? 'text-amber-400' : 'text-neutral-200 hover:text-amber-400'
-                          }`}
-                        >
-                          <Home className="w-4 h-4 text-amber-400" />
-                          <span>Home</span>
-                        </NavLink>
-                      </div>
-                    );
-                  }
-
-                  const isRoute = !item.href.startsWith('#');
-                  const isTeamActive = item.name === 'Team' && location.pathname.startsWith('/team');
-                  const isHashActive = location.pathname === '/' && location.hash === item.href;
-
-                  return (
-                    <div key={item.name} className="border-b border-neutral-800/60 pb-2">
-                      {isRoute ? (
-                        <NavLink
-                          to={item.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className={({ isActive }) =>
-                            `block py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
-                              isActive || isTeamActive ? 'text-amber-400' : 'text-neutral-200 hover:text-amber-400'
-                            }`
-                          }
-                        >
-                          {item.name}
-                        </NavLink>
-                      ) : (
-                        <a
-                          href={item.href}
-                          onClick={(e) => handleNavClick(e, item.href)}
-                          className={`block py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
-                            isHashActive || isTeamActive ? 'text-amber-400' : 'text-neutral-200 hover:text-amber-400'
-                          }`}
-                        >
-                          {item.name}
-                        </a>
-                      )}
-                      
-                      {item.dropdown && (
-                        <div className="pl-3 mt-1.5 space-y-2 border-l border-amber-500/30 ml-1">
-                          {item.dropdown.map((sub) => {
-                            const SubIcon = sub.icon;
-                            return (
-                              <NavLink
-                                key={sub.name}
-                                to={sub.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className={({ isActive }) =>
-                                  `flex items-center gap-2 py-1 text-xs transition-colors ${
-                                    isActive ? 'text-amber-400 font-semibold' : 'text-neutral-400 hover:text-amber-400'
-                                  }`
-                                }
-                              >
-                                <SubIcon className="w-3.5 h-3.5 text-amber-500" />
-                                <span>{sub.name}</span>
-                              </NavLink>
-                            );
-                          })}
-                        </div>
-                      )}
+              {isMobileMenuOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="md:hidden bg-[#350A5A] border-t border-white/10 overflow-hidden"
+                >
+                  <div className="px-5 pt-4 pb-6 space-y-3">
+                    <div className="p-3 rounded-xl bg-white/10 border border-white/15 text-xs text-white/90 flex items-center justify-between">
+                      <span className="text-amber-300 font-semibold text-[11px] uppercase">Lucknow Oct 2026</span>
+                      <span className="text-[10px] text-white/70">Architects Conclave</span>
                     </div>
-                  );
-                })}
 
-                <div className="pt-2">
-                  <Link
-                    to="/register"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-full flex items-center justify-center gap-2 py-3 text-xs uppercase font-bold tracking-wider text-black bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 rounded-xl shadow-lg shadow-amber-500/20"
-                  >
-                    <Sparkles className="w-4 h-4 fill-black" />
-                    <span>LAF Registration</span>
-                  </Link>
-                </div>
+                    {navLinks.map((item) => {
+                      if (item.isHome) {
+                        const isHomeActive = location.pathname === '/' && !location.hash;
+                        return (
+                          <div key="Home" className="border-b border-white/10 pb-2">
+                            <NavLink
+                              to="/"
+                              onClick={(e) => handleNavClick(e, '/')}
+                              className={`flex items-center gap-2 py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                                isHomeActive ? 'text-amber-300' : 'text-white hover:text-amber-300'
+                              }`}
+                            >
+                              <Home className="w-4 h-4 text-amber-300" />
+                              <span>Home</span>
+                            </NavLink>
+                          </div>
+                        );
+                      }
 
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                      const isRoute = !item.href.startsWith('#');
+                      const isTeamActive = item.name === 'Team' && (location.pathname.startsWith('/team') || location.hash === '#festival-team');
+                      const isHashActive = location.pathname === '/' && location.hash === item.href;
+
+                      return (
+                        <div key={item.name} className="border-b border-white/10 pb-2">
+                          {isRoute ? (
+                            <NavLink
+                              to={item.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className={({ isActive }) =>
+                                `block py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                                  isActive || isTeamActive ? 'text-amber-300' : 'text-white hover:text-amber-300'
+                                }`
+                              }
+                            >
+                              {item.name}
+                            </NavLink>
+                          ) : (
+                            <a
+                              href={item.href}
+                              onClick={(e) => handleNavClick(e, item.href)}
+                              className={`block py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                                isHashActive || isTeamActive ? 'text-amber-300' : 'text-white hover:text-amber-300'
+                              }`}
+                            >
+                              {item.name}
+                            </a>
+                          )}
+                          
+                          {item.dropdown && (
+                            <div className="pl-3 mt-1.5 space-y-2 border-l border-white/20 ml-1">
+                              {item.dropdown.map((sub) => {
+                                const SubIcon = sub.icon;
+                                return (
+                                  <NavLink
+                                    key={sub.name}
+                                    to={sub.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={({ isActive }) =>
+                                      `flex items-center gap-2 py-1 text-xs transition-colors ${
+                                        isActive ? 'text-amber-300 font-semibold' : 'text-white/70 hover:text-amber-300'
+                                      }`
+                                    }
+                                  >
+                                    <SubIcon className="w-3.5 h-3.5 text-amber-300" />
+                                    <span>{sub.name}</span>
+                                  </NavLink>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+
+                    <div className="pt-2">
+                      <Link
+                        to="/register"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="w-full flex items-center justify-center gap-2 py-3 text-xs uppercase font-bold tracking-wider text-neutral-950 bg-gradient-to-r from-[#FFB800] via-[#FFAE00] to-[#FF9E00] rounded-xl shadow-lg"
+                      >
+                        <Sparkles className="w-4 h-4 fill-neutral-950 text-neutral-950" />
+                        <span>LAF Registration</span>
+                      </Link>
+                    </div>
+
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </nav>

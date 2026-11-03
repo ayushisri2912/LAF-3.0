@@ -26,8 +26,6 @@ import highlight2 from "../../assets/images/card2.png";
 import highlight3 from "../../assets/images/card3.png";
 import highlight4 from "../../assets/images/card4.png";
 
-
-
 const AboutSection = () => {
   const sectors = [
     {
@@ -35,99 +33,88 @@ const AboutSection = () => {
       number: "01",
       name: "PILGRIMAGE",
       img: pilgrimageImg,
-      color: "#F59E0B",
-      soft: "rgba(245,158,11,0.13)",
-      glow: "rgba(245,158,11,0.22)",
+      color: "#F97316",
+      gradient: "linear-gradient(90deg, #F97316 0%, #EA580C 100%)",
     },
     {
       id: "transportation",
       number: "02",
       name: "TRANSPORTATION",
       img: transportationImg,
-      color: "#3B82F6",
-      soft: "rgba(59,130,246,0.12)",
-      glow: "rgba(59,130,246,0.22)",
+      color: "#7C3AED",
+      gradient: "linear-gradient(90deg, #7C3AED 0%, #5B1A83 100%)",
     },
     {
       id: "economy",
       number: "03",
       name: "ECONOMY",
       img: economyImg,
-      color: "#10B981",
-      soft: "rgba(16,185,129,0.12)",
-      glow: "rgba(16,185,129,0.22)",
+      color: "#E11D48",
+      gradient: "linear-gradient(90deg, #E11D48 0%, #BE123C 100%)",
     },
     {
       id: "sports",
       number: "04",
       name: "SPORTS",
       img: sportsImg,
-      color: "#C026D3",
-      soft: "rgba(192,38,211,0.12)",
-      glow: "rgba(192,38,211,0.22)",
+      color: "#2563EB",
+      gradient: "linear-gradient(90deg, #2563EB 0%, #1D4ED8 100%)",
     },
     {
       id: "tourism",
       number: "05",
       name: "TOURISM",
       img: tourismImg,
-      color: "#F97316",
-      soft: "rgba(249,115,22,0.12)",
-      glow: "rgba(249,115,22,0.22)",
+      color: "#E11D48",
+      gradient: "linear-gradient(90deg, #E11D48 0%, #BE123C 100%)",
     },
     {
       id: "cuisine",
       number: "06",
       name: "CUISINE",
       img: cuisineImg,
-      color: "#EAB308",
-      soft: "rgba(234,179,8,0.13)",
-      glow: "rgba(234,179,8,0.22)",
+      color: "#F59E0B",
+      gradient: "linear-gradient(90deg, #F59E0B 0%, #D97706 100%)",
     },
     {
       id: "invest-up",
       number: "07",
       name: "INVEST UP",
       img: investUpImg,
-      color: "#EC4899",
-      soft: "rgba(236,72,153,0.12)",
-      glow: "rgba(236,72,153,0.22)",
+      color: "#6D28D9",
+      gradient: "linear-gradient(90deg, #6D28D9 0%, #4C1D95 100%)",
     },
     {
       id: "odop",
       number: "08",
       name: "ONE DISTRICT ONE PRODUCT",
       img: odopImg,
-      color: "#8B5CF6",
-      soft: "rgba(139,92,246,0.12)",
-      glow: "rgba(139,92,246,0.22)",
+      color: "#C026D3",
+      gradient: "linear-gradient(90deg, #C026D3 0%, #A21CAF 100%)",
     },
     {
       id: "craft",
       number: "09",
       name: "CRAFT",
       img: craftImg,
-      color: "#06B6D4",
-      soft: "rgba(6,182,212,0.12)",
-      glow: "rgba(6,182,212,0.22)",
+      color: "#0284C7",
+      gradient: "linear-gradient(90deg, #0284C7 0%, #0369A1 100%)",
     },
     {
       id: "education",
       number: "10",
       name: "EDUCATION",
       img: educationImg,
-      color: "#3B82F6",
-      soft: "rgba(59,130,246,0.12)",
-      glow: "rgba(59,130,246,0.22)",
+      color: "#7C3AED",
+      gradient: "linear-gradient(90deg, #7C3AED 0%, #5B1A83 100%)",
     },
     {
       id: "culture",
       number: "11",
       name: "CULTURE",
       img: cultureImg,
-      color: "#F59E0B",
-      soft: "rgba(245,158,11,0.13)",
-      glow: "rgba(245,158,11,0.22)",
+      color: "#F97316",
+      gradient: "linear-gradient(90deg, #F97316 0%, #EA580C 100%)",
     },
   ];
 
@@ -157,6 +144,62 @@ const AboutSection = () => {
       image: highlight4,
     },
   ];
+
+  const renderSectorCard = (sector) => (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9, y: 15 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      className="group relative flex flex-col items-center justify-center text-center flex-shrink-0"
+    >
+      {/* Number Pill at top of circle */}
+      <div
+        className="relative z-30 px-3.5 py-0.5 rounded-full text-white font-mono text-[11px] font-bold shadow-sm -mb-3 transition-transform duration-300 group-hover:scale-110"
+        style={{ backgroundColor: sector.color }}
+      >
+        {sector.number}
+      </div>
+
+      {/* Circle Container with Colored Top Arc Ring */}
+      <div className="relative z-10 flex items-center justify-center">
+        {/* Top Arc Crescent */}
+        <div
+          className="absolute -top-1.5 w-[108%] h-[68%] rounded-t-full border-t-[3.5px] border-l-[3.5px] border-r-[3.5px] pointer-events-none transition-transform duration-300 group-hover:scale-105"
+          style={{ borderColor: sector.color }}
+        />
+
+        {/* White Circular Card */}
+        <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-white flex items-center justify-center p-3.5 sm:p-4 shadow-[0_8px_25px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.14)] group-hover:scale-105">
+          <img
+            src={sector.img}
+            alt={sector.name}
+            className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain transition-transform duration-300 group-hover:scale-110 select-none"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      {/* Overlapping Bottom Colored Banner */}
+      <div
+        className="relative z-20 -mt-4 w-32 sm:w-36 lg:w-40 min-h-[34px] sm:min-h-[38px] py-1.5 px-2 rounded-xl text-center shadow-md flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105"
+        style={{ background: sector.gradient || sector.color }}
+      >
+        <span className="block text-white text-[10px] sm:text-[11px] font-bold tracking-wider uppercase leading-snug select-none">
+          {sector.name}
+        </span>
+      </div>
+    </motion.div>
+  );
+
+  const renderArrow = () => (
+    <div className="flex items-center text-[#C27827] px-1 sm:px-2 lg:px-3 select-none">
+      <div className="w-6 sm:w-10 lg:w-14 border-t-2 border-dashed border-[#C27827]/70" />
+      <svg className="w-3.5 h-3.5 text-[#C27827] -ml-1 fill-current" viewBox="0 0 10 10">
+        <path d="M 1 2 L 7 5 L 1 8 z" />
+      </svg>
+    </div>
+  );
 
   return (
     <section
@@ -201,10 +244,14 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-[#181818]"
           >
             A LANDSCAPE OF
-            <span className="block text-[#B77A27]">CULTURE & GROWTH</span>
+            <span className="block mt-1">
+              <span className="text-[#F26522]">CULTURE</span>
+              {" & "}
+              <span className="text-[#5B1A83]">GROWTH</span>
+            </span>
           </motion.h2>
 
           <motion.p
@@ -220,7 +267,7 @@ const AboutSection = () => {
           </motion.p>
         </div>
 
-        {/* TWO-PART EDITORIAL TEXT SECTION (As in Reference Image 2) */}
+        {/* TWO-PART EDITORIAL TEXT SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +289,7 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Vertical Center Divider Line (Orange - Exact match to Image 2) */}
+            {/* Vertical Center Divider Line */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 bg-[#B8893A]" />
             <div className="block md:hidden w-20 h-[2px] bg-[#B8893A] mx-auto my-2" />
 
@@ -262,219 +309,125 @@ const AboutSection = () => {
         </motion.div>
         <br/><br/>
 
-         {/* STAGGERED GRID WRAPPER */}
-          <div className="relative">
-            
-            {/* 4 STAGGERED UNIFORM IMAGE CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
-              {highlights.map((item, index) => {
-                const isEven = index % 2 === 1; // Index 1 & 3 (Image 2 & Image 4) are staggered down
-                return (
-                  <motion.div
-                    key={item.number}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.12 }}
-                    className={`group relative flex flex-col items-center text-center transition-transform duration-500 ${
-                      isEven ? "lg:translate-y-14" : "lg:translate-y-0"
-                    }`}
-                  >
-                    {/* STEP NUMBER NODE BADGE: [01], [02], [03], [04] */}
-                    <div className="flex items-center justify-center mb-5 relative w-full">
-                      {/* Connecting line segment behind node */}
-                      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1.5px] bg-[#B77A27]/30 z-0" />
-                      
-                      {/* Node Badge */}
-                      <div className="relative z-10 bg-[#FAF7F2] border-2 border-[#B77A27] text-[#B77A27] font-mono text-xs font-bold px-4 py-1 rounded-full shadow-xs group-hover:bg-[#B77A27] group-hover:text-white transition-all duration-300">
-                        [{item.number}]
-                      </div>
-                    </div>
-
-                    {/* UNIFORM UNIFIED SIZE IMAGE CONTAINER (EXACT SAME SIZE FOR ALL 4 IMAGES) */}
-                    <div className="w-full aspect-[1920/819] relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-md group-hover:border-[#B77A27] group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.03] bg-white">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          <br/>
-
-        {/* GROWTH SECTORS */}
-        <section className="relative mt-20 lg:mt-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-14 lg:mb-20"
-          >
-            <div className="flex items-center justify-center gap-4 mb-5">
-              <span className="w-12 h-px bg-[#B77A27]" />
-              <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-[#B77A27]">
-                Growth Sectors
-              </span>
-              <span className="w-12 h-px bg-[#B77A27]" />
-            </div>
-
-            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-medium leading-tight text-[#181818]">
-              The many dimensions{" "}
-              <span className="text-[#B77A27]">of Uttar Pradesh.</span>
-            </h3>
-
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: 80 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="h-[2px] bg-[#B77A27] mx-auto mt-6"
-            />
-
-            <p className="max-w-2xl mx-auto mt-5 text-sm text-neutral-500 leading-6">
-              From heritage and pilgrimage to transportation, tourism and
-              emerging economic corridors — Uttar Pradesh is shaping a new
-              architectural and urban future.
-            </p>
-          </motion.div>
-
-          {/* REDESIGNED CONNECTED CIRCULAR FLOW (NO CARDS, DOTTED ARROW FLOW PATH) */}
-          <div className="relative w-full mx-auto py-2">
-            
-            {/* SVG ARROWHEAD MARKER DEFINITION */}
-            <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
-              <defs>
-                <marker
-                  id="dotted-arrow-head"
-                  viewBox="0 0 10 10"
-                  refX="6"
-                  refY="5"
-                  markerWidth="6"
-                  markerHeight="6"
-                  orient="auto-start-reverse"
+        {/* STAGGERED GRID WRAPPER */}
+        <div className="relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
+            {highlights.map((item, index) => {
+              const isEven = index % 2 === 1;
+              return (
+                <motion.div
+                  key={item.number}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.12 }}
+                  className={`group relative flex flex-col items-center text-center transition-transform duration-500 ${
+                    isEven ? "lg:translate-y-14" : "lg:translate-y-0"
+                  }`}
                 >
-                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#B77A27" />
-                </marker>
-              </defs>
-            </svg>
-
-            {/* FLOW NODES GRID (4 COLUMNS DESKTOP, 2 COLUMNS MOBILE) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-10 sm:gap-y-14 gap-x-4 sm:gap-x-8 relative">
-              {sectors.map((sector, index) => {
-                const isLastInRow = (index + 1) % 4 === 0;
-                const isTotalLast = index === sectors.length - 1;
-
-                return (
-                  <motion.div
-                    key={sector.id}
-                    initial={{ opacity: 0, scale: 0.9, y: 15 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.04 }}
-                    className="group relative flex flex-col items-center justify-start text-center"
-                  >
-                    {/* STEP NUMBER BADGE: 01, 02, 03... */}
-                    <span className="font-mono text-[10px] sm:text-[11px] font-bold text-[#B77A27] bg-[#B77A27]/10 border border-[#B77A27]/30 px-2.5 py-0.5 rounded-full mb-2 shadow-2xs group-hover:bg-[#B77A27] group-hover:text-white transition-all duration-300">
-                      {sector.number}
-                    </span>
-
-                    {/* CIRCULAR ICON BADGE */}
-                    <div className="relative z-10">
-                      {/* Ambient Radial Glow */}
-                      <div
-                        className="absolute -inset-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-md"
-                        style={{ background: sector.glow }}
-                      />
-
-                      {/* Concentric Dashed Ring */}
-                      <div
-                        className="absolute -inset-2 rounded-full border border-dashed opacity-50 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-700 pointer-events-none"
-                        style={{ borderColor: sector.color }}
-                      />
-
-                      {/* Main White Circle Icon Container */}
-                      <div
-                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white border-2 flex items-center justify-center p-3 shadow-[0_8px_25px_rgba(0,0,0,0.06)] group-hover:shadow-[0_12px_30px_rgba(183,122,39,0.22)] group-hover:scale-110 transition-all duration-500 shrink-0 relative z-10"
-                        style={{ borderColor: `${sector.color}55` }}
-                      >
-                        <img
-                          src={sector.img}
-                          alt={sector.name}
-                          className="w-11 h-11 sm:w-13 sm:h-13 object-contain group-hover:scale-110 transition-transform duration-300"
-                        />
-                      </div>
+                  {/* STEP NUMBER NODE BADGE: [01], [02], [03], [04] */}
+                  <div className="flex items-center justify-center mb-5 relative w-full">
+                    <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1.5px] bg-[#B77A27]/30 z-0" />
+                    <div className="relative z-10 bg-[#FAF7F2] border-2 border-[#B77A27] text-[#B77A27] font-mono text-xs font-bold px-4 py-1 rounded-full shadow-xs group-hover:bg-[#B77A27] group-hover:text-white transition-all duration-300">
+                      [{item.number}]
                     </div>
+                  </div>
 
-                    {/* SECTOR NAME UNDERNEATH */}
-                    <h4 className="mt-3 text-xs sm:text-sm font-bold tracking-wider text-[#181818] text-center uppercase group-hover:text-[#B77A27] transition-colors max-w-[130px] leading-snug">
-                      {sector.name}
-                    </h4>
+                  {/* UNIFORM UNIFIED SIZE IMAGE CONTAINER */}
+                  <div className="w-full aspect-[1920/819] relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-md group-hover:border-[#B77A27] group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.03] bg-white">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
 
-                    {/* DOTTED CONNECTING LINE WITH ARROW TO NEXT NODE (DESKTOP) */}
-                    {!isTotalLast && (
-                      <div className="hidden lg:block absolute top-12 left-[calc(50%+46px)] w-[calc(100%-46px)] z-0 pointer-events-none">
-                        {!isLastInRow ? (
-                          /* Horizontal Right Dotted Arrow */
-                          <svg className="w-full h-6 overflow-visible" viewBox="0 0 100 24" fill="none">
-                            <path
-                              d="M 5 12 L 85 12"
-                              stroke="#B77A27"
-                              strokeWidth="2"
-                              strokeDasharray="4 4"
-                              markerEnd="url(#dotted-arrow-head)"
-                              className="opacity-75"
-                            />
-                          </svg>
-                        ) : (
-                          /* Downward Curved Dotted Arrow for Row Wrap */
-                          <svg className="w-24 h-16 overflow-visible absolute -left-10 top-2" viewBox="0 0 80 60" fill="none">
-                            <path
-                              d="M 10 0 C 60 0, 70 40, 10 50"
-                              stroke="#B77A27"
-                              strokeWidth="2"
-                              strokeDasharray="4 4"
-                              markerEnd="url(#dotted-arrow-head)"
-                              className="opacity-75"
-                            />
-                          </svg>
-                        )}
-                      </div>
-                    )}
-                  </motion.div>
-                );
-              })}
+        <br/>
+
+        {/* GROWTH SECTORS (CLEAN SIMPLE BACKGROUND) */}
+        <section className="relative mt-16 sm:mt-20 lg:mt-24">
+          {/* Section Content */}
+          <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-12 sm:mb-14 lg:mb-16"
+            >
+              {/* Flanked top label */}
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <span className="w-10 sm:w-16 h-px bg-[#D4AF37]/60" />
+                <span className="text-[#171717] font-sans font-bold text-xs sm:text-[13px] tracking-[0.25em] uppercase">
+                  GROWTH SECTORS
+                </span>
+                <span className="w-10 sm:w-16 h-px bg-[#D4AF37]/60" />
+              </div>
+
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-normal sm:font-medium leading-tight text-[#171717] tracking-tight">
+                The many dimensions of{" "}
+                <span className="italic font-serif text-[#F26522]">Uttar</span>{" "}
+                <span className="italic font-serif text-[#5B1A83]">Pradesh.</span>
+              </h3>
+
+              <p className="max-w-2xl mx-auto mt-4 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                From heritage and pilgrimage to transportation, tourism and emerging economic corridors —
+                <br className="hidden sm:inline" /> Uttar Pradesh is shaping a new architectural and urban future.
+              </p>
+
+              {/* Underline gradient bar */}
+              <div className="w-24 sm:w-32 h-[3.5px] rounded-full bg-gradient-to-r from-[#F26522] to-[#5B1A83] mx-auto mt-4" />
+            </motion.div>
+
+            {/* Desktop 3-Row Connected Flow (Matching Image 1) */}
+            <div className="hidden md:flex flex-col gap-12 lg:gap-14">
+              {/* Row 1: 01 to 04 */}
+              <div className="flex items-center justify-center gap-2 lg:gap-4 xl:gap-6">
+                {sectors.slice(0, 4).map((sector, idx) => (
+                  <React.Fragment key={sector.id}>
+                    {renderSectorCard(sector)}
+                    {idx < 3 && renderArrow()}
+                  </React.Fragment>
+                ))}
+              </div>
+
+              {/* Row 2: 05 to 08 */}
+              <div className="flex items-center justify-center gap-2 lg:gap-4 xl:gap-6">
+                {sectors.slice(4, 8).map((sector, idx) => (
+                  <React.Fragment key={sector.id}>
+                    {renderSectorCard(sector)}
+                    {idx < 3 && renderArrow()}
+                  </React.Fragment>
+                ))}
+              </div>
+
+              {/* Row 3: 09 to 11 (Centered) */}
+              <div className="flex items-center justify-center gap-2 lg:gap-4 xl:gap-6">
+                {sectors.slice(8, 11).map((sector, idx) => (
+                  <React.Fragment key={sector.id}>
+                    {renderSectorCard(sector)}
+                    {idx < 2 && renderArrow()}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile / Tablet Responsive Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:hidden gap-y-10 gap-x-4">
+              {sectors.map((sector) => (
+                <div key={sector.id} className="flex justify-center">
+                  {renderSectorCard(sector)}
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* BOTTOM LABEL */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 lg:mt-16"
-          >
-            <span className="h-px w-10 bg-[#D0C6B7]" />
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-neutral-400">
-              Heritage
-              <span className="mx-2 text-[#B77A27]">•</span>
-              Infrastructure
-              <span className="mx-2 text-[#B77A27]">•</span>
-              Innovation
-              <span className="mx-2 text-[#B77A27]">•</span>
-              Growth
-            </span>
-            <span className="h-px w-10 bg-[#D0C6B7]" />
-          </motion.div>
         </section>
-
-        
 
         {/* FINAL QUOTE */}
         <motion.div
@@ -483,7 +436,6 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="mt-6 lg:mt-8 text-center border-t border-b border-[#D8D0C2] py-5"
         >
-        
         </motion.div>
       </div>
     </section>
