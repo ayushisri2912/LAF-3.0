@@ -89,13 +89,6 @@ export default function FestivalTeamSection() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-7"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-bold text-[#EA580C] font-mono">07</span>
-                <span className="w-10 h-px bg-[#EA580C]/60" />
-                <span className="text-[10.5px] tracking-[0.25em] uppercase text-neutral-500 font-semibold font-mono">
-                  LAF 3.0 · THE PEOPLE
-                </span>
-              </div>
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl leading-[1.08] font-medium tracking-tight text-[#171717]">
                 The Minds{" "}
@@ -146,10 +139,7 @@ export default function FestivalTeamSection() {
                 TEAM DIRECTORIES
               </span>
             </div>
-            <span className="text-xs text-neutral-500 font-mono hidden sm:flex items-center gap-1">
-              Click any card to open full directory
-              <ChevronRight size={14} className="text-[#EA580C]" />
-            </span>
+            
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">

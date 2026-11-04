@@ -92,7 +92,7 @@ export default function SupportingOrganizationsSection() {
   return (
     <section
       id="supporting-organizations"
-      className="relative overflow-hidden bg-[#FAF8F5] pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-8 lg:pb-10 select-none font-sans border-t border-[#E6DFD3]"
+      className="relative overflow-hidden bg-[#FAF8F5] pt-16 sm:pt-20 lg:pt-24 pb-2 sm:pb-3 lg:pb-4 select-none font-sans border-t border-[#E6DFD3]"
     >
       {/* Architectural Grid Background */}
       <div
@@ -288,7 +288,7 @@ export default function SupportingOrganizationsSection() {
         </div>
 
         {/* Bottom Footnote Ribbon */}
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E6DFD3]/40 pt-4 text-xs text-neutral-500">
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E6DFD3]/40 pt-4 text-xs text-neutral-500">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#B38F38]" />
             <span>Building connections across architecture, design, and construction sectors.</span>

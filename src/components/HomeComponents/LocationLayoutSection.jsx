@@ -41,13 +41,7 @@ const LocationLayoutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-10 sm:mb-12"
         >
-          <div className="inline-flex items-center justify-center gap-3 mb-3">
-            <span className="text-xs font-bold text-[#EA580C] font-mono">10</span>
-            <span className="w-10 h-px bg-[#EA580C]/60" />
-            <span className="text-[10.5px] tracking-[0.25em] uppercase text-neutral-500 font-semibold font-mono">
-              VISIT THE FESTIVAL
-            </span>
-          </div>
+         
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-[#171717]">
             Location{" "}

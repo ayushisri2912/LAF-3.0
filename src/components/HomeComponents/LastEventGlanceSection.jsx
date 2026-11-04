@@ -1,22 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
-  Sparkles, 
-  ArrowUpRight, 
   X, 
   ChevronLeft, 
   ChevronRight, 
   Maximize2,
-  Award,
-  Building2,
-  Users,
   Download
 } from "lucide-react";
 
 /* =========================================================
    ANIMATED COUNTER COMPONENT (Counts 0 to Target on Scroll)
 ========================================================= */
-function AnimatedCounter({ end, duration = 2000, suffix = "+" }) {
+function AnimatedCounter({ end, duration = 2000, suffix = "+", formatValue }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -50,13 +45,16 @@ function AnimatedCounter({ end, duration = 2000, suffix = "+" }) {
     };
   }, [isInView, end, duration]);
 
+  const display = formatValue ? formatValue(count) : count.toLocaleString();
+
   return (
     <span ref={ref}>
-      {count.toLocaleString()}{suffix}
+      {display}{suffix}
     </span>
   );
 }
 
+// Event gallery images
 import event01 from "../../assets/images/LAFevent1.webp";
 import event02 from "../../assets/images/LAFevent2.webp";
 import event03 from "../../assets/images/LAFEvent3.webp";
@@ -73,6 +71,10 @@ import event13 from "../../assets/images/LAFevent13.webp";
 import event14 from "../../assets/images/LAFevent14.webp";
 import event15 from "../../assets/images/LAFevent15.webp";
 import event16 from "../../assets/images/LAFevent16.webp";
+
+// Center image & full-screen background for rotating circular showcase
+import centerEventImg from "../../assets/images/center-event.png";
+import bg1Img from "../../assets/images/bg1.png";
 
 const eventImages = [
   {
@@ -189,6 +191,22 @@ const eventImages = [
   },
 ];
 
+// 12 Images for the surrounding rotating wheel sectors
+const wheelImages = [
+  event01,
+  event02,
+  event03,
+  event04,
+  event05,
+  event06,
+  event07,
+  event08,
+  event09,
+  event10,
+  event11,
+  event12,
+];
+
 const categories = [
   { id: "all", label: "All Highlights", count: 16 },
   { id: "exhibitions", label: "Exhibitions & Stalls", count: 11 },
@@ -199,6 +217,7 @@ const categories = [
 export default function LastEventGlanceSection() {
   const [activeTab, setActiveTab] = useState("all");
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [isWheelHovered, setIsWheelHovered] = useState(false);
 
   const filteredImages = activeTab === "all" 
     ? eventImages 
@@ -223,67 +242,43 @@ export default function LastEventGlanceSection() {
   return (
     <section
       id="last-event"
-      className="relative overflow-hidden bg-[#FAF8F5] pt-6 sm:pt-8 lg:pt-10 pb-20 sm:pb-24 lg:pb-28 select-none font-sans"
+      className="relative overflow-hidden bg-[#FAF8F5] pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-12 select-none font-sans border-t border-[#FED7AA]/60"
     >
-      {/* Subtle Architectural Grid Background */}
+      {/* Signature Architectural Grid Background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#b38f38_1px,transparent_1px),linear-gradient(to_bottom,#b38f38_1px,transparent_1px)] bg-[size:60px_60px]"
+        className="pointer-events-none absolute inset-0 opacity-[0.25]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(234,88,12,0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(234,88,12,0.035) 1px, transparent 1px)
+          `,
+          backgroundSize: "44px 44px",
+        }}
       />
 
       {/* Ambient background glow accents */}
-      <div className="pointer-events-none absolute -top-40 -right-40 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-bl from-orange-400/10 via-pink-400/5 to-transparent rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-purple-400/10 via-orange-400/5 to-transparent rounded-full blur-3xl" />
 
-      <div className="relative mx-auto max-w-[1380px] px-5 sm:px-8 lg:px-12">
-        {/* ================= HEADER ================= */}
-        <div className="mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="mb-3.5 flex items-center gap-2.5">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-              </span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#B38F38]">
-                VISUAL ARCHIVE • LAF PAST HIGHLIGHTS
-              </span>
-            </div>
+      {/* ================= PART 1: HEADER & IMAGE GALLERY GRID (MATCHING NAVBAR WIDTH) ================= */}
+      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+        {/* ================= CENTERED HEADING ================= */}
+        <div className="mb-8 sm:mb-12 text-center flex flex-col items-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0B1536] leading-[1.1]"
+          >
+            Last Event{" "}
+            <span className="font-serif italic font-bold bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] bg-clip-text text-transparent">
+              at a Glance.
+            </span>
+          </motion.h2>
 
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.1]">
-              Last Event{" "}
-              <span className="italic text-[#B77A27] font-serif">
-                at a Glance.
-              </span>
-            </h2>
-
-            <p className="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl">
-              A curated visual archive of moments, exhibitions, conversations, installations and celebrations from the previous Lucknow Architecture Festival.
-            </p>
-          </div>
-
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 bg-white/80 backdrop-blur-md p-1.5 rounded-2xl border border-[#E6DFD3] shadow-sm">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => {
-                  setActiveTab(cat.id);
-                  setSelectedIndex(null);
-                }}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 ${
-                  activeTab === cat.id
-                    ? "bg-[#121214] text-amber-400 shadow-md border border-[#D4AF37]/30"
-                    : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100"
-                }`}
-              >
-                <span>{cat.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
-                  activeTab === cat.id ? "bg-amber-500/20 text-amber-300" : "bg-neutral-200 text-neutral-600"
-                }`}>
-                  {cat.count}
-                </span>
-              </button>
-            ))}
-          </div>
+          {/* Signature Centered Gradient Underline */}
+          <div className="w-28 sm:w-40 h-[5px] rounded-full bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] mt-4" />
         </div>
 
         {/* ================= SIMPLE IMAGE GALLERY GRID ================= */}
@@ -301,21 +296,125 @@ export default function LastEventGlanceSection() {
                 exit={{ opacity: 0, scale: 0.95, y: 15 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedIndex(index)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 aspect-[4/3] border border-[#E6DFD3] hover:border-[#B38F38]/60 shadow-xs hover:shadow-xl transition-all duration-500"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 aspect-[4/3] border border-[#FED7AA]/80 hover:border-[#EA580C] shadow-xs hover:shadow-[0_12px_28px_rgba(234,88,12,0.18)] hover:-translate-y-1 transition-all duration-500"
               >
                 <img
                   src={image.src}
                   alt={image.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                 />
+
+                {/* Subtle Hover Gradient Overlay & Quick View */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#FDBA74]">
+                      ✦ {image.id} · {image.categoryLabel}
+                    </span>
+                    <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white">
+                      <Maximize2 size={13} />
+                    </div>
+                  </div>
+                  <p className="text-xs text-white font-medium line-clamp-1 mt-1">
+                    {image.title}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+      </div>
 
-        {/* ================= ELEGANT DOWNLOAD DOCUMENTS RIBBON ================= */}
-        <div className="mt-12 sm:mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+      {/* =====================================================
+          PART 2: FULL-WIDTH ROTATING EVENT SHOWCASE WITH bg1.png
+          Full screen width background (pure screen per full width),
+          content aligned with navbar width (max-w-[1400px])
+      ====================================================== */}
+      <div
+        className="relative w-full mt-4 sm:mt-6 lg:mt-8 mb-6 sm:mb-8 lg:mb-10 py-4 sm:py-6 md:py-8 lg:py-10 bg-cover bg-center bg-no-repeat overflow-hidden"
+        style={{ backgroundImage: `url(${bg1Img})` }}
+      >
+        <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 flex items-center justify-center">
+          {/* THE CIRCULAR EVENTS WHEEL CONTAINER */}
+          <div
+            className="group relative w-[320px] h-[320px] sm:w-[480px] sm:h-[480px] md:w-[620px] md:h-[620px] lg:w-[740px] lg:h-[740px] xl:w-[820px] xl:h-[820px] flex items-center justify-center cursor-pointer"
+            onMouseEnter={() => setIsWheelHovered(true)}
+            onMouseLeave={() => setIsWheelHovered(false)}
+          >
+            {/* Soft Ambient Glow Behind Wheel */}
+            <div className="absolute inset-6 rounded-full bg-gradient-to-tr from-[#EA580C]/12 via-[#D91A5B]/8 to-[#7C2D92]/12 blur-2xl pointer-events-none" />
+
+            {/* ROTATING 12-SECTOR ANNULAR RING OF LAF EVENTS (PAUSES ON HOVER) */}
+            <div
+              className="w-full h-full relative cursor-pointer animate-spin-wheel"
+              style={{
+                animationPlayState: isWheelHovered ? "paused" : "running",
+              }}
+            >
+              <svg
+                viewBox="0 0 600 600"
+                className="w-full h-full drop-shadow-[0_12px_35px_rgba(0,0,0,0.18)] overflow-visible"
+              >
+                <defs>
+                  {/* Canonical Annular Sector Path (From -15 deg to +15 deg) */}
+                  <clipPath id="canonical-sector">
+                    <path d="M 555.97 231.41 A 265 265 0 0 1 555.97 368.59 L 440.06 337.53 A 145 145 0 0 0 440.06 262.47 Z" />
+                  </clipPath>
+                </defs>
+
+                {/* 12 Annular Sectors Formed by Rotating Canonical Sector */}
+                {wheelImages.map((imgSrc, i) => (
+                  <g key={i} transform={`rotate(${i * 30}, 300, 300)`}>
+                    <g clipPath="url(#canonical-sector)">
+                      <image
+                        href={imgSrc}
+                        x={420}
+                        y={215}
+                        width={170}
+                        height={170}
+                        preserveAspectRatio="xMidYMid slice"
+                        transform="rotate(90, 505, 300)"
+                      />
+                    </g>
+                    {/* Crisp White Radial Divider Line separating each sector */}
+                    <line
+                      x1="440.06"
+                      y1="337.53"
+                      x2="555.97"
+                      y2="368.59"
+                      stroke="#FFFFFF"
+                      strokeWidth="2.5"
+                    />
+                  </g>
+                ))}
+
+                {/* Outer White Circumference Ring */}
+                <circle cx="300" cy="300" r="265" fill="none" stroke="#FFFFFF" strokeWidth="3.5" />
+                {/* Inner White Circumference Ring */}
+                <circle cx="300" cy="300" r="145" fill="none" stroke="#FFFFFF" strokeWidth="2.5" />
+              </svg>
+            </div>
+
+            {/* STATIC CENTER CIRCLE IMAGE (Full aerial photo with LAF 2.0 branding, stays stationary & upright) */}
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[48.33%] h-[48.33%] rounded-full overflow-hidden border-[4px] border-white shadow-[0_8px_30px_rgba(0,0,0,0.28)] z-20 pointer-events-auto bg-neutral-900 cursor-pointer"
+              onMouseEnter={() => setIsWheelHovered(true)}
+              onMouseLeave={() => setIsWheelHovered(false)}
+            >
+              <img
+                src={centerEventImg}
+                alt="LAF 2.0 Central Venue Aerial"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= PART 3: DOWNLOADS, STATS & FOOTNOTE (MATCHING NAVBAR WIDTH) ================= */}
+      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+        {/* ================= ELEGANT DOWNLOAD DOCUMENTS RIBBON (THEMED) ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
           {[
             {
               title: "DOWNLOAD EVENT BROCHURE",
@@ -339,27 +438,28 @@ export default function LastEventGlanceSection() {
             <a
               key={item.title}
               href={item.file}
-              className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-[#121214] border border-[#D4AF37]/30 hover:border-[#D4AF37] shadow-[0_4px_25px_rgba(0,0,0,0.15)] hover:shadow-[0_10px_30px_rgba(212,175,55,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
+              className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0B1536] via-[#111C44] to-[#0B1536] border border-[#EA580C]/40 hover:border-[#EA580C] shadow-[0_4px_22px_rgba(11,21,54,0.12)] hover:shadow-[0_10px_30px_rgba(234,88,12,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
             >
-              {/* Gold Shimmer Sweep Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
-              
+              {/* Vibrant Orange/Crimson Shimmer Sweep Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EA580C]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+
               <div className="flex items-center gap-3.5 min-w-0 z-10">
-                <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-[#D4AF37]/40 flex items-center justify-center text-amber-400 group-hover:bg-[#D4AF37] group-hover:text-black transition-all duration-300 shrink-0">
-                  <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                <div className="w-11 h-11 rounded-xl bg-white/10 border border-[#EA580C]/40 flex items-center justify-center text-[#EA580C] group-hover:bg-gradient-to-r group-hover:from-[#EA580C] group-hover:to-[#D91A5B] group-hover:text-white group-hover:border-transparent transition-all duration-300 shrink-0 shadow-xs">
+                  <Download className="w-4.5 h-4.5 group-hover:translate-y-0.5 transition-transform" />
                 </div>
+
                 <div className="text-left truncate">
-                  <div className="text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-wider text-white group-hover:text-amber-300 transition-colors truncate">
+                  <div className="text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-wider text-white group-hover:text-[#FDBA74] transition-colors truncate">
                     {item.title}
                   </div>
-                  <div className="text-[10px] text-neutral-400 truncate mt-0.5">
+                  <div className="text-[10.5px] text-neutral-400 truncate mt-0.5">
                     {item.subtitle}
                   </div>
                 </div>
               </div>
 
               <div className="z-10 ml-2 shrink-0">
-                <span className="text-[9px] font-mono font-bold tracking-widest text-amber-400/80 bg-amber-500/10 px-2 py-1 rounded-md border border-amber-500/20 group-hover:border-amber-400">
+                <span className="text-[9.5px] font-mono font-bold tracking-widest text-[#FED7AA] bg-[#EA580C]/20 px-2.5 py-1 rounded-md border border-[#EA580C]/40 group-hover:border-[#EA580C] group-hover:bg-[#EA580C]/30 transition-all">
                   {item.badge}
                 </span>
               </div>
@@ -367,63 +467,47 @@ export default function LastEventGlanceSection() {
           ))}
         </div>
 
-        {/* ================= STATISTICS RIBBON ================= */}
-        <div className="mt-16 bg-white rounded-3xl border border-[#E6DFD3] shadow-[0_6px_30px_rgba(0,0,0,0.03)] p-6 sm:p-8 relative overflow-hidden">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200">
-            {/* Stat 1 */}
-            <div className="flex items-center gap-4 pt-4 sm:pt-0 sm:px-6 first:pt-0 first:px-0">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#B38F38] shrink-0">
-                <Building2 className="w-6 h-6" />
+        {/* ================= STATISTICS RIBBON (FROM REFERENCE IMAGE 2) ================= */}
+        <div className="mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 bg-gradient-to-r from-[#C2B1D0] via-[#E8B5B3] via-50%-[#F9A669] to-[#F89D43] shadow-[0_8px_30px_rgba(234,88,12,0.10)] border border-white/40">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+            {/* Stat 1: 200+ */}
+            <div className="text-left">
+              <div className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1E1B1B] tracking-tight leading-none">
+                <AnimatedCounter end={200} suffix="+" formatValue={(v) => v} />
               </div>
-              <div className="text-left">
-                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
-                  <AnimatedCounter end={100} suffix="+" />
-                </div>
-                <div className="text-[10.5px] font-bold uppercase tracking-wider text-neutral-500 mt-0.5">Exhibiting Brands</div>
+              <div className="text-sm sm:text-base lg:text-lg font-medium text-[#1E1B1B] leading-snug mt-2">
+                industries showcased.
               </div>
             </div>
 
-            {/* Stat 2 */}
-            <div className="flex items-center gap-4 pt-4 sm:pt-0 sm:px-6">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#B38F38] shrink-0">
-                <Award className="w-6 h-6" />
+            {/* Stat 2: 2000+ */}
+            <div className="text-left">
+              <div className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1E1B1B] tracking-tight leading-none">
+                <AnimatedCounter end={2000} suffix="+" formatValue={(v) => v} />
               </div>
-              <div className="text-left">
-                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
-                  <AnimatedCounter end={1000} suffix="+" />
-                </div>
-                <div className="text-[10.5px] font-bold uppercase tracking-wider text-neutral-500 mt-0.5">Architects & Delegates</div>
+              <div className="text-sm sm:text-base lg:text-lg font-medium text-[#1E1B1B] leading-snug mt-2">
+                architects and other professionals.
               </div>
             </div>
 
-            {/* Stat 3 */}
-            <div className="flex items-center gap-4 pt-4 sm:pt-0 sm:px-6">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#B38F38] shrink-0">
-                <Users className="w-6 h-6" />
+            {/* Stat 3: 3,00,000+ */}
+            <div className="text-left">
+              <div className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1E1B1B] tracking-tight leading-none">
+                <AnimatedCounter
+                  end={300000}
+                  suffix="+"
+                  formatValue={(v) => v.toLocaleString("en-IN")}
+                />
               </div>
-              <div className="text-left">
-                <div className="font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
-                  <AnimatedCounter end={10000} suffix="+" />
-                </div>
-                <div className="text-[10.5px] font-bold uppercase tracking-wider text-neutral-500 mt-0.5">Visitors Footfall</div>
+              <div className="text-sm sm:text-base lg:text-lg font-medium text-[#1E1B1B] leading-snug mt-2">
+                general public walking in.
               </div>
             </div>
           </div>
-        </div>
-
-        {/* ================= FOOTNOTE ================= */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 px-2">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[#B38F38]" />
-            <span>Lucknow Architecture Festival • Historical Edition Retrospective</span>
-          </div>
-          <span className="font-mono text-[10px] tracking-widest text-[#B38F38] uppercase font-bold">
-            LAF ARCHIVE • 2026
-          </span>
         </div>
       </div>
 
-      {/* ================= LIGHTBOX PREVIEW MODAL ================= */}
+      {/* ================= LIGHTBOX PREVIEW MODAL (THEMED) ================= */}
       <AnimatePresence>
         {selectedIndex !== null && (
           <motion.div
@@ -442,7 +526,7 @@ export default function LastEventGlanceSection() {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedIndex(null)}
-                className="absolute -top-12 right-0 p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all focus:outline-none"
+                className="absolute -top-12 right-0 p-2.5 rounded-full bg-white/10 hover:bg-[#EA580C] border border-white/20 text-white transition-all focus:outline-none cursor-pointer"
                 aria-label="Close Lightbox"
               >
                 <X className="w-5 h-5" />
@@ -453,7 +537,7 @@ export default function LastEventGlanceSection() {
                 onClick={() =>
                   setSelectedIndex((prev) => (prev > 0 ? prev - 1 : filteredImages.length - 1))
                 }
-                className="absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all focus:outline-none z-10"
+                className="absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-[#EA580C] border border-white/20 text-white transition-all focus:outline-none z-10 cursor-pointer"
                 aria-label="Previous Image"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -464,7 +548,7 @@ export default function LastEventGlanceSection() {
                 onClick={() =>
                   setSelectedIndex((prev) => (prev < filteredImages.length - 1 ? prev + 1 : 0))
                 }
-                className="absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all focus:outline-none z-10"
+                className="absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-[#EA580C] border border-white/20 text-white transition-all focus:outline-none z-10 cursor-pointer"
                 aria-label="Next Image"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -487,9 +571,9 @@ export default function LastEventGlanceSection() {
               </motion.div>
 
               {/* Bottom Details Bar */}
-              <div className="mt-4 flex items-center justify-between w-full max-w-3xl px-4 py-3 rounded-2xl bg-neutral-900/90 border border-white/10 text-white text-xs">
+              <div className="mt-4 flex items-center justify-between w-full max-w-3xl px-4 py-3 rounded-2xl bg-[#0B1536]/95 border border-white/10 text-white text-xs">
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-amber-400 font-bold text-[10px] tracking-widest uppercase bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/30">
+                  <span className="font-mono text-white font-bold text-[10px] tracking-widest uppercase bg-gradient-to-r from-[#EA580C] to-[#D91A5B] px-2.5 py-1 rounded-md shadow-xs">
                     ✦ {filteredImages[selectedIndex].id}
                   </span>
                   <span className="font-medium text-neutral-200 text-sm truncate max-w-[280px] sm:max-w-md">

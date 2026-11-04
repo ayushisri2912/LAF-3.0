@@ -11,6 +11,9 @@ const HighlightPage = lazy(() => import('../pages/HighlightPage'));
 const GalleryPage = lazy(() => import('../pages/GalleryPage'));
 const LocationPage = lazy(() => import('../pages/LocationPage'));
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
+const PrePublicityPage = lazy(() => import('../pages/PrePublicityPage'));
+const VisitorsProfilePage = lazy(() => import('../pages/VisitorsProfilePage'));
+const OpportunitiesPage = lazy(() => import('../pages/OpportunitiesPage'));
 
 // Fallback loader while route chunk is loading
 const PageFallback = () => (
@@ -37,6 +40,12 @@ const AppRoutes = () => {
         <Route path="/participation" element={<ParticipatePage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/team/:submenu" element={<TeamPage />} />
+        <Route path="/pre-publicity" element={<PrePublicityPage />} />
+        <Route path="/outreach" element={<PrePublicityPage />} />
+        <Route path="/visitors-profile" element={<VisitorsProfilePage />} />
+        <Route path="/visitor-profile" element={<VisitorsProfilePage />} />
+        <Route path="/opportunities" element={<OpportunitiesPage />} />
+        <Route path="/bouquet-of-opportunities" element={<OpportunitiesPage />} />
         <Route path="/register" element={<RegistrationPage />} />
       </Routes>
     </Suspense>

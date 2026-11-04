@@ -47,6 +47,24 @@ a {
   animation: shimmer 2.5s infinite;
 }
 
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-wheel {
+  animation: spinSlow 65s linear infinite;
+}
+
+.group:hover .animate-spin-wheel,
+.animate-spin-wheel:hover {
+  animation-play-state: paused;
+}
+
 /* Custom subtle architectural grid background */
 .bg-architect-grid {
   background-image: 

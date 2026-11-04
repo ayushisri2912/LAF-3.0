@@ -122,29 +122,10 @@ const GetInTouchSection = () => {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* =====================================================
-            TOP SECTION LABEL & HEADER
-        ====================================================== */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-14 flex items-center justify-between border-b border-[#D9D0C2] pb-6"
-        >
-          <div className="flex items-center gap-4">
-            <span className="text-xs font-bold text-[#B77A27] font-mono">11</span>
-            <span className="w-12 h-px bg-[#B77A27]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#B77A27]">
-              GET IN TOUCH
-            </span>
-          </div>
+        
+         
 
-          <span className="hidden sm:inline font-mono text-xs uppercase tracking-[0.25em] text-neutral-400">
-            LAF 3.0 · ENQUIRIES & DELEGATES
-          </span>
-        </motion.div>
-
+          
         {/* =====================================================
             SECTION TITLE & SUBHEADING
         ====================================================== */}
