@@ -317,29 +317,55 @@ const AgendaSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16 grid gap-4 sm:grid-cols-3"
+          className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6"
         >
           {[
-            "DOWNLOAD EVENT BROCHURE",
-            "DOWNLOAD PARTICIPATION FORM",
-            "DOWNLOAD LAYOUT PLAN",
-          ].map((label) => (
+            {
+              title: "DOWNLOAD EVENT BROCHURE",
+              subtitle: "Conclave Guide & Official Schedule",
+              file: "#brochure",
+              badge: "PDF • 4.2 MB",
+            },
+            {
+              title: "DOWNLOAD PARTICIPATION FORM",
+              subtitle: "Delegate & Exhibitor Entry Form",
+              file: "#participation",
+              badge: "PDF • 1.8 MB",
+            },
+            {
+              title: "DOWNLOAD LAYOUT",
+              subtitle: "Exhibition Floorplan & Stalls Map",
+              file: "#layout",
+              badge: "PDF • 3.5 MB",
+            },
+          ].map((item) => (
             <a
-              key={label}
-              href="#"
-              className="group flex items-center justify-between bg-white border border-[#E8E2D8] hover:border-[#EA580C] px-6 py-4 text-[#171717] transition-all duration-300 hover:shadow-lg rounded-2xl relative overflow-hidden"
+              key={item.title}
+              href={item.file}
+              className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0B1536] via-[#111C44] to-[#0B1536] border border-[#EA580C]/40 hover:border-[#EA580C] shadow-[0_4px_22px_rgba(11,21,54,0.12)] hover:shadow-[0_10px_30px_rgba(234,88,12,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#EA580C] to-[#D91A5B] group-hover:w-2 transition-all duration-300" />
-              <div>
-                <span className="block text-[9px] font-bold tracking-[0.25em] text-[#EA580C] uppercase">
-                  OFFICIAL DOCUMENT
-                </span>
-                <span className="mt-1 block text-xs sm:text-sm font-semibold tracking-wide text-neutral-800 group-hover:text-[#EA580C] transition-colors">
-                  {label}
-                </span>
+              {/* Vibrant Orange/Crimson Shimmer Sweep Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EA580C]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+
+              <div className="flex items-center gap-3.5 min-w-0 z-10">
+                <div className="w-11 h-11 rounded-xl bg-white/10 border border-[#EA580C]/40 flex items-center justify-center text-[#EA580C] group-hover:bg-gradient-to-r group-hover:from-[#EA580C] group-hover:to-[#D91A5B] group-hover:text-white group-hover:border-transparent transition-all duration-300 shrink-0 shadow-xs">
+                  <Download className="w-4.5 h-4.5 group-hover:translate-y-0.5 transition-transform" />
+                </div>
+
+                <div className="text-left truncate">
+                  <div className="text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-wider text-white group-hover:text-[#FDBA74] transition-colors truncate">
+                    {item.title}
+                  </div>
+                  <div className="text-[10.5px] text-neutral-400 truncate mt-0.5">
+                    {item.subtitle}
+                  </div>
+                </div>
               </div>
-              <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 group-hover:border-[#EA580C] group-hover:bg-[#EA580C] group-hover:text-white flex items-center justify-center transition-all duration-300 text-[#EA580C]">
-                <Download size={16} />
+
+              <div className="z-10 ml-2 shrink-0">
+                <span className="text-[9.5px] font-mono font-bold tracking-widest text-[#FED7AA] bg-[#EA580C]/20 px-2.5 py-1 rounded-md border border-[#EA580C]/40 group-hover:border-[#EA580C] group-hover:bg-[#EA580C]/30 transition-all">
+                  {item.badge}
+                </span>
               </div>
             </a>
           ))}

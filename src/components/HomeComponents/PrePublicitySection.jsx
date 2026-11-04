@@ -439,7 +439,7 @@ const PrePublicitySection = () => {
                     key={index}
                     whileHover={{ y: -2, scale: 1.015 }}
                     transition={{ type: "spring", stiffness: 450, damping: 26 }}
-                    className={`group relative flex items-center gap-3 sm:gap-3.5 px-3 py-2.5 sm:py-3 rounded-2xl border border-transparent hover:border-[#F97316]/50 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-amber-50/40 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer ${
+                    className={`group relative flex items-center gap-3 sm:gap-3.5 px-3 py-2 sm:py-2.5 rounded-2xl border border-transparent hover:border-[#F97316]/50 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-amber-50/40 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer min-h-[58px] sm:min-h-[64px] ${
                       !isLast ? "border-b border-b-[#E5E7EB] hover:border-b-[#F97316]/50" : ""
                     }`}
                   >
@@ -455,7 +455,7 @@ const PrePublicitySection = () => {
 
                     {/* Item Description Text */}
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-[#0F172A] group-hover:text-[#EA580C] text-xs sm:text-[12px] md:text-[11.5px] lg:text-[12px] xl:text-[12.8px] leading-snug tracking-tight md:whitespace-nowrap transition-colors duration-200">
+                      <p className="font-bold text-[#0F172A] group-hover:text-[#EA580C] text-[13.5px] sm:text-[14px] xl:text-[14.5px] leading-snug tracking-tight transition-colors duration-200">
                         {item.text}
                       </p>
                     </div>
@@ -474,7 +474,7 @@ const PrePublicitySection = () => {
                     key={index}
                     whileHover={{ y: -2, scale: 1.015 }}
                     transition={{ type: "spring", stiffness: 450, damping: 26 }}
-                    className={`group relative flex items-center gap-3 sm:gap-3.5 px-3 py-2.5 sm:py-3 rounded-2xl border border-transparent hover:border-[#F97316]/50 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-amber-50/40 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer ${
+                    className={`group relative flex items-center gap-3 sm:gap-3.5 px-3 py-2 sm:py-2.5 rounded-2xl border border-transparent hover:border-[#F97316]/50 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-amber-50/40 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer min-h-[58px] sm:min-h-[64px] ${
                       !isLast ? "border-b border-b-[#E5E7EB] hover:border-b-[#F97316]/50" : ""
                     }`}
                   >
@@ -490,7 +490,7 @@ const PrePublicitySection = () => {
 
                     {/* Item Description Text */}
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-[#0F172A] group-hover:text-[#EA580C] text-xs sm:text-[12px] md:text-[11.5px] lg:text-[12px] xl:text-[12.8px] leading-snug tracking-tight md:whitespace-nowrap transition-colors duration-200">
+                      <p className="font-bold text-[#0F172A] group-hover:text-[#EA580C] text-[13.5px] sm:text-[14px] xl:text-[14.5px] leading-snug tracking-tight transition-colors duration-200">
                         {item.text}
                       </p>
                     </div>
@@ -504,7 +504,7 @@ const PrePublicitySection = () => {
               <motion.div
                 whileHover={{ y: -2.5, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 450, damping: 26 }}
-                className="group relative inline-flex items-center gap-3 sm:gap-3.5 px-5 sm:px-8 py-2.5 sm:py-3 rounded-2xl border border-transparent hover:border-[#F97316]/50 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-amber-50/40 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer"
+                className="group relative inline-flex items-center gap-3 sm:gap-3.5 px-5 sm:px-8 py-2 sm:py-2.5 rounded-2xl border border-transparent hover:border-[#F97316]/50 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-amber-50/40 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer min-h-[58px] sm:min-h-[64px]"
               >
                 {/* Left edge accent indicator bar on hover */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 group-hover:h-3/4 bg-gradient-to-b from-[#EA580C] to-[#D91A5B] rounded-r-full transition-all duration-300" />
@@ -517,7 +517,7 @@ const PrePublicitySection = () => {
                 </div>
 
                 {/* Text */}
-                <p className="font-bold text-[#0F172A] group-hover:text-[#EA580C] text-xs sm:text-[12px] md:text-[12px] lg:text-[12.5px] xl:text-[13px] leading-snug tracking-tight md:whitespace-nowrap transition-colors duration-200">
+                <p className="font-bold text-[#0F172A] group-hover:text-[#EA580C] text-[13.5px] sm:text-[14px] xl:text-[14.5px] leading-snug tracking-tight transition-colors duration-200">
                   {centeredItem.text}
                 </p>
               </motion.div>

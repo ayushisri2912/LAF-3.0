@@ -4,11 +4,9 @@ import {
   MapPin,
   Phone,
   Mail,
-  Calendar,
   Send,
   Download,
   ArrowUpRight,
-  Sparkles,
   Share2,
   CheckCircle2,
 } from "lucide-react";
@@ -94,7 +92,7 @@ const GetInTouchSection = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#F7F4EE] text-[#171717] pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-24 lg:pb-32 font-sans"
+      className="relative overflow-hidden bg-[#FAF8F5] text-[#171717] pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-24 lg:pb-32 font-sans border-t border-[#E8E2D8]"
     >
       {/* =====================================================
           ARCHITECTURAL BACKGROUND (MATCHES ALL HOMEPAGE SECTIONS)
@@ -102,34 +100,30 @@ const GetInTouchSection = () => {
       <div className="absolute inset-0 pointer-events-none">
         {/* Signature Architectural Grid */}
         <div
-          className="absolute inset-0 opacity-[0.28]"
+          className="absolute inset-0 opacity-[0.32]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(120,90,40,0.07) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(120,90,40,0.07) 1px, transparent 1px)
+              linear-gradient(rgba(217, 119, 6, 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(217, 119, 6, 0.08) 1px, transparent 1px)
             `,
-            backgroundSize: "44px 44px",
+            backgroundSize: "36px 36px",
           }}
         />
 
-        {/* Decorative Circles */}
-        <div className="absolute -left-40 bottom-10 w-[500px] h-[500px] rounded-full border border-[#B8893A]/10" />
-        <div className="absolute -right-32 top-20 w-[420px] h-[420px] rounded-full border border-[#B8893A]/10" />
+        {/* Ambient Warm & Purple Atmosphere Glows */}
+        <div className="absolute -left-32 top-16 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-orange-200/20 to-amber-200/10 blur-3xl pointer-events-none" />
+        <div className="absolute -right-32 bottom-16 w-[460px] h-[460px] rounded-full bg-gradient-to-tl from-purple-200/20 to-pink-200/10 blur-3xl pointer-events-none" />
 
-        {/* Corner Brackets */}
-        <div className="absolute left-[5%] top-[5%] h-16 w-16 border-l border-t border-[#B8893A]/20" />
-        <div className="absolute right-[5%] bottom-[5%] h-16 w-16 border-r border-b border-[#B8893A]/20" />
+        {/* Decorative Corner Brackets */}
+        <div className="absolute left-[5%] top-[5%] h-16 w-16 border-l border-t border-[#EA580C]/20" />
+        <div className="absolute right-[5%] bottom-[5%] h-16 w-16 border-r border-b border-[#EA580C]/20" />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
-        
-         
-
-          
         {/* =====================================================
             SECTION TITLE & SUBHEADING
         ====================================================== */}
-        <div className="mb-14 grid lg:grid-cols-12 gap-8 items-end">
+        <div className="mb-12 sm:mb-14 grid lg:grid-cols-12 gap-6 lg:gap-8 items-end">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -137,12 +131,14 @@ const GetInTouchSection = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7"
           >
-            <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-light leading-[0.96] tracking-[-0.03em] text-[#171717]">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-[#0B1536]">
               Get in{" "}
-              <span className="italic text-[#B77A27] font-normal">
+              <span className="font-serif italic font-bold bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] bg-clip-text text-transparent">
                 Touch.
               </span>
             </h2>
+            {/* Gradient Pill Underline Bar matching other sections */}
+            <div className="w-28 sm:w-36 h-[5px] rounded-full bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] mt-3 sm:mt-3.5" />
           </motion.div>
 
           <motion.div
@@ -152,7 +148,7 @@ const GetInTouchSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="lg:col-span-5 lg:pb-2"
           >
-            <p className="text-base sm:text-lg leading-relaxed text-neutral-600 border-l-2 border-[#B77A27] pl-4">
+            <p className="text-sm sm:text-base leading-relaxed text-neutral-600 border-l-2 border-[#EA580C] pl-4">
               Have questions regarding festival participation, stall booking, or technical sessions? Connect directly with our team.
             </p>
           </motion.div>
@@ -161,7 +157,7 @@ const GetInTouchSection = () => {
         {/* =====================================================
             MAIN FORM & CONTACT INFO GRID
         ====================================================== */}
-        <div className="grid gap-10 lg:grid-cols-12 items-stretch">
+        <div className="grid gap-8 lg:gap-10 lg:grid-cols-12 items-stretch">
           
           {/* ================= LEFT COLUMN: FORM ================= */}
           <motion.div
@@ -169,15 +165,15 @@ const GetInTouchSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 bg-white/80 backdrop-blur-xs p-8 sm:p-12 rounded-3xl border border-[#D9D0C2] shadow-sm relative overflow-hidden h-full flex flex-col justify-between"
+            className="lg:col-span-7 bg-white rounded-[24px] sm:rounded-[32px] border border-[#E8E2D8] hover:border-[#EA580C]/40 p-6 sm:p-10 shadow-[0_4px_30px_rgba(249,115,22,0.06)] hover:shadow-[0_10px_35px_rgba(249,115,22,0.12)] relative overflow-hidden h-full flex flex-col justify-between transition-all duration-300"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-radial from-[#B77A27]/10 to-transparent pointer-events-none" />
+            <div className="absolute top-0 right-0 w-36 h-36 bg-radial from-[#EA580C]/10 to-transparent pointer-events-none" />
 
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D9D0C2]/60">
-              <h3 className="font-serif text-2xl font-light text-[#171717]">
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E5E7EB]">
+              <h3 className="font-serif text-2xl font-bold text-[#0B1536]">
                 Send Us a Message
               </h3>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#B77A27] bg-[#B77A27]/10 px-3 py-1 rounded-full border border-[#B77A27]/20">
+              <span className="text-[10px] font-bold font-mono uppercase tracking-widest text-[#EA580C] bg-orange-50 px-3 py-1 rounded-full border border-orange-200/80">
                 Direct Inquiry
               </span>
             </div>
@@ -186,12 +182,12 @@ const GetInTouchSection = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="py-16 text-center bg-[#F7F4EE] rounded-2xl border border-[#B77A27]/30 p-8"
+                className="py-16 text-center bg-gradient-to-br from-orange-50/60 via-white to-pink-50/40 rounded-2xl border border-orange-200 p-8"
               >
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#B77A27]/15 flex items-center justify-center text-[#B77A27]">
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#EA580C] to-[#D91A5B] flex items-center justify-center text-white shadow-md">
                   <CheckCircle2 size={30} />
                 </div>
-                <h4 className="font-serif text-2xl font-normal text-[#171717]">
+                <h4 className="font-serif text-2xl font-bold text-[#0B1536]">
                   Thank You!
                 </h4>
                 <p className="mt-2 text-sm text-neutral-600 max-w-sm mx-auto">
@@ -204,8 +200,8 @@ const GetInTouchSection = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* FIRST NAME */}
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                        Your first name <span className="text-[#B77A27]">*</span>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-neutral-600 mb-2">
+                        Your first name <span className="text-[#E11D48]">*</span>
                       </label>
                       <input
                         type="text"
@@ -213,13 +209,13 @@ const GetInTouchSection = () => {
                         placeholder="Your first name"
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
+                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8F5] border border-[#E2D9CC] text-sm text-[#0F172A] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#EA580C] focus:bg-white focus:ring-2 focus:ring-[#EA580C]/20 transition-all duration-300"
                       />
                     </div>
 
                     {/* CONTACT NUMBER */}
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-neutral-600 mb-2">
                         Your contact number
                       </label>
                       <input
@@ -227,15 +223,15 @@ const GetInTouchSection = () => {
                         placeholder="Your contact number"
                         value={formData.contactNumber}
                         onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
+                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8F5] border border-[#E2D9CC] text-sm text-[#0F172A] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#EA580C] focus:bg-white focus:ring-2 focus:ring-[#EA580C]/20 transition-all duration-300"
                       />
                     </div>
                   </div>
 
                   {/* EMAIL */}
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                      Your e-mail <span className="text-[#B77A27]">*</span>
+                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-600 mb-2">
+                      Your e-mail <span className="text-[#E11D48]">*</span>
                     </label>
                     <input
                       type="email"
@@ -243,14 +239,14 @@ const GetInTouchSection = () => {
                       placeholder="Your e-mail"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300"
+                      className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8F5] border border-[#E2D9CC] text-sm text-[#0F172A] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#EA580C] focus:bg-white focus:ring-2 focus:ring-[#EA580C]/20 transition-all duration-300"
                     />
                   </div>
 
                   {/* MESSAGE */}
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">
-                      Message <span className="text-[#B77A27]">*</span>
+                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-600 mb-2">
+                      Message <span className="text-[#E11D48]">*</span>
                     </label>
                     <textarea
                       required
@@ -258,7 +254,7 @@ const GetInTouchSection = () => {
                       placeholder="Message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl bg-[#F7F4EE]/70 border border-[#D9D0C2] text-sm text-[#171717] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#B77A27] focus:bg-white transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8F5] border border-[#E2D9CC] text-sm text-[#0F172A] placeholder:text-neutral-400 focus:outline-hidden focus:border-[#EA580C] focus:bg-white focus:ring-2 focus:ring-[#EA580C]/20 transition-all duration-300 resize-none"
                     />
                   </div>
                 </div>
@@ -267,7 +263,7 @@ const GetInTouchSection = () => {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl bg-[#B77A27] hover:bg-[#99641D] text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
+                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl bg-gradient-to-r from-[#EA580C] via-[#D91A5B] to-[#7C2D92] hover:opacity-95 text-white text-xs font-bold uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-[0_8px_25px_rgba(234,88,12,0.35)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                   >
                     <span>SUBMIT</span>
                     <Send size={15} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -286,13 +282,13 @@ const GetInTouchSection = () => {
             className="lg:col-span-5 h-full"
           >
             {/* CONTACT DETAILS CARD */}
-            <div className="bg-white/80 backdrop-blur-xs p-8 sm:p-10 rounded-3xl border border-[#D9D0C2] shadow-sm space-y-6 h-full flex flex-col justify-between">
+            <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-[#E8E2D8] hover:border-[#EA580C]/40 p-6 sm:p-10 shadow-[0_4px_30px_rgba(249,115,22,0.06)] hover:shadow-[0_10px_35px_rgba(249,115,22,0.12)] space-y-6 h-full flex flex-col justify-between transition-all duration-300">
               
               {/* FOLLOW US */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <Share2 size={16} className="text-[#B77A27]" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#171717]">
+                  <Share2 size={16} className="text-[#EA580C]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0B1536]">
                     Follow Us
                   </span>
                 </div>
@@ -306,7 +302,7 @@ const GetInTouchSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
-                        className="w-10 h-10 rounded-xl bg-[#F7F4EE] border border-[#D9D0C2] flex items-center justify-center text-neutral-600 hover:text-white hover:bg-[#B77A27] hover:border-[#B77A27] transition-all duration-300 shadow-2xs hover:scale-105"
+                        className="w-10 h-10 rounded-xl bg-orange-50/70 border border-orange-200/70 flex items-center justify-center text-[#0B1536] hover:text-white hover:bg-gradient-to-r hover:from-[#EA580C] hover:to-[#D91A5B] hover:border-transparent transition-all duration-300 shadow-2xs hover:scale-105"
                       >
                         <IconComponent />
                       </a>
@@ -316,26 +312,26 @@ const GetInTouchSection = () => {
               </div>
 
               {/* POSTAL ADDRESS */}
-              <div className="pt-5 border-t border-[#D9D0C2]/60">
+              <div className="pt-5 border-t border-[#E5E7EB]">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
-                    <MapPin size={17} />
+                  <div className="w-10 h-10 rounded-xl bg-[#FFF5EB] border border-[#FED7AA] flex items-center justify-center text-[#EA580C] shrink-0 mt-0.5 shadow-2xs">
+                    <MapPin size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#171717] mb-1.5">
+                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#0B1536] mb-1.5">
                       Postal Address
                     </h4>
                     <a
                       href="https://maps.app.goo.gl/UQLY4PHADL96UGU86"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs sm:text-sm text-neutral-600 hover:text-[#B77A27] leading-relaxed block transition-colors group"
+                      className="text-xs sm:text-sm text-neutral-600 hover:text-[#EA580C] leading-relaxed block transition-colors group"
                     >
                       Ekana International Stadium<br />
                       Bharat Ratna Shri Atal Bihari Vajpayee<br />
                       Sector 7, Gomti Nagar, Amar Shaheed Path,<br />
                       Lucknow 226010, Uttar Pradesh, INDIA.
-                      <span className="inline-flex items-center gap-1 text-[11px] text-[#B77A27] font-mono mt-1 group-hover:underline">
+                      <span className="inline-flex items-center gap-1 text-[11px] text-[#EA580C] font-mono mt-1 font-semibold group-hover:underline">
                         View on Map <ArrowUpRight size={12} />
                       </span>
                     </a>
@@ -344,13 +340,13 @@ const GetInTouchSection = () => {
               </div>
 
               {/* PHONES */}
-              <div className="pt-5 border-t border-[#D9D0C2]/60">
+              <div className="pt-5 border-t border-[#E5E7EB]">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
-                    <Phone size={17} />
+                  <div className="w-10 h-10 rounded-xl bg-[#F5EEFD] border border-purple-200 flex items-center justify-center text-[#7E22CE] shrink-0 mt-0.5 shadow-2xs">
+                    <Phone size={18} />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#171717]">
+                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#0B1536]">
                       Phones
                     </h4>
                     <div>
@@ -359,7 +355,7 @@ const GetInTouchSection = () => {
                       </p>
                       <a
                         href="tel:+918874184076"
-                        className="text-sm font-medium text-[#171717] hover:text-[#B77A27] transition-colors"
+                        className="text-sm font-semibold text-[#0F172A] hover:text-[#EA580C] transition-colors"
                       >
                         +91 8874 1840 76
                       </a>
@@ -370,7 +366,7 @@ const GetInTouchSection = () => {
                       </p>
                       <a
                         href="tel:+919335210024"
-                        className="text-sm font-medium text-[#171717] hover:text-[#B77A27] transition-colors"
+                        className="text-sm font-semibold text-[#0F172A] hover:text-[#EA580C] transition-colors"
                       >
                         +91 9335 2100 24
                       </a>
@@ -380,18 +376,18 @@ const GetInTouchSection = () => {
               </div>
 
               {/* EMAIL */}
-              <div className="pt-5 border-t border-[#D9D0C2]/60">
+              <div className="pt-5 border-t border-[#E5E7EB]">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#B77A27]/10 border border-[#B77A27]/20 flex items-center justify-center text-[#B77A27] shrink-0 mt-0.5">
-                    <Mail size={17} />
+                  <div className="w-10 h-10 rounded-xl bg-[#FFF0F4] border border-rose-200 flex items-center justify-center text-[#E11D48] shrink-0 mt-0.5 shadow-2xs">
+                    <Mail size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#171717] mb-1">
+                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#0B1536] mb-1">
                       Email
                     </h4>
                     <a
                       href="mailto:info@taskmarketingsolutions.in"
-                      className="text-sm font-medium text-[#171717] hover:text-[#B77A27] transition-colors break-all"
+                      className="text-sm font-semibold text-[#0F172A] hover:text-[#EA580C] transition-colors break-all"
                     >
                       info@taskmarketingsolutions.in
                     </a>
@@ -411,31 +407,45 @@ const GetInTouchSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-16 pt-10 border-t border-[#D9D0C2]"
+          className="mt-16 pt-10 border-t border-[#E8E2D8]"
         >
           <div className="mb-6 flex items-center gap-3">
-            <span className="h-px w-8 bg-[#B77A27]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B77A27] font-mono">
+            <span className="h-[2px] w-8 bg-gradient-to-r from-[#EA580C] to-[#D91A5B]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#EA580C] font-mono">
               OFFICIAL FESTIVAL DOCUMENTS
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
             {documentDownloads.map((doc) => (
               <a
                 key={doc.label}
                 href={doc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between p-5 rounded-2xl bg-[#B77A27] hover:bg-[#99641D] text-white shadow-md hover:shadow-xl transition-all duration-300"
+                className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0B1536] via-[#111C44] to-[#0B1536] border border-[#EA580C]/40 hover:border-[#EA580C] shadow-[0_4px_22px_rgba(11,21,54,0.12)] hover:shadow-[0_10px_30px_rgba(234,88,12,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
               >
-                <div className="flex items-center gap-3">
-                  <Download size={17} className="text-white/80 group-hover:scale-110 transition-transform" />
-                  <span className="text-xs font-semibold tracking-wider font-mono">
-                    {doc.label}
-                  </span>
+                {/* Vibrant Orange/Crimson Shimmer Sweep Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EA580C]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+
+                <div className="flex items-center gap-3.5 min-w-0 z-10">
+                  <div className="w-11 h-11 rounded-xl bg-white/10 border border-[#EA580C]/40 flex items-center justify-center text-[#EA580C] group-hover:bg-gradient-to-r group-hover:from-[#EA580C] group-hover:to-[#D91A5B] group-hover:text-white group-hover:border-transparent transition-all duration-300 shrink-0 shadow-xs">
+                    <Download className="w-4.5 h-4.5 group-hover:translate-y-0.5 transition-transform" />
+                  </div>
+
+                  <div className="text-left truncate">
+                    <div className="text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-wider text-white group-hover:text-[#FDBA74] transition-colors truncate">
+                      {doc.label}
+                    </div>
+                    <div className="text-[10.5px] text-neutral-400 truncate mt-0.5">
+                      PDF Document
+                    </div>
+                  </div>
                 </div>
-                <ArrowUpRight size={16} className="text-white/70 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+
+                <div className="z-10 ml-2 shrink-0">
+                  <ArrowUpRight className="w-4.5 h-4.5 text-[#FED7AA] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
               </a>
             ))}
           </div>
