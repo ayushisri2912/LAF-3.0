@@ -107,7 +107,7 @@ const LAFHistory = () => {
         <polygon points="100,0 100,100 0,100" fill="url(#cornerBR)" />
       </svg>
 
-      <div className="max-w-[1360px] mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           {/* Top subtle golden tracked label with flanking lines */}
@@ -137,7 +137,7 @@ const LAFHistory = () => {
             return (
               <div
                 key={item.id}
-                className={`relative p-5 sm:p-6 lg:p-7 rounded-[32px] sm:rounded-[40px] lg:rounded-[48px] bg-white/95 backdrop-blur-xs border ${item.cardBorder} shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-300`}
+                className={`relative p-5 sm:p-6 lg:p-7 rounded-[32px] sm:rounded-[40px] lg:rounded-[48px] bg-white border ${item.cardBorder} shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-300`}
               >
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-8">
                   {/* Circular Logo Container (Enlarged + Only 1 Outer Ring) */}

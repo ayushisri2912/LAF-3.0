@@ -45,6 +45,7 @@ import marketersImg from "../assets/images/01_marketers_platform.webp";
 import architectsMeetImg from "../assets/images/02_architects_meet.webp";
 import highlightMainImg from "../assets/images/heighlight.webp";
 import highlight2Img from "../assets/images/heighlight-2.webp";
+import highlightBg from "../assets/images/h-bg.png";
 
 const HighlightPage = () => {
   const navigate = useNavigate();
@@ -285,152 +286,110 @@ const HighlightPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#171717] font-sans selection:bg-[#D4AF37] selection:text-black">
+    <div className="min-h-screen bg-[#fffaf5] text-[#172b5b] font-sans selection:bg-[#f15a24] selection:text-white" style={{ backgroundImage: `url(${highlightBg})`, backgroundRepeat: "no-repeat", backgroundPosition: "top center", backgroundSize: "100% auto" }}>
       
       {/* =========================================================
-          1. HERO HEADER WITH ARCHITECTURAL LUXURY DESIGN
+          1. COMPACT EDITORIAL HERO — MATCHING THE LAF HOME THEME
       ========================================================= */}
-      <section className="relative overflow-hidden bg-[#121214] text-white pt-10 pb-20 border-b border-[#D4AF37]/30">
-        
-        {/* Background Decorative Architecture Grid */}
-        <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(212,175,55,0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(212,175,55,0.15) 1px, transparent 1px)
-              `,
-              backgroundSize: "40px 40px",
-            }}
-          />
-          <div className="absolute -left-32 top-10 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl" />
-          <div className="absolute -right-32 bottom-10 w-96 h-96 rounded-full bg-amber-600/10 blur-3xl" />
-        </div>
-
+      <section className="relative isolate overflow-hidden bg-[#fffaf5]/75 pt-5 pb-12 sm:pt-7 sm:pb-16">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-          
-          {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-neutral-400 mb-8">
-            <Link to="/" className="hover:text-amber-400 transition-colors flex items-center gap-1">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#24365f]/65 mb-7 sm:mb-8">
+            <Link to="/" className="hover:text-[#f15a24] transition-colors flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Home</span>
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
-            <span className="text-amber-400 font-bold">Highlights</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#e7a17c]" />
+            <span className="text-[#ed5a27]">Highlights</span>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
-            {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-6">
-              
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#D4AF37] text-xs font-mono tracking-[0.2em] uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-                <span>North India's Largest Architecture Conclave</span>
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left content */}
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#f5c9aa] bg-white/75 px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#e85b26] shadow-sm">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Lucknow Architecture Festival 3.0</span>
               </div>
 
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.15] text-white">
-                Festival <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-[#D4AF37] to-amber-500">Highlights</span> &amp; Focus Sectors
-              </h1>
-
-              <p className="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-                Explore the core experiences, key highlights, and 14 focus sectors driving the Lucknow Architecture Festival 3.0. A curated symposium connecting design visionaries, industry leaders, brands, and government think tanks.
-              </p>
-
-              {/* Quick Stat Pill Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
-                <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-500/40 transition-colors">
-                  <div className="text-2xl font-serif font-bold text-amber-400">03 Days</div>
-                  <div className="text-[11px] text-neutral-400 uppercase tracking-wider font-mono mt-0.5">22 - 24 Jan 2027</div>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-500/40 transition-colors">
-                  <div className="text-2xl font-serif font-bold text-amber-400">14 Sectors</div>
-                  <div className="text-[11px] text-neutral-400 uppercase tracking-wider font-mono mt-0.5">Focus Ecosystem</div>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-500/40 transition-colors">
-                  <div className="text-2xl font-serif font-bold text-amber-400">08 Key</div>
-                  <div className="text-[11px] text-neutral-400 uppercase tracking-wider font-mono mt-0.5">Highlights</div>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-500/40 transition-colors">
-                  <div className="text-2xl font-serif font-bold text-amber-400">06 Core</div>
-                  <div className="text-[11px] text-neutral-400 uppercase tracking-wider font-mono mt-0.5">Experiences</div>
-                </div>
+              <div className="space-y-3">
+                <h1 className="font-serif text-[2.8rem] sm:text-6xl lg:text-[4.5rem] leading-[0.98] tracking-tight text-[#172b5b]">
+                  Festival <span className="bg-gradient-to-r from-[#f15a24] via-[#e52b68] to-[#74158c] bg-clip-text text-transparent">Highlights</span>
+                </h1>
+                <p className="max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-[#34415d]">
+                  Explore a rich line-up of exhibitions, installations, symposiums,
+                  lectures and workshops at the Lucknow Architecture Festival 3.0.
+                </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="#registration"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate("/participate");
-                  }}
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-[#D4AF37] via-amber-400 to-orange-500 text-black font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-                >
-                  <Sparkles className="w-4 h-4 fill-black" />
-                  <span>Register For LAF 3.0</span>
-                </a>
-                <a
-                  href="#overview"
-                  className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
-                >
-                  <span>Explore All Highlights</span>
-                  <ChevronRight className="w-4 h-4" />
+              {/* Quick facts */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1">
+                {[
+                  { value: "03", label: "Days", note: "22 – 24 Jan 2027" },
+                  { value: "14", label: "Focus Sectors", note: "Creative ecosystem" },
+                  { value: "08", label: "Key Highlights", note: "Festival features" },
+                  { value: "06", label: "Experiences", note: "Core activities" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-2xl border border-[#f4d7c4] bg-white/85 px-3.5 py-3 shadow-[0_8px_22px_rgba(104,54,26,0.06)]">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="font-serif text-3xl sm:text-4xl leading-none text-[#f15a24]">{item.value}</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#172b5b]">{item.label}</span>
+                    </div>
+                    <p className="mt-2 text-[9px] sm:text-[10px] uppercase tracking-wider text-[#69728a]">{item.note}</p>
+                    <span className="mt-2 block h-[3px] w-8 rounded-full bg-gradient-to-r from-[#f15a24] to-[#e52b68]" />
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <Link to="/participate" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff8a00] via-[#f04b3a] to-[#d41475] px-5 py-3 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-[0_8px_20px_rgba(230,75,62,0.2)] transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                  <Sparkles className="w-4 h-4" />
+                  Register for LAF 3.0
+                </Link>
+                <a href="#overview" className="inline-flex items-center gap-2 rounded-full border border-[#e9b99e] bg-white/75 px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-[#172b5b] transition-all hover:border-[#f15a24] hover:text-[#e6532b]">
+                  Explore Highlights <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
-
             </div>
 
-            {/* Right Hero Visual Feature Frame */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none overflow-hidden rounded-3xl bg-neutral-900 border border-[#D4AF37]/40 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-                
-                {/* Gold Arch Border Framing */}
-                <div className="relative h-[320px] sm:h-[380px] rounded-2xl overflow-hidden group">
+            {/* Right image feature */}
+            <div className="lg:col-span-5">
+              <div className="relative mx-auto max-w-[590px] overflow-hidden rounded-[26px] border border-[#f0c7aa] bg-white p-2.5 shadow-[0_22px_55px_rgba(93,57,36,0.15)]">
+                <div className="group relative h-[250px] sm:h-[330px] lg:h-[365px] overflow-hidden rounded-[19px]">
                   <img
                     src={highlightImage}
-                    alt="Lucknow Architecture Conclave"
-                    className="w-full h-full object-cover filter grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
+                    alt="Architectural heritage of Lucknow"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                  
-                  {/* Overlay Tag */}
-                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/30 text-[10px] uppercase font-mono tracking-widest text-amber-400 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-ping" />
-                    <span>Lucknow Architecture Festival</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101b37]/75 via-transparent to-transparent" />
+                  <div className="absolute left-4 top-4 rounded-full border border-white/50 bg-white/90 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.15em] text-[#e85b26] shadow-sm">
+                    Lucknow Architecture Festival
                   </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-amber-400 font-mono">3 Days of Extravaganza</span>
-                    <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium">Architecture • Culture • Business</h3>
-                    <p className="text-xs text-neutral-300 line-clamp-2">
-                      A symposium of emerging architects, think tank for sustainable urban development, and vision for SCR U.P.
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#ffd18a]">3 Days of Extravaganza</span>
+                    <h2 className="mt-1 font-serif text-2xl sm:text-3xl">Architecture · Culture · Business</h2>
+                    <p className="mt-1 max-w-md text-[11px] sm:text-xs leading-relaxed text-white/85">
+                      A platform for exhibitions, ideas, industry connections and the future of the built environment.
                     </p>
                   </div>
                 </div>
-
-                {/* Bottom Architectural Details Strip */}
-                <div className="mt-3 p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-between text-xs text-neutral-300">
-                  <span className="flex items-center gap-1.5 text-amber-400 font-mono text-[11px]">
-                    <MapPin className="w-3.5 h-3.5" />
-                    Lucknow, Uttar Pradesh
+                <div className="flex items-center justify-between gap-3 px-2 pt-3 pb-1 text-[10px] sm:text-xs">
+                  <span className="flex items-center gap-1.5 font-semibold text-[#e85b26]">
+                    <MapPin className="h-3.5 w-3.5" /> Lucknow, Uttar Pradesh
                   </span>
-                  <span className="text-[11px] font-mono text-neutral-400">January 2027</span>
+                  <span className="flex items-center gap-1.5 font-semibold text-[#26375d]">
+                    <Calendar className="h-3.5 w-3.5 text-[#e85b26]" /> 22 – 24 January 2027
+                  </span>
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* =========================================================
           2. STICKY FILTER & SEARCH NAVIGATION BAR
       ========================================================= */}
-      <div id="overview" className="sticky top-16 z-40 bg-white/90 backdrop-blur-xl border-b border-[#E6DFD3] shadow-sm py-4">
+      <div id="overview" className="sticky top-16 z-40 bg-[#fffaf5]/90 backdrop-blur-xl border-b border-[#f0d8c8] shadow-sm py-4">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
           
           {/* Category Tabs */}
@@ -449,11 +408,11 @@ const HighlightPage = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-2 ${
                     isActive
-                      ? "bg-[#121214] text-amber-400 shadow-md border border-amber-500/30"
-                      : "bg-[#F0EADF] text-neutral-700 hover:bg-[#E6DFD3] hover:text-black"
+                      ? "bg-gradient-to-r from-[#f15a24] via-[#e52b68] to-[#74158c] text-white shadow-md border border-white/30"
+                      : "bg-white/80 text-[#34415d] hover:bg-[#fff0e6] hover:text-[#e6532b]"
                   }`}
                 >
-                  <TabIcon className={`w-3.5 h-3.5 ${isActive ? "text-amber-400" : "text-neutral-500"}`} />
+                  <TabIcon className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-[#e6532b]"}`} />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -468,7 +427,7 @@ const HighlightPage = () => {
               placeholder="Search sectors, experiences..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-9 py-2 rounded-full bg-[#F5F0E6] border border-[#E6DFD3] text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-amber-500 transition-colors"
+              className="w-full pl-10 pr-9 py-2 rounded-full bg-[#fff6ef] border border-[#f0d8c8] text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-amber-500 transition-colors"
             />
             {searchQuery && (
               <button
@@ -497,15 +456,15 @@ const HighlightPage = () => {
           >
             
             {/* Section Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E6DFD3] pb-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#f0d8c8] pb-6">
               <div>
-                <div className="flex items-center gap-2 text-xs font-mono text-[#B77A27] uppercase tracking-widest mb-1">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#e65a2e] uppercase tracking-widest mb-1">
                   <span>01</span>
-                  <span className="w-8 h-[1px] bg-[#B77A27]" />
+                  <span className="w-8 h-[1px] bg-[#e65a2e]" />
                   <span>The Festival Program</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-medium text-neutral-900">
-                  06 Core <span className="text-[#B77A27]">Experiences</span>
+                  06 Core <span className="text-[#e65a2e]">Experiences</span>
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-neutral-600 max-w-md">
@@ -525,7 +484,7 @@ const HighlightPage = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
                     onClick={() => setSelectedItem({ type: "experience", data: exp })}
-                    className="group cursor-pointer bg-white rounded-3xl p-6 border border-[#E6DFD3] hover:border-[#D4AF37] shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
+                    className="group cursor-pointer bg-white rounded-3xl p-6 border border-[#f0d8c8] hover:border-[#f15a24] shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
                   >
                     
                     {/* Top Glow on Hover */}
@@ -552,7 +511,7 @@ const HighlightPage = () => {
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-xl text-neutral-900 font-medium group-hover:text-[#B77A27] transition-colors mb-2">
+                      <h3 className="font-serif text-xl text-neutral-900 font-medium group-hover:text-[#e65a2e] transition-colors mb-2">
                         {exp.title}
                       </h3>
 
@@ -563,10 +522,10 @@ const HighlightPage = () => {
 
                     <div className="pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
                       <span className="text-[11px] font-mono text-neutral-400 flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#f15a24]" />
                         {exp.stats}
                       </span>
-                      <span className="text-[#B77A27] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <span className="text-[#e65a2e] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                         <span>Details</span>
                         <ArrowUpRight className="w-4 h-4" />
                       </span>
@@ -592,15 +551,15 @@ const HighlightPage = () => {
           >
             
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E6DFD3] pb-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#f0d8c8] pb-6">
               <div>
-                <div className="flex items-center gap-2 text-xs font-mono text-[#B77A27] uppercase tracking-widest mb-1">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#e65a2e] uppercase tracking-widest mb-1">
                   <span>02</span>
-                  <span className="w-8 h-[1px] bg-[#B77A27]" />
+                  <span className="w-8 h-[1px] bg-[#e65a2e]" />
                   <span>Comprehensive Ecosystem</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-medium text-neutral-900">
-                  14 Focus <span className="text-[#B77A27]">Sectors</span>
+                  14 Focus <span className="text-[#e65a2e]">Sectors</span>
                 </h2>
               </div>
               <div className="text-right flex items-center gap-3">
@@ -622,21 +581,21 @@ const HighlightPage = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.03 }}
                     onClick={() => setSelectedItem({ type: "sector", data: sector })}
-                    className="group bg-white rounded-2xl p-5 border border-[#E6DFD3] hover:border-amber-500/60 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden"
+                    className="group bg-white rounded-2xl p-5 border border-[#f0d8c8] hover:border-amber-500/60 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden"
                   >
-                    <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-gradient-to-b from-amber-400 to-[#B77A27] transition-all duration-300" />
+                    <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-gradient-to-b from-amber-400 to-[#e65a2e] transition-all duration-300" />
                     
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] border border-[#E6DFD3] group-hover:border-amber-500 group-hover:bg-amber-500/10 flex items-center justify-center text-[#B77A27] transition-all">
+                        <div className="w-10 h-10 rounded-xl bg-[#fff6ef] border border-[#f0d8c8] group-hover:border-amber-500 group-hover:bg-amber-500/10 flex items-center justify-center text-[#e65a2e] transition-all">
                           <SectorIcon className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-mono font-bold text-neutral-400 group-hover:text-amber-600 transition-colors">
+                        <span className="text-[10px] font-mono font-bold text-neutral-400 group-hover:text-[#e6532b] transition-colors">
                           SEC-{String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
 
-                      <h3 className="font-bold text-xs sm:text-sm tracking-wider uppercase text-neutral-900 group-hover:text-[#B77A27] transition-colors mb-1.5">
+                      <h3 className="font-bold text-xs sm:text-sm tracking-wider uppercase text-neutral-900 group-hover:text-[#e65a2e] transition-colors mb-1.5">
                         {sector.name}
                       </h3>
 
@@ -647,7 +606,7 @@ const HighlightPage = () => {
 
                     <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-[10px] font-mono text-neutral-400">
                       <span>{sector.category}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#f15a24] opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </motion.div>
                 );
@@ -669,15 +628,15 @@ const HighlightPage = () => {
           >
             
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E6DFD3] pb-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#f0d8c8] pb-6">
               <div>
-                <div className="flex items-center gap-2 text-xs font-mono text-[#B77A27] uppercase tracking-widest mb-1">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#e65a2e] uppercase tracking-widest mb-1">
                   <span>03</span>
-                  <span className="w-8 h-[1px] bg-[#B77A27]" />
+                  <span className="w-8 h-[1px] bg-[#e65a2e]" />
                   <span>Curated Conclave Features</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-medium text-neutral-900">
-                  08 Key <span className="text-[#B77A27]">Highlights</span>
+                  08 Key <span className="text-[#e65a2e]">Highlights</span>
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-neutral-600 max-w-md">
@@ -697,7 +656,7 @@ const HighlightPage = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                     onClick={() => setSelectedItem({ type: "highlight", data: hl })}
-                    className="group bg-white rounded-3xl border border-[#E6DFD3] hover:border-amber-500 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                    className="group bg-white rounded-3xl border border-[#f0d8c8] hover:border-amber-500 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
                   >
                     <div>
                       {/* Optional Image Banner */}
@@ -709,7 +668,7 @@ const HighlightPage = () => {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[9px] font-mono text-amber-400 border border-amber-500/30">
+                          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[9px] font-mono text-amber-400 border border-[#f1cbb5]">
                             {hl.badge}
                           </span>
                           <span className="absolute bottom-3 right-3 font-serif text-4xl text-white/20 font-bold">
@@ -718,21 +677,21 @@ const HighlightPage = () => {
                         </div>
                       ) : (
                         <div className="relative p-6 pb-0 flex items-center justify-between">
-                          <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-[9px] font-mono text-amber-700 font-bold border border-amber-500/20">
+                          <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-[9px] font-mono text-[#d94b2b] font-bold border border-[#f1cbb5]">
                             {hl.badge}
                           </span>
-                          <span className="font-serif text-4xl text-[#B77A27]/20 font-bold">
+                          <span className="font-serif text-4xl text-[#e65a2e]/20 font-bold">
                             {hl.number}
                           </span>
                         </div>
                       )}
 
                       <div className="p-6">
-                        <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] border border-[#E6DFD3] group-hover:bg-[#B77A27] group-hover:text-white flex items-center justify-center text-[#B77A27] transition-colors mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-[#fff6ef] border border-[#f0d8c8] group-hover:bg-[#e65a2e] group-hover:text-white flex items-center justify-center text-[#e65a2e] transition-colors mb-4">
                           <HlIcon className="w-5 h-5" />
                         </div>
 
-                        <h3 className="font-bold text-xs sm:text-sm uppercase tracking-wider text-neutral-900 group-hover:text-[#B77A27] transition-colors mb-2">
+                        <h3 className="font-bold text-xs sm:text-sm uppercase tracking-wider text-neutral-900 group-hover:text-[#e65a2e] transition-colors mb-2">
                           {hl.title}
                         </h3>
 
@@ -742,7 +701,7 @@ const HighlightPage = () => {
                       </div>
                     </div>
 
-                    <div className="px-6 py-4 border-t border-neutral-100 bg-[#FAF7F2] flex items-center justify-between text-xs font-semibold text-[#B77A27]">
+                    <div className="px-6 py-4 border-t border-neutral-100 bg-[#fff6ef] flex items-center justify-between text-xs font-semibold text-[#e65a2e]">
                       <span>View Full Details</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -755,23 +714,43 @@ const HighlightPage = () => {
         )}
 
         {/* =========================================================
-            6. INTERACTIVE ROLE PERSPECTIVE (WHY ATTEND?)
+            6. INTERACTIVE ROLE PERSPECTIVE (WHY ATTEND?) - DARK THEME
         ========================================================= */}
-        <section className="bg-[#121214] text-white rounded-3xl p-8 sm:p-12 border border-[#D4AF37]/30 shadow-2xl relative overflow-hidden">
-          
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <section className="bg-gradient-to-br from-[#121016] via-[#16121C] to-[#0E0C12] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+          {/* Top Theme Accent Bar */}
+          <div
+            className="absolute top-0 left-0 right-0 h-[2.5px] rounded-t-3xl"
+            style={{
+              background:
+                "linear-gradient(90deg, #FB7801 0%, #EC2656 25%, #930777 75%, #3C086E 100%)",
+            }}
+          />
+
+          {/* Ambient Glows */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#EC2656]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#FB7801]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 space-y-8">
-            
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono uppercase tracking-widest mb-3">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Value Proposition</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/15 text-xs font-mono uppercase tracking-widest mb-3 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #FB7801, #F43F5E)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Value Proposition
+                </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl text-white font-medium">
-                Why Attend <span className="text-amber-400">LAF 3.0 Highlights?</span>
+                Why Attend{" "}
+                <span className="bg-gradient-to-r from-[#FB7801] via-[#EC2656] to-[#A855F7] bg-clip-text text-transparent">
+                  LAF 3.0 Highlights?
+                </span>
               </h2>
-              <p className="text-neutral-400 text-xs sm:text-sm mt-2 max-w-xl">
+              <p className="text-neutral-300 text-xs sm:text-sm mt-2 max-w-xl leading-relaxed">
                 Select your persona to discover how LAF 3.0 highlights add direct value to your career, business, or organization.
               </p>
             </div>
@@ -787,11 +766,19 @@ const HighlightPage = () => {
                 <button
                   key={role.id}
                   onClick={() => setActiveRoleTab(role.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     activeRoleTab === role.id
-                      ? "bg-amber-400 text-black shadow-lg shadow-amber-400/20"
-                      : "bg-white/5 text-neutral-300 hover:bg-white/10"
+                      ? "text-white shadow-[0_4px_20px_rgba(236,38,86,0.35)]"
+                      : "bg-white/[0.05] text-neutral-300 border border-white/10 hover:bg-white/[0.1] hover:border-white/20"
                   }`}
+                  style={
+                    activeRoleTab === role.id
+                      ? {
+                          background:
+                            "linear-gradient(90deg, #FB7801 0%, #EC2656 45%, #930777 100%)",
+                        }
+                      : undefined
+                  }
                 >
                   {role.label}
                 </button>
@@ -808,7 +795,13 @@ const HighlightPage = () => {
                 className="grid md:grid-cols-12 gap-8 items-center"
               >
                 <div className="md:col-span-8 space-y-4">
-                  <h3 className="font-serif text-2xl text-amber-300 font-medium">
+                  <h3
+                    className="font-serif text-2xl text-transparent bg-clip-text font-medium"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(90deg, #FDBA74, #F472B6)",
+                    }}
+                  >
                     {rolePerspectives[activeRoleTab].title}
                   </h3>
                   <p className="text-sm text-neutral-300 font-medium">
@@ -817,28 +810,37 @@ const HighlightPage = () => {
 
                   <div className="grid sm:grid-cols-2 gap-3 pt-2">
                     {rolePerspectives[activeRoleTab].points.map((pt, i) => (
-                      <div key={i} className="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                        <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                        <span className="text-xs text-neutral-300 leading-relaxed">{pt}</span>
+                      <div
+                        key={i}
+                        className="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all shadow-xs"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-[#FB7801] shrink-0 mt-0.5" />
+                        <span className="text-xs text-neutral-200 leading-relaxed">
+                          {pt}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="md:col-span-4 flex flex-col items-center md:items-end justify-center p-6 bg-white/[0.04] border border-white/10 rounded-2xl text-center md:text-right space-y-4">
-                  <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest">
+                <div className="md:col-span-4 flex flex-col items-center md:items-end justify-center p-6 bg-white/[0.04] border border-white/10 rounded-2xl text-center md:text-right space-y-4 relative overflow-hidden backdrop-blur-xs">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#FB7801]/10 rounded-full blur-2xl pointer-events-none" />
+                  <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest font-medium">
                     Ready to participate?
                   </span>
                   <Link
                     to={rolePerspectives[activeRoleTab].ctaLink}
-                    className="w-full py-3 px-6 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all text-center"
+                    className="w-full py-3.5 px-6 rounded-full text-white font-bold text-xs uppercase tracking-wider hover:scale-105 active:scale-95 transition-all text-center shadow-[0_8px_25px_rgba(236,38,86,0.35)] hover:shadow-[0_12px_35px_rgba(236,38,86,0.5)] cursor-pointer"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, #FB7801 0%, #EC2656 45%, #7C1382 75%, #420A68 100%)",
+                    }}
                   >
                     {rolePerspectives[activeRoleTab].cta}
                   </Link>
                 </div>
               </motion.div>
             )}
-
           </div>
         </section>
 
@@ -861,7 +863,7 @@ const HighlightPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-[#D4AF37] shadow-2xl relative overflow-hidden"
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-[#f15a24] shadow-2xl relative overflow-hidden"
             >
               <button
                 onClick={() => setSelectedItem(null)}
@@ -881,7 +883,7 @@ const HighlightPage = () => {
                       {React.createElement(selectedItem.data.icon, { className: "w-6 h-6" })}
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono text-amber-600 uppercase tracking-widest font-bold">
+                      <span className="text-[10px] font-mono text-[#e6532b] uppercase tracking-widest font-bold">
                         {selectedItem.data.tag}
                       </span>
                       <h3 className="font-serif text-2xl text-neutral-900 font-medium">
@@ -894,7 +896,7 @@ const HighlightPage = () => {
                     {selectedItem.data.text}
                   </p>
 
-                  <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E6DFD3] space-y-2">
+                  <div className="p-4 rounded-2xl bg-[#fff6ef] border border-[#f0d8c8] space-y-2">
                     <h4 className="text-xs font-bold text-neutral-800 uppercase tracking-wider">Scope &amp; Impact</h4>
                     <p className="text-xs text-neutral-600 leading-relaxed">
                       {selectedItem.data.details}
@@ -902,13 +904,13 @@ const HighlightPage = () => {
                   </div>
 
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-xs font-mono text-amber-600 font-bold">
+                    <span className="text-xs font-mono text-[#e6532b] font-bold">
                       ✦ {selectedItem.data.stats}
                     </span>
                     <Link
                       to="/participate"
                       onClick={() => setSelectedItem(null)}
-                      className="px-5 py-2.5 rounded-full bg-[#121214] text-amber-400 font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors"
+                      className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f15a24] to-[#74158c] text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors"
                     >
                       Participate Now
                     </Link>
@@ -919,11 +921,11 @@ const HighlightPage = () => {
               {selectedItem.type === "sector" && (
                 <div className="space-y-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 border border-amber-500/20 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-[#e6532b] border border-[#f1cbb5] flex items-center justify-center">
                       {React.createElement(selectedItem.data.icon, { className: "w-6 h-6" })}
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
+                      <span className="text-[10px] font-mono text-[#7a8296] uppercase tracking-widest">
                         {selectedItem.data.category}
                       </span>
                       <h3 className="font-serif text-2xl text-neutral-900 font-medium uppercase tracking-wider">
@@ -936,7 +938,7 @@ const HighlightPage = () => {
                     {selectedItem.data.desc}
                   </p>
 
-                  <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E6DFD3]">
+                  <div className="p-4 rounded-2xl bg-[#fff6ef] border border-[#f0d8c8]">
                     <h4 className="text-xs font-bold text-neutral-800 uppercase tracking-wider mb-1">Participation Benefits</h4>
                     <p className="text-xs text-neutral-600">
                       Exhibitors and professionals in {selectedItem.data.name} get dedicated booth space, category listing in the official LAF catalog, and targeted B2B matches.
@@ -950,7 +952,7 @@ const HighlightPage = () => {
                     <Link
                       to="/participate"
                       onClick={() => setSelectedItem(null)}
-                      className="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-xs uppercase tracking-wider transition-transform hover:scale-105"
+                      className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ff8a00] via-[#f04b3a] to-[#d41475] text-white font-bold text-xs uppercase tracking-wider transition-transform hover:scale-105"
                     >
                       Inquire Stall
                     </Link>
@@ -968,7 +970,7 @@ const HighlightPage = () => {
                     />
                   )}
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-700 text-[10px] font-mono font-bold uppercase">
+                    <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-[#d94b2b] text-[10px] font-mono font-bold uppercase">
                       {selectedItem.data.badge}
                     </span>
                     <span className="font-serif text-2xl font-bold text-neutral-300">
@@ -991,7 +993,7 @@ const HighlightPage = () => {
                     <Link
                       to="/participate"
                       onClick={() => setSelectedItem(null)}
-                      className="px-5 py-2.5 rounded-full bg-neutral-900 text-amber-400 font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors"
+                      className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f15a24] to-[#74158c] text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors"
                     >
                       Explore Opportunities
                     </Link>

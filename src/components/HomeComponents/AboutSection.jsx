@@ -352,7 +352,7 @@ const AboutSection = () => {
         {/* GROWTH SECTORS (CLEAN SIMPLE BACKGROUND) */}
         <section className="relative mt-16 sm:mt-20 lg:mt-24">
           {/* Section Content */}
-          <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
             {/* Section Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

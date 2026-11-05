@@ -210,7 +210,7 @@ const AgendaSection = () => {
         <div className="absolute -right-32 bottom-20 w-[460px] h-[460px] rounded-full bg-gradient-to-tl from-purple-200/20 to-pink-200/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* SECTION HEADER MATCHING FOCUS SECTORS THEME */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
           <motion.div

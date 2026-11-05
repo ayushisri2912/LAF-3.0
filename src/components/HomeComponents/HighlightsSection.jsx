@@ -328,7 +328,7 @@ const HighlightsSection = () => {
         lg:py-20
       "
     >
-      <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* =====================================================
             SECTION HEADER (Matching Image 1)
@@ -516,7 +516,7 @@ const HighlightsSection = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
             {/* Header matching Image 1 */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
               <div>
@@ -609,7 +609,7 @@ const HighlightsSection = () => {
           </div>
         </motion.div>
 
-      <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* =====================================================
             KEY HIGHLIGHTS (Matching Image 2)
         ====================================================== */}

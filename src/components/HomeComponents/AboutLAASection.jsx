@@ -27,21 +27,18 @@ import {
 // IMAGES IMPORTS
 // ==========================================
 import mentorImage from "../../assets/images/m-1.webp";
-import ob11Img from "../../assets/images/ob1.1.webp";
-import ob12Img from "../../assets/images/ob1.2.webp";
-import ob21Img from "../../assets/images/ob2.1.webp";
-import db22Img from "../../assets/images/db2.2.webp";
-import cd31Img from "../../assets/images/cd3.1.webp";
-import cd32Img from "../../assets/images/cd3.2.webp";
-import cd4Img from "../../assets/images/cd-4.webp";
+import con4Img from "../../assets/images/convenor.png";
+import patron2Img from "../../assets/images/patrons2.png";
+import patron3Img from "../../assets/images/patrons3.png";
+import patron4Img from "../../assets/images/patrons4.png";
 
-import con1Img from "../../assets/images/conveners-1.webp";
+import con1Img from "../../assets/images/co-3.png";
 import con2Img from "../../assets/images/conveners-2.webp";
 import con3Img from "../../assets/images/conveners-3.webp";
 
 import cc1Img from "../../assets/images/cc-1.webp";
 import cc2Img from "../../assets/images/cc-2.webp";
-import cc3Img from "../../assets/images/cc-3.webp";
+import cc3Img from "../../assets/images/co-10.png";
 import cc4Img from "../../assets/images/cc-4.webp";
 import cc5Img from "../../assets/images/cc-5.webp";
 import cc6Img from "../../assets/images/cc-6.webp";
@@ -54,7 +51,7 @@ import jc5Img from "../../assets/images/am3-1.webp";
 import jc6Img from "../../assets/images/am3-2.webp";
 import jc7Img from "../../assets/images/am4-1.webp";
 import jc8Img from "../../assets/images/am4-2.webp";
-import jc9Img from "../../assets/images/am5-1.webp";
+import jc9Img from "../../assets/images/co-9.png";
 import jc10Img from "../../assets/images/am5-2.webp";
 import jc11Img from "../../assets/images/am6-1.webp";
 import jc12Img from "../../assets/images/committee1.webp";
@@ -103,9 +100,9 @@ const MemberCard = ({ member, index }) => {
   const formattedIndex = index < 10 ? `0${index}` : index;
 
   return (
-    <div className="group flex flex-col items-center p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white hover:bg-[#FDFBF7] border border-[#FED7AA]/70 hover:border-[#F97316] shadow-2xs hover:shadow-xl transition-all duration-300 cursor-pointer text-center w-[210px] sm:w-[230px] md:w-[240px] shrink-0 snap-start hover:-translate-y-1">
-      {/* Avatar circular frame with gold double ring border */}
-      <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-b from-[#FED7AA] via-[#F97316]/40 to-transparent group-hover:from-[#EA580C] group-hover:to-[#D91A5B] transition-all duration-300 shadow-md group-hover:shadow-[0_0_22px_rgba(234,88,12,0.22)] mb-4">
+    <div className="group relative flex flex-col items-center p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white hover:bg-[#FDFBF7] border border-[#E6DFD3] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_35px_rgba(236,38,86,0.12)] transition-all duration-300 cursor-pointer text-center w-[210px] sm:w-[230px] md:w-[240px] shrink-0 snap-start hover:-translate-y-1 overflow-hidden">
+      {/* Avatar circular frame with theme gradient ring matching Supporting Leadership */}
+      <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-b from-[#FB7801] via-[#EC2656] to-[#930777] transition-all duration-300 shadow-sm group-hover:shadow-[0_0_22px_rgba(236,38,86,0.25)] mb-4">
         <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white flex items-center justify-center">
           {member.image && !imgError ? (
             <img
@@ -116,8 +113,8 @@ const MemberCard = ({ member, index }) => {
               onError={() => setImgError(true)}
             />
           ) : (
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-[#1E1B18] via-[#141210] to-[#0D0B0A] flex flex-col items-center justify-center border-2 border-[#EA580C]/40 shadow-inner group-hover:border-[#EA580C] transition-colors duration-300">
-              <span className="font-serif font-bold text-3xl sm:text-4xl text-[#F3E5C8] group-hover:text-[#FDE68A] tracking-wider select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-[#2D2426] via-[#1D171A] to-[#120F11] flex flex-col items-center justify-center border-2 border-white/90 shadow-inner group-hover:border-white transition-colors duration-300">
+              <span className="font-serif font-bold text-3xl sm:text-4xl text-[#FDEEE9] group-hover:text-amber-200 tracking-wider select-none">
                 {initials}
               </span>
             </div>
@@ -126,16 +123,31 @@ const MemberCard = ({ member, index }) => {
       </div>
 
       <div className="w-full">
-        <span className="text-[9.5px] font-mono tracking-widest text-[#EA580C] font-bold uppercase block truncate">
+        <span
+          className="text-[9.5px] font-mono tracking-widest font-bold uppercase block truncate"
+          style={{
+            background: "linear-gradient(90deg, #FB7801, #930777)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
           LAF 3.0 · #{formattedIndex}
         </span>
-        <h4 className="font-serif text-base font-bold text-[#0B1536] group-hover:text-[#EA580C] transition-colors mt-1 leading-snug line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
+        <h4 className="font-serif text-base font-bold text-neutral-900 group-hover:text-[#EC2656] transition-colors mt-1 leading-snug line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
           {member.name}
         </h4>
         <p className="text-xs text-neutral-500 font-medium mt-1 truncate">
           {member.role}
         </p>
       </div>
+
+      {/* Bottom Shimmer Line */}
+      <div
+        className="absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-500 group-hover:w-full"
+        style={{
+          background: "linear-gradient(90deg, #FB7801, #EC2656, #930777, #3C086E)",
+        }}
+      />
     </div>
   );
 };
@@ -188,25 +200,41 @@ const CommitteeSliderRow = ({ committee, index }) => {
       className="mb-14"
     >
       {/* ================= COMMITTEE HEADING CARD ================= */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#FED7AA]/70 border-b-2 border-b-[#EA580C]/40 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6 relative overflow-hidden">
-        {/* Subtle Ambient Gold Accent Glow */}
-        <div className="absolute top-0 right-0 w-48 h-48 bg-orange-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E6DFD3] shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6 relative overflow-hidden">
+        {/* Theme Top Accent Bar */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[2.5px] rounded-t-3xl"
+          style={{
+            background:
+              "linear-gradient(90deg, #FB7801 0%, #EC2656 25%, #930777 75%, #3C086E 100%)",
+          }}
+        />
+
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-orange-400/5 to-purple-400/5 rounded-full blur-3xl pointer-events-none" />
 
         <div>
-          {/* Top Category Tag matching Core Committee section in Image 1 */}
+          {/* Top Category Tag */}
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#EA580C] animate-pulse shrink-0" />
-            <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#EA580C]">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#EC2656] animate-pulse shrink-0" />
+            <span
+              className="text-xs font-mono font-bold tracking-[0.3em] uppercase"
+              style={{
+                background: "linear-gradient(90deg, #FB7801, #930777)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               {committee.id} · {committee.category?.toUpperCase()}
             </span>
           </div>
 
           {/* Heading + Icon */}
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-2xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#EA580C] shrink-0 shadow-2xs">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-2xl bg-gradient-to-br from-orange-50 to-purple-50 border border-orange-100/80 flex items-center justify-center text-[#EC2656] shrink-0 shadow-2xs">
               <IconComponent size={22} strokeWidth={1.5} />
             </div>
-            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0B1536] group-hover:text-[#EA580C] transition-colors">
+            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 group-hover:text-[#EC2656] transition-colors">
               {committee.title}
             </h3>
           </div>
@@ -221,7 +249,7 @@ const CommitteeSliderRow = ({ committee, index }) => {
 
         {/* MEMBER COUNT & INDEPENDENT SLIDER NAVIGATION ARROWS */}
         <div className="flex items-center gap-4 self-start md:self-auto shrink-0">
-          <span className="font-mono text-xs font-bold tracking-[0.25em] text-[#EA580C] uppercase bg-orange-50 px-4 py-2 rounded-full border border-orange-200/80 shadow-2xs">
+          <span className="font-mono text-xs font-bold tracking-[0.25em] text-[#EC2656] uppercase bg-gradient-to-r from-orange-50 to-purple-50 px-4 py-2 rounded-full border border-orange-100 shadow-2xs">
             MEMBERS ({allMembers.length.toString().padStart(2, "0")})
           </span>
 
@@ -229,14 +257,14 @@ const CommitteeSliderRow = ({ committee, index }) => {
             <button
               onClick={() => handleScroll("left")}
               aria-label={`Previous members of ${committee.title}`}
-              className="w-10 h-10 rounded-full bg-white hover:bg-[#171717] border border-[#D9D0C2] hover:border-[#171717] text-neutral-700 hover:text-amber-400 flex items-center justify-center transition-all shadow-2xs cursor-pointer active:scale-95"
+              className="w-10 h-10 rounded-full bg-white hover:bg-gradient-to-r hover:from-[#FB7801] hover:to-[#EC2656] border border-[#E6DFD3] hover:border-transparent text-[#EC2656] hover:text-white flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={() => handleScroll("right")}
               aria-label={`Next members of ${committee.title}`}
-              className="w-10 h-10 rounded-full bg-white hover:bg-[#171717] border border-[#D9D0C2] hover:border-[#171717] text-neutral-700 hover:text-amber-400 flex items-center justify-center transition-all shadow-2xs cursor-pointer active:scale-95"
+              className="w-10 h-10 rounded-full bg-white hover:bg-gradient-to-r hover:from-[#FB7801] hover:to-[#EC2656] border border-[#E6DFD3] hover:border-transparent text-[#EC2656] hover:text-white flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
             >
               <ChevronRight size={18} />
             </button>
@@ -273,45 +301,27 @@ const mentorData = {
 const patronsData = [
   {
     name: "Ar. Ashok Kumar",
-    role: "Patron / Past President",
+    role: "Patron",
     badge: "PATRON",
-    image: ob11Img,
+    image: con4Img,
   },
   {
-    name: "Ar. Anupam Mittal",
-    role: "Patron / President",
+    name: "Ar. Ajai Behl",
+    role: "Patron",
     badge: "PATRON",
-    image: ob12Img,
+    image: patron2Img,
   },
   {
-    name: "Ar. Sanjay Patel",
-    role: "Patron / Past President",
+    name: "Dr. Vandana Sehgal",
+    role: "Patron",
     badge: "PATRON",
-    image: ob21Img,
+    image: patron3Img,
   },
   {
-    name: "Ar. Devesh Mani",
-    role: "Patron / Gen. Secretary",
+    name: "Ar. Sanjay Sinha",
+    role: "Patron",
     badge: "PATRON",
-    image: db22Img,
-  },
-  {
-    name: "Ar. Nitin Gangwar",
-    role: "Patron / Secretary",
-    badge: "PATRON",
-    image: cd31Img,
-  },
-  {
-    name: "Ar. Ashutosh Gupta",
-    role: "Patron / Joint Secretary",
-    badge: "PATRON",
-    image: cd32Img,
-  },
-  {
-    name: "Ar. Devendra Kumar",
-    role: "Patron / Treasurer",
-    badge: "PATRON",
-    image: cd4Img,
+    image: patron4Img,
   },
 ];
 
@@ -882,18 +892,61 @@ const AboutLAASection = () => {
         ====================================================== */}
         <div className="mt-20">
           {/* SECTION SUBHEADER */}
-          <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between border-b border-[#FED7AA]/60 pb-6">
-            <div>
-              <p className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#EA580C] mb-2">
-                GUIDING LIGHTS &amp; LEADERSHIP
+          <div className="mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E6DFD3] pb-6">
+            <div className="max-w-2xl">
+              <div className="mb-3.5 flex items-center gap-2.5">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EC2656]"></span>
+                </span>
+                <span
+                  className="text-[11px] font-mono font-bold uppercase tracking-[0.25em]"
+                  style={{
+                    background: "linear-gradient(90deg, #FB7801, #930777)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  GUIDING LIGHTS &amp; LEADERSHIP
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-neutral-900 leading-[1.1]">
+                Mentor &amp;{" "}
+                <span
+                  className="italic font-serif font-normal"
+                  style={{
+                    background: "linear-gradient(90deg, #FB7801, #EC2656, #930777)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Patrons
+                </span>
+              </h2>
+
+              <p className="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl">
+                Honoring the esteemed mentors and founding patrons driving the mission of Lucknow Architects Association.
               </p>
-              <h3 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[#0B1536]">
-                Mentor &amp; Patrons
-              </h3>
             </div>
-            <p className="mt-3 md:mt-0 text-sm sm:text-base text-neutral-600 max-w-md leading-relaxed">
-              Honoring the esteemed mentors and founding patrons driving the mission of Lucknow Architects Association.
-            </p>
+
+            <div
+              className="hidden lg:flex items-center gap-3 px-4 py-2.5 rounded-2xl border border-white/30 shadow-sm text-white"
+              style={{
+                background:
+                  "linear-gradient(90deg, #FB7801 0%, #EC2656 40%, #930777 80%, #3C086E 100%)",
+              }}
+            >
+              <ShieldCheck className="w-5 h-5 text-amber-300" />
+              <div className="text-left">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-white">
+                  LAA Leadership
+                </div>
+                <div className="text-[10px] font-mono text-white/70">
+                  1 Mentor · 4 Patrons
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-12 items-stretch">
@@ -903,27 +956,27 @@ const AboutLAASection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="lg:col-span-4 bg-gradient-to-b from-[#FFFDF9] via-white to-[#F7F2EA] p-7 sm:p-8 rounded-3xl border-2 border-[#F97316]/50 shadow-lg flex flex-col justify-between text-center relative overflow-hidden group hover:shadow-2xl hover:border-[#F97316] transition-all duration-500"
+              className="lg:col-span-4 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6EE] p-6 sm:p-7 rounded-3xl border border-[#E6DFD3] hover:border-[#D4AF37]/70 shadow-sm flex flex-col justify-between text-center relative overflow-hidden group hover:shadow-xl transition-all duration-500"
             >
               {/* Gold Top Light Sweep */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
 
               {/* Unique Gold Mentor Badge */}
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-[#EA580C] to-[#D91A5B] text-white text-[9.5px] font-bold uppercase font-mono tracking-widest px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-[#FB7801] via-[#EC2656] to-[#930777] text-white text-[9.5px] font-bold uppercase font-mono tracking-widest px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
                 <Sparkles size={11} />
                 <span>{mentorData.badge}</span>
               </div>
 
               <div>
-                <p className="text-[10.5px] uppercase tracking-[0.28em] text-[#EA580C] font-bold font-mono mb-4 text-left">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-[#B77A27] font-bold font-mono mb-3 text-left">
                   ✦ {mentorData.tag}
                 </p>
 
-                {/* Avatar with double orbit ring */}
-                <div className="relative mx-auto h-32 w-32 sm:h-36 sm:w-36 my-3">
-                  <div className="absolute -inset-2.5 rounded-full border border-[#F97316]/40 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute -inset-5 rounded-full border border-[#F97316]/20 pointer-events-none" />
-                  <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white shadow-lg bg-white">
+                {/* Avatar with double orbit ring - bigger image */}
+                <div className="relative mx-auto h-44 w-44 sm:h-48 sm:w-48 my-2">
+                  <div className="absolute -inset-2 rounded-full border border-[#D4AF37]/50 group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute -inset-4 rounded-full border border-[#D4AF37]/25 pointer-events-none" />
+                  <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white shadow-lg bg-white flex items-center justify-center">
                     <img
                       src={mentorData.image}
                       alt={mentorData.name}
@@ -932,15 +985,15 @@ const AboutLAASection = () => {
                   </div>
                 </div>
 
-                <h4 className="mt-4 font-serif text-2xl font-bold text-[#0B1536] group-hover:text-[#EA580C] transition-colors">
+                <h4 className="mt-3 font-serif text-2xl font-bold text-neutral-900 group-hover:text-[#B77A27] transition-colors">
                   {mentorData.name}
                 </h4>
-                <p className="mt-0.5 text-xs font-mono tracking-[0.25em] text-[#EA580C] uppercase font-bold">
+                <p className="mt-0.5 text-xs font-mono tracking-[0.25em] text-[#B77A27] uppercase font-bold">
                   {mentorData.role}
                 </p>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-[#FED7AA]/60 text-center">
+              <div className="mt-5 pt-4 border-t border-[#E6DFD3] text-center">
                 <p className="font-serif italic text-xs sm:text-sm text-neutral-600 leading-relaxed">
                   "{mentorData.quote}"
                 </p>
@@ -948,7 +1001,7 @@ const AboutLAASection = () => {
             </motion.div>
 
             {/* PATRONS COMPACT MINIMAL GRID (RIGHT) */}
-            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5">
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
               {patronsData.map((person, index) => (
                 <motion.div
                   key={person.name}
@@ -956,16 +1009,16 @@ const AboutLAASection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="group relative flex flex-col items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/80 hover:bg-white border border-[#FED7AA]/70 hover:border-[#F97316] shadow-2xs hover:shadow-xl transition-all duration-300 text-center"
+                  className="group relative flex flex-col items-center justify-between p-4 sm:p-5 rounded-2xl bg-white hover:bg-[#FDFBF7] border border-[#E6DFD3] hover:border-[#D4AF37]/70 shadow-2xs hover:shadow-xl transition-all duration-300 text-center"
                 >
                   {/* Patron Badge */}
-                  <div className="absolute top-2.5 right-2.5 text-[8.5px] font-bold uppercase font-mono tracking-widest px-2 py-0.5 rounded-full bg-orange-50 text-[#EA580C] border border-orange-200/80 font-bold">
+                  <div className="absolute top-2.5 right-2.5 text-[8.5px] font-bold uppercase font-mono tracking-widest px-2 py-0.5 rounded-full bg-amber-50/80 text-[#B77A27] border border-amber-200/60 font-bold">
                     {person.badge}
                   </div>
 
                   <div className="w-full flex flex-col items-center pt-2">
                     {/* Image Circular Ring */}
-                    <div className="relative w-22 h-22 sm:w-26 sm:h-26 rounded-full p-1 bg-gradient-to-b from-[#FED7AA] via-[#F97316]/40 to-transparent group-hover:from-[#EA580C] group-hover:to-[#D91A5B] transition-all duration-300 shadow-sm group-hover:shadow-[0_0_18px_rgba(183,122,39,0.2)] mb-3">
+                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-b from-[#E6DFD3] via-[#D4AF37]/50 to-transparent group-hover:from-[#B77A27] group-hover:to-amber-300 transition-all duration-300 shadow-sm group-hover:shadow-[0_0_18px_rgba(183,122,39,0.2)] mb-3">
                       <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white flex items-center justify-center">
                         <img
                           src={person.image}
@@ -976,15 +1029,15 @@ const AboutLAASection = () => {
                       </div>
                     </div>
 
-                    <h5 className="font-serif text-sm sm:text-base font-bold text-[#0B1536] group-hover:text-[#EA580C] transition-colors leading-snug">
+                    <h5 className="font-serif text-sm sm:text-base font-bold text-neutral-900 group-hover:text-[#B77A27] transition-colors leading-snug">
                       {person.name}
                     </h5>
-                    <p className="mt-0.5 text-[10px] text-neutral-500 font-medium">
+                    <p className="mt-1 text-[11px] text-neutral-500 font-medium">
                       {person.role}
                     </p>
                   </div>
 
-                  <div className="mt-3 h-0.5 w-0 bg-gradient-to-r from-[#EA580C] to-[#D91A5B] group-hover:w-8 transition-all duration-300" />
+                  <div className="mt-3 h-0.5 w-0 bg-gradient-to-r from-[#D4AF37] to-[#FB7801] group-hover:w-8 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>
@@ -997,16 +1050,36 @@ const AboutLAASection = () => {
         <div id="committees" className="mt-24">
           {/* HEADER & FILTER BAR */}
           <div className="mb-12">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-[#FED7AA]/60 pb-6 gap-6">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-[#E6DFD3] pb-6 gap-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#EA580C] animate-pulse" />
-                  <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-[#EA580C]">
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EC2656]"></span>
+                  </span>
+                  <span
+                    className="text-[11px] font-mono font-bold tracking-[0.25em] uppercase"
+                    style={{
+                      background: "linear-gradient(90deg, #FB7801, #930777)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
                     LAA WORKING STRUCTURE
                   </span>
                 </div>
-                <h3 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[#0B1536]">
-                  LAA Committees
+                <h3 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900">
+                  LAA{" "}
+                  <span
+                    className="italic font-serif font-normal"
+                    style={{
+                      background: "linear-gradient(90deg, #FB7801, #EC2656, #930777)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    Committees
+                  </span>
                 </h3>
               </div>
 
@@ -1018,7 +1091,7 @@ const AboutLAASection = () => {
                   placeholder="Search committee or member..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white border border-[#FED7AA] text-xs focus:outline-hidden focus:border-[#EA580C] transition-colors placeholder:text-neutral-400"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white border border-[#E6DFD3] text-xs focus:outline-hidden focus:border-[#EC2656]/60 focus:ring-1 focus:ring-[#EC2656]/30 transition-all placeholder:text-neutral-400 shadow-2xs"
                 />
               </div>
             </div>
@@ -1030,13 +1103,21 @@ const AboutLAASection = () => {
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`
-                    px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 cursor-pointer
+                    px-4 py-2 rounded-full text-xs whitespace-nowrap transition-all duration-300 cursor-pointer
                     ${
                       selectedCategory === cat
-                        ? "bg-gradient-to-r from-[#EA580C] to-[#D91A5B] text-white shadow-sm font-semibold"
-                        : "bg-white hover:bg-orange-50/60 text-neutral-700 border border-[#FED7AA]/70"
+                        ? "text-white shadow-sm font-semibold"
+                        : "bg-white hover:bg-[#FDFBF7] text-neutral-700 border border-[#E6DFD3] hover:border-[#EC2656]/40 font-medium"
                     }
                   `}
+                  style={
+                    selectedCategory === cat
+                      ? {
+                          background:
+                            "linear-gradient(90deg, #FB7801 0%, #EC2656 40%, #930777 80%, #3C086E 100%)",
+                        }
+                      : undefined
+                  }
                 >
                   {cat}
                 </button>
@@ -1058,7 +1139,7 @@ const AboutLAASection = () => {
           </div>
 
           {filteredCommittees.length === 0 && (
-            <div className="text-center py-16 bg-white/50 rounded-2xl border border-[#D9D0C2]">
+            <div className="text-center py-16 bg-white/50 rounded-2xl border border-[#E6DFD3]">
               <p className="text-neutral-500 font-serif text-lg">
                 No committee or member found matching "{searchQuery}"
               </p>
@@ -1067,7 +1148,11 @@ const AboutLAASection = () => {
                   setSearchQuery("");
                   setSelectedCategory("All");
                 }}
-                className="mt-4 px-5 py-2 rounded-full bg-[#171717] text-white text-xs font-medium hover:bg-[#B77A27] transition-colors cursor-pointer"
+                className="mt-4 px-5 py-2 rounded-full text-white text-xs font-medium transition-all shadow-sm cursor-pointer"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #FB7801, #EC2656, #930777)",
+                }}
               >
                 Reset Search Filters
               </button>
