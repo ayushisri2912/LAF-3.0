@@ -123,14 +123,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-[#0e0e11] text-white border-t border-[#D4AF37]/30 shadow-2xl">
-      {/* Top Hairline Gold Gradient Indicator */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-80" />
+    <footer className="relative overflow-hidden bg-[#0c0714] text-white shadow-2xl">
+      {/* Background Subtle Dark Purple/Indigo Ambiance Aura */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(78,12,123,0.22),rgba(12,7,20,0))]" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Top Vibrant Brand Gradient Accent Line (Orange → Pink → Purple) matching Header Bar */}
+      <div
+        className="h-[3px] w-full shadow-[0_1px_14px_rgba(236,38,86,0.45)] relative z-10"
+        style={{
+          background:
+            'linear-gradient(90deg, #FB7801 0%, #EC2656 20%, #D8066B 40%, #930777 65%, #4E0C7B 85%, #3C086E 100%)',
+        }}
+      />
 
       {/* =====================================================
           MAIN FOOTER CONTENT (COMPACT LOW-HEIGHT LAYOUT)
       ====================================================== */}
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-6 sm:py-8">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-6 sm:py-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12 lg:gap-8 items-start">
           
           {/* ================= BRAND COLUMN ================= */}
@@ -139,13 +149,13 @@ export default function Footer() {
               <img
                 src={LAFLogo}
                 alt="LAF 3.0 Logo"
-                className="h-14 sm:h-16 w-auto object-contain rounded-xl border border-[#D4AF37]/40 p-1 bg-white shadow-sm group-hover:scale-105 transition-all duration-300"
+                className="h-14 sm:h-16 w-auto object-contain rounded-xl border border-amber-500/30 p-1 bg-white shadow-sm group-hover:scale-105 transition-all duration-300"
               />
               <div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-none text-white tracking-tight">
                   Lucknow
                 </h3>
-                <p className="mt-1 font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D4AF37] font-bold uppercase">
+                <p className="mt-1 font-mono text-[10px] sm:text-xs tracking-[0.25em] bg-gradient-to-r from-[#FB7801] via-[#F59E0B] to-[#FBBF24] bg-clip-text text-transparent font-bold uppercase">
                   ARCHITECTURE FESTIVAL 3.0
                 </p>
               </div>
@@ -157,7 +167,7 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center gap-2 text-xs text-neutral-300 font-medium">
-              <MapPin size={14} className="text-[#D4AF37] shrink-0" />
+              <MapPin size={14} className="text-[#FB7801] drop-shadow-[0_0_8px_rgba(251,120,1,0.55)] shrink-0" />
               <span>Lucknow, Uttar Pradesh, India</span>
             </div>
 
@@ -172,7 +182,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 border border-white/15 text-neutral-300 hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#140b22] border border-white/15 text-neutral-300 hover:border-[#FB7801]/80 hover:bg-gradient-to-r hover:from-[#FB7801] hover:to-[#EC2656] hover:text-white hover:shadow-[0_0_12px_rgba(251,120,1,0.5)] hover:scale-105 transition-all duration-300"
                   >
                     <Icon />
                   </a>
@@ -183,7 +193,7 @@ export default function Footer() {
 
           {/* ================= QUICK LINKS ================= */}
           <div className="lg:col-span-3">
-            <h4 className="font-mono text-xs tracking-[0.2em] text-[#D4AF37] font-bold uppercase mb-3 pb-0.5 border-b border-[#D4AF37]/20 inline-block">
+            <h4 className="font-mono text-xs tracking-[0.2em] font-bold uppercase mb-3 pb-0.5 border-b border-orange-500/30 inline-block bg-gradient-to-r from-[#FB7801] via-[#F59E0B] to-[#FBBF24] bg-clip-text text-transparent">
               EXPLORE
             </h4>
             <ul className="grid grid-cols-2 gap-2">
@@ -195,19 +205,19 @@ export default function Footer() {
                     {isRoute ? (
                       <Link
                         to={link.href}
-                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-white transition-colors"
                       >
-                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
-                        <span>{link.label}</span>
+                        <Icon size={14} className="text-[#FB7801] drop-shadow-[0_0_8px_rgba(251,120,1,0.55)] group-hover:text-[#EC2656] group-hover:scale-110 transition-all duration-300 shrink-0" />
+                        <span className="group-hover:text-amber-300 transition-colors">{link.label}</span>
                       </Link>
                     ) : (
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-white transition-colors"
                       >
-                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
-                        <span>{link.label}</span>
+                        <Icon size={14} className="text-[#FB7801] drop-shadow-[0_0_8px_rgba(251,120,1,0.55)] group-hover:text-[#EC2656] group-hover:scale-110 transition-all duration-300 shrink-0" />
+                        <span className="group-hover:text-amber-300 transition-colors">{link.label}</span>
                       </a>
                     )}
                   </li>
@@ -218,7 +228,7 @@ export default function Footer() {
 
           {/* ================= FESTIVAL SECTIONS ================= */}
           <div className="lg:col-span-2">
-            <h4 className="font-mono text-xs tracking-[0.2em] text-[#D4AF37] font-bold uppercase mb-3 pb-0.5 border-b border-[#D4AF37]/20 inline-block">
+            <h4 className="font-mono text-xs tracking-[0.2em] font-bold uppercase mb-3 pb-0.5 border-b border-orange-500/30 inline-block bg-gradient-to-r from-[#FB7801] via-[#F59E0B] to-[#FBBF24] bg-clip-text text-transparent">
               FESTIVAL
             </h4>
             <ul className="space-y-2">
@@ -230,19 +240,19 @@ export default function Footer() {
                     {isRoute ? (
                       <Link
                         to={link.href}
-                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-white transition-colors"
                       >
-                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
-                        <span>{link.label}</span>
+                        <Icon size={14} className="text-[#FB7801] drop-shadow-[0_0_8px_rgba(251,120,1,0.55)] group-hover:text-[#EC2656] group-hover:scale-110 transition-all duration-300 shrink-0" />
+                        <span className="group-hover:text-amber-300 transition-colors">{link.label}</span>
                       </Link>
                     ) : (
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-[#D4AF37] transition-colors"
+                        className="group inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-300 hover:text-white transition-colors"
                       >
-                        <Icon size={13} className="text-[#D4AF37]/70 group-hover:text-[#D4AF37] transition-colors" />
-                        <span>{link.label}</span>
+                        <Icon size={14} className="text-[#FB7801] drop-shadow-[0_0_8px_rgba(251,120,1,0.55)] group-hover:text-[#EC2656] group-hover:scale-110 transition-all duration-300 shrink-0" />
+                        <span className="group-hover:text-amber-300 transition-colors">{link.label}</span>
                       </a>
                     )}
                   </li>
@@ -253,21 +263,25 @@ export default function Footer() {
 
           {/* ================= DOWNLOADS ================= */}
           <div className="lg:col-span-3">
-            <h4 className="font-mono text-xs tracking-[0.2em] text-[#D4AF37] font-bold uppercase mb-3 pb-0.5 border-b border-[#D4AF37]/20 inline-block">
+            <h4 className="font-mono text-xs tracking-[0.2em] font-bold uppercase mb-3 pb-0.5 border-b border-orange-500/30 inline-block bg-gradient-to-r from-[#FB7801] via-[#F59E0B] to-[#FBBF24] bg-clip-text text-transparent">
               EVENT DOCUMENTS
             </h4>
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               {downloads.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="group flex items-center justify-between rounded-xl bg-neutral-900/90 border border-white/15 px-3 py-2 text-xs sm:text-sm text-neutral-200 hover:border-[#D4AF37]/60 hover:bg-neutral-900 transition-all duration-300"
+                  className="group relative block p-[1px] rounded-xl bg-gradient-to-r from-[#FB7801]/60 via-[#EC2656]/50 to-[#930777]/50 hover:from-[#FB7801] hover:via-[#EC2656] hover:to-[#D8066B] shadow-[0_2px_12px_rgba(251,120,1,0.12)] hover:shadow-[0_4px_18px_rgba(236,38,86,0.35)] hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-2.5">
-                    <FileText size={14} className="text-[#D4AF37]" />
-                    <span className="font-semibold">{item.label}</span>
+                  <div className="flex items-center justify-between rounded-[11px] bg-[#140b22]/95 hover:bg-[#1a0f2b] px-3.5 py-2 transition-colors">
+                    <div className="flex items-center gap-2.5">
+                      <FileText size={14} className="text-[#FB7801] drop-shadow-[0_0_8px_rgba(251,120,1,0.55)]" />
+                      <span className="font-semibold text-xs sm:text-sm text-neutral-100 group-hover:text-white transition-colors">{item.label}</span>
+                    </div>
+                    <div className="flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-r from-[#FB7801]/20 to-[#EC2656]/20 border border-[#FB7801]/30 text-[#FB7801] group-hover:from-[#FB7801] group-hover:to-[#EC2656] group-hover:text-white group-hover:border-transparent group-hover:shadow-[0_0_10px_rgba(251,120,1,0.6)] transition-all duration-300">
+                      <Download size={12} className="group-hover:translate-y-0.5 transition-transform" />
+                    </div>
                   </div>
-                  <Download size={13} className="text-neutral-400 group-hover:text-[#D4AF37] transition-colors" />
                 </a>
               ))}
             </div>
@@ -275,21 +289,24 @@ export default function Footer() {
 
         </div>
 
+        {/* Translucent Divider Above Contact Strip */}
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/15 to-transparent mt-6 mb-4" />
+
         {/* ================= CONTACT STRIP (COMPACT) ================= */}
-        <div className="mt-5 pt-4 border-t border-white/10">
+        <div>
           <div className="grid gap-3 md:grid-cols-3">
             <a
               href="tel:+918874184076"
-              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.03] transition-colors"
+              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.04] transition-colors"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/15 transition-all duration-300 shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#FB7801]/15 via-[#EC2656]/15 to-[#4E0C7B]/20 border border-[#FB7801]/40 text-[#FB7801] shadow-[0_0_12px_rgba(251,120,1,0.3)] group-hover:border-[#EC2656] group-hover:from-[#FB7801] group-hover:to-[#EC2656] group-hover:text-white group-hover:shadow-[0_0_16px_rgba(236,38,86,0.55)] group-hover:scale-105 transition-all duration-300 shrink-0">
                 <Phone size={15} />
               </div>
               <div>
-                <p className="text-[9px] font-mono tracking-[0.18em] text-[#D4AF37] font-bold uppercase">
+                <p className="text-[9px] font-mono tracking-[0.18em] bg-gradient-to-r from-[#FB7801] to-[#F59E0B] bg-clip-text text-transparent font-bold uppercase">
                   TASK MARKETING SOLUTIONS
                 </p>
-                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors">
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-amber-300 transition-colors">
                   +91 8874 1840 76
                 </span>
               </div>
@@ -297,16 +314,16 @@ export default function Footer() {
 
             <a
               href="tel:+919335210024"
-              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.03] transition-colors"
+              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.04] transition-colors"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/15 transition-all duration-300 shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#FB7801]/15 via-[#EC2656]/15 to-[#4E0C7B]/20 border border-[#FB7801]/40 text-[#FB7801] shadow-[0_0_12px_rgba(251,120,1,0.3)] group-hover:border-[#EC2656] group-hover:from-[#FB7801] group-hover:to-[#EC2656] group-hover:text-white group-hover:shadow-[0_0_16px_rgba(236,38,86,0.55)] group-hover:scale-105 transition-all duration-300 shrink-0">
                 <Phone size={15} />
               </div>
               <div>
-                <p className="text-[9px] font-mono tracking-[0.18em] text-[#D4AF37] font-bold uppercase">
+                <p className="text-[9px] font-mono tracking-[0.18em] bg-gradient-to-r from-[#FB7801] to-[#F59E0B] bg-clip-text text-transparent font-bold uppercase">
                   LUCKNOW ARCHITECTS ASSOCIATION
                 </p>
-                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors">
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-amber-300 transition-colors">
                   +91 9335 2100 24
                 </span>
               </div>
@@ -314,16 +331,16 @@ export default function Footer() {
 
             <a
               href="mailto:info@taskmarketingsolutions.in"
-              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.03] transition-colors"
+              className="group flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-white/[0.04] transition-colors"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/15 transition-all duration-300 shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#FB7801]/15 via-[#EC2656]/15 to-[#4E0C7B]/20 border border-[#FB7801]/40 text-[#FB7801] shadow-[0_0_12px_rgba(251,120,1,0.3)] group-hover:border-[#EC2656] group-hover:from-[#FB7801] group-hover:to-[#EC2656] group-hover:text-white group-hover:shadow-[0_0_16px_rgba(236,38,86,0.55)] group-hover:scale-105 transition-all duration-300 shrink-0">
                 <Mail size={15} />
               </div>
               <div>
-                <p className="text-[9px] font-mono tracking-[0.18em] text-[#D4AF37] font-bold uppercase">
+                <p className="text-[9px] font-mono tracking-[0.18em] bg-gradient-to-r from-[#FB7801] to-[#F59E0B] bg-clip-text text-transparent font-bold uppercase">
                   EMAIL ENQUIRIES
                 </p>
-                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors break-all">
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-amber-300 transition-colors break-all">
                   info@taskmarketingsolutions.in
                 </span>
               </div>
@@ -331,17 +348,20 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Translucent Divider Above Bottom Bar */}
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/15 to-transparent mt-4 mb-3" />
+
         {/* ================= BOTTOM BAR WITH TRANSPARENT THEMED CCWS LOGO ================= */}
-        <div className="flex flex-col items-center justify-between gap-3 py-3.5 md:flex-row border-t border-white/10 mt-4 text-neutral-300 font-mono text-xs">
+        <div className="flex flex-col items-center justify-between gap-3 py-2 md:flex-row text-neutral-300 font-mono text-xs">
           {/* Left: Copyright */}
           <div>
-            <span>© {new Date().getFullYear()} LUCKNOW ARCHITECTURE FESTIVAL 3.0</span>
+            <span className="text-neutral-400">© {new Date().getFullYear()} LUCKNOW ARCHITECTURE FESTIVAL 3.0</span>
           </div>
 
           {/* Center: Precision Crafted Credit with Transparent Gold-Themed CCWS Logo */}
           <div className="flex flex-wrap items-center justify-center gap-2 text-neutral-300 font-mono">
-            <span className="text-[#D4AF37] font-bold text-xs font-mono">&lt;/&gt;</span>
-            <span className="tracking-tight">Precision Crafted with Digital Intelligence by</span>
+            <span className="bg-gradient-to-r from-[#FB7801] via-[#F59E0B] to-[#FBBF24] bg-clip-text text-transparent font-bold text-xs font-mono">&lt;/&gt;</span>
+            <span className="tracking-tight text-neutral-300">Precision Crafted with Digital Intelligence by</span>
             <a
               href="https://codecrafter.in"
               target="_blank"
@@ -351,16 +371,26 @@ export default function Footer() {
               <img
                 src={CCWSLogo}
                 alt="CodeCrafter Web Solutions"
-                className="h-6 w-auto object-contain brightness-0 invert sepia-100 saturate-[500%] hue-rotate-[15deg] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] transition-all duration-300"
+                className="h-6 w-auto object-contain brightness-0 invert sepia-100 saturate-[500%] hue-rotate-[15deg] drop-shadow-[0_0_8px_rgba(251,120,1,0.5)] transition-all duration-300"
               />
             </a>
           </div>
 
           {/* Right: Privacy Policy & Terms of Use */}
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-[#D4AF37] transition-colors">PRIVACY POLICY</a>
+            <a
+              href="#"
+              className="bg-gradient-to-r from-[#FBBF24] via-[#F59E0B] to-[#FB7801] bg-clip-text text-transparent font-medium hover:brightness-125 transition-all"
+            >
+              PRIVACY POLICY
+            </a>
             <span className="h-3 w-px bg-white/20" />
-            <a href="#" className="hover:text-[#D4AF37] transition-colors">TERMS OF USE</a>
+            <a
+              href="#"
+              className="bg-gradient-to-r from-[#FBBF24] via-[#F59E0B] to-[#FB7801] bg-clip-text text-transparent font-medium hover:brightness-125 transition-all"
+            >
+              TERMS OF USE
+            </a>
           </div>
         </div>
 
@@ -371,7 +401,7 @@ export default function Footer() {
         type="button"
         onClick={scrollToTop}
         aria-label="Back to Top"
-        className={`fixed bottom-6 right-6 z-50 group flex items-center justify-center w-11 h-11 rounded-full bg-[#111114]/90 border border-[#D4AF37]/70 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black hover:scale-110 active:scale-95 shadow-[0_4px_25px_rgba(212,175,55,0.3)] backdrop-blur-md transition-all duration-300 cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-50 group flex items-center justify-center w-11 h-11 rounded-full bg-[#140b22]/90 border border-[#FB7801]/60 text-[#FB7801] hover:bg-gradient-to-r hover:from-[#FB7801] hover:to-[#EC2656] hover:text-white hover:border-transparent hover:scale-110 active:scale-95 shadow-[0_4px_25px_rgba(251,120,1,0.35)] backdrop-blur-md transition-all duration-300 cursor-pointer ${
           showScrollTop ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-5 pointer-events-none"
         }`}
       >
